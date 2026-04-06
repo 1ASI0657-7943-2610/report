@@ -18,31 +18,11 @@
 
 <div style="text-align: center;">
 
-<table>
-  <thead>
-    <tr>
-      <th>Apellidos y Nombres</th>
-      <th>Código de Alumno</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Aguirre Castillo, Sergio Cesar</td>
-      <td>U202310425</td>
-      <td>Mamani Marca, Gabriel Cristian</td>
-      <td>u202220659</td>
-      <td>Oshiro Yamashita, Daiki Oscar</td>
-      <td>U20201F846</td>
-      <td></td>    
-      <td></td> 
-      <td></td>    
-      <td></td>
-    </tr>
-    <tr>        
-    
-  </tbody>
-</table>
-
+| **Código** | **Apellidos y Nombres**               |
+| :--------: | :------------------------------------ |
+| U202310425 | Aguirre Castillo, Sergio Cesar        |
+| U202220659 | Mamani Marca, Gabriel Cristian        |
+| U20201f846 | Oshiro Yamashita, Daiki Oscar         |
 </div>
 
 ### Abril,2026
@@ -52,8 +32,9 @@
 
 ## Registro de Versiones del Informe
 
-| Versión |  Fecha   |                                       Autor                                        |                                                  Descripción de modificación                                                   |
-| :-----: | :------: | :--------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
+| Versión |  Fecha     |                                       Autor                                        |                                                  Descripción de modificación                                                   |
+| :-----: | :--------: | :--------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
+|TB1      | 04/06/2026 | Todos los integrantes del equipo                                                   |                                                                                                                                |
 
 # Contenido
 
