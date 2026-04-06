@@ -32,9 +32,9 @@
 
 ## Registro de Versiones del Informe
 
-| Versión |  Fecha     |                                       Autor                                        |                                                  Descripción de modificación                                                   |
-| :-----: | :--------: | :--------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-|TB1      | 04/06/2026 | Todos los integrantes del equipo                                                   |                                                                                                                                |
+| Versión |  Fecha     |                                       Autor                                   |            Descripción de modificación                                                   |
+| :-----: | :--------: | :---------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
+| TB1     | 04/06/2026 | Todos los integrantes del equipo                                              |                                                                                          |
 
 # Contenido
 
@@ -155,5 +155,6 @@ Tabla de contenidos
 Objetivo general, ABET – EAC - Student Outcome 7: Aprendizaje Continuo y Autónomo.
 
 |Criterio específico|Acciones realizadas|Conclusiones|
+|---|---|---|
 |Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.| -|-|
 |Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos ensoluciones de software.|-|-|
