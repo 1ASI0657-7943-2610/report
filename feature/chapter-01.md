@@ -52,4 +52,41 @@ Nova Asesores es una startup orientada a la consultoría digital que busca facil
 * Herramientas para optimizar la gestión de servicios profesionales
 * Soporte prioritario y atención extendida
 
+## 1.2.1. Antecedentes y problemática
 
+**Antecedentes**:
+
+En el Perú y a nivel global, la transformación digital ha impulsado nuevas formas de acceso a servicios profesionales, especialmente en el ámbito de la consultoría. Según el informe Digital 2024 de DataReportal, más del 60% de la población mundial utiliza internet para acceder a servicios digitales, lo que evidencia un crecimiento significativo en la demanda de plataformas en línea. Por otro lado, el Banco Mundial señala que las pequeñas y medianas empresas representan aproximadamente el 90% de los negocios a nivel mundial, muchas de las cuales enfrentan dificultades para acceder a asesoría especializada debido a la falta de canales estructurados y confiables. Asimismo, estudios recientes indican que una gran parte de profesionales independientes ofrece sus servicios a través de redes sociales o medios informales, lo que limita su alcance y organización. Este contexto refleja la necesidad de implementar soluciones tecnológicas que centralicen la oferta de servicios de consultoría, mejoren la confianza en los procesos y optimicen la interacción entre expertos y usuarios.
+
+**Problemáticas**:
+
+En primer lugar, la búsqueda de asesoría profesional suele ser un proceso desorganizado, ya que los usuarios no cuentan con una plataforma centralizada que les permita encontrar especialistas confiables, comparar perfiles y tomar decisiones informadas de manera eficiente. Esto genera pérdida de tiempo y aumenta el riesgo de acceder a servicios de baja calidad. En segundo lugar, muchos profesionales independientes carecen de herramientas adecuadas para ofrecer sus servicios de manera estructurada, gestionar su disponibilidad y establecer canales formales de comunicación con sus clientes, lo que limita su crecimiento y oportunidades de ingresos. Finalmente, la ausencia de sistemas integrados para la gestión de reservas, pagos y seguimiento de asesorías impacta negativamente en la experiencia del servicio, ya que no se garantiza un entorno seguro, organizado ni confiable. Asimismo, la falta de mecanismos de evaluación y retroalimentación dificulta la construcción de confianza entre usuarios y consultores, reduciendo la efectividad de las interacciones profesionales.
+
+
+**What?**
+
+El problema es la falta de una plataforma centralizada que permita a las personas y empresas acceder de manera rápida y confiable a asesoría profesional especializada, así como a los expertos ofrecer sus servicios de forma estructurada, gestionar sus agendas y establecer relaciones formales con sus clientes.
+
+**When?**
+
+La problemática se presenta de manera constante, ya que tanto personas como organizaciones requieren asesoría en distintos momentos para tomar decisiones importantes, resolver problemas específicos o mejorar sus procesos.
+
+**Where?**
+
+La problemática ocurre en diversos entornos, como el ámbito empresarial, académico y personal, así como en cualquier espacio donde se necesite orientación profesional, especialmente en entornos digitales donde la oferta de servicios se encuentra dispersa.
+
+**Who?**
+
+Los principales afectados son, por un lado, los usuarios —personas, emprendedores y empresas— que necesitan asesoría confiable, y por otro lado, los profesionales independientes que buscan ofrecer sus servicios de manera organizada y generar mayores oportunidades de ingresos.
+
+**Why?**
+
+Esto se debe a la ausencia de plataformas integrales que centralicen la oferta de servicios de consultoría, lo que dificulta la búsqueda de expertos confiables, la gestión de sesiones y la realización de pagos seguros, además de limitar la visibilidad y organización de los profesionales.
+
+**How?**
+
+FinTeka facilitará la conexión entre usuarios y expertos mediante una plataforma web que integra búsqueda de especialistas, reserva de sesiones, gestión de agendas, pagos seguros, comunicación directa y un sistema de valoraciones que garantice confianza y calidad en el servicio.
+
+**How much?**
+
+FinTeka tendrá el alcance de impactar a personas, emprendedores y empresas que requieran asesoría profesional, así como a consultores que busquen ofrecer sus servicios en un entorno digital estructurado. Además, contará con planes de suscripción que permitirán acceder a funcionalidades avanzadas, mejorando la experiencia y el valor del servicio.
