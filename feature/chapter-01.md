@@ -63,6 +63,9 @@ En el Perú y a nivel global, la transformación digital ha impulsado nuevas for
 En primer lugar, la búsqueda de asesoría profesional suele ser un proceso desorganizado, ya que los usuarios no cuentan con una plataforma centralizada que les permita encontrar especialistas confiables, comparar perfiles y tomar decisiones informadas de manera eficiente. Esto genera pérdida de tiempo y aumenta el riesgo de acceder a servicios de baja calidad. En segundo lugar, muchos profesionales independientes carecen de herramientas adecuadas para ofrecer sus servicios de manera estructurada, gestionar su disponibilidad y establecer canales formales de comunicación con sus clientes, lo que limita su crecimiento y oportunidades de ingresos. Finalmente, la ausencia de sistemas integrados para la gestión de reservas, pagos y seguimiento de asesorías impacta negativamente en la experiencia del servicio, ya que no se garantiza un entorno seguro, organizado ni confiable. Asimismo, la falta de mecanismos de evaluación y retroalimentación dificulta la construcción de confianza entre usuarios y consultores, reduciendo la efectividad de las interacciones profesionales.
 
 
+A partir del análisis de los antecedentes y la problemática, se aplica la técnica de las 5W y 2H para estructurar la solución propuesta:
+
+
 **What?**
 
 El problema es la falta de una plataforma centralizada que permita a las personas y empresas acceder de manera rápida y confiable a asesoría profesional especializada, así como a los expertos ofrecer sus servicios de forma estructurada, gestionar sus agendas y establecer relaciones formales con sus clientes.
@@ -89,4 +92,4 @@ FinTeka facilitará la conexión entre usuarios y expertos mediante una platafor
 
 **How much?**
 
-FinTeka tendrá el alcance de impactar a personas, emprendedores y empresas que requieran asesoría profesional, así como a consultores que busquen ofrecer sus servicios en un entorno digital estructurado. Además, contará con planes de suscripción que permitirán acceder a funcionalidades avanzadas, mejorando la experiencia y el valor del servicio.
+FinTeka tendrá el alcance de impactar a personas, emprendedores y empresas que requieran asesoría profesional, así como a consultores que busquen ofrecer sus servicios en un entorno digital estructurado. Además, mediante su modelo de suscripción, se espera incrementar el acceso a asesoría confiable y mejorar la eficiencia en la contratación de servicios profesionales.
