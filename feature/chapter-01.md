@@ -93,3 +93,14 @@ FinTeka facilitará la conexión entre usuarios y expertos mediante una platafor
 **How much?**
 
 FinTeka tendrá el alcance de impactar a personas, emprendedores y empresas que requieran asesoría profesional, así como a consultores que busquen ofrecer sus servicios en un entorno digital estructurado. Además, mediante su modelo de suscripción, se espera incrementar el acceso a asesoría confiable y mejorar la eficiencia en la contratación de servicios profesionales.
+
+
+
+1.2.2. Lean UX Process
+1.2.2.1. Lean UX Problem Statements
+
+
+Las personas y empresas que buscan servicios de asesoría profesional, especialmente en entornos digitales, enfrentan el desafío de encontrar expertos confiables en un mercado fragmentado e informal. A menudo, recurren a recomendaciones personales o redes sociales, donde la información no siempre es clara ni verificable. Esto genera dificultades para identificar al especialista adecuado, coordinar sesiones y realizar pagos de manera segura, lo que deriva en una experiencia poco eficiente y en decisiones mal informadas.
+Por otro lado, los profesionales independientes que ofrecen servicios de consultoría enfrentan limitaciones para gestionar su trabajo de manera estructurada. Carecen de herramientas especializadas que les permitan organizar su disponibilidad, formalizar sus servicios y construir una reputación sólida, lo que reduce su alcance y oportunidades de crecimiento. Además, la falta de una plataforma adecuada dificulta la confianza entre ambas partes. FinTeka es una startup que busca abordar estas problemáticas mediante la creación de una plataforma digital que centralice y profesionalice la experiencia de asesoría. En una primera etapa, se desarrollará una solución que permita validar el interés del mercado, mientras que a futuro se implementará una plataforma completa donde los usuarios puedan encontrar expertos, agendar sesiones, realizar pagos seguros y dejar valoraciones. Al mismo tiempo, los consultores podrán gestionar sus servicios de manera eficiente y fortalecer su presencia digital. El principal desafío radica en generar confianza en los usuarios y profesionales, quienes pueden mostrarse escépticos frente a nuevas plataformas digitales, especialmente si no garantizan seguridad, calidad del servicio y transparencia en las interacciones.
+
+¿Cómo podemos construir una plataforma digital que sea percibida como confiable, eficiente y fácil de usar, que conecte a usuarios con expertos y profesionalice la experiencia de asesoría, generando valor tanto para clientes como para consultores?
