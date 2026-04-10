@@ -4,7 +4,6 @@
 
 A continuacion se brindara informacion sobre nuesra startup
 
-
 ## 1.1.1. Descripción de la Startup
 
 Nova Asesores es una startup orientada a la consultoría digital que busca facilitar la conexión entre especialistas y personas o empresas que necesitan asesoramiento profesional. A través de una plataforma web, se agiliza el acceso a expertos de distintas áreas, permitiendo una experiencia más rápida, organizada y confiable. Nuestra propuesta se centra en mejorar la calidad de las decisiones mediante el acceso a conocimiento especializado, sin involucrarse directamente en la ejecución de las actividades del cliente.
@@ -17,13 +16,12 @@ Nova Asesores es una startup orientada a la consultoría digital que busca facil
 
 ## 1.1.2. Perfiles de Integrantes del equipo
 
-
 ### 1.1.2. Perfiles de integrantes del equipo
 
 | Miembros del equipo                                                                                                        | Codigo Estudiante | Carrera                | Conocimientos / Habilidades                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------------------------------------------------|-------------------|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Mamani Marca, Gabriel Cristian <br><img src="../assets/GabrielMamani.png" alt="Imagen del compañero" style="width:60%;">   | u202220659        | Ingenieria de software | Soy estudiante de sexto septimo de la carrera de Ingeniería de Software. Durante el camino aprendí lenguajes como C++, Python, Java y .Net. También, sobre  gestores de base de datos como MongoDB y MySQL. |
-
+|Daiki Oscar Oshiro Yamashita  <img src="assets/Daiki.png" alt="Daiki" width="120" height="120"> |U20201F846|Ingenieria de software|Soy estudiante de la carrera de Ingeniería de Software. Tengo interés en obtener nuevos conocimientos relacionados con mi carrera que me sean de utilidad para el futuro. Cuento con el conocimiento de diversos lenguajes Python, C++, PHP, C#.|
 
 ## 1.2 Solution Profile
 ### 1.2.1 Nombre del producto
