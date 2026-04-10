@@ -30,11 +30,11 @@ A continuación se muestra el proceso para la realización del User Journey Mapp
 
 **Segmento #1: Solicitante de Servicios**
 
-<img src="./assets/uxpressia1.png" width="900" height="600">
+<img src="../assets/uxpressia1.png" width="900" height="600">
 
 **Segmento #2: Proveedores de Servicios**
 
-<img src="./assets/uxpressia2.png" width="900" height="600">
+<img src="../assets/uxpressia2.png" width="900" height="600">
 
 ### 2.3.4. Empathy Mapping
 
@@ -46,7 +46,7 @@ A continuación se muestra el proceso para la realización del Empathy Mapping p
 
 **Segmento #2: Proveedores de Servicios**
 
-<img src="./assets/empathy.png" width="1400" height="600">
+<img src="../assets/empathy.png" width="1400" height="600">
 
 ### 2.3.5. As-is Scenario Mapping
 
@@ -54,8 +54,8 @@ A continuación se muestra el proceso para la realización del As-Is Scenario Ma
 
 **Segmento #1: Solicitante de Servicios**
 
-<img src="./assets/asis1.png" width="1400" height="600">
+<img src="../assets/asis1.png" width="1400" height="600">
 
 **Segmento #2: Proveedores de Servicios**
 
-<img src="./assets/asis2.png" width="1400" height="600">
+<img src="../assets/asis2.png" width="1400" height="600">
