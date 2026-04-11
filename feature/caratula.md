@@ -154,5 +154,9 @@ Objetivo general, ABET – EAC - Student Outcome 7: Aprendizaje Continuo y Autó
 
 |Criterio específico|Acciones realizadas|Conclusiones|
 |---|---|---|
-|Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.| -|-|
-|Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos ensoluciones de software.|-|-|
+|Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.|
+Daiki Oscar Oshiro Yamashita <br>**TB1**: Actualicé y apliqué conocimientos de UX y metodologías ágiles durante el desarrollo de Finteka, elaborando el User Task Matrix, Empathy Mapping, As-is Scenario Mapping y revisando el Product Backlog para mejorar la definición del proyecto.<br> |
+Daiki Oscar Oshiro Yamashita <br>**TB1**: La actualización constante de conocimientos permitió mejorar el análisis, organización y planificación del proyecto de software.<br> |
+|Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos ensoluciones de software.|
+Daiki Oscar Oshiro Yamashita <br>**TB1**: Reconocí la necesidad del aprendizaje continuo al investigar nuevas técnicas de análisis de usuarios, priorización de requerimientos y gestión ágil, aplicándolas en el proyecto Finteka para mejorar la calidad de la solución propuesta.<br> |
+Daiki Oscar Oshiro Yamashita <br>**TB1**: El aprendizaje permanente es clave para adaptarse a nuevas metodologías y desarrollar soluciones más eficientes e innovadoras.<br> |
