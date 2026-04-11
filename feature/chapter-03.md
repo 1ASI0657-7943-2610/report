@@ -6,11 +6,11 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 
 **Segmento #1: Solicitante de Servicios**
 
-<img src="./img/tobe1.png" width="1400" height="600">
+<img width="987" height="387" alt="image" src="https://github.com/user-attachments/assets/28606eac-975e-4424-b686-3a0b86625e71" />
 
 **Segmento #2: Proveedores de Servicios**
 
-<img src="./img/tobe2.png" width="1400" height="600">
+<img width="980" height="370" alt="image" src="https://github.com/user-attachments/assets/76e71f62-eef6-4953-8e64-bc38dd8ffb6c" />
 
 ## 3.2. User Stories
 
