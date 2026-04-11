@@ -48,22 +48,66 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | US024 | Gestionar campañas de referidos | Como consultor, quiero invitar a otros consultores o clientes a la plataforma mediante un sistema de referidos, para obtener beneficios por cada nuevo registro. | Escenario 1: Generación de enlace de referido Dado que quiero invitar a nuevos usuarios, Cuando accedo a la sección de referidos, Entonces el sistema genera un enlace único para compartir. Escenario 2: Registro exitoso de un referido Dado que alguien se registra usando mi enlace, Cuando completa el registro, Entonces recibo una notificación y posibles recompensas por el referido. | EP05 |
 | US025 | Optimizar visibilidad en buscador | Como consultor, quiero personalizar palabras clave para aparecer más fácilmente en los resultados de búsqueda dentro de la plataforma. | Escenario 1: Edición de palabras clave del perfil Dado que deseo mejorar mi visibilidad, Cuando edito mi perfil y agrego palabras clave relevantes, Entonces mi perfil se ajusta a los criterios del buscador interno. Escenario 2: Aumento de visibilidad tras actualización Dado que añadí nuevas palabras clave, Cuando un usuario busca términos relacionados, Entonces mi perfil aparece mejor posicionado en los resultados. | EP05 |
 
-| ID    | Título                                | Descripción                                                                 | Criterios de Aceptación |
-|-------|----------------------------------------|-----------------------------------------------------------------------------|--------------------------|
-| TS101 | Registro de profesionales              | Registro de consultores para que ofrezcan sus servicios.                    | Registro exitoso (POST con datos válidos), errores por datos inválidos. |
-| TS102 | Registro de clientes                   | Registro de clientes para acceder y agendar sesiones.                       | Registro exitoso, error por email duplicado. |
-| TS201 | Filtros de búsqueda de profesionales   | Filtrar consultores por disponibilidad, especialidad y calificación.        | Filtro por fecha, especialidad. |
-| TS202 | Notificaciones de disponibilidad       | Notificar a usuarios cuando un consultor actualiza disponibilidad.          | Notificación push/email, acceso desde notificación. |
-| TS301 | Visualización de perfil profesional    | Consultar datos completos de un perfil profesional.                         | GET perfil retorna nombre, experiencia, calificación, etc. |
-| TS302 | Calificación de profesionales          | Permitir calificar y comentar luego de una sesión.                          | POST calificación, GET reviews y promedio. |
-| TS303 | Actualización de perfil de usuario     | Editar información personal del usuario.                                    | PUT datos válidos se guarda, datos inválidos retornan error. |
-| TS304 | Favoritos de profesionales             | Guardar consultores como favoritos.                                         | POST y GET de favoritos por usuario. |
-| TS401 | Agenda de disponibilidad               | Configurar y actualizar disponibilidad de consultores.                      | POST crea slots, PUT actualiza y notifica cambios. |
-| TS402 | Agendamiento de sesiones               | Permitir a clientes agendar sesiones.                                       | POST válida crea sesión, error si horario no disponible. |
-| TS403 | Confirmación de sesiones               | Aceptar o rechazar sesiones por parte del consultor.                        | PUT confirma o rechaza, notifica al cliente. |
-| TS404 | Seguimiento post-sesión                | Registrar notas y tareas luego de sesiones.                                | POST notas de seguimiento, GET historial de seguimiento. |
-| TS501 | Destacar profesionales recomendados    | Mostrar perfiles destacados para aumentar visibilidad.                      | GET recomendados dinámico según lógica de negocio. |
-| TS502 | SEO para consultores                   | URLs amigables y metadatos para redes sociales.                             | URLs legibles y preview con metadata. |
+## 3.1. User Stories v2
+
+En esta sección se presentan los requisitos funcionales definidos para **Finteka**, junto con el conjunto de **Epics** y **User Stories** identificados a partir del Product Backlog elaborado previamente. Las User Stories permiten comprender las necesidades de los usuarios finales, priorizar funcionalidades y organizar el desarrollo incremental del sistema. Asimismo, cada historia incluye criterios de aceptación que validan su cumplimiento.
+
+| Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con |
+|---|---|---|---|---|
+| EPIC-01 | Gestión de autenticación | Como usuario, quiero registrarme e iniciar sesión de forma segura para acceder a la plataforma. | - | - |
+| EPIC-02 | Gestión de sesiones financieras | Como usuario, quiero registrar y visualizar mis sesiones financieras para administrar mis operaciones. | - | - |
+| EPIC-03 | Gestión de clientes | Como administrador, quiero registrar y administrar clientes para controlar sus operaciones dentro del sistema. | - | - |
+| EPIC-04 | Dashboard y reportes | Como usuario, quiero visualizar métricas y reportes para analizar resultados financieros. | - | - |
+| EPIC-05 | Alertas y monitoreo | Como usuario, quiero recibir alertas configurables para actuar oportunamente ante incidencias. | - | - |
+| EPIC-06 | Configuración del sistema | Como administrador, quiero parametrizar salas, horarios y reglas del sistema para adaptarlo a cada operación. | - | - |
+| EPIC-07 | Backend API | Como desarrollador, quiero disponer de una API RESTful para integrar frontend, mobile y servicios externos. | - | - |
+
+| Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con |
+|---|---|---|---|---|
+
+| US-001 | Registro de cuenta | Como usuario, quiero registrarme en Finteka para acceder a la plataforma. | **Escenario 01:** Dado que estoy en registro, cuando completo datos válidos, entonces la cuenta se crea correctamente. <br> **Escenario 02:** Si el correo ya existe, entonces se muestra mensaje de error. | EPIC-01 |
+
+| US-002 | Iniciar sesión | Como usuario, quiero iniciar sesión con mis credenciales para acceder a mis funciones. | **Escenario 01:** Dado credenciales válidas, cuando inicio sesión, entonces ingreso al dashboard. <br> **Escenario 02:** Si son incorrectas, entonces se muestra error. | EPIC-01 |
+
+| US-003 | Cerrar sesión | Como usuario, quiero cerrar sesión para proteger mi información. | **Escenario 01:** Dado que estoy autenticado, cuando selecciono cerrar sesión, entonces regreso al login. | EPIC-01 |
+
+| US-004 | Registrar cliente | Como administrador, quiero registrar nuevos clientes para asignarlos al sistema. | **Escenario 01:** Dado formulario completo, cuando guardo, entonces el cliente queda registrado. <br> **Escenario 02:** Si faltan datos obligatorios, se muestra error. | EPIC-03 |
+
+| US-005 | Editar cliente | Como administrador, quiero actualizar información de clientes para mantener datos correctos. | **Escenario 01:** Dado cliente existente, cuando modifico datos, entonces se actualiza correctamente. | EPIC-03 |
+
+| US-006 | Registrar sesión financiera | Como usuario, quiero crear sesiones operativas para registrar actividad financiera. | **Escenario 01:** Dado formulario válido, cuando guardo sesión, entonces se registra exitosamente. | EPIC-02 |
+
+| US-007 | Ver listado de sesiones | Como usuario, quiero ver todas mis sesiones para revisarlas rápidamente. | **Escenario 01:** Dado que ingreso al módulo sesiones, entonces se muestra lista paginada. | EPIC-02 |
+
+| US-008 | Ver detalle de sesión | Como usuario, quiero visualizar información detallada de una sesión para analizar resultados. | **Escenario 01:** Al seleccionar una sesión, entonces se muestran métricas y movimientos asociados. | EPIC-02 |
+
+| US-009 | Dashboard general | Como usuario, quiero ver indicadores clave para conocer el estado actual de la operación. | **Escenario 01:** Al ingresar al dashboard, entonces se muestran KPIs actualizados. | EPIC-04 |
+
+| US-010 | Reporte por fechas | Como usuario, quiero filtrar reportes por rango de fechas para evaluar desempeño histórico. | **Escenario 01:** Al seleccionar fechas válidas, entonces se muestran resultados filtrados. | EPIC-04 |
+
+| US-011 | Exportar reporte | Como usuario, quiero exportar reportes en Excel o PDF para compartir información. | **Escenario 01:** Al elegir formato, entonces se descarga el archivo generado. | EPIC-04 |
+
+| US-012 | Configurar alertas | Como usuario, quiero definir rangos de colores y tiempos para monitoreo automático. | **Escenario 01:** Al guardar configuración, entonces queda almacenada para futuras sesiones. | EPIC-05 |
+
+| US-013 | Recibir alerta automática | Como usuario, quiero recibir alertas visuales cuando una sala supere tiempos establecidos. | **Escenario 01:** Si se supera rango rojo, entonces el sistema muestra alerta inmediata. | EPIC-05 |
+
+| US-014 | Monitorear salas en tiempo real | Como usuario, quiero ver el estado de salas actualizado automáticamente. | **Escenario 01:** La pantalla se refresca periódicamente mostrando colores actuales. | EPIC-05 |
+
+| US-015 | Configurar horarios por sala | Como administrador, quiero asignar horarios distintos por sala para personalizar operación. | **Escenario 01:** Al guardar horario, queda asociado a la sala correspondiente. | EPIC-06 |
+
+| US-016 | Gestionar tipos de sala | Como administrador, quiero registrar tipos de sala para clasificar operaciones. | **Escenario 01:** Se puede crear, editar y desactivar tipos de sala. | EPIC-06 |
+
+| US-017 | Visualizar usuarios del sistema | Como administrador, quiero ver todos los usuarios registrados para gestionarlos. | **Escenario 01:** Se muestra lista con roles y estados. | EPIC-06 |
+
+| TS-001 | Endpoint Auth | Como desarrollador, quiero endpoints de autenticación para login seguro desde frontend. | **Escenario 01:** POST /login devuelve token válido. | EPIC-07 |
+
+| TS-002 | Endpoint Sessions | Como desarrollador, quiero endpoints para crear y consultar sesiones. | **Escenario 01:** GET /sessions devuelve listado. <br> **Escenario 02:** POST /sessions crea sesión nueva. | EPIC-07 |
+
+| TS-003 | Endpoint Clients | Como desarrollador, quiero endpoints para gestionar clientes desde frontend. | **Escenario 01:** CRUD disponible con respuestas estándar. | EPIC-07 |
+
+| TS-004 | Endpoint Monitoring | Como desarrollador, quiero endpoints para monitoreo en tiempo real. | **Escenario 01:** GET /monitor devuelve estados actualizados. | EPIC-07 |
+
+| TS-005 | Seguridad y roles | Como desarrollador, quiero restringir acceso según roles para proteger información. | **Escenario 01:** Usuario sin permisos recibe 403 Forbidden. | EPIC-07 |
 
 
 ## 3.3. Impact Mapping
