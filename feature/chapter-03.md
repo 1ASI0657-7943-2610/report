@@ -78,22 +78,23 @@ Link del Impact Mapping:https://miro.com/app/board/uXjVGjii0aI=/?share_link_id=3
 
 Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 
-| Story ID | Título                             | Descripción                                                                 | Story Points |
-|----------|------------------------------------|-----------------------------------------------------------------------------|--------------|
-| TS101    | Registro de profesionales          | Registro de consultores para que ofrezcan sus servicios.                    | 3            |
-| TS102    | Registro de clientes               | Registro de clientes para acceder y agendar sesiones.                       | 2            |
-| TS201    | Filtros de búsqueda de profesionales| Filtrar consultores por disponibilidad, especialidad y calificación.        | 5            |
-| TS202    | Notificaciones de disponibilidad   | Notificar a usuarios cuando un consultor actualiza disponibilidad.          | 3            |
-| TS301    | Visualización de perfil profesional| Consultar datos completos de un perfil profesional.                         | 2            |
-| TS302    | Calificación de profesionales      | Permitir calificar y comentar luego de una sesión.                          | 3            |
-| TS303    | Actualización de perfil de usuario | Editar información personal del usuario.                                    | 2            |
-| TS304    | Favoritos de profesionales         | Guardar consultores como favoritos.                                         | 3            |
-| TS401    | Agenda de disponibilidad           | Configurar y actualizar disponibilidad de consultores.                      | 5            |
-| TS402    | Agendamiento de sesiones           | Permitir a clientes agendar sesiones.                                       | 5            |
-| TS403    | Confirmación de sesiones           | Aceptar o rechazar sesiones por parte del consultor.                        | 3            |
-| TS404    | Seguimiento post-sesión            | Registrar notas y tareas luego de sesiones.                                | 3            |
-| TS501    | Destacar profesionales recomendados| Mostrar perfiles destacados para aumentar visibilidad.                      | 2            |
-| TS502    | SEO para consultores               | URLs amigables y metadatos para redes sociales.                             | 3            |
+| # Orden | User Story Id | Título | Descripción | Story Points |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | **US201** | Filtros de búsqueda de expertos | Como cliente, deseo filtrar consultores por especialidad y calificación para encontrar al asesor ideal rápidamente. | 5 |
+| 2 | **US402** | Agendamiento de sesiones | Como cliente, deseo seleccionar un horario y agendar una sesión para asegurar mi consultoría técnica. | 5 |
+| 3 | **US405** | Pago en línea seguro | Como cliente, deseo realizar el pago mediante la plataforma para confirmar mi reserva de manera automática. | 8 |
+| 4 | **US401** | Gestión de disponibilidad | Como consultor, deseo configurar mi agenda de disponibilidad para que los clientes puedan agendar sin conflictos. | 8 |
+| 5 | **US301** | Visualización de perfil | Como cliente, deseo consultar la experiencia y formación del profesional para validar su capacidad técnica. | 2 |
+| 6 | **US101** | Registro de profesionales | Como experto, deseo registrarme en la plataforma para ofrecer mis servicios y gestionar mi perfil profesional. | 3 |
+| 7 | **US102** | Registro de clientes | Como usuario interesado, deseo crear una cuenta para buscar expertos y gestionar mis reservas. | 2 |
+| 8 | **US302** | Calificación de sesiones | Como cliente, deseo calificar y comentar el servicio recibido para ayudar a otros usuarios en su elección. | 3 |
+| 9 | **US403** | Confirmación de sesiones | Como consultor, deseo aceptar o rechazar solicitudes de sesiones para organizar mejor mi tiempo laboral. | 3 |
+| 10 | **US202** | Notificaciones de alertas | Como usuario, deseo recibir notificaciones de disponibilidad y recordatorios para no perder mis sesiones programadas. | 3 |
+| 11 | **US404** | Seguimiento post-sesión | Como consultor, deseo registrar notas y tareas pendientes para dar un seguimiento adecuado al progreso del cliente. | 3 |
+| 12 | **US304** | Favoritos de profesionales | Como cliente, deseo guardar consultores en mi lista de favoritos para acceder a ellos rápidamente en el futuro. | 3 |
+| 13 | **US501** | Perfiles recomendados | Como administrador, deseo destacar perfiles profesionales para aumentar su visibilidad ante nuevos clientes. | 2 |
+| 14 | **US303** | Actualización de perfil | Como usuario, deseo editar mi información personal y de contacto para mantener mi cuenta actualizada. | 2 |
+| 15 | **US502** | SEO y Meta-datos | Como administrador, deseo configurar URLs amigables y metadatos para mejorar el posicionamiento de los expertos en buscadores. | 3 |
 
 
 <div style="page-break-after: always;"></div>
