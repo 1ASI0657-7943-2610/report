@@ -74,4 +74,27 @@ Impact map de nuestros segmentos objetivos:
 
 Link del Impact Mapping:https://miro.com/app/board/uXjVGjii0aI=/?share_link_id=36870517906
 
+## 3.4. Product Backlog
+
+Utilizamos la escala de Fibonacci para la estimación de los Story Points.
+
+| Story ID | Título                             | Descripción                                                                 | Story Points |
+|----------|------------------------------------|-----------------------------------------------------------------------------|--------------|
+| TS101    | Registro de profesionales          | Registro de consultores para que ofrezcan sus servicios.                    | 3            |
+| TS102    | Registro de clientes               | Registro de clientes para acceder y agendar sesiones.                       | 2            |
+| TS201    | Filtros de búsqueda de profesionales| Filtrar consultores por disponibilidad, especialidad y calificación.        | 5            |
+| TS202    | Notificaciones de disponibilidad   | Notificar a usuarios cuando un consultor actualiza disponibilidad.          | 3            |
+| TS301    | Visualización de perfil profesional| Consultar datos completos de un perfil profesional.                         | 2            |
+| TS302    | Calificación de profesionales      | Permitir calificar y comentar luego de una sesión.                          | 3            |
+| TS303    | Actualización de perfil de usuario | Editar información personal del usuario.                                    | 2            |
+| TS304    | Favoritos de profesionales         | Guardar consultores como favoritos.                                         | 3            |
+| TS401    | Agenda de disponibilidad           | Configurar y actualizar disponibilidad de consultores.                      | 5            |
+| TS402    | Agendamiento de sesiones           | Permitir a clientes agendar sesiones.                                       | 5            |
+| TS403    | Confirmación de sesiones           | Aceptar o rechazar sesiones por parte del consultor.                        | 3            |
+| TS404    | Seguimiento post-sesión            | Registrar notas y tareas luego de sesiones.                                | 3            |
+| TS501    | Destacar profesionales recomendados| Mostrar perfiles destacados para aumentar visibilidad.                      | 2            |
+| TS502    | SEO para consultores               | URLs amigables y metadatos para redes sociales.                             | 3            |
+
+
+<div style="page-break-after: always;"></div>
 
