@@ -69,3 +69,9 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 ## 3.3. Impact Mapping
 
 Impact map de nuestros segmentos objetivos:
+
+<img width="1636" height="355" alt="image" src="https://github.com/user-attachments/assets/3a8766c1-3535-4e9f-99c5-ecfe28c4e847" />
+
+Link del Impact Mapping:https://miro.com/app/board/uXjVGjii0aI=/?share_link_id=36870517906
+
+
