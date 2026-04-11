@@ -64,49 +64,27 @@ En esta sección se presentan los requisitos funcionales definidos para **Fintek
 
 | Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con |
 |---|---|---|---|---|
-
-| US-001 | Registro de cuenta | Como usuario, quiero registrarme en Finteka para acceder a la plataforma. | **Escenario 01:** Dado que estoy en registro, cuando completo datos válidos, entonces la cuenta se crea correctamente. <br> **Escenario 02:** Si el correo ya existe, entonces se muestra mensaje de error. | EPIC-01 |
-
-| US-002 | Iniciar sesión | Como usuario, quiero iniciar sesión con mis credenciales para acceder a mis funciones. | **Escenario 01:** Dado credenciales válidas, cuando inicio sesión, entonces ingreso al dashboard. <br> **Escenario 02:** Si son incorrectas, entonces se muestra error. | EPIC-01 |
-
+| US-001 | Registro de cuenta | Como usuario, quiero registrarme en Finteka para acceder a la plataforma. | **Escenario 01:** Dado que estoy en registro, cuando completo datos válidos, entonces la cuenta se crea correctamente.<br>**Escenario 02:** Si el correo ya existe, entonces se muestra mensaje de error. | EPIC-01 |
+| US-002 | Iniciar sesión | Como usuario, quiero iniciar sesión con mis credenciales para acceder a mis funciones. | **Escenario 01:** Dado credenciales válidas, cuando inicio sesión, entonces ingreso al dashboard.<br>**Escenario 02:** Si son incorrectas, entonces se muestra error. | EPIC-01 |
 | US-003 | Cerrar sesión | Como usuario, quiero cerrar sesión para proteger mi información. | **Escenario 01:** Dado que estoy autenticado, cuando selecciono cerrar sesión, entonces regreso al login. | EPIC-01 |
-
-| US-004 | Registrar cliente | Como administrador, quiero registrar nuevos clientes para asignarlos al sistema. | **Escenario 01:** Dado formulario completo, cuando guardo, entonces el cliente queda registrado. <br> **Escenario 02:** Si faltan datos obligatorios, se muestra error. | EPIC-03 |
-
+| US-004 | Registrar cliente | Como administrador, quiero registrar nuevos clientes para asignarlos al sistema. | **Escenario 01:** Dado formulario completo, cuando guardo, entonces el cliente queda registrado.<br>**Escenario 02:** Si faltan datos obligatorios, se muestra error. | EPIC-03 |
 | US-005 | Editar cliente | Como administrador, quiero actualizar información de clientes para mantener datos correctos. | **Escenario 01:** Dado cliente existente, cuando modifico datos, entonces se actualiza correctamente. | EPIC-03 |
-
 | US-006 | Registrar sesión financiera | Como usuario, quiero crear sesiones operativas para registrar actividad financiera. | **Escenario 01:** Dado formulario válido, cuando guardo sesión, entonces se registra exitosamente. | EPIC-02 |
-
 | US-007 | Ver listado de sesiones | Como usuario, quiero ver todas mis sesiones para revisarlas rápidamente. | **Escenario 01:** Dado que ingreso al módulo sesiones, entonces se muestra lista paginada. | EPIC-02 |
-
 | US-008 | Ver detalle de sesión | Como usuario, quiero visualizar información detallada de una sesión para analizar resultados. | **Escenario 01:** Al seleccionar una sesión, entonces se muestran métricas y movimientos asociados. | EPIC-02 |
-
 | US-009 | Dashboard general | Como usuario, quiero ver indicadores clave para conocer el estado actual de la operación. | **Escenario 01:** Al ingresar al dashboard, entonces se muestran KPIs actualizados. | EPIC-04 |
-
 | US-010 | Reporte por fechas | Como usuario, quiero filtrar reportes por rango de fechas para evaluar desempeño histórico. | **Escenario 01:** Al seleccionar fechas válidas, entonces se muestran resultados filtrados. | EPIC-04 |
-
 | US-011 | Exportar reporte | Como usuario, quiero exportar reportes en Excel o PDF para compartir información. | **Escenario 01:** Al elegir formato, entonces se descarga el archivo generado. | EPIC-04 |
-
 | US-012 | Configurar alertas | Como usuario, quiero definir rangos de colores y tiempos para monitoreo automático. | **Escenario 01:** Al guardar configuración, entonces queda almacenada para futuras sesiones. | EPIC-05 |
-
 | US-013 | Recibir alerta automática | Como usuario, quiero recibir alertas visuales cuando una sala supere tiempos establecidos. | **Escenario 01:** Si se supera rango rojo, entonces el sistema muestra alerta inmediata. | EPIC-05 |
-
 | US-014 | Monitorear salas en tiempo real | Como usuario, quiero ver el estado de salas actualizado automáticamente. | **Escenario 01:** La pantalla se refresca periódicamente mostrando colores actuales. | EPIC-05 |
-
 | US-015 | Configurar horarios por sala | Como administrador, quiero asignar horarios distintos por sala para personalizar operación. | **Escenario 01:** Al guardar horario, queda asociado a la sala correspondiente. | EPIC-06 |
-
 | US-016 | Gestionar tipos de sala | Como administrador, quiero registrar tipos de sala para clasificar operaciones. | **Escenario 01:** Se puede crear, editar y desactivar tipos de sala. | EPIC-06 |
-
 | US-017 | Visualizar usuarios del sistema | Como administrador, quiero ver todos los usuarios registrados para gestionarlos. | **Escenario 01:** Se muestra lista con roles y estados. | EPIC-06 |
-
 | TS-001 | Endpoint Auth | Como desarrollador, quiero endpoints de autenticación para login seguro desde frontend. | **Escenario 01:** POST /login devuelve token válido. | EPIC-07 |
-
-| TS-002 | Endpoint Sessions | Como desarrollador, quiero endpoints para crear y consultar sesiones. | **Escenario 01:** GET /sessions devuelve listado. <br> **Escenario 02:** POST /sessions crea sesión nueva. | EPIC-07 |
-
+| TS-002 | Endpoint Sessions | Como desarrollador, quiero endpoints para crear y consultar sesiones. | **Escenario 01:** GET /sessions devuelve listado.<br>**Escenario 02:** POST /sessions crea sesión nueva. | EPIC-07 |
 | TS-003 | Endpoint Clients | Como desarrollador, quiero endpoints para gestionar clientes desde frontend. | **Escenario 01:** CRUD disponible con respuestas estándar. | EPIC-07 |
-
 | TS-004 | Endpoint Monitoring | Como desarrollador, quiero endpoints para monitoreo en tiempo real. | **Escenario 01:** GET /monitor devuelve estados actualizados. | EPIC-07 |
-
 | TS-005 | Seguridad y roles | Como desarrollador, quiero restringir acceso según roles para proteger información. | **Escenario 01:** Usuario sin permisos recibe 403 Forbidden. | EPIC-07 |
 
 
