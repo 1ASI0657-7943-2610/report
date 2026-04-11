@@ -93,9 +93,7 @@ Impact map de nuestros segmentos objetivos:
 
 <img width="1636" height="355" alt="image" src="https://github.com/user-attachments/assets/3a8766c1-3535-4e9f-99c5-ecfe28c4e847" />
 
-Link del Impact Mapping:https://miro.com/app/board/uXjVGjii0aI=/?share_link_id=36870517906
-
-Link del Impact Mapping: https://miro.com/app/board/uXjVJGsSlMY=/?share_link_id=506673032577b (cambiar el contenido que esto es de otro tema) 
+Link del Impact Mapping:https://miro.com/app/board/uXjVJGsSlMY=/?share_link_id=357440759397
 
 ## 3.4. Product Backlog
 
