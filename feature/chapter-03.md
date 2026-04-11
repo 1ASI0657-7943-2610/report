@@ -91,7 +91,7 @@ En esta sección se presentan los requisitos funcionales definidos para **Fintek
 
 Impact map de nuestros segmentos objetivos:
 
-<img width="1636" height="355" alt="image" src="https://github.com/user-attachments/assets/3a8766c1-3535-4e9f-99c5-ecfe28c4e847" />
+<img width="1040" height="786" alt="image" src="https://github.com/user-attachments/assets/38070dbf-a433-4111-b885-decd80f64564" />
 
 Link del Impact Mapping:https://miro.com/app/board/uXjVJGsSlMY=/?share_link_id=357440759397
 
