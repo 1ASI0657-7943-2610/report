@@ -21,6 +21,7 @@
 | U202310425 | Aguirre Castillo, Sergio Cesar        |
 | U202220659 | Mamani Marca, Gabriel Cristian        |
 | U20201f846 | Oshiro Yamashita, Daiki Oscar         |
+| U202128264 | Burga Loarte, Anaely Zarely           |
 </div>
 
 ### Abril,2026
