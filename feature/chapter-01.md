@@ -259,7 +259,7 @@ Creemos que si incorporamos funciones de seguimiento post-sesión y canales de c
 
 #### 1.2.2.4. Lean UX Canvas
 
-<img src="./assets/Lean UX Canvas.jpg" width="900" height="900">
+<img src="./assets/lean-ux-canvas.jpg" width="900" height="900">
 https://miro.com/welcomeonboard/UXoya0gvK2xpOHFZak4yaDRnME1qZ2Flak5qb0VCc0hnN3VEOGFiTXdIdjNvSXBRZ3Q2dWc1S2dwS1ZZSjRhRGN4cXpSdGhWZks3UDNseURydTJPd2xHVVA4c09zU3YrV1dGaFlMMjVZbUxIdHVPSDJRbUZ5cHdYOTdTTExUQkFhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=632309792327
 
 
