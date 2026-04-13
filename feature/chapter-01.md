@@ -2,7 +2,7 @@
 
 ## 1.1. Startup Profile
 
-A continuacion se brindara informacion sobre nuesra startup
+A continuacion se brindara informacion sobre nuestra startup
 
 ## 1.1.1. Descripción de la Startup
 
