@@ -16,6 +16,97 @@
 | **SWOT - Oportunidades** | Crecimiento del mercado food-tech, apps de bienestar y soluciones de conveniencia alimentaria. | Expansión hacia nuevos formatos de consultoría. | Expansión de monetización digital y nuevas audiencias. | Crecimiento de educación online profesional. |
 | **SWOT - Amenazas** | Alta competencia en apps de comida, delivery y supermercados digitales. | LinkedIn, Upwork y plataformas de freelancing. | Patreon y plataformas similares. | Coursera, edX y plataformas educativas masivas. |
 
+## 2.1.2. Estrategias y tácticas frente a competidores
+
+### 1. Aprovechar la fortaleza: Verificación de expertos y asesoría personalizada
+**Estrategia**  
+Diferenciar la plataforma mediante un sistema de verificación más riguroso de expertos y la entrega de asesorías altamente personalizadas y de calidad superior.
+
+**Tácticas**
+- **Sistema de verificación reforzado:**  
+  Implementar un proceso de selección exigente para garantizar que solo profesionales altamente calificados formen parte de la plataforma, diferenciándose de competidores como Clarity.fm.
+- **Enfoque en asesoría personalizada:**  
+  Diseñar campañas de marketing que resalten soluciones adaptadas a cada usuario, destacando un enfoque más profundo y específico frente a servicios más genéricos.
+- **Control de calidad continuo:**  
+  Evaluación constante de los expertos mediante calificaciones, feedback y métricas de satisfacción del usuario.
+
+**Valor añadido**
+- Mayor nivel de confianza en la plataforma.  
+- Incremento en la fidelización y retención de usuarios.  
+- Posicionamiento como servicio premium de asesoría.
+
+---
+
+### 2. Aprovechar la oportunidad: Crecimiento de la demanda de asesoría remota
+**Estrategia**  
+Posicionar la plataforma como una solución líder en asesoría remota, aprovechando el crecimiento sostenido de servicios digitales post-pandemia.
+
+**Tácticas**
+- **Campañas educativas multicanal:**  
+  Generar contenido en redes sociales, blogs y webinars explicando los beneficios de la asesoría remota y el valor de la plataforma.
+- **Alianzas estratégicas:**  
+  Establecer convenios con empresas, colegios profesionales y asociaciones para ampliar la oferta de servicios y generar ingresos recurrentes.
+- **Mejora de la experiencia digital:**  
+  Incorporar videollamadas de alta calidad, chat en tiempo real y sistemas de pago seguros para una experiencia fluida y profesional.
+
+**Valor añadido**
+- Expansión del alcance del mercado.  
+- Mayor adopción de la plataforma en entornos corporativos.  
+- Incremento de ingresos por volumen de usuarios.
+
+---
+
+### 3. Afrontar la amenaza de competidores consolidados con grandes bases de usuarios
+**Estrategia**  
+Fortalecer el posicionamiento de la plataforma a través de confianza, especialización y valor agregado frente a competidores ya establecidos.
+
+**Tácticas**
+- **Enfoque en seguridad y confianza:**  
+  Comunicar de forma clara el proceso de verificación de expertos como elemento diferenciador clave.
+- **Modelo freemium:**  
+  Ofrecer acceso gratuito básico con opciones premium para reducir la barrera de entrada y atraer nuevos usuarios.
+- **Especialización por sectores:**  
+  Desarrollar verticales específicos como asesoría legal, financiera, tecnológica y empresarial.
+
+**Valor añadido**
+- Mayor captación de usuarios nuevos.  
+- Diferenciación frente a plataformas generalistas.  
+- Incremento de conversiones a planes premium.
+
+---
+
+### 4. Mitigar la debilidad de dependencia del SEO y baja visibilidad inicial
+**Estrategia**  
+Implementar una estrategia integral de marketing digital para acelerar la visibilidad y adquisición de usuarios.
+
+**Tácticas**
+- **Marketing de contenido de alto valor:**  
+  Publicación de artículos, videos y casos de éxito orientados a resolver problemas reales del usuario.
+- **Publicidad segmentada:**  
+  Campañas en redes sociales dirigidas a profesionales y empresas en sectores clave como tecnología, salud, derecho y negocios.
+- **SEO + alianzas estratégicas:**  
+  Optimización del posicionamiento orgánico y colaboración con instituciones, universidades y asociaciones profesionales.
+
+**Valor añadido**
+- Aumento rápido de visibilidad en el mercado.  
+- Posicionamiento de marca en nichos específicos.  
+- Generación constante de tráfico cualificado.
+
+## 2.3. Needfinding
+
+En esta sección se presenta el proceso de análisis de la información recolectada a partir de entrevistas y observación de usuarios potenciales. El objetivo es identificar necesidades, comportamientos, motivaciones y principales puntos de dolor, con el fin de sustentar el diseño de la solución.
+
+Como resultado del proceso de needfinding, se desarrollan y presentan los siguientes artefactos de análisis:
+
+- **User Personas:** representación de los perfiles de usuarios clave identificados, describiendo sus características, objetivos, necesidades y frustraciones.
+- **User Task Matrix:** matriz que permite priorizar y analizar las tareas más relevantes que los usuarios realizan dentro del contexto del problema.
+- **User Journey Maps:** mapeo de la experiencia del usuario a lo largo de su interacción con el servicio, identificando puntos de contacto, emociones y oportunidades de mejora.
+- **Empathy Mapping:** herramienta que permite profundizar en lo que el usuario piensa, siente, dice y hace, facilitando una comprensión más humana de sus necesidades.
+- **As-Is Scenario Mapping:** análisis del escenario actual del usuario antes de la solución, permitiendo identificar problemas, ineficiencias y oportunidades de innovación.
+
+Este conjunto de artefactos permite construir una visión clara y estructurada del usuario, sirviendo como base fundamental para el diseño de la solución propuesta.
+
+  
 ### 2.3.2. User Task Matrix
 
 A continuación se muestra el proceso para la realizacion del User Task Matrix para comprender las tareas que realizan los User Persona para cumplir sus objetivos.
