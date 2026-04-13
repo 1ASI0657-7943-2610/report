@@ -316,3 +316,4 @@ Aumentar sus ingresos, optimizar la gestión de sus servicios y expandir su alca
 
 **Sustento estadístico:**
 Según el Ministerio de Trabajo del Perú (2023), el empleo independiente representa una parte significativa del mercado laboral, con un crecimiento sostenido en servicios profesionales y freelance. Además, el auge de la economía digital ha impulsado la adopción de plataformas para ofrecer servicios especializados de forma remota.
+
