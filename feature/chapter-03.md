@@ -85,7 +85,7 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | RNF-019 | El sistema debe registrar auditoría de cambios relevantes (modificación de perfil, cancelación de sesiones, valoraciones), incluyendo fecha, usuario y acción realizada. |
 | RNF-020 | El sistema debe ser compatible con despliegues en contenedores Docker, permitiendo su ejecución en entornos de orquestación como Kubernetes. |
 
-### 3.3.2 User Stories
+### 3.2.3 User Stories
 
 En esta sección se presentan los requisitos funcionales definidos para Finteka. Las User Stories permiten comprender las necesidades de los usuarios finales, priorizar funcionalidades y organizar el desarrollo incremental del sistema. Asimismo, cada historia incluye criterios de aceptación que validan su cumplimiento.
 
