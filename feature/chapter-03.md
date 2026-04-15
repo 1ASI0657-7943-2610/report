@@ -61,6 +61,30 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | RF-010  | El sistema debe permitir al consultor visualizar las solicitudes de asesoría recibidas, mostrando información del usuario y estado de la solicitud.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | RF-011  | El sistema debe permitir al administrador gestionar los reportes recibidos, pudiendo revisar, resolver y tomar acciones sobre los casos reportados.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
+### 3.2.2 Requisitos no funcionales
+| ID | Descripción |
+| :--- | :--- |
+| RNF-001 | El sistema debe responder a las solicitudes de búsqueda de especialistas en un tiempo máximo de 2 segundos bajo condiciones normales de carga (hasta 150 usuarios concurrentes). |
+| RNF-002 | El sistema debe procesar la creación y confirmación de reservas de sesiones en un tiempo máximo de 3 segundos, incluyendo validación de disponibilidad y persistencia de datos. |
+| RNF-003 | El sistema debe soportar al menos 300 usuarios concurrentes realizando operaciones de búsqueda, reserva y mensajería sin degradación significativa del rendimiento (tiempo de respuesta máximo de 4 segundos). |
+| RNF-004 | El sistema debe estar disponible el 99.5% del tiempo mensual, excluyendo ventanas de mantenimiento programadas previamente notificadas. |
+| RNF-005 | El sistema debe garantizar la integridad de las operaciones críticas (reservas, pagos, cancelaciones) mediante transacciones ACID en la base de datos. |
+| RNF-006 | El sistema debe transmitir toda la información mediante el protocolo HTTPS con TLS 1.2 o superior, asegurando la confidencialidad de los datos en tránsito. |
+| RNF-007 | El sistema debe cifrar las contraseñas de los usuarios utilizando algoritmos seguros (por ejemplo, BCrypt) antes de almacenarlas en la base de datos. |
+| RNF-008 | El sistema debe validar todas las entradas de usuario, rechazando datos inválidos con respuestas HTTP 400, para prevenir errores y posibles ataques de inyección. |
+| RNF-009 | El sistema debe registrar logs de las operaciones críticas (reservas, autenticación, pagos, mensajería) incluyendo timestamp, tipo de operación y resultado, utilizando niveles de logging (INFO, WARN, ERROR). |
+| RNF-010 | El sistema debe permitir el almacenamiento persistente de datos en una base de datos relacional (PostgreSQL o equivalente), garantizando consistencia y disponibilidad. |
+| RNF-011 | El sistema debe escalar horizontalmente mediante la implementación de microservicios desplegados en contenedores, permitiendo agregar nuevas instancias sin afectar la disponibilidad del sistema. |
+| RNF-012 | El sistema debe procesar el envío y recepción de mensajes en tiempo real con una latencia máxima de 500 ms en condiciones normales de red. |
+| RNF-013 | El sistema debe documentar todos los endpoints de la API mediante OpenAPI 3.0 (Swagger), proporcionando información clara sobre parámetros, respuestas y errores. |
+| RNF-014 | El sistema debe manejar correctamente los errores, retornando códigos HTTP adecuados (200, 201, 400, 401, 404, 500) junto con mensajes descriptivos. |
+| RNF-015 | El sistema debe generar identificadores únicos para entidades principales (usuarios, sesiones, reservas) utilizando UUID versión 4 para garantizar unicidad global. |
+| RNF-016 | El sistema debe permitir la configuración de parámetros críticos (puertos, credenciales, límites de concurrencia) mediante variables de entorno, facilitando su despliegue en distintos entornos. |
+| RNF-017 | El sistema debe mantener tiempos de carga de perfiles de consultores menores a 1.5 segundos bajo carga normal. |
+| RNF-018 | El sistema debe implementar control de acceso basado en roles (usuario, consultor, administrador), validando permisos en cada operación protegida. |
+| RNF-019 | El sistema debe registrar auditoría de cambios relevantes (modificación de perfil, cancelación de sesiones, valoraciones), incluyendo fecha, usuario y acción realizada. |
+| RNF-020 | El sistema debe ser compatible con despliegues en contenedores Docker, permitiendo su ejecución en entornos de orquestación como Kubernetes. |
+
 ### 3.3.2 User Stories
 
 En esta sección se presentan los requisitos funcionales definidos para Finteka. Las User Stories permiten comprender las necesidades de los usuarios finales, priorizar funcionalidades y organizar el desarrollo incremental del sistema. Asimismo, cada historia incluye criterios de aceptación que validan su cumplimiento.
