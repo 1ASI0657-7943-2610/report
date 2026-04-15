@@ -19,9 +19,9 @@
 | **Código** | **Apellidos y Nombres**               |
 | :--------: | :------------------------------------ |
 | U202310425 | Aguirre Castillo, Sergio Cesar        |
+| U202128264 | Burga Loarte, Anaely Zarely           |
 | U202220659 | Mamani Marca, Gabriel Cristian        |
 | U20201f846 | Oshiro Yamashita, Daiki Oscar         |
-| U202128264 | Burga Loarte, Anaely Zarely           |
 </div>
 
 ### Abril,2026
@@ -31,9 +31,33 @@
 
 ## Registro de Versiones del Informe
 
-| Versión |  Fecha     |                                       Autor                                   |            Descripción de modificación                                                   |
-| :-----: | :--------: | :---------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
-| TB1     | 04/06/2026 | Todos los integrantes del equipo                                              |                                                                                          |
+<table>
+  <tr>
+    <th>Versión</th>
+    <th>Fecha</th>
+    <th>Autor</th>
+    <th>Descripción</th>
+  </tr>
+  <tr>
+    <td rowspan="4">TB1</td>
+    <td rowspan="4">04/06/2026</td>
+    <td>Aguirre Castillo, Sergio Cesar</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Burga Loarte, Anaely Zarely</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Mamani Marca, Gabriel Cristian</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Oshiro Yamashita, Daiki Oscar</td>
+    <td></td>
+  </tr>
+</table>
+
 
 # Contenido
 
