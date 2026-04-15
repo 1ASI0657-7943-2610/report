@@ -2,15 +2,15 @@
 <img src="../assets/upc_logo.png"alt="UPC Logo" width="200"/>
 
 # UNIVERSIDAD PERUANA DE CIENCIAS APLICADAS
-### Carrera: Ingeniería de Software
-### Ciclo: 7mo ciclo
-### Fundamentos de Arquitectura de Software - Presencial (1ASI0657)
+### Ingeniería de Software
+### 7mo ciclo
+### 1ASI0657 - Fundamentos de Arquitectura de Software 
+### 202610
 ### NRC: 7943
 ### Profesor: Ernesto Ocampo Tello
 ## Informe de TB1
 
-## Startup: 
-## Producto: MealFlow 
+## Producto:  Finteka
 
 ### Relación de integrantes:
 
@@ -65,7 +65,6 @@
     <td>Revisión general del documento.</td>
   </tr>
 </table>
-
 
 # Contenido
 
