@@ -271,9 +271,6 @@ Valoran la eficiencia, la practicidad y el acceso rápido a información confiab
 **Objetivo:**  
 Resolver necesidades específicas, optimizar tiempo y mejorar la calidad de sus decisiones mediante acceso rápido a conocimiento especializado.
 
-**Sustento estadístico:**  
-Según reportes recientes del INEI, el acceso a internet en zonas urbanas del Perú mantiene una tendencia creciente, lo que favorece el uso de plataformas digitales para servicios profesionales y transacciones en línea.
-
 ### Segmento objetivo N.° 2: Consultores y profesionales independientes
 
 **Descripción:**  
@@ -302,6 +299,3 @@ Valoran la autonomía profesional, la generación de ingresos y el uso de tecnol
 
 **Objetivo:**  
 Incrementar ingresos, optimizar la gestión de servicios y ampliar alcance profesional mediante canales digitales.
-
-**Sustento estadístico:**  
-Diversos informes laborales nacionales muestran crecimiento del trabajo independiente y de los servicios especializados por canales digitales, especialmente en actividades remotas y consultoría profesional.
