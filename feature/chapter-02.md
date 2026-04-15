@@ -178,7 +178,7 @@ A continuación se muestra el proceso para la realización del Empathy Mapping p
 
 **Segmento #1: Solicitante de Servicios**
 
-<img src="../assets/empathy2.png" width="1400" height="600">
+<img src="../assets/empathy4.png" width="1400" height="600">
 
 Link del Empathy Mapping: https://docs.google.com/drawings/d/1ldThwGvffPsPR6Ea6FWCU5DBOGQAVvXugWDPmzPzgD8/edit?usp=sharing
 
