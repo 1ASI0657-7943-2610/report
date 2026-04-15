@@ -2,318 +2,306 @@
 
 ## 1.1. Startup Profile
 
-A continuación se brindará información sobre nuestra startup
+En la presente sección se expone información general relacionada con la startup desarrolladora de la propuesta.
 
 ## 1.1.1. Descripción de la Startup
 
-Nova Asesores es una startup orientada a la consultoría digital que busca facilitar la conexión entre especialistas y personas o empresas que necesitan asesoramiento profesional. A través de una plataforma web, se agiliza el acceso a expertos de distintas áreas, permitiendo una experiencia más rápida, organizada y confiable. Nuestra propuesta se centra en mejorar la calidad de las decisiones mediante el acceso a conocimiento especializado, sin involucrarse directamente en la ejecución de las actividades del cliente.
+Nova Asesores es una startup orientada a la consultoría digital, creada con el propósito de facilitar la conexión entre profesionales especializados y personas o empresas que requieren asesoramiento en distintas áreas. La propuesta surge ante la necesidad de contar con canales más eficientes, confiables y organizados para acceder a conocimiento experto, en un contexto donde muchos servicios de consultoría aún se gestionan de manera informal o dispersa.
 
-**Misión**: Brindar un acceso eficiente y confiable a servicios de consultoría profesional mediante una plataforma digital que conecte a usuarios con expertos, contribuyendo a una mejor toma de decisiones y al desarrollo de sus proyectos y negocios.
+Mediante una plataforma web, Nova Asesores busca optimizar el proceso de búsqueda, selección y contratación de especialistas, brindando a los usuarios una experiencia ágil, segura y accesible. De esta manera, se promueve una mejor toma de decisiones tanto en el ámbito personal como empresarial, sin intervenir directamente en la ejecución de las actividades del cliente.
 
-**Visión**: Consolidarse como una de las principales plataformas de consultoría digital en Latinoamérica en los próximos años, destacando por su innovación tecnológica y por la confianza que genera en sus usuarios y profesionales afiliados.
+La misión de Nova Asesores es brindar acceso eficiente y confiable a servicios de consultoría profesional mediante una plataforma digital que conecte a usuarios con expertos, contribuyendo al desarrollo de proyectos, negocios y objetivos personales.
 
-**Producto**: FinTeka es una plataforma digital que conecta a usuarios con especialistas de diversas áreas, permitiendo buscar, comparar y seleccionar expertos de manera eficiente. La plataforma facilita la reserva de sesiones, la gestión de agendas y la realización de pagos seguros, todo dentro de un mismo entorno. Además, incorpora herramientas que optimizan la interacción entre usuarios y consultores, garantizando una experiencia organizada, confiable y accesible. Su propósito es centralizar el acceso a asesoría profesional, mejorar el aprovechamiento del conocimiento especializado y apoyar la toma de decisiones de forma ágil y fundamentada.
+La visión de Nova Asesores es consolidarse como una de las principales plataformas de consultoría digital en Latinoamérica, reconocida por su innovación tecnológica, calidad de servicio y confianza generada entre usuarios y profesionales afiliados.
 
-## 1.1.2. Perfiles de Integrantes del equipo
+El principal producto de la startup es FinTeka, una plataforma digital diseñada para conectar usuarios con especialistas de diversas áreas, permitiendo buscar, comparar y seleccionar profesionales de manera eficiente. Asimismo, facilita la reserva de sesiones, la gestión de agendas y la realización de pagos seguros dentro de un entorno integrado. Adicionalmente, incorpora herramientas orientadas a mejorar la interacción entre usuarios y consultores, garantizando una experiencia organizada, confiable y accesible. Su finalidad es centralizar el acceso a asesoría profesional y fortalecer la toma de decisiones mediante información especializada.
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-| Miembros del equipo                                                                                                        | Codigo Estudiante | Carrera                | Conocimientos / Habilidades                                                                                                                                                                                 |
+| Miembros del equipo                                                                                                        | Código Estudiante | Carrera                | Conocimientos / Habilidades                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------------------------------------------------|-------------------|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Mamani Marca, Gabriel Cristian <br><img src="../assets/GabrielMamani.png" alt="Gabriel" width="120" height="120">   | u202220659        | Ingenieria de software | Soy estudiante de sexto septimo de la carrera de Ingeniería de Software. Durante el camino aprendí lenguajes como C++, Python, Java y .Net. También, sobre  gestores de base de datos como MongoDB y MySQL. |
-|Daiki Oscar Oshiro Yamashita <br><img src="../assets/Daiki.png" alt="Daiki" width="120" height="120"> |U20201F846|Ingenieria de software|Soy estudiante de la carrera de Ingeniería de Software. Tengo interés en obtener nuevos conocimientos relacionados con mi carrera que me sean de utilidad para el futuro. Cuento con el conocimiento de diversos lenguajes Python, C++, PHP, C#.|
-|Sergio Cesar Aguirre Castillo  <img width="120" height="120" alt="image" src="https://github.com/user-attachments/assets/fec79da1-1e9c-43b4-a5c1-b9b3c79f808c" />|U202310425|Ingenieria de software|Soy estudiante de la carrera de Ingeniería de Software, actualmente cursando el séptimo ciclo. Tengo un gran interés en adquirir nuevos conocimientos relacionados con mi área que me permitan fortalecer mis habilidades y prepararme para los retos del futuro profesional. Cuento con experiencia en diversos lenguajes de programación como Python, C++, PHP, C#, Java y JavaScript, además de conocimientos en desarrollo web utilizando HTML, CSS y manejo básico de bases de datos como MySQL, lo que me permite adaptarme a distintos entornos de desarrollo y seguir aprendiendo nuevas tecnologías.|
-|Anaely Burga Loarte <br><img src="https://github.com/1ASI0657-7943-2610/report/blob/feature/chapter-01/assets/foto.png" alt="Anaely Burga" width="120" height="120"> |U202118264|Ingenieria de software|Soy estudiante de la carrera de Ingeniería de Software, con interés en el análisis de usuarios y el diseño de soluciones centradas en el usuario. Durante mi formación he desarrollado habilidades lo que me permite comprender mejor las necesidades del usuario y proponer soluciones innovadoras. Además, cuento con conocimientos en lenguajes de programación y herramientas tecnológicas que complementan mi perfil, permitiéndome adaptarme a distintos entornos de desarrollo y seguir aprendiendo continuamente.|
+| Mamani Marca, Gabriel Cristian <br><img src="../assets/GabrielMamani.png" alt="Gabriel" width="120" height="120">   | u202220659        | Ingeniería de Software | Soy estudiante de sexto o séptimo de la carrera de Ingeniería de Software. Durante el camino aprendí lenguajes como C++, Python, Java y .Net. También, sobre  gestores de base de datos como MongoDB y MySQL. |
+|Daiki Oscar Oshiro Yamashita <br><img src="../assets/Daiki.png" alt="Daiki" width="120" height="120"> |U20201F846|Ingeniería de Software|Soy estudiante de la carrera de Ingeniería de Software. Tengo interés en obtener nuevos conocimientos relacionados con mi carrera que me sean de utilidad para el futuro. Cuento con el conocimiento de diversos lenguajes Python, C++, PHP, C#.|
+|Sergio Cesar Aguirre Castillo  <img width="120" height="120" alt="image" src="https://github.com/user-attachments/assets/fec79da1-1e9c-43b4-a5c1-b9b3c79f808c" />|U202310425|Ingeniería de Software|Soy estudiante de la carrera de Ingeniería de Software, actualmente cursando el séptimo ciclo. Tengo un gran interés en adquirir nuevos conocimientos relacionados con mi área que me permitan fortalecer mis habilidades y prepararme para los retos del futuro profesional. Cuento con experiencia en diversos lenguajes de programación como Python, C++, PHP, C#, Java y JavaScript, además de conocimientos en desarrollo web utilizando HTML, CSS y manejo básico de bases de datos como MySQL, lo que me permite adaptarme a distintos entornos de desarrollo y seguir aprendiendo nuevas tecnologías.|
+|Anaely Burga Loarte <br><img src="https://github.com/1ASI0657-7943-2610/report/blob/feature/chapter-01/assets/foto.png" alt="Anaely Burga" width="120" height="120"> |U202118264|Ingeniería de Software|Soy estudiante de la carrera de Ingeniería de Software, con interés en el análisis de usuarios y el diseño de soluciones centradas en el usuario. Durante mi formación he desarrollado habilidades lo que me permite comprender mejor las necesidades del usuario y proponer soluciones innovadoras. Además, cuento con conocimientos en lenguajes de programación y herramientas tecnológicas que complementan mi perfil, permitiéndome adaptarme a distintos entornos de desarrollo y seguir aprendiendo continuamente.|
 
 ## 1.2 Solution Profile
-### 1.2.1 Nombre del producto
 
-**Product Name**: FinTeka
+**Nombre del Producto:** FinTeka
 
-**Product Description:** FinTeka es una plataforma web diseñada para facilitar el acceso a asesoría profesional especializada, conectando a usuarios con expertos de diversas áreas de manera rápida, segura y eficiente. En primer lugar, la aplicación permite buscar, comparar y seleccionar especialistas según las necesidades del usuario, así como agendar sesiones, gestionar pagos y realizar un seguimiento de las asesorías realizadas. En segundo lugar, FinTeka integra diversas funcionalidades que optimizan la experiencia tanto para clientes como para consultores, incluyendo un sistema de valoraciones, gestión de agendas en tiempo real, historial de sesiones y herramientas de comunicación directa. Finalmente, todo este entorno centralizado mejorará la organización, la confianza y la calidad del servicio ofrecido.
+**Descripción del producto:** 
+
+FinTeka es una plataforma web orientada a facilitar el acceso a servicios de asesoría profesional especializada, conectando a usuarios con expertos de diversas áreas de manera rápida, segura y eficiente. La propuesta busca centralizar en un solo entorno digital los principales procesos relacionados con la contratación de consultorías, reduciendo la informalidad y mejorando la experiencia del usuario.
+
+La plataforma permite buscar, comparar y seleccionar especialistas de acuerdo con criterios como categoría, experiencia, disponibilidad y valoraciones previas. Asimismo, ofrece herramientas para reservar sesiones, gestionar pagos y realizar seguimiento de las asesorías contratadas.
+
+Del mismo modo, FinTeka incorpora funcionalidades que benefician tanto a los usuarios como a los consultores, tales como gestión de agendas en tiempo real, historial de sesiones, canales de comunicación directa y sistemas de reputación basados en calificaciones. En conjunto, estas características contribuyen a fortalecer la confianza, la organización y la calidad del servicio ofrecido.
 
 **Plan Básico**
 
-* Búsqueda de especialistas por categoría, experiencia y valoraciones
-* Visualización de perfiles profesionales con información detallada
-* Reserva de sesiones de asesoría según disponibilidad
-* Sistema de valoraciones y comentarios para cada sesión
-* Historial básico de asesorías realizadas
-* Notificaciones de confirmación y recordatorios de sesiones
+* Búsqueda de especialistas por categoría, experiencia y valoraciones.
+* Visualización de perfiles profesionales con información relevante.
+* Reserva de sesiones según disponibilidad.
+* Sistema de calificaciones y comentarios.
+* Historial básico de asesorías realizadas.
+* Notificaciones de confirmación y recordatorios.
 
 **Plan Premium**:
 
-* Posicionamiento destacado de perfiles de consultores en la plataforma
-* Gestión avanzada de agenda con control de disponibilidad en tiempo real
-* Integración de pagos seguros dentro de la plataforma
-* Historial completo con seguimiento detallado de asesorías
-* Comunicación directa mediante chat entre usuario y consultor
-* Acceso a métricas de desempeño y reputación (para consultores)
-* Herramientas para optimizar la gestión de servicios profesionales
-* Soporte prioritario y atención extendida
+* Posicionamiento destacado del perfil del consultor dentro de la plataforma.
+* Gestión avanzada de agenda con disponibilidad en tiempo real.
+* Integración de pagos seguros dentro del sistema.
+* Historial completo con seguimiento detallado de sesiones.
+* Comunicación directa mediante chat entre usuario y consultor.
+* Acceso a métricas de desempeño y reputación profesional.
+* Herramientas avanzadas para la gestión de servicios.
+* Soporte prioritario y atención extendida.
 
 ## 1.2.1. Antecedentes y problemática
 
-**Antecedentes**:
+**Antecedentes:**
 
-En el Perú y a nivel global, la transformación digital ha impulsado nuevas formas de acceso a servicios profesionales, especialmente en el ámbito de la consultoría. Según el informe Digital 2024 de DataReportal, más del 60% de la población mundial utiliza internet para acceder a servicios digitales, lo que evidencia un crecimiento significativo en la demanda de plataformas en línea. Por otro lado, el Banco Mundial señala que las pequeñas y medianas empresas representan aproximadamente el 90% de los negocios a nivel mundial, muchas de las cuales enfrentan dificultades para acceder a asesoría especializada debido a la falta de canales estructurados y confiables. Asimismo, estudios recientes indican que una gran parte de profesionales independientes ofrece sus servicios a través de redes sociales o medios informales, lo que limita su alcance y organización. Este contexto refleja la necesidad de implementar soluciones tecnológicas que centralicen la oferta de servicios de consultoría, mejoren la confianza en los procesos y optimicen la interacción entre expertos y usuarios.
+En los últimos años, la transformación digital ha modificado la forma en que las personas y organizaciones acceden a diversos servicios, incluyendo aquellos vinculados con la asesoría profesional. El crecimiento del comercio electrónico, las plataformas colaborativas y los servicios remotos ha incrementado la demanda de soluciones digitales orientadas a facilitar la interacción entre proveedores especializados y potenciales clientes.
 
-**Problemáticas**:
+En el contexto peruano, el acceso progresivo a internet y el mayor uso de dispositivos móviles han favorecido la adopción de herramientas digitales para actividades comerciales, educativas y financieras. Paralelamente, pequeñas empresas, emprendedores y profesionales independientes requieren con mayor frecuencia orientación especializada en áreas como finanzas, derecho, tecnología, marketing y gestión empresarial.
 
-En primer lugar, la búsqueda de asesoría profesional suele ser un proceso desorganizado, ya que los usuarios no cuentan con una plataforma centralizada que les permita encontrar especialistas confiables, comparar perfiles y tomar decisiones informadas de manera eficiente. Esto genera pérdida de tiempo y aumenta el riesgo de acceder a servicios de baja calidad. En segundo lugar, muchos profesionales independientes carecen de herramientas adecuadas para ofrecer sus servicios de manera estructurada, gestionar su disponibilidad y establecer canales formales de comunicación con sus clientes, lo que limita su crecimiento y oportunidades de ingresos. Finalmente, la ausencia de sistemas integrados para la gestión de reservas, pagos y seguimiento de asesorías impacta negativamente en la experiencia del servicio, ya que no se garantiza un entorno seguro, organizado ni confiable. Asimismo, la falta de mecanismos de evaluación y retroalimentación dificulta la construcción de confianza entre usuarios y consultores, reduciendo la efectividad de las interacciones profesionales.
+No obstante, una parte importante de estos servicios continúa ofreciéndose mediante canales informales, como redes sociales, mensajería instantánea o recomendaciones personales. Esta situación dificulta la comparación entre alternativas disponibles, reduce la transparencia en precios y experiencia profesional, y limita la confianza entre las partes involucradas.
 
+En ese sentido, surge la necesidad de implementar plataformas digitales que centralicen la oferta de asesoría profesional, optimicen los procesos de contacto y contratación, y brinden mayores garantías de seguridad, organización y calidad en el servicio.
+
+**Problemáticas:**
+
+Actualmente, muchas personas y organizaciones enfrentan dificultades para acceder a asesoría profesional confiable de manera rápida y ordenada. La búsqueda de especialistas suele realizarse a través de medios dispersos, lo que incrementa el tiempo de selección y dificulta la toma de decisiones informadas.
+
+Asimismo, los profesionales independientes no siempre disponen de herramientas tecnológicas que les permitan gestionar adecuadamente su disponibilidad, reservas, pagos y comunicación con clientes. Como consecuencia, se reducen sus posibilidades de crecimiento y formalización dentro del mercado digital.
+
+De igual manera, la ausencia de sistemas integrados para programar sesiones, procesar pagos y registrar valoraciones genera experiencias poco eficientes tanto para usuarios como para consultores. Esto limita la confianza, disminuye la continuidad del servicio y afecta la percepción de calidad.
+
+Frente a esta situación, resulta pertinente el desarrollo de una solución digital que centralice la interacción entre usuarios y especialistas, simplifique los procesos operativos y fortalezca la transparencia en la contratación de servicios profesionales.
+
+**Aplicación de la técnica 5W y 2H:**
 
 A partir del análisis de los antecedentes y la problemática, se aplica la técnica de las 5W y 2H para estructurar la solución propuesta:
 
+**What (Qué)**  
+El problema identificado es la inexistencia de una plataforma centralizada que facilite el acceso a asesoría profesional especializada y que permita a los consultores ofrecer sus servicios de manera estructurada.
 
-**What?**
+**When (Cuándo)**  
+La necesidad se presenta de forma recurrente, cada vez que personas, emprendedores o empresas requieren orientación para resolver problemas, tomar decisiones o mejorar sus resultados.
 
-El problema es la falta de una plataforma centralizada que permita a las personas y empresas acceder de manera rápida y confiable a asesoría profesional especializada, así como a los expertos ofrecer sus servicios de forma estructurada, gestionar sus agendas y establecer relaciones formales con sus clientes.
+**Where (Dónde)**  
+La problemática se manifiesta en entornos personales, académicos y empresariales, especialmente en medios digitales donde la oferta de servicios se encuentra fragmentada.
 
-**When?**
+**Who (Quiénes)**  
+Los principales involucrados son usuarios que necesitan asesoría confiable y profesionales independientes que buscan captar clientes y gestionar sus servicios de manera eficiente.
 
-La problemática se presenta de manera constante, ya que tanto personas como organizaciones requieren asesoría en distintos momentos para tomar decisiones importantes, resolver problemas específicos o mejorar sus procesos.
+**Why (Por qué)**  
+La situación se origina por la falta de herramientas integrales que centralicen la búsqueda de especialistas, la reserva de sesiones, los pagos y la evaluación del servicio.
 
-**Where?**
+**How (Cómo)**  
+FinTeka propone una plataforma web que integra búsqueda de expertos, perfiles profesionales, reservas, pagos seguros, comunicación directa y sistemas de valoración.
 
-La problemática ocurre en diversos entornos, como el ámbito empresarial, académico y personal, así como en cualquier espacio donde se necesite orientación profesional, especialmente en entornos digitales donde la oferta de servicios se encuentra dispersa.
+**How Much (Cuánto impacto)**  
+La solución puede beneficiar a personas naturales, emprendedores, pequeñas empresas y consultores independientes, incrementando la eficiencia en la contratación de asesorías y ampliando el acceso a servicios especializados.
 
-**Who?**
+### 1.2.2 Lean UX Process
 
-Los principales afectados son, por un lado, los usuarios —personas, emprendedores y empresas— que necesitan asesoría confiable, y por otro lado, los profesionales independientes que buscan ofrecer sus servicios de manera organizada y generar mayores oportunidades de ingresos.
+#### 1.2.2.1 Lean UX Problem Statement
 
-**Why?**
+Actualmente, las personas, emprendedores y empresas que requieren asesoría profesional enfrentan dificultades para identificar especialistas confiables en un mercado altamente fragmentado. Con frecuencia, la búsqueda se realiza mediante recomendaciones informales o redes sociales, donde la información disponible no siempre resulta clara, verificable o suficiente para tomar decisiones adecuadas.
 
-Esto se debe a la ausencia de plataformas integrales que centralicen la oferta de servicios de consultoría, lo que dificulta la búsqueda de expertos confiables, la gestión de sesiones y la realización de pagos seguros, además de limitar la visibilidad y organización de los profesionales.
+Esta situación genera demoras en la selección del profesional adecuado, escasa transparencia en precios y experiencia, dificultades para coordinar sesiones y limitada seguridad en los procesos de pago. Como consecuencia, la experiencia del usuario suele ser poco eficiente y con altos niveles de incertidumbre.
 
-**How?**
+Por otro lado, los profesionales independientes carecen, en muchos casos, de herramientas digitales que les permitan organizar su disponibilidad, administrar reservas, fortalecer su reputación y ampliar su alcance comercial. Esto restringe sus oportunidades de crecimiento y formalización en entornos digitales.
 
-FinTeka facilitará la conexión entre usuarios y expertos mediante una plataforma web que integra búsqueda de especialistas, reserva de sesiones, gestión de agendas, pagos seguros, comunicación directa y un sistema de valoraciones que garantice confianza y calidad en el servicio.
+Frente a esta problemática, FinTeka propone el desarrollo de una plataforma digital orientada a centralizar la relación entre usuarios y consultores, simplificando los procesos de búsqueda, contratación y seguimiento del servicio. La propuesta busca validar inicialmente el interés del mercado y, posteriormente, consolidar una solución integral que genere valor para ambas partes.
 
-**How much?**
+El principal reto consiste en construir una plataforma que transmita confianza, facilidad de uso, seguridad operativa y calidad en la experiencia ofrecida.
 
-FinTeka tendrá el alcance de impactar a personas, emprendedores y empresas que requieran asesoría profesional, así como a consultores que busquen ofrecer sus servicios en un entorno digital estructurado. Además, mediante su modelo de suscripción, se espera incrementar el acceso a asesoría confiable y mejorar la eficiencia en la contratación de servicios profesionales.
+¿Cómo podríamos diseñar una plataforma digital confiable, eficiente e intuitiva que conecte a usuarios con especialistas profesionales, mejorando la experiencia de contratación y generando valor sostenible para clientes y consultores?
 
-### 1.2.2. Lean UX Process
+#### 1.2.2.2 Lean UX Assumptions
 
-#### 1.2.2.1. Lean UX Problem Statements
-
-Las personas y empresas que buscan servicios de asesoría profesional, especialmente en entornos digitales, enfrentan el desafío de encontrar expertos confiables en un mercado fragmentado e informal. A menudo, recurren a recomendaciones personales o redes sociales, donde la información no siempre es clara ni verificable. Esto genera dificultades para identificar al especialista adecuado, coordinar sesiones y realizar pagos de manera segura, lo que deriva en una experiencia poco eficiente y en decisiones mal informadas.
-Por otro lado, los profesionales independientes que ofrecen servicios de consultoría enfrentan limitaciones para gestionar su trabajo de manera estructurada. Carecen de herramientas especializadas que les permitan organizar su disponibilidad, formalizar sus servicios y construir una reputación sólida, lo que reduce su alcance y oportunidades de crecimiento. Además, la falta de una plataforma adecuada dificulta la confianza entre ambas partes. FinTeka es una startup que busca abordar estas problemáticas mediante la creación de una plataforma digital que centralice y profesionalice la experiencia de asesoría. En una primera etapa, se desarrollará una solución que permita validar el interés del mercado, mientras que a futuro se implementará una plataforma completa donde los usuarios puedan encontrar expertos, agendar sesiones, realizar pagos seguros y dejar valoraciones. Al mismo tiempo, los consultores podrán gestionar sus servicios de manera eficiente y fortalecer su presencia digital. El principal desafío radica en generar confianza en los usuarios y profesionales, quienes pueden mostrarse escépticos frente a nuevas plataformas digitales, especialmente si no garantizan seguridad, calidad del servicio y transparencia en las interacciones.
-
-¿Cómo podemos construir una plataforma digital que sea percibida como confiable, eficiente y fácil de usar, que conecte a usuarios con expertos y profesionalice la experiencia de asesoría, generando valor tanto para clientes como para consultores?
-
-
-#### 1.2.2.2. Lean UX Assumptions.
-
+Con el fin de validar la propuesta de valor de FinTeka, se identificaron los principales supuestos relacionados con usuarios, negocio, resultados esperados y funcionalidades clave.
 
 ### Business Assumptions
 
-- Creemos que nuestros usuarios tienen la necesidad de:
-acceder a asesoría profesional confiable de manera rápida, sencilla y segura, evitando procesos informales o poco estructurados que generan incertidumbre y pérdida de tiempo.
-
-- Estas necesidades se pueden satisfacer con:
-una plataforma digital que centralice la búsqueda de expertos, permita agendar sesiones, realizar pagos seguros y gestionar todo el proceso de asesoría en un solo lugar.
-
-- Nuestros usuarios iniciales son (o serán):
-personas (estudiantes, profesionales y emprendedores) que buscan asesoría especializada, así como consultores independientes que desean ofrecer sus servicios de forma digital y organizada.
-
-- El valor principal que un usuario quiere obtener de nuestro servicio es:
-confianza y eficiencia al momento de contratar asesoría, asegurando que pueden tomar decisiones informadas con el apoyo de expertos calificados.
-
-- Los usuarios también pueden obtener estos beneficios adicionales:
-ahorro de tiempo, acceso a una mayor variedad de especialistas, transparencia en precios y valoraciones, y una mejor organización de sus consultas.
-
-- Adquiriremos a la mayoría de nuestros usuarios a través de:
-estrategias de marketing digital en redes sociales, contenido educativo, alianzas con profesionales independientes y recomendaciones orgánicas.
-
-- Ganaremos dinero mediante:
-un modelo de comisión por cada sesión realizada dentro de la plataforma, así como planes premium para consultores que deseen mayor visibilidad y herramientas avanzadas.
-
-- Nuestra competencia principal en el mercado será:
-redes sociales, recomendaciones informales, plataformas genéricas de servicios y algunas soluciones de teleconsulta no especializadas.
-
-- Les superaremos debido a:
-nuestra propuesta especializada en asesoría profesional, ofreciendo una experiencia integral que combina búsqueda, reserva, pago y seguimiento en un solo ecosistema confiable.
-
-- El mayor riesgo para nuestro producto es:
-la falta de confianza inicial por parte de los usuarios y la baja adopción por parte de los consultores, lo que podría limitar el crecimiento de la plataforma.
+- Existe una demanda creciente por servicios de asesoría profesional contratados mediante canales digitales.
+- Los usuarios valoran plataformas que ofrezcan rapidez, seguridad y transparencia durante el proceso de contratación.
+- Los consultores independientes están dispuestos a utilizar herramientas digitales para captar clientes y gestionar sus servicios.
+- Un modelo basado en comisión por sesión y planes premium resulta viable para monetizar la plataforma.
+- Las redes sociales y recomendaciones personales constituyen la principal competencia indirecta.
+- Una propuesta especializada permitirá diferenciarse de plataformas genéricas de servicios.
+- La generación de confianza inicial será un factor crítico para la adopción temprana del producto.
 
 ### User Assumptions
 
-
-* ¿Quién es el usuario?
-Personas (estudiantes, profesionales, emprendedores y empresas) que necesitan asesoría especializada en distintas áreas como finanzas, derecho, tecnología o negocios. También, consultores y expertos profesionales que buscan una plataforma para ofrecer sus servicios y gestionar clientes de manera eficiente.
-
-* ¿Dónde encaja nuestro producto en su vida?
-Se integra en momentos clave de toma de decisiones, cuando el usuario necesita orientación experta. Para los clientes, actúa como una herramienta de apoyo en decisiones personales o empresariales. Para los consultores, se convierte en una plataforma de trabajo que les permite organizar su agenda, atender clientes y generar ingresos.
-
-* ¿Qué problemas resuelve nuestro producto?
-La dificultad de encontrar expertos confiables, la falta de transparencia en precios y calidad del servicio, la complejidad de coordinar sesiones y realizar pagos, y el uso de canales informales poco eficientes. Para los consultores, resuelve la falta de herramientas para gestionar sus servicios, clientes y reputación profesional.
-
-* ¿Cuándo y cómo se utiliza nuestro producto?
-El usuario lo utiliza cuando necesita asesoría. Ingresa a la plataforma, busca un experto según su necesidad, revisa su perfil, agenda una sesión y realiza el pago. El consultor lo utiliza para configurar su perfil, gestionar su disponibilidad, recibir reservas y dar seguimiento a sus clientes.
-
-* ¿Qué características son importantes?
-Buscador de expertos con filtros por categoría, perfiles detallados con experiencia y valoraciones, sistema de reservas con calendario integrado, pagos seguros, historial de sesiones y herramientas de gestión para consultores.
-
-* ¿Cómo debería verse y comportarse nuestro producto?
-Debe tener una interfaz clara, intuitiva y profesional. La navegación debe ser simple, rápida y sin fricción. El diseño debe transmitir confianza, seguridad y orden, guiando al usuario en cada paso del proceso.
-
-* El valor principal que un usuario quiere obtener es:
-Confianza y facilidad al acceder a asesoría profesional, asegurando decisiones informadas con el respaldo de expertos calificados.
-
-* Los usuarios también pueden obtener estos beneficios adicionales:
-Ahorro de tiempo, acceso a una mayor variedad de especialistas, transparencia en precios y valoraciones, y una mejor organización de sus consultas.
-
-* El mayor riesgo para el usuario es:
-No confiar en la calidad de los expertos, percibir inseguridad en los pagos o no encontrar suficiente valor en la plataforma, lo que podría llevar al abandono del servicio.
+- Los usuarios necesitan encontrar especialistas confiables sin invertir tiempo excesivo en búsquedas informales.
+- Las personas comparan experiencia, precio, disponibilidad y valoraciones antes de contratar un servicio.
+- Los usuarios prefieren procesos simples de reserva y pago desde un solo entorno digital.
+- Los consultores requieren herramientas para administrar agenda, reservas y reputación profesional.
+- Tanto clientes como especialistas valoran una comunicación clara y ordenada.
+- La facilidad de uso influirá directamente en la permanencia dentro de la plataforma.
 
 ### User Outcomes
 
-* Toma de decisiones informadas:
-Los usuarios podrán acceder a asesoría profesional confiable que les permitirá resolver problemas específicos y tomar decisiones con mayor seguridad, ya sea en el ámbito personal o empresarial.
-
-* Acceso eficiente a expertos:
-Podrán encontrar, comparar y contratar especialistas de manera rápida y sencilla, reduciendo el tiempo y esfuerzo que normalmente implica buscar asesoría en canales informales.
-
-* Experiencia segura y transparente:
-Los usuarios tendrán claridad en precios, valoraciones y procesos, lo que generará confianza en cada etapa, desde la búsqueda hasta el pago y la sesión.
-
-* Organización y seguimiento de asesorías:
-Podrán gestionar sus sesiones, historial y recomendaciones en un solo lugar, facilitando el seguimiento de sus consultas y mejorando la continuidad en la asesoría.
+- Los usuarios tomarán decisiones mejor informadas al contar con perfiles verificables y valoraciones visibles.
+- El tiempo necesario para encontrar y contratar asesoría se reducirá significativamente.
+- Los clientes percibirán mayor seguridad en pagos y contratación.
+- Los consultores incrementarán su visibilidad y acceso a nuevos clientes.
+- Ambas partes mejorarán la organización y seguimiento de sesiones programadas.
 
 ### Business Outcomes
 
-Business Outcomes
+- Alcanzar una tasa de conversión mínima del 25% de visitantes registrados durante los primeros tres meses.
+- Lograr una retención del 60% de usuarios registrados en el primer trimestre.
+- Conseguir que al menos el 80% de valoraciones sean positivas.
+- Incorporar entre 50 y 100 consultores activos durante los primeros seis meses.
+- Establecer entre 3 y 5 alianzas estratégicas iniciales con profesionales o comunidades especializadas.
 
-* Validación de la propuesta de valor:
-Lograr que al menos un 25% de los visitantes únicos de la landing page se registren en la plataforma o soliciten información sobre los servicios en los primeros tres meses. Esto permitirá validar el interés en la solución y la necesidad de una plataforma centralizada de asesoría.
+### Feature Assumptions
 
-* Retención y uso recurrente:
-Alcanzar una tasa de retención del 60% de los usuarios registrados durante el primer trimestre, incentivando el uso continuo mediante la reserva de sesiones y la interacción con expertos.
-
-* Generación de confianza en la plataforma:
-Lograr que al menos el 80% de los usuarios califiquen positivamente su experiencia con los expertos y el uso de la plataforma, fortaleciendo la reputación y credibilidad de FinTeka.
-
-* Crecimiento de la red de expertos:
-Incorporar entre 50 y 100 consultores activos en los primeros seis meses, asegurando diversidad de especialidades y disponibilidad para cubrir la demanda de los usuarios.
-
-* Alianzas estratégicas iniciales:
-Establecer al menos 3 a 5 alianzas con profesionales independientes, academias o comunidades especializadas en los primeros seis meses, con el fin de aumentar la visibilidad y credibilidad del servicio.
-
-
-
-### Features Assumptions
-- Buscador de expertos con filtros por categoría, especialidad, precio, disponibilidad y valoración.
-- Perfiles profesionales detallados con experiencia, certificaciones, tarifas, horarios y reseñas de otros usuarios.
-- Sistema de reservas con calendario integrado y confirmaciones automáticas.
-- Pasarela de pagos segura para contratar servicios dentro de la plataforma.
-- Historial de sesiones y consultas realizadas por el usuario.
-- Dashboard para usuarios con seguimiento de sus asesorías y recomendaciones recibidas.
-- Panel de gestión para consultores, con control de agenda, clientes y sesiones.
-- Sistema de calificaciones y reseñas para evaluar a los expertos.
-- Notificaciones y recordatorios de sesiones agendadas.
-- Comunicación entre usuario y consultor (chat o mensajería previa a la sesión).
-- Recomendaciones de expertos basadas en necesidades y comportamiento del usuario.
-- Reportes de ingresos y desempeño para consultores.
-- Funcionalidad para que los consultores destaquen su perfil (planes premium).
-- Integración con herramientas externas de videollamadas para realizar las sesiones.
-- Sistema de soporte y atención al cliente dentro de la plataforma.
-
+- Buscador avanzado con filtros por categoría, precio, experiencia y disponibilidad.
+- Perfiles profesionales con experiencia, certificaciones y reseñas.
+- Sistema de reservas con calendario integrado.
+- Pasarela de pagos segura.
+- Historial de sesiones realizadas.
+- Dashboard de seguimiento para usuarios.
+- Panel administrativo para consultores.
+- Sistema de calificaciones y comentarios.
+- Notificaciones y recordatorios automáticos.
+- Chat entre usuario y consultor.
+- Reportes de desempeño para especialistas.
+- Opciones premium para destacar perfiles.
+- Integración con videollamadas.
+- Soporte y atención al cliente.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-#### Hipótesis 1:
-Creemos que al desarrollar una plataforma digital que conecte a profesionales expertos con usuarios que necesitan asesoría en diversas áreas, lograremos facilitar el acceso a servicios especializados de manera más rápida y segura. Esto resultará en una mayor eficiencia en la contratación de servicios profesionales y en un aumento de la satisfacción del usuario final.
+##### Hipótesis 1
 
-**Business Outcome**: Aumento en el número de sesiones reservadas y pagos procesados.  
-**Users**: Personas naturales que buscan asesoría confiable en temas como legales, contables, psicológicos, etc.  
-**User Outcome**: Mayor acceso a expertos y mejora en la experiencia de obtener ayuda profesional.  
-**Feature**: Motor de búsqueda por categoría y especialidad, sistema de reservas y pagos integrados.
+Creemos que, si se implementa una plataforma digital que centralice la búsqueda y contratación de especialistas, los usuarios podrán acceder a asesoría profesional de manera más rápida, segura y ordenada. Esto se validará cuando aumente la cantidad de reservas completadas y disminuya el tiempo promedio entre la búsqueda inicial y la contratación del servicio.
 
-#### Hipótesis 2:
-Consideramos que si proporcionamos a los expertos una plataforma para ofrecer sus servicios de forma digital, con herramientas de gestión de agenda, pagos y portafolio profesional, aumentará su visibilidad, productividad y generación de ingresos.
+- **Business Outcome:** Incremento en la cantidad de sesiones reservadas y en la tasa de conversión de usuarios registrados.  
+- **Users:** Personas naturales, emprendedores y pequeñas empresas que requieren asesoría especializada.  
+- **User Outcome:** Acceso eficiente a especialistas confiables y mejora en la experiencia de contratación.  
+- **Feature:** Buscador por categorías, perfiles profesionales, sistema de reservas y pagos integrados.
 
-**Business Outcome**: Mayor cantidad de expertos registrados y mayor recurrencia en el uso de la plataforma.  
-**Users**: Consultores y profesionales independientes en diversas áreas.  
-**User Outcome**: Más oportunidades de captar clientes y mejor gestión de su negocio de asesorías.  
-**Feature**: Panel de administración para expertos, perfiles profesionales detallados, integración con calendario y sistema de pago seguro.
+##### Hipótesis 2
 
-#### Hipótesis 3:
-Suponemos que al permitir valoraciones y reseñas públicas por parte de los usuarios, se generará un ecosistema de confianza que incentive a nuevos clientes a contratar servicios y a los expertos a mantener altos estándares de calidad.
+Creemos que, si se brindan herramientas de gestión para agenda, servicios y clientes dentro de una sola plataforma, los consultores mejorarán su productividad y ampliarán sus oportunidades comerciales. Esto se validará cuando aumente la cantidad de especialistas activos y el promedio de sesiones atendidas por profesional.
 
-**Business Outcome**: Incremento en la tasa de conversión y retención de usuarios.  
-**Users**: Usuarios en búsqueda de asesoría y expertos ofreciendo sus servicios.  
-**User Outcome**: Mayor confianza al elegir a un experto y mayor reputación para quienes brindan un buen servicio.  
-**Feature**: Sistema de calificaciones, comentarios y reseñas públicas en los perfiles de expertos.
+- **Business Outcome:** Crecimiento de la red de consultores registrados y mayor actividad dentro de la plataforma.  
+- **Users:** Consultores independientes y profesionales especializados.  
+- **User Outcome:** Mejor organización operativa, mayor visibilidad y nuevas oportunidades de ingresos.  
+- **Feature:** Panel de gestión profesional, calendario de disponibilidad, historial de clientes y métricas de desempeño.
 
-#### Hipótesis 4:
-Creemos que si incorporamos funciones de seguimiento post-sesión y canales de comunicación directa entre clientes y expertos, mejorará la calidad de las asesorías y fortalecerá la fidelización.
+##### Hipótesis 3
 
-**Business Outcome**: Aumento en la repetición de sesiones con el mismo experto y mejores tasas de satisfacción.  
-**Users**: Usuarios que requieren asesorías continuas o seguimiento profesional.  
-**User Outcome**: Relación más sólida con los expertos y procesos de mejora continua.  
-**Feature**: Chat interno, historial de sesiones y herramientas para agendar seguimientos.
+Creemos que, si se incorpora un sistema de valoraciones y reseñas verificadas, aumentará la confianza de los usuarios al momento de seleccionar especialistas. Esto se validará cuando mejore la tasa de contratación desde perfiles visitados y aumente la recurrencia de uso.
 
+- **Business Outcome:** Incremento en la conversión de visitas a reservas y mejora en la retención de usuarios.  
+- **Users:** Usuarios que buscan asesoría y consultores que ofrecen sus servicios.  
+- **User Outcome:** Mayor seguridad al elegir especialistas y fortalecimiento de reputación profesional.  
+- **Feature:** Sistema de calificaciones, comentarios verificados y reputación visible en perfiles.
+
+##### Hipótesis 4
+
+Creemos que, si se habilitan canales de comunicación directa y seguimiento posterior a cada sesión, mejorará la continuidad del servicio y la satisfacción general del usuario. Esto se validará cuando aumente la cantidad de sesiones recurrentes con un mismo consultor y las valoraciones positivas posteriores a la atención.
+
+- **Business Outcome:** Mayor tasa de recompra y fortalecimiento de fidelización.  
+- **Users:** Usuarios que requieren acompañamiento continuo y especialistas que brindan asesorías periódicas.  
+- **User Outcome:** Mejor experiencia de servicio, continuidad en el asesoramiento y relaciones profesionales sostenibles.  
+- **Feature:** Chat interno, historial de sesiones, recordatorios y programación de seguimientos.
+
+##### Hipótesis 5
+
+Creemos que, si se ofrecen pagos seguros e integrados dentro de la plataforma, los usuarios percibirán mayor confianza y comodidad al contratar servicios profesionales. Esto se validará cuando disminuya el abandono en el proceso de pago y aumente el porcentaje de transacciones completadas.
+
+- **Business Outcome:** Incremento de ingresos por comisiones y reducción de transacciones inconclusas.  
+- **Users:** Usuarios contratantes y consultores afiliados.  
+- **User Outcome:** Proceso de pago simple, seguro y confiable.  
+- **Feature:** Pasarela de pago integrada, comprobantes automáticos y confirmación inmediata de reservas.
 
 #### 1.2.2.4. Lean UX Canvas
 
-![Lean UX Canvas](/assets/leanUx.jpg)
+<img src="../assets/UXCanvasF.jpg" alt="Lean UX Canvas" width="100%">
 
-Tablero Miro: https://miro.com/welcomeonboard/UXoya0gvK2xpOHFZak4yaDRnME1qZ2Flak5qb0VCc0hnN3VEOGFiTXdIdjNvSXBRZ3Q2dWc1S2dwS1ZZSjRhRGN4cXpSdGhWZks3UDNseURydTJPd2xHVVA4c09zU3YrV1dGaFlMMjVZbUxIdHVPSDJRbUZ5cHdYOTdTTExUQkFhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=632309792327
+Tablero Miro: https://miro.com/app/board/uXjVGhydm8Q=/?share_link_id=941421721219
 
-## 1.3. Segmentos objetivo.
+**Descripción del Canvas desarrollado:**
 
-### Segmento objetivo #1: Personas en búsqueda de asesoría profesional
+- **Business Problem:** dificultad para acceder a asesoría profesional confiable mediante canales digitales organizados.
+- **Users and Customers:** personas que requieren asesoría especializada y consultores independientes.
+- **User Benefits:** rapidez, confianza, transparencia, acceso a especialistas y facilidad de contratación.
+- **Solution Ideas:** buscador de expertos, reservas online, pagos seguros, valoraciones y panel de gestión.
+- **Hypotheses:** los usuarios contratarán más asesorías si existe confianza, facilidad de uso y especialistas verificados.
+- **Most Important Thing to Learn First:** validar si los usuarios realmente pagarían por asesoría digital en una plataforma centralizada.
+- **Least Amount of Work to Learn:** landing page, entrevistas, prototipo navegable y pruebas con usuarios iniciales.
+- **Business Outcomes:** crecimiento de usuarios registrados, reservas completadas, retención y satisfacción.
 
-**Descripción:**
-Este segmento está compuesto por personas que requieren asesoría especializada en diferentes áreas como finanzas, derecho, tecnología, negocios o desarrollo personal. Son los principales usuarios de la plataforma, ya que buscan soluciones confiables que les ayuden a tomar decisiones informadas en situaciones personales o profesionales.
+## 1.3. Segmentos objetivo
 
-**Aspectos demográficos:**
-Hombres y mujeres de entre 20 y 45 años, pertenecientes principalmente a niveles socioeconómicos B y C. Incluye estudiantes universitarios, jóvenes profesionales, emprendedores y trabajadores independientes con acceso a internet y dispositivos digitales.
+### Segmento objetivo N.° 1: Personas que requieren asesoría profesional
 
-**Aspectos geográficos:**
-Personas ubicadas en zonas urbanas del Perú, principalmente en Lima Metropolitana, Arequipa, Trujillo y otras ciudades principales donde existe mayor acceso a servicios digitales y demanda de asesoría profesional.
+**Descripción:**  
+Este segmento está conformado por personas que necesitan orientación especializada en áreas como finanzas, derecho, tecnología, negocios, empleabilidad o desarrollo personal. Representan la demanda principal de la plataforma, al buscar soluciones confiables que respalden decisiones relevantes en el ámbito personal, académico o laboral.
 
-**Aspectos psicográficos:**
-Valoran el crecimiento personal y profesional, la eficiencia y la toma de decisiones informadas. Buscan soluciones prácticas, rápidas y confiables. Están abiertos al uso de tecnología y prefieren plataformas digitales que simplifiquen procesos complejos.
+**Aspectos demográficos:**  
+Hombres y mujeres entre 20 y 45 años, pertenecientes principalmente a los niveles socioeconómicos B y C. Incluye estudiantes universitarios, profesionales jóvenes, emprendedores y trabajadores independientes con acceso frecuente a internet.
 
-**Necesidades:**
-Acceder a expertos confiables, obtener asesoría personalizada, resolver dudas específicas de manera rápida y contar con una experiencia segura y transparente en el proceso.
+**Aspectos geográficos:**  
+Ubicados principalmente en zonas urbanas del Perú, con mayor concentración en Lima Metropolitana, Arequipa, Trujillo, Chiclayo y otras ciudades con alta adopción digital.
 
-**Requisitos:**
-Buscan una plataforma intuitiva, accesible desde cualquier dispositivo, con información clara sobre los expertos, precios visibles y métodos de pago seguros.
+**Aspectos psicográficos:**  
+Valoran la eficiencia, la practicidad y el acceso rápido a información confiable. Buscan herramientas que simplifiquen procesos complejos y les permitan tomar decisiones con menor nivel de incertidumbre.
 
-**Objetivo:**
-Resolver problemas específicos, tomar mejores decisiones y optimizar su tiempo mediante el acceso a asesoría profesional de calidad.
+**Necesidades:**  
+- Encontrar especialistas confiables según su necesidad.  
+- Recibir asesoría personalizada y oportuna.  
+- Contar con procesos claros de reserva y pago.  
+- Acceder a una experiencia segura y transparente.
 
-**Sustento estadístico:**
-Según el INEI (2023), más del 70% de la población peruana tiene acceso a internet, con mayor concentración en zonas urbanas. Además, el crecimiento del emprendimiento en el Perú ha incrementado la demanda de asesoría en áreas como finanzas, legal y negocios.
+**Requisitos:**  
+- Plataforma intuitiva y de fácil navegación.  
+- Compatibilidad con dispositivos móviles y computadoras.  
+- Información clara sobre experiencia, tarifas y disponibilidad.  
+- Métodos de pago seguros.
 
-### Segmento objetivo #2: Consultores y profesionales (proveedores de asesoría)
+**Objetivo:**  
+Resolver necesidades específicas, optimizar tiempo y mejorar la calidad de sus decisiones mediante acceso rápido a conocimiento especializado.
 
-**Descripción:**
-Este segmento está compuesto por profesionales independientes que ofrecen servicios de asesoría en distintas áreas como derecho, contabilidad, psicología, finanzas, tecnología y coaching. Son usuarios clave que utilizan la plataforma para ofrecer sus servicios y gestionar sus clientes.
+**Sustento estadístico:**  
+Según reportes recientes del INEI, el acceso a internet en zonas urbanas del Perú mantiene una tendencia creciente, lo que favorece el uso de plataformas digitales para servicios profesionales y transacciones en línea.
 
-**Aspectos demográficos:**
-Hombres y mujeres de entre 25 y 55 años, con formación universitaria o técnica especializada. Pertenecen principalmente a niveles socioeconómicos B y A, y cuentan con experiencia laboral en sus respectivas áreas.
+### Segmento objetivo N.° 2: Consultores y profesionales independientes
 
-**Aspectos geográficos:**
-Principalmente ubicados en Lima Metropolitana y capitales de región, aunque también incluye profesionales de otras zonas que buscan ofrecer servicios de manera remota.
+**Descripción:**  
+Este segmento está integrado por profesionales que brindan servicios de asesoría en áreas como derecho, contabilidad, psicología, finanzas, tecnología, marketing, recursos humanos y coaching. Utilizan la plataforma como canal de captación de clientes y herramienta de gestión operativa.
 
-**Aspectos psicográficos:**
-Valoran la independencia laboral, el crecimiento profesional y el uso de herramientas digitales que optimicen su tiempo. Están interesados en ampliar su cartera de clientes y mejorar su posicionamiento en el mercado.
+**Aspectos demográficos:**  
+Hombres y mujeres entre 25 y 55 años, con formación técnica o universitaria, experiencia laboral previa y orientación al trabajo independiente o complementario.
 
-**Necesidades:**
-Contar con una plataforma que les permita ofrecer sus servicios de manera estructurada, gestionar su agenda, recibir pagos de forma segura y construir una reputación basada en valoraciones.
+**Aspectos geográficos:**  
+Principalmente ubicados en Lima Metropolitana y capitales de región, aunque también incluye profesionales que prestan servicios remotos desde otras ciudades.
 
-**Requisitos:**
-Buscan una plataforma profesional, confiable y fácil de usar, que les permita gestionar clientes, sesiones y pagos sin complicaciones, además de brindar visibilidad a su perfil.
+**Aspectos psicográficos:**  
+Valoran la autonomía profesional, la generación de ingresos y el uso de tecnología para ampliar oportunidades comerciales. Buscan posicionamiento, eficiencia y crecimiento sostenido.
 
-**Objetivo:**
-Aumentar sus ingresos, optimizar la gestión de sus servicios y expandir su alcance profesional mediante herramientas digitales.
+**Necesidades:**  
+- Captar nuevos clientes de forma constante.  
+- Gestionar agenda y reservas en un solo entorno.  
+- Recibir pagos de manera segura.  
+- Construir reputación mediante valoraciones verificadas.
 
-**Sustento estadístico:**
-Según el Ministerio de Trabajo del Perú (2023), el empleo independiente representa una parte significativa del mercado laboral, con un crecimiento sostenido en servicios profesionales y freelance. Además, el auge de la economía digital ha impulsado la adopción de plataformas para ofrecer servicios especializados de forma remota.
+**Requisitos:**  
+- Plataforma confiable y profesional.  
+- Herramientas de administración simples.  
+- Visibilidad del perfil frente a potenciales clientes.  
+- Reportes de actividad e ingresos.
 
+**Objetivo:**  
+Incrementar ingresos, optimizar la gestión de servicios y ampliar alcance profesional mediante canales digitales.
+
+**Sustento estadístico:**  
+Diversos informes laborales nacionales muestran crecimiento del trabajo independiente y de los servicios especializados por canales digitales, especialmente en actividades remotas y consultoría profesional.
