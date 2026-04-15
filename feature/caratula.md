@@ -39,22 +39,30 @@
     <th>Descripción</th>
   </tr>
   <tr>
-    <td rowspan="4">TB1</td>
-    <td rowspan="4">04/06/2026</td>
+    <td rowspan="5">TB1</td>
+    <td>10/06/2026</td>
     <td>Aguirre Castillo, Sergio Cesar</td>
-    <td></td>
+    <td>Desarrollo del capítulo 3.</td>
   </tr>
   <tr>
+    <td>04/12/2026</td>
     <td>Burga Loarte, Anaely Zarely</td>
     <td></td>
   </tr>
   <tr>
+    <td>05/12/2026</td>
     <td>Mamani Marca, Gabriel Cristian</td>
     <td></td>
   </tr>
   <tr>
+    <td>07/06/2026</td>
     <td>Oshiro Yamashita, Daiki Oscar</td>
-    <td></td>
+    <td>Desarrollo de los puntos 2.3.2 a 2.3.5</td>
+  </tr>
+  <tr>
+    <td>12/04/2026</td>
+    <td>Oshiro Yamashita, Daiki Oscar</td>
+    <td>Revisión general del documento.</td>
   </tr>
 </table>
 
