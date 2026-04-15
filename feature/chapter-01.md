@@ -225,7 +225,7 @@ Creemos que, si se ofrecen pagos seguros e integrados dentro de la plataforma, l
 
 #### 1.2.2.4. Lean UX Canvas
 
-<img src="../assets/UXCanvasF.jpg" alt="Lean UX Canvas" width="100%">
+<img src="../assets/UXCanvasF.png" alt="Lean UX Canvas" width="100%">
 
 Tablero Miro: https://miro.com/app/board/uXjVGhydm8Q=/?share_link_id=941421721219
 
