@@ -22,6 +22,7 @@
 | U202128264 | Burga Loarte, Anaely Zarely           |
 | U202220659 | Mamani Marca, Gabriel Cristian        |
 | U20201f846 | Oshiro Yamashita, Daiki Oscar         |
+| U20201f846 | Montes Maza, Augusto Sebastian        |
 </div>
 
 ### Abril,2026
