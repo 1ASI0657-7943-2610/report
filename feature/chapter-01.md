@@ -8,11 +8,11 @@ En la presente sección se expone información general relacionada con la startu
 
 Nova Asesors es una startup orientada a la consultoría digital, creada con el propósito de facilitar la conexión entre profesionales especializados y personas o empresas que requieren asesoramiento en distintas áreas. La propuesta surge ante la necesidad de contar con canales más eficientes, confiables y organizados para acceder a conocimiento experto, en un contexto donde muchos servicios de consultoría aún se gestionan de manera informal o dispersa.
 
-Mediante una plataforma web, Nova Asesores busca optimizar el proceso de búsqueda, selección y contratación de especialistas, brindando a los usuarios una experiencia ágil, segura y accesible. De esta manera, se promueve una mejor toma de decisiones tanto en el ámbito personal como empresarial, sin intervenir directamente en la ejecución de las actividades del cliente.
+Mediante una plataforma web, Nova Asesors busca optimizar el proceso de búsqueda, selección y contratación de especialistas, brindando a los usuarios una experiencia ágil, segura y accesible. De esta manera, se promueve una mejor toma de decisiones tanto en el ámbito personal como empresarial, sin intervenir directamente en la ejecución de las actividades del cliente.
 
-La misión de Nova Asesores es brindar acceso eficiente y confiable a servicios de consultoría profesional mediante una plataforma digital que conecte a usuarios con expertos, contribuyendo al desarrollo de proyectos, negocios y objetivos personales.
+La misión de Nova Asesors es brindar acceso eficiente y confiable a servicios de consultoría profesional mediante una plataforma digital que conecte a usuarios con expertos, contribuyendo al desarrollo de proyectos, negocios y objetivos personales.
 
-La visión de Nova Asesores es consolidarse como una de las principales plataformas de consultoría digital en Latinoamérica, reconocida por su innovación tecnológica, calidad de servicio y confianza generada entre usuarios y profesionales afiliados.
+La visión de Nova Asesors es consolidarse como una de las principales plataformas de consultoría digital en Latinoamérica, reconocida por su innovación tecnológica, calidad de servicio y confianza generada entre usuarios y profesionales afiliados.
 
 El principal producto de la startup es FinTeka, una plataforma digital diseñada para conectar usuarios con especialistas de diversas áreas, permitiendo buscar, comparar y seleccionar profesionales de manera eficiente. Asimismo, facilita la reserva de sesiones, la gestión de agendas y la realización de pagos seguros dentro de un entorno integrado. Adicionalmente, incorpora herramientas orientadas a mejorar la interacción entre usuarios y consultores, garantizando una experiencia organizada, confiable y accesible. Su finalidad es centralizar el acceso a asesoría profesional y fortalecer la toma de decisiones mediante información especializada.
 
