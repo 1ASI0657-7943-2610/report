@@ -13,6 +13,12 @@
 6. La incorporación de herramientas como valoraciones verificadas, agenda en tiempo real y pagos integrados fortalece la confianza entre las partes y mejora la calidad del servicio ofrecido.
 
 7. FinTeka posee potencial de crecimiento en el mercado peruano y latinoamericano, considerando el avance de la digitalización y la creciente demanda por servicios profesionales remotos.
+   
+8. La estructura de la plataforma reduce drásticamente el "lead time" (tiempo desde la búsqueda hasta la sesión), lo cual es una ventaja competitiva frente a los métodos de recomendación tradicionales.
+   
+9. A diferencia de plataformas de servicios genéricos (freelance), el enfoque en "consultoría" de FinTeka permite capturar un segmento de mercado con mayor disposición de pago y necesidad de alta fidelidad.
+    
+10. La combinación de comisiones por transacción y planes premium asegura un flujo de caja diversificado que permite reinvertir en la mejora continua de la infraestructura tecnológica.
 
 # Recomendaciones
 
@@ -31,6 +37,10 @@
 7. Evaluar futuras integraciones como videollamadas, inteligencia artificial para recomendaciones personalizadas y automatización de soporte.
 
 8. Planificar una estrategia de escalabilidad tecnológica y comercial orientada inicialmente al mercado peruano y posteriormente a otros países de Latinoamérica.
+
+9. Utilizar arquitecturas de microservicios o Serverless (AWS/Azure) que permitan a la plataforma escalar automáticamente ante picos de demanda durante campañas de marketing.
+
+10. Desarrollar un sistema de referidos que incentive a los consultores a traer a su cartera de clientes actual a la plataforma, acelerando el crecimiento de la red (Efecto de Red).
 
 # Referencias Bibliográficas
 
