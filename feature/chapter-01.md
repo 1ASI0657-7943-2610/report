@@ -6,7 +6,7 @@ En la presente sección se expone información general relacionada con la startu
 
 ## 1.1.1. Descripción de la Startup
 
-Nova Asesores es una startup orientada a la consultoría digital, creada con el propósito de facilitar la conexión entre profesionales especializados y personas o empresas que requieren asesoramiento en distintas áreas. La propuesta surge ante la necesidad de contar con canales más eficientes, confiables y organizados para acceder a conocimiento experto, en un contexto donde muchos servicios de consultoría aún se gestionan de manera informal o dispersa.
+Nova Asesors es una startup orientada a la consultoría digital, creada con el propósito de facilitar la conexión entre profesionales especializados y personas o empresas que requieren asesoramiento en distintas áreas. La propuesta surge ante la necesidad de contar con canales más eficientes, confiables y organizados para acceder a conocimiento experto, en un contexto donde muchos servicios de consultoría aún se gestionan de manera informal o dispersa.
 
 Mediante una plataforma web, Nova Asesores busca optimizar el proceso de búsqueda, selección y contratación de especialistas, brindando a los usuarios una experiencia ágil, segura y accesible. De esta manera, se promueve una mejor toma de decisiones tanto en el ámbito personal como empresarial, sin intervenir directamente en la ejecución de las actividades del cliente.
 
