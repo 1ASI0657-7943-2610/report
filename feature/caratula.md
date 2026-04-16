@@ -24,6 +24,7 @@
 | U202220659 | Mamani Marca, Gabriel Cristian        |
 | U20201f846 | Oshiro Yamashita, Daiki Oscar         |
 | U202118264 | Burga Loarte, Anaely                  |
+| U202218645 | Montes Maza, Augusto Sebastian        |
 
 </div>
 
