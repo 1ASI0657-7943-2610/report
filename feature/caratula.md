@@ -911,6 +911,14 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 
 7. FinTeka posee potencial de crecimiento en el mercado peruano y latinoamericano, considerando el avance de la digitalización y la creciente demanda por servicios profesionales remotos.
 
+8. La propuesta demuestra que la integración de tecnología y enfoque centrado en el usuario permite generar soluciones más eficientes, competitivas y alineadas a las tendencias actuales del mercado digital.
+
+9. El uso de herramientas de investigación y validación contribuye a reducir la incertidumbre en el desarrollo del producto, permitiendo tomar decisiones más informadas durante las etapas iniciales.
+
+10. El proyecto evidencia la importancia del trabajo colaborativo y multidisciplinario en el desarrollo de soluciones digitales, integrando aspectos técnicos, de negocio y de experiencia de usuario.
+
+---
+
 # Recomendaciones
 
 1. Desarrollar un Producto Mínimo Viable (MVP) enfocado en las funcionalidades esenciales: registro de usuarios, búsqueda de especialistas, reservas y sistema de valoraciones.
@@ -928,6 +936,10 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 7. Evaluar futuras integraciones como videollamadas, inteligencia artificial para recomendaciones personalizadas y automatización de soporte.
 
 8. Planificar una estrategia de escalabilidad tecnológica y comercial orientada inicialmente al mercado peruano y posteriormente a otros países de Latinoamérica.
+
+9. Implementar mecanismos de retroalimentación continua que permitan recoger opiniones de los usuarios y consultores para mejorar progresivamente la plataforma.
+
+10. Considerar alianzas estratégicas con instituciones, empresas o comunidades profesionales que faciliten la expansión del servicio y aumenten la credibilidad del proyecto en el mercado.
 
 # Referencias Bibliográficas
 
