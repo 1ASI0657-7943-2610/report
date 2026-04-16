@@ -913,7 +913,7 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 
 8. La propuesta demuestra que la integración de tecnología y enfoque centrado en el usuario permite generar soluciones más eficientes, competitivas y alineadas a las tendencias actuales del mercado digital.
 
-9. El uso de herramientas de investigación y validación contribuye a reducir la incertidumbre en el desarrollo del producto, permitiendo tomar decisiones más informadas durante las etapas iniciales.
+9. El desarrollo del proyecto permitió validar la importancia de definir adecuadamente las necesidades del usuario desde etapas tempranas, lo que contribuye a reducir retrabajos y mejorar la eficiencia en la construcción de la solución.
 
 10. El proyecto evidencia la importancia del trabajo colaborativo y multidisciplinario en el desarrollo de soluciones digitales, integrando aspectos técnicos, de negocio y de experiencia de usuario.
 
