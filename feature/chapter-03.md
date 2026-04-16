@@ -110,8 +110,8 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | RNF-023 | El sistema debe realizar copias de seguridad automáticas diarias de la base de datos, con una tasa de integridad de datos del 100% en pruebas de restauración. |
 | RNF-024 | El sistema debe permitir recuperación ante fallos con tiempo máximo de recuperación de 30 minutos. |
 | RNF-025 | El sistema debe integrarse con pipelines de integración y despliegue continuo (CI/CD), con un tiempo de build y test unitario menor a 10 minutos. |
-| RNF-026 | Los documentos de credenciales deben almacenarse en un storage cifrado (AES-256) con acceso restringido y logs de visualización para auditoría. |
-| RNF-027 | La visualización de certificados validados en el perfil debe cargar en menos de 1 segundo para garantizar la fluidez en la verificación por transparencia. |
+| RNF-026 | El sistema debe proteger los documentos de los expertos en un entorno de alta seguridad, restringiendo el acceso al 100% de las personas ajenas al proceso de validación.|
+| RNF-027 | El sistema debe garantizar la visualización de certificados validados en el perfil debe cargar en menos de 1 segundo para garantizar la fluidez en la verificación por transparencia. |
 
 ### 3.2.3 User Stories
 
