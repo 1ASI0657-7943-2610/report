@@ -49,11 +49,15 @@
     <td>Burga Loarte, Anaely Zarely</td>
     <td>Desarrollo puntos 2.1, 2.3, 2.3.1 </td>
   </tr>
-  <tr>
-    <td>05/12/2026</td>
+
+   <tr>
+    <td>04/12/2026</td>
     <td>Mamani Marca, Gabriel Cristian</td>
-    <td></td>
+    <td>Desarrollo el capitulo 1 y punto 3.2 </td>
   </tr>
+
+
+
   <tr>
     <td>07/06/2026</td>
     <td>Oshiro Yamashita, Daiki Oscar</td>
