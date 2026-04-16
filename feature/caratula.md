@@ -47,7 +47,7 @@
   <tr>
     <td>04/12/2026</td>
     <td>Burga Loarte, Anaely Zarely</td>
-    <td></td>
+    <td>Desarrollo puntos 2.1, 2.3, 2.3.1 </td>
   </tr>
   <tr>
     <td>05/12/2026</td>
