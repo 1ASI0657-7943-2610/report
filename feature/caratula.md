@@ -69,6 +69,17 @@
     <td>Oshiro Yamashita, Daiki Oscar</td>
     <td>Revisión general del documento.</td>
   </tr>
+
+   <tr>
+    <td>14/04/2026</td>
+    <td>Augusto Sebastian, Montes Maza</td>
+    <td>Desarrollo de conclusiones y recomendaciones del proyecto.</td>
+  </tr>
+  <tr>
+    <td>14/04/2026</td>
+    <td>Augusto Sebastian, Montes Maza</td>
+    <td>Elaborar presentación tras revisión del documento.</td>
+  </tr>
 </table>
 
 # Contenido
