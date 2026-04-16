@@ -840,94 +840,85 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 - **PRF** = *Profile Requirements Features*: funciones relacionadas con perfiles, reputación y métricas de consultores.  
 - **RF** = *Reporting / Resource Features*: funciones complementarias como publicaciones, reportes y moderación administrativa.  
 
-|| ID | Descripción |
-|----|-------------|
-| CRRF-001 | El sistema debe verificar la disponibilidad de los consultores en tiempo real, validando que no existan conflictos de horario al momento de realizar una reserva. El intervalo solicitado no debe superponerse con otras sesiones confirmadas. En caso de conflicto, el sistema debe rechazar la reserva y sugerir horarios alternativos disponibles. |
-| CRRF-002 | El sistema debe procesar las reservas mediante un flujo transaccional que incluya validación de disponibilidad, confirmación de datos y bloqueo temporal del horario seleccionado. Si el proceso no se completa dentro del tiempo establecido, el horario debe liberarse automáticamente. |
-| CRRF-003 | El sistema debe permitir la reprogramación de sesiones conservando el historial de cambios realizados, incluyendo fecha original, nueva fecha y usuario responsable del cambio. |
-| CRRF-004 | El sistema debe gestionar la comunicación en tiempo real entre usuarios y consultores mediante mensajería instantánea, garantizando envío, recepción y almacenamiento de mensajes. |
-| CRRF-005 | El sistema debe registrar el historial completo de mensajes asociados a cada sesión, incluyendo emisor, receptor, fecha, hora y contenido. |
-| CRRF-006 | El sistema debe calcular automáticamente la calificación promedio de cada consultor a partir de las valoraciones recibidas y actualizarla inmediatamente después de cada nueva reseña. |
-| CRRF-007 | El sistema debe priorizar la visibilidad de consultores con plan premium en los resultados de búsqueda mediante reglas de ordenamiento por suscripción activa, relevancia y reputación. |
-| CRRF-008 | El sistema debe gestionar el ciclo de vida de una sesión mediante estados: pendiente, confirmada, en curso, completada y cancelada. Toda transición debe quedar registrada para auditoría. |
-| CRRF-009 | El sistema debe enviar recordatorios automáticos al usuario y consultor antes del inicio de cada sesión programada. |
-| CRRF-010 | El sistema debe registrar trazabilidad completa sobre reservas, cancelaciones, reprogramaciones y cambios de estado de sesiones. |
-| CRRF-011 | El sistema se encargará de proveer un servicio de verificación de documentos, títulos y certificaciones de los postulantes antes de habilitar su perfil en el mercado, garantizando la veracidad de la oferta.|
-| CRF-001 | El sistema debe permitir al usuario buscar especialistas por categoría, experiencia, tarifa y calificación. |
-| CRF-002 | El sistema debe actualizar dinámicamente los resultados cuando el usuario aplique filtros de búsqueda. |
-| CRF-003 | El sistema debe permitir visualizar el perfil detallado de un consultor. Si no existe, debe mostrarse un mensaje adecuado. |
-| CRF-004 | El sistema debe permitir al usuario cancelar una sesión programada conforme a las políticas definidas por la plataforma. |
-| CRF-005 | El sistema debe permitir al usuario consultar sus sesiones programadas mostrando fecha, hora, estado y consultor asociado. |
-| CRF-006 | El sistema debe permitir al usuario consultar el historial de asesorías realizadas. |
-| CRF-007 | El sistema debe permitir al usuario calificar una sesión únicamente si se encuentra en estado completada, incluyendo puntuación y comentario opcional. |
-| CRF-008 | El sistema debe permitir al usuario visualizar el detalle de una sesión específica con información completa del consultor y estado actual. |
-| CRF-009 | El sistema debe permitir al consultor definir, modificar y eliminar su disponibilidad horaria sin generar conflictos con sesiones ya reservadas. |
-| CRF-010 | El sistema debe permitir al consultor consultar sus sesiones agendadas mostrando usuario, fecha, hora y estado. |
-| CRF-011 | El sistema debe permitir consultar la lista general de especialistas mostrando nombre, especialidad, calificación promedio y tarifa por sesión. |
-| CRF-012 | El sistema debe permitir ordenar especialistas por precio, experiencia, calificación o disponibilidad. |
-| CRF-013 | El sistema debe permitir gestionar categorías de especialización utilizadas en búsquedas y filtros. |
-| IRF-001 | El sistema debe permitir el registro de nuevos usuarios mediante correo electrónico, contraseña y nombre de usuario. |
-| IRF-002 | El correo electrónico debe ser único, válido, no exceder 255 caracteres y almacenarse en minúsculas. |
-| IRF-003 | La contraseña debe tener entre 8 y 128 caracteres e incluir al menos una letra minúscula y un dígito. |
-| IRF-004 | El sistema debe permitir autenticación mediante correo electrónico y contraseña validando credenciales mediante comparación segura de hash. |
-| IRF-005 | El sistema debe generar un token de acceso y un token de actualización al iniciar sesión correctamente. |
-| IRF-006 | El sistema debe validar la vigencia, integridad y origen de los tokens utilizados en solicitudes protegidas. |
-| IRF-007 | El sistema debe permitir al usuario autenticado consultar su información básica y roles asignados. |
-| IRF-008 | El sistema debe permitir modificar contraseña y nombre de usuario previa validación de identidad. |
-| IRF-009 | El sistema debe permitir recuperación de contraseña mediante correo electrónico verificado. |
-| IRF-010 | El sistema debe implementar roles de usuario, consultor y administrador con permisos diferenciados. |
-| PRF-001 | El sistema debe permitir la creación de perfiles asociados a cuentas registradas. |
-| PRF-002 | El perfil debe incluir nombre, apellido e imagen opcional. |
-| PRF-003 | Para consultores, el sistema debe habilitar campos de especialidades, descripción profesional, experiencia y tarifa por sesión. |
-| PRF-004 | El sistema debe permitir consultar perfiles por identificador único. |
-| PRF-005 | El sistema debe permitir a los consultores actualizar su perfil profesional y reflejar cambios inmediatamente. |
-| PRF-006 | El sistema debe permitir visualizar valoraciones y comentarios públicos en el perfil del consultor. |
-| PRF-007 | El sistema debe permitir consultar historial de asesorías tanto para usuarios como consultores según permisos. |
-| PRF-008 | El sistema debe permitir a consultores visualizar métricas de desempeño como sesiones completadas, tasa de finalización, ingresos generados y reputación promedio. |
-| RF-001 | El sistema debe permitir al consultor crear publicaciones informativas en su perfil indicando título, descripción y categoría. |
-| RF-002 | El sistema debe permitir modificar publicaciones existentes registrando fecha de actualización. |
-| RF-003 | El sistema debe permitir eliminar publicaciones y retirar su visibilidad pública. |
-| RF-004 | El sistema debe permitir adjuntar imágenes o documentos a publicaciones respetando límites definidos por la plataforma. |
-| RF-005 | El sistema debe permitir al usuario visualizar publicaciones del consultor ordenadas cronológicamente. |
-| RF-006 | El sistema debe permitir al usuario acceder al detalle completo de una publicación con archivos adjuntos. |
-| RF-007 | El sistema debe permitir enviar consultas relacionadas a una publicación o servicio ofrecido por el consultor. |
-| RF-008 | El sistema debe permitir al administrador revisar reportes realizados por usuarios sobre contenido o comportamiento indebido. |
-| RF-009 | El sistema debe permitir al administrador resolver reportes aplicando acciones correctivas. |
-| RF-010 | El sistema debe permitir suspender temporal o permanentemente cuentas que incumplan políticas de uso. |
-| RF-011 | El sistema debe permitir la visibilidad los documentos y certificados validados por la empresa dentro del perfil del consultor, garantizando transparencia. |
-
+| ID        | Descripción |
+|-----------|-------------|
+| CRRF-001  | El sistema debe verificar la disponibilidad de los consultores en tiempo real, validando que no existan conflictos de horario al momento de realizar una reserva. El intervalo solicitado no debe superponerse con otras sesiones confirmadas. En caso de conflicto, el sistema debe rechazar la reserva y sugerir horarios alternativos disponibles. |
+| CRRF-002  | El sistema debe procesar las reservas mediante un flujo transaccional que incluya validación de disponibilidad, confirmación de datos y bloqueo temporal del horario seleccionado. Si el proceso no se completa dentro del tiempo establecido, el horario debe liberarse automáticamente. |
+| CRRF-003  | El sistema debe permitir la reprogramación de sesiones conservando el historial de cambios realizados, incluyendo fecha original, nueva fecha y usuario responsable del cambio. |
+| CRRF-004  | El sistema debe gestionar la comunicación en tiempo real entre usuarios y consultores mediante mensajería instantánea, garantizando envío, recepción y almacenamiento de mensajes. |
+| CRRF-005  | El sistema debe registrar el historial completo de mensajes asociados a cada sesión, incluyendo emisor, receptor, fecha, hora y contenido. |
+| CRRF-006  | El sistema debe calcular automáticamente la calificación promedio de cada consultor a partir de las valoraciones recibidas y actualizarla inmediatamente después de cada nueva reseña. |
+| CRRF-007  | El sistema debe priorizar la visibilidad de consultores con plan premium en los resultados de búsqueda mediante reglas de ordenamiento por suscripción activa, relevancia y reputación. |
+| CRRF-008  | El sistema debe gestionar el ciclo de vida de una sesión mediante estados: pendiente, confirmada, en curso, completada y cancelada. Toda transición debe quedar registrada para auditoría. |
+| CRRF-009  | El sistema debe enviar recordatorios automáticos al usuario y consultor antes del inicio de cada sesión programada. |
+| CRRF-010  | El sistema debe registrar trazabilidad completa sobre reservas, cancelaciones, reprogramaciones y cambios de estado de sesiones. |
+| CRRF-011 | El sistema debe permitir que los consultores carguen documentos, títulos, certificaciones y evidencias profesionales en su perfil, para que los usuarios interesados evalúen directamente su experiencia y capacidad antes de contratar una asesoría. |
+| CRF-001   | El sistema debe permitir al usuario buscar especialistas por categoría, experiencia, tarifa y calificación. |
+| CRF-002   | El sistema debe actualizar dinámicamente los resultados cuando el usuario aplique filtros de búsqueda. |
+| CRF-003   | El sistema debe permitir visualizar el perfil detallado de un consultor. Si no existe, debe mostrarse un mensaje adecuado. |
+| CRF-004   | El sistema debe permitir al usuario cancelar una sesión programada conforme a las políticas definidas por la plataforma. |
+| CRF-005   | El sistema debe permitir al usuario consultar sus sesiones programadas mostrando fecha, hora, estado y consultor asociado. |
+| CRF-006   | El sistema debe permitir al usuario consultar el historial de asesorías realizadas. |
+| CRF-007   | El sistema debe permitir al usuario calificar una sesión únicamente si se encuentra en estado completada, incluyendo puntuación y comentario opcional. |
+| CRF-008   | El sistema debe permitir al usuario visualizar el detalle de una sesión específica con información completa del consultor y estado actual. |
+| CRF-009   | El sistema debe permitir al consultor definir, modificar y eliminar su disponibilidad horaria sin generar conflictos con sesiones ya reservadas. |
+| CRF-010   | El sistema debe permitir al consultor consultar sus sesiones agendadas mostrando usuario, fecha, hora y estado. |
+| CRF-011   | El sistema debe permitir consultar la lista general de especialistas mostrando nombre, especialidad, calificación promedio y tarifa por sesión. |
+| CRF-012   | El sistema debe permitir ordenar especialistas por precio, experiencia, calificación o disponibilidad. |
+| CRF-013   | El sistema debe permitir gestionar categorías de especialización utilizadas en búsquedas y filtros. |
+| CRF-014 | El sistema debe permitir a los usuarios visualizar documentos, certificaciones y antecedentes profesionales compartidos voluntariamente por el consultor dentro de su perfil público. |
+| IRF-001   | El sistema debe permitir el registro de nuevos usuarios mediante correo electrónico, contraseña y nombre de usuario. |
+| IRF-002   | El correo electrónico debe ser único, válido, no exceder 255 caracteres y almacenarse en minúsculas. |
+| IRF-003   | La contraseña debe tener entre 8 y 128 caracteres e incluir al menos una letra minúscula y un dígito. |
+| IRF-004   | El sistema debe permitir autenticación mediante correo electrónico y contraseña validando credenciales mediante comparación segura de hash. |
+| IRF-005   | El sistema debe generar un token de acceso y un token de actualización al iniciar sesión correctamente. |
+| IRF-006   | El sistema debe validar la vigencia, integridad y origen de los tokens utilizados en solicitudes protegidas. |
+| IRF-007   | El sistema debe permitir al usuario autenticado consultar su información básica y roles asignados. |
+| IRF-008   | El sistema debe permitir modificar contraseña y nombre de usuario previa validación de identidad. |
+| IRF-009   | El sistema debe permitir recuperación de contraseña mediante correo electrónico verificado. |
+| IRF-010   | El sistema debe implementar roles de usuario, consultor y administrador con permisos diferenciados. |
+| PRF-001   | El sistema debe permitir la creación de perfiles asociados a cuentas registradas. |
+| PRF-002   | El perfil debe incluir nombre, apellido e imagen opcional. |
+| PRF-003   | Para consultores, el sistema debe habilitar campos de especialidades, descripción profesional, experiencia y tarifa por sesión. |
+| PRF-004   | El sistema debe permitir consultar perfiles por identificador único. |
+| PRF-005   | El sistema debe permitir a los consultores actualizar su perfil profesional y reflejar cambios inmediatamente. |
+| PRF-006   | El sistema debe permitir visualizar valoraciones y comentarios públicos en el perfil del consultor. |
+| PRF-007   | El sistema debe permitir consultar historial de asesorías tanto para usuarios como consultores según permisos. |
+| PRF-008   | El sistema debe permitir a consultores visualizar métricas de desempeño como sesiones completadas, tasa de finalización, ingresos generados y reputación promedio. |
+| RF-001    | El sistema debe permitir al consultor crear publicaciones informativas en su perfil indicando título, descripción y categoría. |
+| RF-002    | El sistema debe permitir modificar publicaciones existentes registrando fecha de actualización. |
+| RF-003    | El sistema debe permitir eliminar publicaciones y retirar su visibilidad pública. |
+| RF-004    | El sistema debe permitir adjuntar imágenes o documentos a publicaciones respetando límites definidos por la plataforma. |
+| RF-005    | El sistema debe permitir al usuario visualizar publicaciones del consultor ordenadas cronológicamente. |
+| RF-006    | El sistema debe permitir al usuario acceder al detalle completo de una publicación con archivos adjuntos. |
+| RF-007    | El sistema debe permitir enviar consultas relacionadas a una publicación o servicio ofrecido por el consultor. |
+| RF-008    | El sistema debe permitir al administrador revisar reportes realizados por usuarios sobre contenido o comportamiento indebido. |
+| RF-009    | El sistema debe permitir al administrador resolver reportes aplicando acciones correctivas. |
+| RF-010    | El sistema debe permitir suspender temporal o permanentemente cuentas que incumplan políticas de uso. |
+| RF-011    | El sistema debe permitir la visibilidad los documentos y certificados validados por la empresa dentro del perfil del consultor, garantizando transparencia. |
 
 ### 3.2.2 Requisitos no funcionales
 
 | ID | Descripción |
 |----|-------------|
-| RNF-001 | El sistema debe responder búsquedas de especialistas en un tiempo máximo de 2 segundos bajo carga normal de hasta 150 usuarios concurrentes. |
-| RNF-002 | El sistema debe procesar la creación y confirmación de reservas en menos de 3 segundos incluyendo validación y persistencia. |
-| RNF-003 | El sistema debe soportar al menos 300 usuarios concurrentes realizando operaciones simultáneas sin degradación significativa del rendimiento. |
-| RNF-004 | El sistema debe mantener disponibilidad mínima del 99.5% mensual excluyendo mantenimientos programados. |
-| RNF-005 | El sistema debe garantizar integridad de operaciones críticas mediante transacciones ACID con una tasa de éxito del 100% en commits confirmados. |
-| RNF-006 | Toda comunicación debe realizarse mediante HTTPS con TLS 1.2 o superior, rechazando conexiones inseguras. |
-| RNF-007 | Las contraseñas deben almacenarse cifradas mediante algoritmos seguros como BCrypt con un factor de costo mínimo de 10. |
-| RNF-008 | El sistema debe validar todas las entradas del usuario y rechazar datos inválidos con respuestas HTTP 400 en menos de 200 ms. |
-| RNF-009 | El sistema debe registrar logs de reservas, autenticación, errores y operaciones críticas con niveles INFO, WARN y ERROR, con retención mínima de 90 días. |
-| RNF-010 | El sistema debe utilizar PostgreSQL o equivalente como base de datos relacional principal, soportando un throughput de al menos 500 TPS. |
-| RNF-011 | El sistema debe utilizar Redis para cache y optimización de consultas frecuentes, logrando un hit rate superior al 80%. |
-| RNF-012 | El sistema debe procesar mensajería en tiempo real con latencia máxima de 500 ms en condiciones normales. |
-| RNF-013 | La API debe documentarse mediante OpenAPI 3.0 (Swagger), cubriendo el 100% de los endpoints públicos y privados. |
-| RNF-014 | El sistema debe manejar errores retornando códigos HTTP adecuados (200, 201, 400, 401, 403, 404, 500) para el 100% de las peticiones. |
-| RNF-015 | Las entidades principales deben utilizar identificadores UUID versión 4 para garantizar unicidad global sin colisiones. |
-| RNF-016 | Parámetros críticos del sistema deben configurarse mediante variables de entorno, permitiendo cambios de configuración sin recompilación del código. |
-| RNF-017 | Los perfiles de consultores deben cargar en menos de 1.5 segundos bajo carga normal. |
-| RNF-018 | El sistema debe implementar control de acceso basado en roles (RBAC), validando permisos en cada petición con una latencia menor a 50 ms. |
-| RNF-019 | El sistema debe registrar auditoría de cambios relevantes incluyendo fecha, usuario y acción realizada, con sellado de tiempo de precisión en milisegundos. |
-| RNF-020 | El sistema debe ser compatible con despliegues en contenedores Docker, con imágenes optimizadas que no excedan los 500MB. |
-| RNF-021 | El sistema debe permitir escalabilidad horizontal mediante múltiples instancias de servicios, logrando un balanceo de carga con desviación menor al 10%. |
-| RNF-022 | El sistema debe ser compatible con orquestación mediante Kubernetes, definiendo probes de Liveness y Readiness para el auto-healing. |
-| RNF-023 | El sistema debe realizar copias de seguridad automáticas diarias de la base de datos, con una tasa de integridad de datos del 100% en pruebas de restauración. |
-| RNF-024 | El sistema debe permitir recuperación ante fallos con tiempo máximo de recuperación de 30 minutos. |
-| RNF-025 | El sistema debe integrarse con pipelines de integración y despliegue continuo (CI/CD), con un tiempo de build y test unitario menor a 10 minutos. |
-| RNF-026 | El sistema debe proteger los documentos de los expertos en un entorno de alta seguridad, restringiendo el acceso al 100% de las personas ajenas al proceso de validación.|
-| RNF-027 | El sistema debe garantizar la visualización de certificados validados en el perfil debe cargar en menos de 1 segundo para garantizar la fluidez en la verificación por transparencia. |
+| RNF-001 | El sistema debe responder búsquedas de especialistas en un tiempo máximo de **2 segundos** para el 95% de solicitudes bajo una carga normal de hasta 150 usuarios concurrentes. |
+| RNF-002 | El sistema debe procesar la creación y confirmación de reservas en un tiempo máximo de **3 segundos** para el 95% de transacciones. |
+| RNF-003 | Toda comunicación entre cliente y servidor debe realizarse mediante **HTTPS con TLS 1.2 o superior**. |
+| RNF-004 | Las contraseñas de los usuarios deben almacenarse utilizando algoritmos seguros como **BCrypt** con factor de costo mínimo de 10. |
+| RNF-005 | El sistema debe validar el 100% de entradas del usuario y rechazar datos inválidos con respuestas **HTTP 400** en menos de 200 ms. |
+| RNF-006 | La API REST debe documentarse mediante **OpenAPI 3.0 / Swagger**, cubriendo el 100% de endpoints públicos y privados. |
+| RNF-007 | El sistema debe manejar errores devolviendo códigos HTTP adecuados (**200, 201, 400, 401, 403, 404, 500**) en el 100% de solicitudes procesadas. |
+| RNF-008 | Las entidades principales del sistema deben utilizar identificadores **UUID versión 4** para garantizar unicidad global. |
+| RNF-009 | Los parámetros críticos del sistema (credenciales, claves, tokens, conexiones) deben configurarse mediante **variables de entorno**. |
+| RNF-010 | Los perfiles públicos de consultores deben cargar en un tiempo máximo de **1.5 segundos** para el 95% de solicitudes bajo carga normal. |
+| RNF-011 | El sistema debe implementar control de acceso basado en roles (**RBAC**), validando permisos en cada solicitud protegida con una latencia menor a **50 ms**. |
+| RNF-012 | El sistema debe registrar logs de autenticación, reservas, errores y operaciones críticas con niveles **INFO, WARN y ERROR**, conservando la información por un mínimo de **90 días**. |
+| RNF-013 | El sistema debe ser compatible con despliegues en **Docker**, utilizando imágenes optimizadas cuyo tamaño no exceda los **500 MB**. |
+| RNF-014 | La interfaz web debe ser compatible con las versiones vigentes de **Google Chrome, Mozilla Firefox, Microsoft Edge y Safari**. |
+| RNF-015 | El sistema debe contar con diseño **responsive**, compatible con dispositivos móviles, tabletas y escritorio en resoluciones desde **360 px hasta 1920 px**. |
+| RNF-016 | El sistema debe expirar sesiones inactivas de usuario luego de **30 minutos** sin actividad autenticada. |
+| RNF-017 | El sistema debe bloquear automáticamente una cuenta luego de **5 intentos fallidos consecutivos** de inicio de sesión durante un periodo de **15 minutos**. |
+| RNF-018 | El sistema debe permitir recuperación de contraseña mediante correo electrónico verificado con enlace temporal de validez máxima de **15 minutos**. |
 
 ### 3.2.3 User Stories
 
