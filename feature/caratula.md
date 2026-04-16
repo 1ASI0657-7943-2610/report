@@ -153,13 +153,13 @@ En la presente sección se expone información general relacionada con la startu
 
 Nova Asesors es una startup orientada a la consultoría digital, creada con el propósito de facilitar la conexión entre profesionales especializados y personas o empresas que requieren asesoramiento en distintas áreas. La propuesta surge ante la necesidad de contar con canales más eficientes, confiables y organizados para acceder a conocimiento experto, en un contexto donde muchos servicios de consultoría aún se gestionan de manera informal o dispersa.
 
-Mediante una plataforma web, Nova Asesors busca optimizar el proceso de búsqueda, selección y contratación de especialistas, brindando a los usuarios una experiencia ágil, segura y accesible. De esta manera, se promueve una mejor toma de decisiones tanto en el ámbito personal como empresarial, sin intervenir directamente en la ejecución de las actividades del cliente.
+Mediante una plataforma web, Nova Asesors busca optimizar el proceso de búsqueda y selección de especialistas, brindando a los usuarios una experiencia ágil, segura y accesible. De esta manera, se promueve una mejor toma de decisiones tanto en el ámbito personal como empresarial, sin intervenir directamente en la ejecución de las actividades del cliente.
 
 La misión de Nova Asesors es brindar acceso eficiente y confiable a servicios de consultoría profesional mediante una plataforma digital que conecte a usuarios con expertos, contribuyendo al desarrollo de proyectos, negocios y objetivos personales.
 
 La visión de Nova Asesors es consolidarse como una de las principales plataformas de consultoría digital en Latinoamérica, reconocida por su innovación tecnológica, calidad de servicio y confianza generada entre usuarios y profesionales afiliados.
 
-El principal producto de la startup es FinTeka, una plataforma digital diseñada para conectar usuarios con especialistas de diversas áreas, permitiendo buscar, comparar y seleccionar profesionales de manera eficiente. Asimismo, facilita la reserva de sesiones, la gestión de agendas y la realización de pagos seguros dentro de un entorno integrado. Adicionalmente, incorpora herramientas orientadas a mejorar la interacción entre usuarios y consultores, garantizando una experiencia organizada, confiable y accesible. Su finalidad es centralizar el acceso a asesoría profesional y fortalecer la toma de decisiones mediante información especializada.
+El principal producto de la startup es **FinTeka**, una plataforma digital que conecta usuarios con especialistas de diversas áreas, permitiendo buscar, comparar y contactar profesionales de manera eficiente. Asimismo, facilita reservas, gestión de agendas y comunicación dentro de un entorno integrado. FinTeka funciona como un **medio de intermediación** y **postulación**, **no de contratación directa**, brindando el espacio para que ambas partes se conecten de forma independiente. Su finalidad es centralizar el acceso a asesoría profesional de manera organizada y confiable.
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
@@ -177,9 +177,9 @@ El principal producto de la startup es FinTeka, una plataforma digital diseñada
 
 **Descripción del producto:** 
 
-FinTeka es una plataforma web orientada a facilitar el acceso a servicios de asesoría profesional especializada, conectando a usuarios con expertos de diversas áreas de manera rápida, segura y eficiente. La propuesta busca centralizar en un solo entorno digital los principales procesos relacionados con la contratación de consultorías, reduciendo la informalidad y mejorando la experiencia del usuario.
+FinTeka es una plataforma web orientada a facilitar el acceso a servicios de asesoría profesional especializada, conectando a usuarios con expertos de diversas áreas de manera rápida, segura y eficiente. La propuesta busca centralizar en un solo entorno digital los principales procesos relacionados con la **postulación**, reduciendo la informalidad y mejorando la experiencia del usuario.
 
-La plataforma permite buscar, comparar y seleccionar especialistas de acuerdo con criterios como categoría, experiencia, disponibilidad y valoraciones previas. Asimismo, ofrece herramientas para reservar sesiones, gestionar pagos y realizar seguimiento de las asesorías contratadas.
+La plataforma permite buscar, comparar y seleccionar especialistas de acuerdo con criterios como categoría, experiencia, disponibilidad y valoraciones previas. Asimismo, ofrece herramientas para reservar sesiones, gestionar pagos y realizar seguimiento de las asesorías.
 
 Del mismo modo, FinTeka incorpora funcionalidades que benefician tanto a los usuarios como a los consultores, tales como gestión de agendas en tiempo real, historial de sesiones, canales de comunicación directa y sistemas de reputación basados en calificaciones. En conjunto, estas características contribuyen a fortalecer la confianza, la organización y la calidad del servicio ofrecido.
 
@@ -213,7 +213,7 @@ En el contexto peruano, el acceso progresivo a internet y el mayor uso de dispos
 
 No obstante, una parte importante de estos servicios continúa ofreciéndose mediante canales informales, como redes sociales, mensajería instantánea o recomendaciones personales. Esta situación dificulta la comparación entre alternativas disponibles, reduce la transparencia en precios y experiencia profesional, y limita la confianza entre las partes involucradas.
 
-En ese sentido, surge la necesidad de implementar plataformas digitales que centralicen la oferta de asesoría profesional, optimicen los procesos de contacto y contratación, y brinden mayores garantías de seguridad, organización y calidad en el servicio.
+En ese sentido, surge la necesidad de implementar plataformas digitales que centralicen la oferta de asesoría profesional, optimicen los procesos de contacto y postulación, y brinden mayores garantías de seguridad, organización y calidad en el servicio.
 
 **Problemáticas:**
 
@@ -223,7 +223,7 @@ Asimismo, los profesionales independientes no siempre disponen de herramientas t
 
 De igual manera, la ausencia de sistemas integrados para programar sesiones, procesar pagos y registrar valoraciones genera experiencias poco eficientes tanto para usuarios como para consultores. Esto limita la confianza, disminuye la continuidad del servicio y afecta la percepción de calidad.
 
-Frente a esta situación, resulta pertinente el desarrollo de una solución digital que centralice la interacción entre usuarios y especialistas, simplifique los procesos operativos y fortalezca la transparencia en la contratación de servicios profesionales.
+Frente a esta situación, resulta pertinente el desarrollo de una solución digital que centralice la interacción entre usuarios y especialistas, simplifique los procesos operativos y fortalezca la transparencia en la postulación de servicios profesionales.
 
 **Aplicación de la técnica 5W y 2H:**
 
@@ -248,7 +248,7 @@ La situación se origina por la falta de herramientas integrales que centralicen
 FinTeka propone una plataforma web que integra búsqueda de expertos, perfiles profesionales, reservas, pagos seguros, comunicación directa y sistemas de valoración.
 
 **How Much (Cuánto impacto)**  
-La solución puede beneficiar a personas naturales, emprendedores, pequeñas empresas y consultores independientes, incrementando la eficiencia en la contratación de asesorías y ampliando el acceso a servicios especializados.
+La solución puede beneficiar a personas naturales, emprendedores, pequeñas empresas y consultores independientes, incrementando la eficiencia en la postulación de asesorías y ampliando el acceso a servicios especializados.
 
 ### 1.2.2 Lean UX Process
 
@@ -260,11 +260,11 @@ Esta situación genera demoras en la selección del profesional adecuado, escasa
 
 Por otro lado, los profesionales independientes carecen, en muchos casos, de herramientas digitales que les permitan organizar su disponibilidad, administrar reservas, fortalecer su reputación y ampliar su alcance comercial. Esto restringe sus oportunidades de crecimiento y formalización en entornos digitales.
 
-Frente a esta problemática, FinTeka propone el desarrollo de una plataforma digital orientada a centralizar la relación entre usuarios y consultores, simplificando los procesos de búsqueda, contratación y seguimiento del servicio. La propuesta busca validar inicialmente el interés del mercado y, posteriormente, consolidar una solución integral que genere valor para ambas partes.
+Frente a esta problemática, FinTeka propone el desarrollo de una plataforma digital orientada a centralizar la relación entre usuarios y consultores, simplificando los procesos de **búsqueda, postulación y seguimiento** del servicio. La propuesta busca validar inicialmente el interés del mercado y, posteriormente, consolidar una solución integral que genere valor para ambas partes.
 
 El principal reto consiste en construir una plataforma que transmita confianza, facilidad de uso, seguridad operativa y calidad en la experiencia ofrecida.
 
-¿Cómo podríamos diseñar una plataforma digital confiable, eficiente e intuitiva que conecte a usuarios con especialistas profesionales, mejorando la experiencia de contratación y generando valor sostenible para clientes y consultores?
+¿Cómo podríamos diseñar una plataforma digital confiable, eficiente e intuitiva que conecte a usuarios con especialistas profesionales, mejorando la experiencia de postulación y generando valor sostenible para clientes y consultores?
 
 #### 1.2.2.2 Lean UX Assumptions
 
@@ -272,8 +272,8 @@ Con el fin de validar la propuesta de valor de FinTeka, se identificaron los pri
 
 ### Business Assumptions
 
-- Existe una demanda creciente por servicios de asesoría profesional contratados mediante canales digitales.
-- Los usuarios valoran plataformas que ofrezcan rapidez, seguridad y transparencia durante el proceso de contratación.
+- Existe una demanda creciente por servicios de asesoría profesional postulados mediante canales digitales.
+- Los usuarios valoran plataformas que ofrezcan rapidez, seguridad y transparencia durante el proceso de postulación.
 - Los consultores independientes están dispuestos a utilizar herramientas digitales para captar clientes y gestionar sus servicios.
 - Un modelo basado en comisión por sesión y planes premium resulta viable para monetizar la plataforma.
 - Las redes sociales y recomendaciones personales constituyen la principal competencia indirecta.
@@ -293,7 +293,7 @@ Con el fin de validar la propuesta de valor de FinTeka, se identificaron los pri
 
 - Los usuarios tomarán decisiones mejor informadas al contar con perfiles verificables y valoraciones visibles.
 - El tiempo necesario para encontrar y contactar asesoría se reducirá significativamente.
-- Los clientes percibirán mayor seguridad en pagos y contratación.
+- Los clientes percibirán mayor seguridad en pagos y postulación.
 - Los consultores incrementarán su visibilidad y acceso a nuevos clientes.
 - Ambas partes mejorarán la organización y seguimiento de sesiones programadas.
 
@@ -326,11 +326,11 @@ Con el fin de validar la propuesta de valor de FinTeka, se identificaron los pri
 
 ##### Hipótesis 1
 
-Creemos que, si se implementa una plataforma digital que centralice la búsqueda y contratación de especialistas, los usuarios podrán acceder a asesoría profesional de manera más rápida, segura y ordenada. Esto se validará cuando aumente la cantidad de reservas completadas y disminuya el tiempo promedio entre la búsqueda inicial y la contratación del servicio.
+Creemos que, si se implementa una plataforma digital que centralice la búsqueda y postulación de especialistas, los usuarios podrán acceder a asesoría profesional de manera más rápida, segura y ordenada. Esto se validará cuando aumente la cantidad de reservas completadas y disminuya el tiempo promedio entre la búsqueda inicial y la contratación del servicio.
 
 - **Business Outcome:** Incremento en la cantidad de sesiones reservadas y en la tasa de conversión de usuarios registrados.  
 - **Users:** Personas naturales, emprendedores y pequeñas empresas que requieren asesoría especializada.  
-- **User Outcome:** Acceso eficiente a especialistas confiables y mejora en la experiencia de contratación.  
+- **User Outcome:** Acceso eficiente a especialistas confiables y mejora en la experiencia de postulación.  
 - **Feature:** Buscador por categorías, perfiles profesionales, sistema de reservas y pagos integrados.
 
 ##### Hipótesis 2
@@ -344,7 +344,7 @@ Creemos que, si se brindan herramientas de gestión para agenda, servicios y cli
 
 ##### Hipótesis 3
 
-Creemos que, si se incorpora un sistema de valoraciones y reseñas verificadas, aumentará la confianza de los usuarios al momento de seleccionar especialistas. Esto se validará cuando mejore la tasa de contratación desde perfiles visitados y aumente la recurrencia de uso.
+Creemos que, si se incorpora un sistema de valoraciones y reseñas verificadas, aumentará la confianza de los usuarios al momento de seleccionar especialistas. Esto se validará cuando mejore la tasa de postulación desde perfiles visitados y aumente la recurrencia de uso.
 
 - **Business Outcome:** Incremento en la conversión de visitas a reservas y mejora en la retención de usuarios.  
 - **Users:** Usuarios que buscan asesoría y consultores que ofrecen sus servicios.  
@@ -365,7 +365,7 @@ Creemos que, si se habilitan canales de comunicación directa y seguimiento post
 Creemos que, si se ofrecen pagos seguros e integrados dentro de la plataforma, los usuarios percibirán mayor confianza y comodidad al contactar servicios profesionales. Esto se validará cuando disminuya el abandono en el proceso de pago y aumente el porcentaje de transacciones completadas.
 
 - **Business Outcome:** Incremento de ingresos por comisiones y reducción de transacciones inconclusas.  
-- **Users:** Usuarios contratantes y consultores afiliados.  
+- **Users:** Usuarios postulantes y consultores afiliados.  
 - **User Outcome:** Proceso de pago simple, seguro y confiable.  
 - **Feature:** Pasarela de pago integrada, comprobantes automáticos y confirmación inmediata de reservas.
 
@@ -379,7 +379,7 @@ Tablero Miro: https://miro.com/app/board/uXjVGhydm8Q=/?share_link_id=94142172121
 
 - **Business Problem:** dificultad para acceder a asesoría profesional confiable mediante canales digitales organizados.
 - **Users and Customers:** personas que requieren asesoría especializada y consultores independientes.
-- **User Benefits:** rapidez, confianza, transparencia, acceso a especialistas y facilidad de contratación.
+- **User Benefits:** rapidez, confianza, transparencia, acceso a especialistas y facilidad de contacto.
 - **Solution Ideas:** buscador de expertos, reservas online, pagos seguros, valoraciones y panel de gestión.
 - **Hypotheses:** los usuarios contactarán más asesorías si existe confianza, facilidad de uso y especialistas verificados.
 - **Most Important Thing to Learn First:** validar si los usuarios realmente pagarían por asesoría digital en una plataforma centralizada.
