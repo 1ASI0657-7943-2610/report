@@ -898,49 +898,31 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 
 # Conclusiones
 
-1. El análisis desarrollado evidencia que existe una necesidad creciente de contar con plataformas digitales que conecten a usuarios con especialistas confiables de manera rápida, segura y organizada, especialmente en mercados donde la oferta de asesorías aún se encuentra fragmentada.
-
-2. FinTeka representa una propuesta viable e innovadora al centralizar procesos clave como búsqueda de consultores, reservas, pagos, comunicación y reputación profesional dentro de un solo entorno digital.
-
-3. La aplicación de metodologías Lean UX permitió identificar de forma temprana las necesidades reales de los usuarios, los principales riesgos del negocio y las funcionalidades con mayor valor para el mercado objetivo.
-
-4. La definición de requisitos funcionales y no funcionales contribuye a establecer una base sólida para el desarrollo del producto, asegurando escalabilidad, seguridad, rendimiento y una experiencia de usuario satisfactoria.
-
-5. El modelo de negocio planteado beneficia tanto a usuarios que requieren asesoría especializada como a consultores independientes que buscan ampliar su alcance comercial y profesionalizar la gestión de sus servicios.
-
-6. La incorporación de herramientas como valoraciones verificadas, agenda en tiempo real y pagos integrados fortalece la confianza entre las partes y mejora la calidad del servicio ofrecido.
-
-7. FinTeka posee potencial de crecimiento en el mercado peruano y latinoamericano, considerando el avance de la digitalización y la creciente demanda por servicios profesionales remotos.
-
-8. La propuesta demuestra que la integración de tecnología y enfoque centrado en el usuario permite generar soluciones más eficientes, competitivas y alineadas a las tendencias actuales del mercado digital.
-
-9. El desarrollo del proyecto permitió validar la importancia de definir adecuadamente las necesidades del usuario desde etapas tempranas, lo que contribuye a reducir retrabajos y mejorar la eficiencia en la construcción de la solución.
-
-10. El proyecto evidencia la importancia del trabajo colaborativo y multidisciplinario en el desarrollo de soluciones digitales, integrando aspectos técnicos, de negocio y de experiencia de usuario.
+- La investigación inicial permitió identificar que muchas personas y empresas presentan dificultades para acceder a asesoría profesional confiable debido a la fragmentación de la oferta y al uso de canales informales.
+- El análisis del contexto digital evidenció una oportunidad de negocio relacionada con el crecimiento del uso de plataformas tecnológicas para contratar servicios profesionales especializados.
+- FinTeka se plantea como una solución viable al centralizar procesos como búsqueda de especialistas, reservas, pagos seguros, comunicación directa y reputación profesional en un solo entorno digital.
+- La definición clara de segmentos objetivo permitió reconocer dos actores principales del ecosistema: usuarios que buscan asesoría y consultores que desean captar clientes y gestionar sus servicios.
+- La aplicación de Lean UX facilitó validar supuestos de negocio, identificar riesgos tempranos y orientar el desarrollo hacia funcionalidades de mayor valor para el mercado.
+- El proceso de Needfinding permitió comprender necesidades reales, motivaciones, comportamientos y puntos de dolor mediante herramientas centradas en el usuario.
+- Los artefactos desarrollados, como User Personas, User Journey Mapping, Empathy Mapping y Scenario Mapping, contribuyeron a diseñar una experiencia alineada con las expectativas de los usuarios.
+- El análisis competitivo demostró que existen plataformas internacionales posicionadas, pero también oportunidades de diferenciación para una propuesta enfocada en el mercado peruano y latinoamericano.
+- La especificación de requisitos funcionales, no funcionales, historias de usuario e impact mapping proporciona una base sólida para el desarrollo técnico y la planificación del producto.
+- FinTeka posee potencial de crecimiento sostenible gracias al avance de la digitalización, el aumento del trabajo remoto y la creciente demanda por asesorías profesionales en línea.
 
 ---
 
 # Recomendaciones
 
-1. Desarrollar un Producto Mínimo Viable (MVP) enfocado en las funcionalidades esenciales: registro de usuarios, búsqueda de especialistas, reservas y sistema de valoraciones.
-
-2. Realizar pruebas de usabilidad con usuarios reales para validar la facilidad de uso de la plataforma e identificar oportunidades de mejora antes del lanzamiento oficial.
-
-3. Implementar altos estándares de seguridad en autenticación, protección de datos personales y procesamiento de pagos para generar confianza en los usuarios.
-
-4. Diseñar una estrategia de captación inicial de consultores calificados que permita ofrecer variedad de categorías y disponibilidad desde las primeras etapas del producto.
-
-5. Integrar herramientas analíticas que permitan medir conversión, retención, satisfacción del usuario y comportamiento dentro de la plataforma para tomar decisiones basadas en datos.
-
-6. Establecer políticas claras de calidad, reputación y atención al cliente para mantener un ecosistema confiable y profesional.
-
-7. Evaluar futuras integraciones como videollamadas, inteligencia artificial para recomendaciones personalizadas y automatización de soporte.
-
-8. Planificar una estrategia de escalabilidad tecnológica y comercial orientada inicialmente al mercado peruano y posteriormente a otros países de Latinoamérica.
-
-9. Implementar mecanismos de retroalimentación continua que permitan recoger opiniones de los usuarios y consultores para mejorar progresivamente la plataforma.
-
-10. Considerar alianzas estratégicas con instituciones, empresas o comunidades profesionales que faciliten la expansión del servicio y aumenten la credibilidad del proyecto en el mercado.
+- Validar continuamente la propuesta de valor mediante entrevistas, encuestas y pruebas con usuarios reales durante las primeras etapas del proyecto.
+- Desarrollar un Producto Mínimo Viable (MVP) enfocado en funciones esenciales como registro, búsqueda de especialistas, reservas y sistema de valoraciones.
+- Diseñar la plataforma considerando una experiencia intuitiva, rápida y adaptable tanto para usuarios como para consultores.
+- Mantener actualizados los perfiles profesionales con información clara sobre experiencia, tarifas, disponibilidad y reputación.
+- Aplicar metodologías centradas en el usuario de forma continua para detectar mejoras en navegación, procesos y satisfacción general.
+- Implementar estrategias competitivas de diferenciación basadas en confianza, verificación de expertos y enfoque especializado en mercados locales.
+- Establecer una arquitectura técnica robusta que contemple seguridad, rendimiento, disponibilidad y escalabilidad desde el inicio.
+- Priorizar el desarrollo de requisitos críticos como autenticación segura, pagos integrados, reservas en tiempo real y mensajería interna.
+- Gestionar el Product Backlog con metodologías ágiles, priorizando funcionalidades según valor de negocio y retroalimentación de usuarios.
+- Planificar una estrategia de expansión progresiva, iniciando en el mercado peruano y escalando posteriormente hacia otros países de Latinoamérica.
 
 # Referencias Bibliográficas
 
