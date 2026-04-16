@@ -89,27 +89,29 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | RNF-002 | El sistema debe procesar la creación y confirmación de reservas en menos de 3 segundos incluyendo validación y persistencia. |
 | RNF-003 | El sistema debe soportar al menos 300 usuarios concurrentes realizando operaciones simultáneas sin degradación significativa del rendimiento. |
 | RNF-004 | El sistema debe mantener disponibilidad mínima del 99.5% mensual excluyendo mantenimientos programados. |
-| RNF-005 | El sistema debe garantizar integridad de operaciones críticas mediante transacciones ACID. |
-| RNF-006 | Toda comunicación debe realizarse mediante HTTPS con TLS 1.2 o superior. |
-| RNF-007 | Las contraseñas deben almacenarse cifradas mediante algoritmos seguros como BCrypt. |
-| RNF-008 | El sistema debe validar todas las entradas del usuario y rechazar datos inválidos con respuestas HTTP 400. |
-| RNF-009 | El sistema debe registrar logs de reservas, autenticación, errores y operaciones críticas con niveles INFO, WARN y ERROR. |
-| RNF-010 | El sistema debe utilizar PostgreSQL o equivalente como base de datos relacional principal. |
-| RNF-011 | El sistema debe utilizar Redis para cache y optimización de consultas frecuentes. |
+| RNF-005 | El sistema debe garantizar integridad de operaciones críticas mediante transacciones ACID con una tasa de éxito del 100% en commits confirmados. |
+| RNF-006 | Toda comunicación debe realizarse mediante HTTPS con TLS 1.2 o superior, rechazando conexiones inseguras. |
+| RNF-007 | Las contraseñas deben almacenarse cifradas mediante algoritmos seguros como BCrypt con un factor de costo mínimo de 10. |
+| RNF-008 | El sistema debe validar todas las entradas del usuario y rechazar datos inválidos con respuestas HTTP 400 en menos de 200 ms. |
+| RNF-009 | El sistema debe registrar logs de reservas, autenticación, errores y operaciones críticas con niveles INFO, WARN y ERROR, con retención mínima de 90 días. |
+| RNF-010 | El sistema debe utilizar PostgreSQL o equivalente como base de datos relacional principal, soportando un throughput de al menos 500 TPS. |
+| RNF-011 | El sistema debe utilizar Redis para cache y optimización de consultas frecuentes, logrando un hit rate superior al 80%. |
 | RNF-012 | El sistema debe procesar mensajería en tiempo real con latencia máxima de 500 ms en condiciones normales. |
-| RNF-013 | La API debe documentarse mediante OpenAPI 3.0 (Swagger). |
-| RNF-014 | El sistema debe manejar errores retornando códigos HTTP adecuados (200, 201, 400, 401, 403, 404, 500). |
-| RNF-015 | Las entidades principales deben utilizar identificadores UUID versión 4. |
-| RNF-016 | Parámetros críticos del sistema deben configurarse mediante variables de entorno. |
+| RNF-013 | La API debe documentarse mediante OpenAPI 3.0 (Swagger), cubriendo el 100% de los endpoints públicos y privados. |
+| RNF-014 | El sistema debe manejar errores retornando códigos HTTP adecuados (200, 201, 400, 401, 403, 404, 500) para el 100% de las peticiones. |
+| RNF-015 | Las entidades principales deben utilizar identificadores UUID versión 4 para garantizar unicidad global sin colisiones. |
+| RNF-016 | Parámetros críticos del sistema deben configurarse mediante variables de entorno, permitiendo cambios de configuración sin recompilación del código. |
 | RNF-017 | Los perfiles de consultores deben cargar en menos de 1.5 segundos bajo carga normal. |
-| RNF-018 | El sistema debe implementar control de acceso basado en roles (RBAC). |
-| RNF-019 | El sistema debe registrar auditoría de cambios relevantes incluyendo fecha, usuario y acción realizada. |
-| RNF-020 | El sistema debe ser compatible con despliegues en contenedores Docker. |
-| RNF-021 | El sistema debe permitir escalabilidad horizontal mediante múltiples instancias de servicios. |
-| RNF-022 | El sistema debe ser compatible con orquestación mediante Kubernetes. |
-| RNF-023 | El sistema debe realizar copias de seguridad automáticas diarias de la base de datos. |
+| RNF-018 | El sistema debe implementar control de acceso basado en roles (RBAC), validando permisos en cada petición con una latencia menor a 50 ms. |
+| RNF-019 | El sistema debe registrar auditoría de cambios relevantes incluyendo fecha, usuario y acción realizada, con sellado de tiempo de precisión en milisegundos. |
+| RNF-020 | El sistema debe ser compatible con despliegues en contenedores Docker, con imágenes optimizadas que no excedan los 500MB. |
+| RNF-021 | El sistema debe permitir escalabilidad horizontal mediante múltiples instancias de servicios, logrando un balanceo de carga con desviación menor al 10%. |
+| RNF-022 | El sistema debe ser compatible con orquestación mediante Kubernetes, definiendo probes de Liveness y Readiness para el auto-healing. |
+| RNF-023 | El sistema debe realizar copias de seguridad automáticas diarias de la base de datos, con una tasa de integridad de datos del 100% en pruebas de restauración. |
 | RNF-024 | El sistema debe permitir recuperación ante fallos con tiempo máximo de recuperación de 30 minutos. |
-| RNF-025 | El sistema debe integrarse con pipelines de integración y despliegue continuo (CI/CD). |
+| RNF-025 | El sistema debe integrarse con pipelines de integración y despliegue continuo (CI/CD), con un tiempo de build y test unitario menor a 10 minutos. |
+| RNF-026 | Los documentos de credenciales deben almacenarse en un storage cifrado (AES-256) con acceso restringido y logs de visualización para auditoría. |
+| RNF-027 | La visualización de certificados validados en el perfil debe cargar en menos de 1 segundo para garantizar la fluidez en la verificación por transparencia. |
 
 ### 3.2.3 User Stories
 
