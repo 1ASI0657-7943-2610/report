@@ -11,8 +11,8 @@
 ### Profesor: Ernesto Ocampo Tello
 ## Informe de TB1
 
-## Startup: 
-## Producto: MealFlow 
+## Startup: Finteka
+## Producto: Nova Asesors
 
 ### Relación de integrantes:
 
