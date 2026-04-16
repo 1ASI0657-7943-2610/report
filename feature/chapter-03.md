@@ -36,6 +36,7 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | CRRF-008 | El sistema debe gestionar el ciclo de vida de una sesión mediante estados: pendiente, confirmada, en curso, completada y cancelada. Toda transición debe quedar registrada para auditoría. |
 | CRRF-009 | El sistema debe enviar recordatorios automáticos al usuario y consultor antes del inicio de cada sesión programada. |
 | CRRF-010 | El sistema debe registrar trazabilidad completa sobre reservas, cancelaciones, reprogramaciones y cambios de estado de sesiones. |
+| CRRF-011 | El sistema se encargará de proveer un servicio de verificación de documentos, títulos y certificaciones de los postulantes antes de habilitar su perfil en el mercado, garantizando la veracidad de la oferta.|
 | CRF-001 | El sistema debe permitir al usuario buscar especialistas por categoría, experiencia, tarifa y calificación. |
 | CRF-002 | El sistema debe actualizar dinámicamente los resultados cuando el usuario aplique filtros de búsqueda. |
 | CRF-003 | El sistema debe permitir visualizar el perfil detallado de un consultor. Si no existe, debe mostrarse un mensaje adecuado. |
@@ -77,6 +78,8 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | RF-008 | El sistema debe permitir al administrador revisar reportes realizados por usuarios sobre contenido o comportamiento indebido. |
 | RF-009 | El sistema debe permitir al administrador resolver reportes aplicando acciones correctivas. |
 | RF-010 | El sistema debe permitir suspender temporal o permanentemente cuentas que incumplan políticas de uso. |
+| RF-011 | El sistema debe permitir la visibilidad los documentos y certificados validados por la empresa dentro del perfil del consultor, garantizando transparencia. |
+
 
 ### 3.2.2 Requisitos no funcionales
 
