@@ -283,7 +283,7 @@ Con el fin de validar la propuesta de valor de FinTeka, se identificaron los pri
 ### User Assumptions
 
 - Los usuarios necesitan encontrar especialistas confiables sin invertir tiempo excesivo en búsquedas informales.
-- Las personas comparan experiencia, precio, disponibilidad y valoraciones antes de contratar un servicio.
+- Las personas comparan experiencia, precio, disponibilidad y valoraciones antes de postular a un servicio.
 - Los usuarios prefieren procesos simples de reserva y pago desde un solo entorno digital.
 - Los consultores requieren herramientas para administrar agenda, reservas y reputación profesional.
 - Tanto clientes como especialistas valoran una comunicación clara y ordenada.
@@ -292,7 +292,7 @@ Con el fin de validar la propuesta de valor de FinTeka, se identificaron los pri
 ### User Outcomes
 
 - Los usuarios tomarán decisiones mejor informadas al contar con perfiles verificables y valoraciones visibles.
-- El tiempo necesario para encontrar y contratar asesoría se reducirá significativamente.
+- El tiempo necesario para encontrar y contactar asesoría se reducirá significativamente.
 - Los clientes percibirán mayor seguridad en pagos y contratación.
 - Los consultores incrementarán su visibilidad y acceso a nuevos clientes.
 - Ambas partes mejorarán la organización y seguimiento de sesiones programadas.
@@ -362,7 +362,7 @@ Creemos que, si se habilitan canales de comunicación directa y seguimiento post
 
 ##### Hipótesis 5
 
-Creemos que, si se ofrecen pagos seguros e integrados dentro de la plataforma, los usuarios percibirán mayor confianza y comodidad al contratar servicios profesionales. Esto se validará cuando disminuya el abandono en el proceso de pago y aumente el porcentaje de transacciones completadas.
+Creemos que, si se ofrecen pagos seguros e integrados dentro de la plataforma, los usuarios percibirán mayor confianza y comodidad al contactar servicios profesionales. Esto se validará cuando disminuya el abandono en el proceso de pago y aumente el porcentaje de transacciones completadas.
 
 - **Business Outcome:** Incremento de ingresos por comisiones y reducción de transacciones inconclusas.  
 - **Users:** Usuarios contratantes y consultores afiliados.  
@@ -381,7 +381,7 @@ Tablero Miro: https://miro.com/app/board/uXjVGhydm8Q=/?share_link_id=94142172121
 - **Users and Customers:** personas que requieren asesoría especializada y consultores independientes.
 - **User Benefits:** rapidez, confianza, transparencia, acceso a especialistas y facilidad de contratación.
 - **Solution Ideas:** buscador de expertos, reservas online, pagos seguros, valoraciones y panel de gestión.
-- **Hypotheses:** los usuarios contratarán más asesorías si existe confianza, facilidad de uso y especialistas verificados.
+- **Hypotheses:** los usuarios contactarán más asesorías si existe confianza, facilidad de uso y especialistas verificados.
 - **Most Important Thing to Learn First:** validar si los usuarios realmente pagarían por asesoría digital en una plataforma centralizada.
 - **Least Amount of Work to Learn:** landing page, entrevistas, prototipo navegable y pruebas con usuarios iniciales.
 - **Business Outcomes:** crecimiento de usuarios registrados, reservas completadas, retención y satisfacción.
@@ -730,7 +730,7 @@ A continuación, se presentan las fichas de **User Personas** elaboradas a parti
 
 ![User Persona 1](https://raw.githubusercontent.com/1ASI0657-7943-2610/report/feature/chapter-02/assets/userpersona1.png)
 
-Este perfil representa a los usuarios que buscan contratar servicios de asesoría o apoyo profesional de manera rápida, confiable y personalizada. Generalmente, son personas que valoran la eficiencia, la facilidad de uso de la plataforma y la seguridad al momento de seleccionar a un experto.
+Este perfil representa a los usuarios que buscan contactar servicios de asesoría o apoyo profesional de manera rápida, confiable y personalizada. Generalmente, son personas que valoran la eficiencia, la facilidad de uso de la plataforma y la seguridad al momento de seleccionar a un experto.
 
 Sus principales necesidades se centran en encontrar profesionales calificados, reducir el tiempo de búsqueda y contar con una experiencia de servicio clara y sin fricciones. Entre sus principales frustraciones destacan la falta de confianza en plataformas poco verificadas y la dificultad para identificar expertos realmente confiables.
 
@@ -852,7 +852,7 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | CRRF-008  | El sistema debe gestionar el ciclo de vida de una sesión mediante estados: pendiente, confirmada, en curso, completada y cancelada. Toda transición debe quedar registrada para auditoría. |
 | CRRF-009  | El sistema debe enviar recordatorios automáticos al usuario y consultor antes del inicio de cada sesión programada. |
 | CRRF-010  | El sistema debe registrar trazabilidad completa sobre reservas, cancelaciones, reprogramaciones y cambios de estado de sesiones. |
-| CRRF-011 | El sistema debe permitir que los consultores carguen documentos, títulos, certificaciones y evidencias profesionales en su perfil, para que los usuarios interesados evalúen directamente su experiencia y capacidad antes de contratar una asesoría. |
+| CRRF-011 | El sistema debe permitir que los consultores carguen documentos, títulos, certificaciones y evidencias profesionales en su perfil, para que los usuarios interesados evalúen directamente su experiencia y capacidad antes de contactar una asesoría. |
 | CRF-001   | El sistema debe permitir al usuario buscar especialistas por categoría, experiencia, tarifa y calificación. |
 | CRF-002   | El sistema debe actualizar dinámicamente los resultados cuando el usuario aplique filtros de búsqueda. |
 | CRF-003   | El sistema debe permitir visualizar el perfil detallado de un consultor. Si no existe, debe mostrarse un mensaje adecuado. |
@@ -1010,7 +1010,7 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 # Conclusiones
 
 - La investigación inicial permitió identificar que muchas personas y empresas presentan dificultades para acceder a asesoría profesional confiable debido a la fragmentación de la oferta y al uso de canales informales.
-- El análisis del contexto digital evidenció una oportunidad de negocio relacionada con el crecimiento del uso de plataformas tecnológicas para contratar servicios profesionales especializados.
+- El análisis del contexto digital evidenció una oportunidad de negocio relacionada con el crecimiento del uso de plataformas tecnológicas para contactar con servicios profesionales especializados.
 - FinTeka se plantea como una solución viable al centralizar procesos como búsqueda de especialistas, reservas, pagos seguros, comunicación directa y reputación profesional en un solo entorno digital.
 - La definición clara de segmentos objetivo permitió reconocer dos actores principales del ecosistema: usuarios que buscan asesoría y consultores que desean captar clientes y gestionar sus servicios.
 - La aplicación de Lean UX facilitó validar supuestos de negocio, identificar riesgos tempranos y orientar el desarrollo hacia funcionalidades de mayor valor para el mercado.
