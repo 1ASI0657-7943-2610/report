@@ -12,6 +12,8 @@
 
 ## Producto:  Finteka
 
+</div>
+
 ### Relación de integrantes:
 
 <div style="text-align: center;">
@@ -25,7 +27,14 @@
 | U20201f846 | Montes Maza, Augusto Sebastian        |
 </div>
 
+<div align="center">
+  
+<br>
+<br>
+
 ### Abril,2026
+
+</div>
 
 <div style="page-break-before: always;"></div>
 
@@ -904,7 +913,7 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | RF-010    | El sistema debe permitir suspender temporal o permanentemente cuentas que incumplan políticas de uso. |
 | RF-011    | El sistema debe permitir la visibilidad los documentos y certificados validados por la empresa dentro del perfil del consultor, garantizando transparencia. |
 
-### 3.2.2 Requisitos no funcionales
+### 3.2.2 Requisitos no Funcionales
 
 | ID | Descripción |
 |----|-------------|
