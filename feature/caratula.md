@@ -124,15 +124,17 @@ Tabla de contenidos
     - [2.3.4. As-is Scenario Mapping](#234-as-is-scenario-mapping)
 - [Capítulo III: Requirements Specification]()
   - [3.1. To-Be Scenario Mapping](#31-to-be-scenario-mapping)
-  - [3.2. User Stories](#32-user-stories)
-  - [3.3. Impact Map](#33-impact-map)
-  - [3.4. Product Backlog](#34-product-backlog)
-- [Conclusiones](#conclusiones)
-  - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
-  - [Video About-The-Team](#video-about-the-team)
-- [Referencias Bibliográficas](#referencias-bibliograficas)
+  - [3.2. Requisitos funcionales y no funcionales](#32-requisitos-funcionales-y-no-funcionales)
+      - [3.2.1. Requisitos Funcionales](#321-requisitos-funcionales)
+      - [3.2.2. Requisitos no Funcionales](#321-requisitos-no-funcionales)
+  - [3.3. User Stories](#33-user-stories)   
+  - [3.4. Impact Map](#34-impact-map)
+  - [3.5. Product Backlog](#35-product-backlog)
+- [Conclusiones y Recomendaciones](#conclusiones-y-recomendaciones)
+  - [Conclusiones](#conclusiones)
+  - [Recomendaciones](#recomendaciones)
+- [Referencias Bibliográficas](#referencias-bibliográficas)
 - [Anexos](#anexos)
-- [Link](#links)
 
 
 <div style="page-break-before: always;"></div>
@@ -629,7 +631,6 @@ Soy (nombre y apellido) del curso de Desarrollo de Aplicaciones Open Source haci
 
 - Imagina que puedes ofrecer descuentos o promociones especiales a tus clientes a través de la plataforma. ¿Qué tipo de ofertas te gustaría ofrecer y cómo te gustaría gestionarlas?
 
-
 ### 2.2.2. Registro de entrevistas
 
 - Segmento 1: Personas Naturales
@@ -640,7 +641,7 @@ Soy (nombre y apellido) del curso de Desarrollo de Aplicaciones Open Source haci
   
 <img src="https://github.com/user-attachments/assets/0e0c9687-49cf-4163-bb94-7e8062090cac">
 
-**Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202211043_upc_edu_pe/EVYdPYP9cX9MiTBSGHLo4GUBJtHK2wys0_JpZmdVYRUM0w?e=fs9CDq**
+**Link: https://acortar.link/RWaCr0**
 
 En la entrevista, la señora Sara Qwistgaard menciona que busca asesoría en el área de marketing. Además, nos cuenta cómo le gustaría su página de asesoría ideal y su mayor problema con las asesorías en general: los horarios. 
 
@@ -651,7 +652,7 @@ En la entrevista, la señora Sara Qwistgaard menciona que busca asesoría en el 
   
 <img src="https://github.com/user-attachments/assets/10ba027c-e24e-43aa-9cb2-c8bb14c064be">
 
-**Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202211043_upc_edu_pe/EYP9U3OGc01Gujd5mFLQbX0BpU9LbBkQxUcc4cTjnzzlow?e=w2r4b6**
+**Link: https://acortar.link/WrhkQL**
 
 El entrevistado Orlando Romero, quien busca asesoría para administración de equipos de redes, nos relata cómo le gustaría que fuera su experiencia con asesorías online y con la plataforma en general, además de explicar cómo debería funcionar el foco principal de la plataforma.
 
@@ -662,7 +663,7 @@ El entrevistado Orlando Romero, quien busca asesoría para administración de eq
 
 <img src="https://github.com/user-attachments/assets/47c6166f-b129-4886-aabc-7f1110e1e900">
 
-**Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202211043_upc_edu_pe/EZ0tkhJhqUNPoif3FfjPq3EB7JYo7yh4uep_1xHiHiJyHA?e=aYGCbv**
+**Link: Link: https://acortar.link/WyeuS7**
 
 La entrevistada busca asesoría en el área de defensoría médica para el tema legal de las prácticas médicas, y a partir de la entrevista nos da su punto de vista sobre lo indispensable de una asesoría en línea y cuál es el mayor problema que se tiene con los asesores en general.
 
@@ -674,7 +675,7 @@ La entrevistada busca asesoría en el área de defensoría médica para el tema 
   
 <img src="https://github.com/user-attachments/assets/95e8c874-a899-4e98-82f4-31870a74b1bb">
 
-**Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310425_upc_edu_pe/ER1bky1UOyJAg3cpdsr8B_cB7PC0ldS4rWW8wMJZ0iLEBg?e=XLb7Nq**
+**Link: https://acortar.link/NfWGsQ**
 
 La entrevista con Augusto Montes muestra que, para optimizar su negocio de asesoría profesional, busca una plataforma que combine la generación de leads cualificados con una agenda automatizada, lo que permitiría una reserva sin fricciones y recordatorios automáticos. Prefiere una interfaz equilibrada entre simplicidad y personalización, que permita etiquetar clientes, editar notas privadas y realizar integraciones con otras aplicaciones. En cuanto a pagos, valora la flexibilidad de contar con diferentes modalidades como pago por sesión, suscripciones recurrentes, facturación automática y pagos multimoneda para facilitar transacciones globales. Además, considera importante un sistema de marketing digital basado en referidos para atraer nuevos clientes. Para gestionar solicitudes urgentes, le gustaría contar con una opción de disponibilidad inmediata y la posibilidad de cobrar tarifas premium por consultas urgentes. También está interesado en organizar eventos grupales como seminarios o masterclasses, lo que podría generar más interacción y demanda para sus servicios.
 
@@ -685,7 +686,7 @@ La entrevista con Augusto Montes muestra que, para optimizar su negocio de aseso
   
 <img src="https://github.com/user-attachments/assets/6b1b0eb2-35c1-4dbe-a263-fee7b6745f79">
 
-**Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310425_upc_edu_pe/Ec0MXBN9DxFKrw3UfgGMxg4Bm7eXlDgRxgWpqW-nbPKJdQ?e=QzRkA3**
+**Link:  https://acortar.link/TErjgY**
 
 La entrevista con María Fernanda Castillo destaca sus necesidades para optimizar su negocio de asesoría profesional. Busca una plataforma automatizada que permita a los clientes encontrar su perfil, ver disponibilidad en tiempo real y agendar directamente. Para ofrecer el mejor servicio, necesita conocer el tema que el cliente desea tratar, sus objetivos, si ha tenido asesorías previas y cualquier material relevante. Prefiere una interfaz sencilla, pero con opciones de personalización si es necesario. En cuanto al proceso de pagos, valora opciones como pago por sesión, suscripciones mensuales y facturación automática, con la prioridad de que los pagos se depositen rápidamente en su cuenta. Además, le gustaría que la plataforma ofreciera herramientas de marketing digital, como publicidad segmentada, posicionamiento en buscadores, creación de contenido y analítica de rendimiento. Para consultas urgentes, necesita una plataforma que permita ver y gestionar solicitudes en tiempo real, aceptar o reagendar desde su celular y recibir notificaciones eficientes. También está interesada en organizar eventos grupales como seminarios o masterclasses.
 
@@ -697,10 +698,9 @@ La entrevista con María Fernanda Castillo destaca sus necesidades para optimiza
   
 <img src="https://github.com/user-attachments/assets/301f2480-1a5e-4671-bbed-48b7ab80f0fb">
 
-**Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310425_upc_edu_pe/ESMQ04_B3O1Mtk9thyfHcLIB7kGs5JMUo5jBmbX4S4A8Ng?e=hraZSp**
+**Link: https://acortar.link/EQVuW5**
 
 Julio Castro busca una plataforma para gestionar eficientemente su negocio de asesorías. Identifica la necesidad de filtros que faciliten encontrar clientes adecuados y organizar sesiones con datos claros como fechas, duración y métodos de pago. Prefiere una interfaz sencilla pero con opciones avanzadas para personalizar su experiencia. Valora funcionalidades como pagos por sesión y suscripciones, además de integración con herramientas de marketing como Facebook Ads y YouTube. También destaca la utilidad de notificaciones para evitar conflictos de agenda y opciones para crear y gestionar eventos como seminarios. Finalmente, menciona la importancia de incluir elementos visuales como videos y portafolios para presentar propuestas a nuevos clientes.
-
 
 ### 2.2.3. Análisis de entrevistas
 
@@ -927,7 +927,7 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | RNF-017 | El sistema debe bloquear automáticamente una cuenta luego de **5 intentos fallidos consecutivos** de inicio de sesión durante un periodo de **15 minutos**. |
 | RNF-018 | El sistema debe permitir recuperación de contraseña mediante correo electrónico verificado con enlace temporal de validez máxima de **15 minutos**. |
 
-### 3.2.3 User Stories
+### 3.3 User Stories
 
 En esta sección se presentan los requisitos funcionales definidos para Finteka. Las User Stories permiten comprender las necesidades de los usuarios finales, priorizar funcionalidades y organizar el desarrollo incremental del sistema. Asimismo, cada historia incluye criterios de aceptación que validan su cumplimiento.
 
@@ -968,7 +968,7 @@ En esta sección se presentan los requisitos funcionales definidos para Finteka.
 | US028 | Compartir perfil del profesional | Como usuario, quiero poder compartir el perfil de un consultor, para poder recomendar sus servicios a mis amigos o colegas enviándoles un enlace. | **Escenario 01: Copiar enlace.** Dado que estoy viendo un perfil interesante, Cuando presiono el ícono de "Compartir", Entonces el sistema copia el enlace del perfil al portapapeles y me muestra un aviso de "Enlace copiado". | EP03 |
 | US029 | Cambiar tema (Modo Oscuro / Claro) | Como usuario, quiero poder alternar entre un tema visual claro y oscuro, para adaptar la aplicación a mis preferencias visuales o a la iluminación del entorno. | **Escenario 01: Cambio a modo oscuro.** Dado que la aplicación está en modo claro, Cuando presiono el interruptor de cambio de tema en mi perfil, Entonces los colores de la interfaz cambian inmediatamente a una paleta oscura. | EP03 |
 
-## 3.3. Impact Mapping
+## 3.4. Impact Mapping
 
 Impact map de nuestros segmentos objetivos:
 
@@ -976,7 +976,7 @@ Impact map de nuestros segmentos objetivos:
 
 Link del Impact Mapping:https://miro.com/app/board/uXjVJGsSlMY=/?share_link_id=357440759397
 
-## 3.4. Product Backlog
+## 3.5. Product Backlog
 
 Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 
@@ -1075,3 +1075,15 @@ World Bank. (2023). *Digital development overview*. The World Bank. https://www.
 **Link del Empathy Mapping 2:** https://docs.google.com/drawings/d/1iiU7QqJ-yt0utAPLlAPtQgQrVaNgFb6AWoq7JaNGiV0/edit
 
 **Link del Impact Mapping:** https://miro.com/app/board/uXjVJGsSlMY=/?share_link_id=357440759397
+
+**Link de la entrevista 1:** https://acortar.link/RWaCr0
+
+**Link de la entrevista 2:** https://acortar.link/WrhkQL
+
+**Link de la entrevista 3:** https://acortar.link/WyeuS7 
+
+**Link de la entrevista 4:** https://acortar.link/NfWGsQ
+
+**Link de la entrevista 5:** https://acortar.link/TErjgY
+
+**Link de la entrevista 6:** https://acortar.link/EQVuW5
