@@ -658,7 +658,7 @@ El entrevistado Orlando Romero, quien busca asesoría para administración de eq
 
 <img src="https://github.com/user-attachments/assets/47c6166f-b129-4886-aabc-7f1110e1e900">
 
-**Link: https://upcedupe-my.sharepoint.com/g/personal/u202211043_upc_edu_pe/EZ0tkhJhqUNPoif3FfjPq3EB7JYo7yh4uep_1xHiHiJyHA?e=aYGCbv**
+**Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202211043_upc_edu_pe/EZ0tkhJhqUNPoif3FfjPq3EB7JYo7yh4uep_1xHiHiJyHA?e=aYGCbv**
 
 La entrevistada busca asesoría en el área de defensoría médica para el tema legal de las prácticas médicas, y a partir de la entrevista nos da su punto de vista sobre lo indispensable de una asesoría en línea y cuál es el mayor problema que se tiene con los asesores en general.
 
