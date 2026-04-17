@@ -134,6 +134,9 @@ Tabla de contenidos
 - [Anexos](#anexos)
 - [Link](#links)
 
+
+<div style="page-break-before: always;"></div>
+
 ## Student Outcome
 
 Objetivo general, ABET – EAC - Student Outcome 7: Aprendizaje Continuo y Autónomo.
@@ -458,7 +461,7 @@ En este capítulo se realizará el proceso de Análisis competitivo y Needfindin
 ### 2.1.1. Análisis Competitivo
 # Competitive Analysis Landscape
 | **¿Por qué llevar a cabo este análisis?** | ¿Nuestro servicio tiene lo necesario para poder salir adelante ante sus competidores más conocidos? |
-|                       | <img src="../assets/FinTeka.png" width="100" height="100"><br>**Nova Asesores (Tu Startup)** | <img src="../assets/clarityfm.png" width="100" height="100"><br>**Clarity.fm** | <img src="../assets/superpeer.png" width="100" height="100"><br>**Superpeer** | <img src="../assets/maven.jpg" width="100" height="100"><br>**Maven** |
+|                       | <img src="../assets/FinTeka.png" width="100" height="100"><br>**Nova Asesores** | <img src="../assets/clarityfm.png" width="100" height="100"><br>**Clarity.fm** | <img src="../assets/superpeer.png" width="100" height="100"><br>**Superpeer** | <img src="../assets/maven.jpg" width="100" height="100"><br>**Maven** |
 |-----------------------|-----------------------------------------------------------|---------------------------------------------|-------------------------------------------|--------------------------------------|
 | **Perfil / Overview** | Plataforma que conecta expertos con usuarios para sesiones 1 a 1, pagos seguros, y perfiles verificados. Áreas: salud, tecnología, negocios y más. | Plataforma para contratar expertos para llamadas 1 a 1. Pago por minuto. Áreas: tecnología, marketing, negocios. | Videollamadas 1 a 1, eventos en vivo, suscripciones. Enfocado en creadores de contenido. | Cursos en vivo con expertos. Enfoque en aprendizaje colaborativo en temas técnicos y profesionales. |
 | **Ventaja Competitiva** | Facilidad de uso, verificación rigurosa, pagos seguros, interfaz elegante. Proceso intuitivo para agendar y pagar. | Comunidad de expertos consolidada. Modelo flexible de pago por minuto. Integración con redes como LinkedIn. | Monetización con suscripciones. Fuerte en branding personal y creación de comunidad. | Experiencia de aprendizaje estructurada en cohortes. Foco en formación continua. |
