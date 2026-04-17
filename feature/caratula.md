@@ -458,7 +458,7 @@ En este capítulo se realizará el proceso de Análisis competitivo y Needfindin
 ### 2.1.1. Análisis Competitivo
 # Competitive Analysis Landscape
 | **¿Por qué llevar a cabo este análisis?** | ¿Nuestro servicio tiene lo necesario para poder salir adelante ante sus competidores más conocidos? |
-|                       | <img src="./img/FinTeka.png" width="100" height="100"><br>**Nova Asesores (Tu Startup)** | <img src="./img/clarityfm.png" width="100" height="100"><br>**Clarity.fm** | <img src="./img/superpeer.png" width="100" height="100"><br>**Superpeer** | <img src="./img/maven.jpg" width="100" height="100"><br>**Maven** |
+|                       | <img src="../assets/FinTeka.png" width="100" height="100"><br>**Nova Asesores (Tu Startup)** | <img src="../assets/clarityfm.png" width="100" height="100"><br>**Clarity.fm** | <img src="../assets/superpeer.png" width="100" height="100"><br>**Superpeer** | <img src="../assets/maven.jpg" width="100" height="100"><br>**Maven** |
 |-----------------------|-----------------------------------------------------------|---------------------------------------------|-------------------------------------------|--------------------------------------|
 | **Perfil / Overview** | Plataforma que conecta expertos con usuarios para sesiones 1 a 1, pagos seguros, y perfiles verificados. Áreas: salud, tecnología, negocios y más. | Plataforma para contratar expertos para llamadas 1 a 1. Pago por minuto. Áreas: tecnología, marketing, negocios. | Videollamadas 1 a 1, eventos en vivo, suscripciones. Enfocado en creadores de contenido. | Cursos en vivo con expertos. Enfoque en aprendizaje colaborativo en temas técnicos y profesionales. |
 | **Ventaja Competitiva** | Facilidad de uso, verificación rigurosa, pagos seguros, interfaz elegante. Proceso intuitivo para agendar y pagar. | Comunidad de expertos consolidada. Modelo flexible de pago por minuto. Integración con redes como LinkedIn. | Monetización con suscripciones. Fuerte en branding personal y creación de comunidad. | Experiencia de aprendizaje estructurada en cohortes. Foco en formación continua. |
@@ -518,7 +518,7 @@ Aplicar un enfoque de marketing centrado en la seguridad, confianza y valor agre
 
 ### Tácticas
 - **Resaltar la seguridad de la plataforma**:  
-  Comunicar que los usuarios contratan servicios seguros y de alta calidad gracias al sistema de verificación de expertos.
+  Comunicar que los usuarios contactan servicios seguros y de alta calidad gracias al sistema de verificación de expertos.
 
 - **Modelo freemium para atraer usuarios**:  
   Ofrecer una versión básica gratuita con opción a características premium mediante suscripciones, atrayendo usuarios indecisos de competidores.
