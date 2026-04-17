@@ -449,99 +449,100 @@ Valoran la autonomía profesional, la generación de ingresos y el uso de tecnol
 **Objetivo:**  
 Incrementar ingresos, optimizar la gestión de servicios y ampliar alcance profesional mediante canales digitales.
 
-## 2.1. Competidores  
-### 2.1.1. Análisis Competitivo  
-**Competitive Analysis Landscape**
+# Capítulo II: Requirements Elicitation & Analysis
 
-| Categoría | **Meal Flow (Nuestra Startup)** | Clarity.fm | Superpeer | Maven |
-|------------|----------------------------|-------------|------------|--------|
-| **Perfil / Overview** | Plataforma digital enfocada en la organización y optimización de comidas/servicios de alimentación, permitiendo a los usuarios gestionar, planificar o acceder a soluciones de comida de forma eficiente y personalizada. | Marketplace de expertos para asesorías 1 a 1 mediante llamadas pagadas por minuto. Enfoque en negocios, marketing y tecnología. <br><br> ![Clarity.fm](https://raw.githubusercontent.com/1ASI0657-7943-2610/report/feature/chapter-02/assets/clarityfm.png) | Plataforma para creadores que ofrece videollamadas 1 a 1, eventos en vivo y suscripciones para monetizar audiencia. <br><br> ![Superpeer](https://raw.githubusercontent.com/1ASI0657-7943-2610/report/feature/chapter-02/assets/superpeer.png) | Plataforma de aprendizaje en cohortes con cursos en vivo guiados por expertos en distintas áreas profesionales. <br><br> ![Maven](https://raw.githubusercontent.com/1ASI0657-7943-2610/report/feature/chapter-02/assets/maven.jpg) |
-| **Ventaja Competitiva** | Experiencia personalizada, enfoque en conveniencia y eficiencia, con potencial de recomendaciones inteligentes y optimización del servicio. | Red consolidada de expertos y modelo flexible de pago por minuto. | Fuerte enfoque en monetización de creadores y construcción de comunidad. | Aprendizaje estructurado en cohortes con alto valor educativo. |
-| **Mercado Objetivo** | Usuarios que buscan soluciones prácticas relacionadas con alimentación: profesionales ocupados, estudiantes y familias que valoran eficiencia. | Emprendedores, freelancers y profesionales que requieren asesorías puntuales. | Creadores de contenido, coaches y profesionales con audiencia propia. | Profesionales y empresas interesadas en formación continua estructurada. |
-| **Estrategias de Marketing** | Marketing digital (SEO, redes sociales), alianzas con servicios de alimentación, apps de bienestar y comunidades fitness/salud. | SEO, LinkedIn y contenido enfocado en negocios y startups. | Branding personal, redes sociales y crecimiento de comunidad. | Webinars, email marketing y alianzas con expertos educativos. |
-| **Productos y Servicios** | Planificación de comidas, recomendaciones personalizadas, gestión de pedidos o suscripciones, optimización de hábitos alimenticios. | Llamadas 1 a 1 con expertos pagadas por minuto. | Videollamadas, eventos en vivo y suscripciones premium. | Cursos en vivo, materiales educativos y sesiones interactivas. |
-| **Precios y Costos** | Modelo flexible (suscripción o comisión por servicio), con potencial de planes personalizados. | Pago por minuto según el experto. | Comisión por transacción + suscripciones mensuales. | Pago por curso (modelo premium). |
-| **Canales de Distribución** | Aplicación móvil y web, optimizada para uso rápido y cotidiano. | Principalmente web. | Web y app móvil. | Plataforma web enfocada en educación. |
-| **SWOT - Fortalezas** | Experiencia centrada en conveniencia, personalización y posible uso de tecnología para optimización. | Red de expertos consolidada y modelo simple de monetización. | Fuerte ecosistema de creadores y comunidad activa. | Alta calidad educativa y estructura sólida de aprendizaje. |
-| **SWOT - Debilidades** | Baja presencia inicial en el mercado, necesidad de construir confianza y adopción del usuario. | Costos altos en sesiones largas. | Dependencia de creadores con audiencia previa. | Público más limitado y especializado. |
-| **SWOT - Oportunidades** | Crecimiento del mercado food-tech, apps de bienestar y soluciones de conveniencia alimentaria. | Expansión hacia nuevos formatos de consultoría. | Expansión de monetización digital y nuevas audiencias. | Crecimiento de educación online profesional. |
-| **SWOT - Amenazas** | Alta competencia en apps de comida, delivery y supermercados digitales. | LinkedIn, Upwork y plataformas de freelancing. | Patreon y plataformas similares. | Coursera, edX y plataformas educativas masivas. |
+En este capítulo se realizará el proceso de Análisis competitivo y Needfinding necesario para la identificación de las necesidades de nuestro segmento objetivo.
 
-## 2.1.2. Estrategias y tácticas frente a competidores
+## 2.1. Competidores
 
-### 1. Aprovechar la fortaleza: Verificación de expertos y asesoría personalizada
-**Estrategia**  
-Diferenciar la plataforma mediante un sistema de verificación más riguroso de expertos y la entrega de asesorías altamente personalizadas y de calidad superior.
+### 2.1.1. Análisis Competitivo
+# Competitive Analysis Landscape
+| **¿Por qué llevar a cabo este análisis?** | ¿Nuestro servicio tiene lo necesario para poder salir adelante ante sus competidores más conocidos? |
+|                       | <img src="./img/FinTeka.png" width="100" height="100"><br>**Nova Asesores (Tu Startup)** | <img src="./img/clarityfm.png" width="100" height="100"><br>**Clarity.fm** | <img src="./img/superpeer.png" width="100" height="100"><br>**Superpeer** | <img src="./img/maven.jpg" width="100" height="100"><br>**Maven** |
+|-----------------------|-----------------------------------------------------------|---------------------------------------------|-------------------------------------------|--------------------------------------|
+| **Perfil / Overview** | Plataforma que conecta expertos con usuarios para sesiones 1 a 1, pagos seguros, y perfiles verificados. Áreas: salud, tecnología, negocios y más. | Plataforma para contratar expertos para llamadas 1 a 1. Pago por minuto. Áreas: tecnología, marketing, negocios. | Videollamadas 1 a 1, eventos en vivo, suscripciones. Enfocado en creadores de contenido. | Cursos en vivo con expertos. Enfoque en aprendizaje colaborativo en temas técnicos y profesionales. |
+| **Ventaja Competitiva** | Facilidad de uso, verificación rigurosa, pagos seguros, interfaz elegante. Proceso intuitivo para agendar y pagar. | Comunidad de expertos consolidada. Modelo flexible de pago por minuto. Integración con redes como LinkedIn. | Monetización con suscripciones. Fuerte en branding personal y creación de comunidad. | Experiencia de aprendizaje estructurada en cohortes. Foco en formación continua. |
+| **Mercado Objetivo** | Personas y empresas que buscan asesoría profesional rápida. Especialmente pymes y usuarios individuales. | Emprendedores, freelancers y startups que buscan asesorías específicas y breves. | Creadores de contenido, coaches y expertos con audiencia propia. | Profesionales, empresas y universidades interesados en educación técnica y profesional. |
+| **Estrategias de Marketing** | SEO, marketing en redes sociales, alianzas con universidades y cámaras de comercio. | SEO, contenido dirigido a comunidad emprendedora, campañas en Google y LinkedIn. | Promociones en redes sociales, branding de creadores, creación de comunidad activa. | Webinars, email marketing, alianzas con universidades y expertos reconocidos. |
+| **Productos y Servicios** | Asesorías personalizadas, citas agendadas, pagos seguros, historial de sesiones, recomendaciones según preferencias. | Llamadas con expertos, cobro por minuto. Sin necesidad de sesiones largas. | Videollamadas, eventos en vivo, suscripciones mensuales para contenido exclusivo. | Cursos en vivo por cohortes, acceso a materiales y sesiones interactivas. |
+| **Precios y Costos** | Comisión por sesión. Planes especiales para expertos frecuentes. Estructura de precios transparente. | Pago por minuto definido por el experto. Puede ser caro para sesiones largas. | Comisión por transacción + suscripciones mensuales opcionales. | Precio por curso (premium). Incluye materiales y acceso a sesiones. |
+| **Canales de Distribución** | Web y aplicación móvil. Acceso intuitivo desde cualquier dispositivo. | Principalmente vía web. | Web y app móvil para mayor flexibilidad. | Solo vía web. Experiencia optimizada para aprendizaje. |
+| **SWOT - Fortalezas** | Plataforma integral, experiencia fluida, verificación de expertos, interfaz intuitiva. | Comunidad de expertos establecida, pago flexible, integración profesional. | Monetización diversificada, enfoque en comunidad y branding personal. | Educación estructurada, interacción colaborativa, calidad en cohortes. |
+| **SWOT - Debilidades** | Sin comunidad consolidada, alta dependencia de SEO/redes, recursos de marketing limitados. | Modelo puede ser costoso en consultas largas. Limitado a llamadas. | Requiere base de seguidores. Difícil para creadores nuevos. | Enfocado solo en educación profesional. Público limitado. |
+| **SWOT - Oportunidades** | Alianzas institucionales, expansión a empresas, crecimiento en demanda remota. | Expandir servicios más allá de llamadas. Alta demanda en asesorías rápidas. | Ampliar a más mercados y formatos. Alianzas educativas. | Aumento del interés en educación digital, posibles alianzas. |
+| **SWOT - Amenazas** | Competencia consolidada con base leal, marketing agresivo de expertos ya establecidos. | Plataformas como LinkedIn y Upwork. Red más amplia de profesionales. | Competencia con Patreon y otras plataformas de monetización. | Plataformas grandes como Coursera y edX. |
+| **¿Tiene lo necesario para competir?** | Sí. Con su enfoque claro en asesorías profesionales, interfaz simple, y verificación rigurosa, Nova Asesores puede posicionarse como una alternativa sólida. Requiere reforzar comunidad y marketing inicial para destacarse. |
 
-**Tácticas**
-- **Sistema de verificación reforzado:**  
-  Implementar un proceso de selección exigente para garantizar que solo profesionales altamente calificados formen parte de la plataforma, diferenciándose de competidores como Clarity.fm.
-- **Enfoque en asesoría personalizada:**  
-  Diseñar campañas de marketing que resalten soluciones adaptadas a cada usuario, destacando un enfoque más profundo y específico frente a servicios más genéricos.
-- **Control de calidad continuo:**  
-  Evaluación constante de los expertos mediante calificaciones, feedback y métricas de satisfacción del usuario.
 
-**Valor añadido**
-- Mayor nivel de confianza en la plataforma.  
-- Incremento en la fidelización y retención de usuarios.  
-- Posicionamiento como servicio premium de asesoría.
+### 2.1.2. Estrategias y tácticas frente a competidores
 
----
+## 1. Aprovechar la Fortaleza: Verificación de Expertos y Asesoría Profesional Personalizada
 
-### 2. Aprovechar la oportunidad: Crecimiento de la demanda de asesoría remota
-**Estrategia**  
-Posicionar la plataforma como una solución líder en asesoría remota, aprovechando el crecimiento sostenido de servicios digitales post-pandemia.
+### Estrategia
+Diferenciar la plataforma mediante un sistema de verificación más riguroso de los expertos y la oferta de asesorías personalizadas de alta calidad.
 
-**Tácticas**
-- **Campañas educativas multicanal:**  
-  Generar contenido en redes sociales, blogs y webinars explicando los beneficios de la asesoría remota y el valor de la plataforma.
-- **Alianzas estratégicas:**  
-  Establecer convenios con empresas, colegios profesionales y asociaciones para ampliar la oferta de servicios y generar ingresos recurrentes.
-- **Mejora de la experiencia digital:**  
-  Incorporar videollamadas de alta calidad, chat en tiempo real y sistemas de pago seguros para una experiencia fluida y profesional.
+### Tácticas
+- **Resaltar la verificación de expertos**:  
+  Destacar el proceso de selección y verificación de los profesionales, asegurando que solo los más calificados estén disponibles, diferenciándose de plataformas como Clarity.fm.
 
-**Valor añadido**
-- Expansión del alcance del mercado.  
-- Mayor adopción de la plataforma en entornos corporativos.  
-- Incremento de ingresos por volumen de usuarios.
+- **Promocionar la asesoría personalizada**:  
+  Desarrollar campañas de marketing que subrayen las soluciones específicas y adaptadas que ofrece la plataforma, en contraste con ofertas más generales de competidores.
+
+### Valor Añadido
+- Generar confianza entre los usuarios.  
+- Incrementar la tasa de retención y fidelización.
 
 ---
 
-### 3. Afrontar la amenaza de competidores consolidados con grandes bases de usuarios
-**Estrategia**  
-Fortalecer el posicionamiento de la plataforma a través de confianza, especialización y valor agregado frente a competidores ya establecidos.
+## 2. Aprovechar la Oportunidad: Crecimiento de la Demanda de Asesoría Remota
 
-**Tácticas**
-- **Enfoque en seguridad y confianza:**  
-  Comunicar de forma clara el proceso de verificación de expertos como elemento diferenciador clave.
-- **Modelo freemium:**  
-  Ofrecer acceso gratuito básico con opciones premium para reducir la barrera de entrada y atraer nuevos usuarios.
-- **Especialización por sectores:**  
-  Desarrollar verticales específicos como asesoría legal, financiera, tecnológica y empresarial.
+### Estrategia
+Posicionar la plataforma como una solución clave para la asesoría remota, capitalizando el aumento de la demanda post-pandemia.
 
-**Valor añadido**
-- Mayor captación de usuarios nuevos.  
-- Diferenciación frente a plataformas generalistas.  
-- Incremento de conversiones a planes premium.
+### Tácticas
+- **Campañas educativas sobre asesoría remota**:  
+  Crear contenido en redes sociales, blogs y webinars destacando los beneficios de la plataforma.
+
+- **Alianzas con empresas y asociaciones profesionales**:  
+  Establecer relaciones estratégicas con colegios profesionales, asociaciones y empresas para ofrecer servicios constantes y generar ingresos adicionales.
+
+- **Incorporar herramientas interactivas de alta calidad**:  
+  Implementar funciones como videoconferencias, mensajería en tiempo real y un sistema de pago seguro para garantizar una experiencia eficiente y profesional.
 
 ---
 
-### 4. Mitigar la debilidad de dependencia del SEO y baja visibilidad inicial
-**Estrategia**  
-Implementar una estrategia integral de marketing digital para acelerar la visibilidad y adquisición de usuarios.
+## 3. Afrontar la Amenaza de Competidores Consolidados con Base de Usuarios Grandes
 
-**Tácticas**
-- **Marketing de contenido de alto valor:**  
-  Publicación de artículos, videos y casos de éxito orientados a resolver problemas reales del usuario.
-- **Publicidad segmentada:**  
-  Campañas en redes sociales dirigidas a profesionales y empresas en sectores clave como tecnología, salud, derecho y negocios.
-- **SEO + alianzas estratégicas:**  
-  Optimización del posicionamiento orgánico y colaboración con instituciones, universidades y asociaciones profesionales.
+### Estrategia
+Aplicar un enfoque de marketing centrado en la seguridad, confianza y valor agregado de la plataforma frente a competidores consolidados.
 
-**Valor añadido**
-- Aumento rápido de visibilidad en el mercado.  
-- Posicionamiento de marca en nichos específicos.  
-- Generación constante de tráfico cualificado.
+### Tácticas
+- **Resaltar la seguridad de la plataforma**:  
+  Comunicar que los usuarios contratan servicios seguros y de alta calidad gracias al sistema de verificación de expertos.
+
+- **Modelo freemium para atraer usuarios**:  
+  Ofrecer una versión básica gratuita con opción a características premium mediante suscripciones, atrayendo usuarios indecisos de competidores.
+
+- **Segmentación y personalización de servicios**:  
+  Ofrecer servicios especializados en sectores como asesoría legal, empresarial y financiera, diferenciándose de competidores más generalistas.
+
+---
+
+## 4. Aprovechar la Debilidad de la Dependencia de Posicionamiento en Buscadores (SEO) y la Visibilidad Inicial
+
+### Estrategia
+Implementar estrategias de marketing digital avanzadas para aumentar la visibilidad y atraer usuarios rápidamente.
+
+### Tácticas
+- **Marketing de contenido de valor**:  
+  Crear artículos, videos y estudios de caso prácticos que resuelvan problemas comunes en la industria de asesoría, atrayendo tráfico orgánico.
+
+- **Publicidad dirigida y marketing en redes sociales**:  
+  Desarrollar campañas específicas para profesionales y empresas en sectores clave como tecnología, salud, derecho y negocios.
+
+- **SEO local y alianzas estratégicas**:  
+  Optimizar el sitio para búsquedas locales y colaborar con colegios profesionales e instituciones clave para aumentar la visibilidad en nichos específicos.
+
 
 ## 2.2. Entrevistas
 
