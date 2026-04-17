@@ -135,7 +135,7 @@ Tabla de contenidos
   - [3.1. To-Be Scenario Mapping](#31-to-be-scenario-mapping)
   - [3.2. Requisitos funcionales y no funcionales](#32-requisitos-funcionales-y-no-funcionales)
       - [3.2.1. Requisitos Funcionales](#321-requisitos-funcionales)
-      - [3.2.2. Requisitos no Funcionales](#321-requisitos-no-funcionales)
+      - [3.2.2. Requisitos no Funcionales](#322-requisitos-no-funcionales)
   - [3.3. User Stories](#33-user-stories)   
   - [3.4. Impact Map](#34-impact-map)
   - [3.5. Product Backlog](#35-product-backlog)
