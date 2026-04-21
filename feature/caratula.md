@@ -1021,6 +1021,32 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 
 <div style="page-break-after: always;"></div>
 
+# Capítulo IV: Product Architecture Design
+
+## 4.1
+
+## 4.1.1
+
+## 4.1.2
+
+## 4.1.3 Context Diagram
+
+El System Context Diagram corresponde al primer nivel del modelo C4 y permite visualizar el sistema desde una perspectiva general. Su propósito es mostrar cómo FinTeka se relaciona con los principales actores externos y con los sistemas complementarios necesarios para su funcionamiento.
+
+En este contexto, FinTeka se presenta como una plataforma digital orientada a conectar clientes con consultores profesionales, facilitando procesos como búsqueda de especialistas, reservas de sesiones, pagos seguros, videollamadas y autenticación externa.
+
+En este Context Diagram se muestra a FinTeka como el sistema central que interactúa con los principales usuarios y servicios externos necesarios para su operación.
+
+<img src="../assets/contextdiagram.jpg" style="width: 100%;" alt="diagramacontexto">
+
+## 4.1.4 Approach driven ViewPoints Diagrams
+
+## 4.1.5
+
+## 4.1.6
+
+## 4.1.7
+
 # Conclusiones
 
 - La investigación inicial permitió identificar que muchas personas y empresas presentan dificultades para acceder a asesoría profesional confiable debido a la fragmentación de la oferta y al uso de canales informales.
