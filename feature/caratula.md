@@ -1033,13 +1033,49 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 
 El System Context Diagram corresponde al primer nivel del modelo C4 y permite visualizar el sistema desde una perspectiva general. Su propósito es mostrar cómo FinTeka se relaciona con los principales actores externos y con los sistemas complementarios necesarios para su funcionamiento.
 
-En este contexto, FinTeka se presenta como una plataforma digital orientada a conectar clientes con consultores profesionales, facilitando procesos como búsqueda de especialistas, reservas de sesiones, pagos seguros, videollamadas y autenticación externa.
+En este contexto, FinTeka se presenta como una plataforma digital orientada a conectar clientes con profesionales, facilitando procesos como búsqueda de especialistas, reservas de sesiones, pagos seguros y videollamadas.
 
 En este Context Diagram se muestra a FinTeka como el sistema central que interactúa con los principales usuarios y servicios externos necesarios para su operación.
 
 <img src="../assets/contextdiagram.jpg" style="width: 100%;" alt="diagramacontexto">
 
 ## 4.1.4 Approach driven ViewPoints Diagrams
+
+#### Usuarios:
+
+El sistema admite los roles de Cliente y Profesional. El profesional gestiona su perfil, disponibilidad y servicios para atender la demanda, mientras que el cliente dispone de herramientas para buscar y reservar especialistas según sus necesidades.
+
+#### Aplicación web:
+
+Espacio donde los usuarios interactúan con la plataforma, buscan profesionales, reservan sesiones, realizan pagos y gestionan citas. Los profesionales administran sus servicios, horarios y consultas recibidas.
+
+#### API Rest:
+
+Actúa como puente hacia los servicios de backend para la obtención y despliegue de datos solicitados.
+
+#### Bases de datos:
+
+Los servicios que requieren almacenamiento registran y consultan información relacionada con usuarios, reservas, pagos, calificaciones y disponibilidad en su base de datos correspondiente.
+
+#### Servicios externos:
+
+Para brindar funcionalidades complementarias se integran servicios externos como PayPal para pagos seguros, Google Calendar para sincronización de citas, Zoom para reuniones virtuales y Gmail para registro y notificaciones por correo.
+
+#### Microservicios: 
+
+- Gestión de usuarios y perfiles: Encargado del registro, autenticación, roles y administración de perfiles de clientes y profesionales.
+- Gestión de reservas: Responsable de la creación, modificación y cancelación de citas entre clientes y profesionales.
+- Búsqueda y recomendación: Permite localizar profesionales según categoría, especialidad, calificación o disponibilidad.
+- Calificaciones y reseñas: Administra opiniones y valoraciones luego de cada servicio realizado.
+
+#### Microservicios de soporte:
+
+- Pagos: Encargado de comunicar y validar pagos realizados mediante PayPal.
+- Notificaciones: Envía alertas sobre reservas, recordatorios, pagos confirmados o cambios de cita mediante correo o push notifications.
+- Integración de calendario: Sincroniza eventos y recordatorios con Google Calendar.
+- Videollamadas: Genera enlaces de reunión mediante Zoom para sesiones remotas.
+
+<img src="../assets/containerdiagram.jpg" style="width: 100%;" alt="diagramacontenedores">
 
 ## 4.1.5
 
