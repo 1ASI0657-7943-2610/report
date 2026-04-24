@@ -1054,6 +1054,8 @@ En este Context Diagram se muestra a FinTeka como el sistema central que interac
 
 <img src="../assets/contextdiagram.jpg" style="width: 100%;" alt="diagramacontexto">
 
+**Link del diagrama:** https://online.visual-paradigm.com/share.jsp?id=343537383331342d32
+
 ## 4.1.4 Approach driven ViewPoints Diagrams
 
 #### Usuarios:
@@ -1103,6 +1105,7 @@ A continuación, se muestra el diagrama de componentes correspondiente al micros
 A continuación, se presenta el diagrama de componentes del microservicio Session Management. Su función es gestionar las citas entre usuarios y profesionales, enviando confirmaciones por correo e integrando canales de comunicación como Zoom y chat en tiempo real.
 
 <img src="../assets/componentdiagram4.jpg" style="width: 100%;" alt="diagramacomponentes4">
+
 ### Reservation Management
 
 A continuación, se presenta el diagrama de componentes del microservicio Reservation Management. Su función es administrar las reservas de asesorías dentro de Finteka, permitiendo registrar, consultar y actualizar las solicitudes realizadas por los usuarios.
@@ -1114,6 +1117,8 @@ A continuación, se presenta el diagrama de componentes del microservicio Reserv
 A continuación, se presenta el diagrama de componentes del microservicio Ratings and Reviews. Su función es gestionar las valoraciones y comentarios realizados por los usuarios sobre las asesorías recibidas y los profesionales dentro de la plataforma Finteka.
 
 <img src="../assets/componentdiagram2.jpg" style="width: 100%;" alt="diagramacomponentes2">
+
+**Link de los diagramas:** https://online.visual-paradigm.com/share.jsp?id=343537383331342d32
 
 ## 4.1.5
 
