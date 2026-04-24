@@ -8,7 +8,7 @@
 ### 202610
 ### NRC: 7943
 ### Profesor: Ernesto Ocampo Tello
-## Informe de TB1
+## Informe de TB2
 
 ## Producto:  Finteka
 
@@ -57,7 +57,7 @@
       <td rowspan="7" style="text-align: center; vertical-align: middle;"><b>TB1</b></td>
       <td>10/04/2026</td>
       <td>Aguirre Castillo, Sergio Cesar</td>
-      <td>Desarrollo del capítulo 3.</td>
+      <td>Desarrollo del capítulo 3</td>
     </tr>
     <tr>
       <td>12/04/2026</td>
@@ -77,21 +77,31 @@
     <tr>
       <td>12/04/2026</td>
       <td>Oshiro Yamashita, Daiki Oscar</td>
-      <td>Revisión general del documento.</td>
+      <td>Revisión general del documento</td>
     </tr>
     <tr>
       <td>14/04/2026</td>
       <td>Montes Maza, Augusto Sebastian</td>
-      <td>Desarrollo de conclusiones y recomendaciones del proyecto.</td>
+      <td>Desarrollo de conclusiones y recomendaciones del proyecto</td>
     </tr>
     <tr>
       <td>14/04/2026</td>
       <td>Montes Maza, Augusto Sebastian</td>
-      <td>Elaborar presentación tras revisión del documento.</td>
+      <td>Elaborar presentación tras revisión del documento</td>
+    </tr>
+    <tr>
+      <td rowspan="7" style="text-align: center; vertical-align: middle;"><b>TB2</b></td>
+      <td> - </td>
+      <td>Aguirre Castillo, Sergio Cesar</td>
+      <td> - </td>
+    </tr>
+    <tr>
+      <td>23/04/2026</td>
+      <td>Oshiro Yamashita, Daiki Oscar</td>
+      <td> Desarrollo del punto 4.1.3 y 4.1.4</td>
     </tr>
   </tbody>
 </table>
-
 # Contenido
 
 ## Índice
@@ -139,12 +149,17 @@ Tabla de contenidos
   - [3.3. User Stories](#33-user-stories)   
   - [3.4. Impact Map](#34-impact-map)
   - [3.5. Product Backlog](#35-product-backlog)
+- [Capítulo IV: Product Architecture Design]()
+  - [4.1. a](#41-a)
+      - [4.1.1. a](#411-a)
+      - [4.1.2. a](#412-a)
+      - [4.1.3. Context Diagram](#413-context-diagram)
+      - [4.1.4. Approach driven ViewPoints Diagrams](#414-approach-driven-viewpoints-diagrams)
 - [Conclusiones y Recomendaciones](#conclusiones-y-recomendaciones)
   - [Conclusiones](#conclusiones)
   - [Recomendaciones](#recomendaciones)
 - [Referencias Bibliográficas](#referencias-bibliográficas)
 - [Anexos](#anexos)
-
 
 <div style="page-break-before: always;"></div>
 
@@ -154,8 +169,8 @@ Objetivo general, ABET – EAC - Student Outcome 7: Aprendizaje Continuo y Autó
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 |---|---|---|
-| **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.** | **Daiki Oscar Oshiro Yamashita** <br> TB1: Actualicé y apliqué conocimientos de UX y metodologías ágiles durante el desarrollo de Finteka, elaborando el User Task Matrix, Empathy Mapping, As-is Scenario Mapping y revisando el Product Backlog para mejorar la definición del proyecto. <br><br> **Anaely Burga Loarte** <br> TB1: Actualicé y apliqué conocimientos de investigación de usuarios mediante la elaboración del análisis de competidores y el desarrollo de Needfinding, lo que permitió identificar oportunidades de mejora en el mercado. Asimismo, diseñé User Personas basadas en datos recolectados para representar de manera precisa a los usuarios objetivo del proyecto Finteka. <br><br> **Sergio Aguirre Castillo** <br> TB1: Actualicé y apliqué conocimientos en desarrollo de software utilizando lenguajes como Python, C++ y C#, participando en la implementación de funcionalidades del proyecto Finteka. Además, reforcé conceptos de estructuras de datos y buenas prácticas de programación para mejorar la calidad del código. <br><br> **Gabriel Cristian Mamani Marca** <br> TB1: Actualicé y apliqué conocimientos de investigación de usuarios mediante la identificación y el análisis detallado de los segmentos objetivo, lo que permitió comprender mejor sus necesidades y características dentro del mercado. Asimismo, elaboré los requisitos funcionales y no funcionales de la aplicación Finteka, asegurando que el sistema responda adecuadamente a las expectativas y condiciones de uso definidas para el proyecto. <br><br> **Augusto Sebastian Montes Maza** <br> TB1: Actualicé y apliqué conocimientos en arquitectura de software y despliegue de soluciones digitales, liderando la estructuración del Lean UX Problem Statement y la definición de hipótesis de negocio para FinTeka. Asimismo, reforcé mis capacidades en el análisis de requerimientos técnicos para asegurar que la propuesta sea escalable y tecnológicamente viable. | **Daiki Oscar Oshiro Yamashita** <br> TB1: La actualización constante de conocimientos permitió mejorar el análisis, organización y planificación del proyecto de software. <br><br> **Anaely Burga Loarte** <br> TB1: La actualización de conocimientos en investigación de usuarios permitió comprender mejor el entorno competitivo y las necesidades reales de los usuarios, fortaleciendo la propuesta de valor del proyecto. <br><br> **Sergio Aguirre Castillo** <br> TB1: La actualización de conocimientos técnicos permitió mejorar la calidad del desarrollo, optimizar la implementación de funcionalidades y fortalecer las competencias en programación para el proyecto. <br><br> **Gabriel Cristian Mamani Marca** <br> TB1: La actualización de conocimientos en análisis de segmentos objetivo y definición de requisitos funcionales y no funcionales permitió estructurar de manera clara las necesidades del sistema Finteka, asegurando una mejor alineación entre los requerimientos del usuario y las funcionalidades de la aplicación. <br><br> **Augusto Sebastian Montes Maza** <br> TB1: La actualización de conocimientos en arquitectura y modelos de negocio permitió alinear los objetivos técnicos con las necesidades del mercado, garantizando una base sólida para el desarrollo futuro de la plataforma. |
-| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.** | **Daiki Oscar Oshiro Yamashita** <br> TB1: Reconocí la necesidad del aprendizaje continuo al investigar nuevas técnicas de análisis de usuarios, priorización de requerimientos y gestión ágil, aplicándolas en el proyecto Finteka para mejorar la calidad de la solución propuesta. <br><br> **Anaely Burga Loarte** <br> TB1: Reconocí la importancia del aprendizaje continuo al aplicar técnicas de Needfinding y construcción de User Personas, lo que implicó investigar nuevas herramientas y enfoques centrados en el usuario para mejorar la definición del público objetivo en Finteka. <br><br> **Sergio Aguirre Castillo** <br> TB1: Reconocí la importancia del aprendizaje continuo al investigar nuevas tecnologías, frameworks y herramientas de desarrollo, así como buenas prácticas de programación, con el fin de mejorar mi desempeño y aportar de manera más eficiente al proyecto Finteka. <br><br> **Gabriel Cristian Mamani Marca** <br> TB1: Reconocí la necesidad del aprendizaje continuo al investigar y aplicar enfoques para la identificación de segmentos objetivo y la elaboración de requisitos funcionales y no funcionales, incorporando nuevos conocimientos para mejorar la definición del sistema Finteka. <br><br> **Augusto Sebastian Montes Maza** <br> TB1: Reconocí la importancia del aprendizaje permanente al investigar sobre pasarelas de pago seguras, normativas de protección de datos y escalabilidad en la nube, integrando estos conceptos en los supuestos de negocio y características del producto para fortalecer la seguridad y confianza en FinTeka. | **Daiki Oscar Oshiro Yamashita** <br> TB1: El aprendizaje permanente es clave para adaptarse a nuevas metodologías y desarrollar soluciones más eficientes e innovadoras. <br><br> **Anaely Burga Loarte** <br> TB1: El aprendizaje permanente permite desarrollar soluciones más centradas en el usuario, adaptándose a sus necesidades y mejorando la efectividad del diseño del software. <br><br> **Sergio Aguirre Castillo** <br> TB1: El aprendizaje continuo permite mantenerse actualizado en tecnologías y metodologías, facilitando el desarrollo de soluciones más eficientes, escalables y alineadas a las necesidades del proyecto. <br><br> **Gabriel Cristian Mamani Marca** <br> TB1: El aprendizaje permanente permite mejorar la identificación de segmentos objetivo y la correcta definición de requisitos, contribuyendo al desarrollo de soluciones de software más claras, estructuradas y alineadas a las necesidades del usuario. <br><br> **Augusto Sebastian Montes Maza** <br> TB1: El aprendizaje continuo es indispensable en la ingeniería de software para integrar tecnologías emergentes de seguridad y escalabilidad, asegurando que la solución sea competitiva y confiable a largo plazo. |
+| **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.** | **Daiki Oscar Oshiro Yamashita** <br>**TB1:** Actualicé y apliqué conocimientos de UX y metodologías ágiles durante el desarrollo de Finteka, elaborando el User Task Matrix, Empathy Mapping, As-is Scenario Mapping y revisando el Product Backlog para mejorar la definición del proyecto. <br><br>**TB2:** Apliqué el modelo C4 mediante la elaboración de los diagramas de contexto, contenedores y componentes de Finteka, fortaleciendo la comprensión de la arquitectura del sistema en el desarrollo del proyecto.<br><br> **Anaely Burga Loarte** <br> TB1: Actualicé y apliqué conocimientos de investigación de usuarios mediante la elaboración del análisis de competidores y el desarrollo de Needfinding, lo que permitió identificar oportunidades de mejora en el mercado. Asimismo, diseñé User Personas basadas en datos recolectados para representar de manera precisa a los usuarios objetivo del proyecto Finteka. <br><br> **Sergio Aguirre Castillo** <br> TB1: Actualicé y apliqué conocimientos en desarrollo de software utilizando lenguajes como Python, C++ y C#, participando en la implementación de funcionalidades del proyecto Finteka. Además, reforcé conceptos de estructuras de datos y buenas prácticas de programación para mejorar la calidad del código. <br><br> **Gabriel Cristian Mamani Marca** <br> TB1: Actualicé y apliqué conocimientos de investigación de usuarios mediante la identificación y el análisis detallado de los segmentos objetivo, lo que permitió comprender mejor sus necesidades y características dentro del mercado. Asimismo, elaboré los requisitos funcionales y no funcionales de la aplicación Finteka, asegurando que el sistema responda adecuadamente a las expectativas y condiciones de uso definidas para el proyecto. <br><br> **Augusto Sebastian Montes Maza** <br> TB1: Actualicé y apliqué conocimientos en arquitectura de software y despliegue de soluciones digitales, liderando la estructuración del Lean UX Problem Statement y la definición de hipótesis de negocio para FinTeka. Asimismo, reforcé mis capacidades en el análisis de requerimientos técnicos para asegurar que la propuesta sea escalable y tecnológicamente viable. | **Daiki Oscar Oshiro Yamashita** <br>**TB1:** La actualización constante de conocimientos permitió mejorar el análisis, organización y planificación del proyecto de software.<br><br>**TB2:** La elaboración de los diagramas C4 permitió estructurar y comprender mejor la arquitectura de Finteka, facilitando la identificación de sus componentes, relaciones y el contexto general del sistema.<br><br> **Anaely Burga Loarte** <br> TB1: La actualización de conocimientos en investigación de usuarios permitió comprender mejor el entorno competitivo y las necesidades reales de los usuarios, fortaleciendo la propuesta de valor del proyecto. <br><br> **Sergio Aguirre Castillo** <br> TB1: La actualización de conocimientos técnicos permitió mejorar la calidad del desarrollo, optimizar la implementación de funcionalidades y fortalecer las competencias en programación para el proyecto. <br><br> **Gabriel Cristian Mamani Marca** <br> TB1: La actualización de conocimientos en análisis de segmentos objetivo y definición de requisitos funcionales y no funcionales permitió estructurar de manera clara las necesidades del sistema Finteka, asegurando una mejor alineación entre los requerimientos del usuario y las funcionalidades de la aplicación. <br><br> **Augusto Sebastian Montes Maza** <br> TB1: La actualización de conocimientos en arquitectura y modelos de negocio permitió alinear los objetivos técnicos con las necesidades del mercado, garantizando una base sólida para el desarrollo futuro de la plataforma. |
+| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.** | **Daiki Oscar Oshiro Yamashita** <br>**TB1:** Reconocí la necesidad del aprendizaje continuo al investigar nuevas técnicas de análisis de usuarios, priorización de requerimientos y gestión ágil, aplicándolas en el proyecto Finteka para mejorar la calidad de la solución propuesta.<br><br>**TB2:** Reconocí la importancia del aprendizaje permanente al aplicar el modelo C4 en Finteka mediante sus diagramas de contexto, contenedores y componentes.<br><br> **Anaely Burga Loarte** <br> TB1: Reconocí la importancia del aprendizaje continuo al aplicar técnicas de Needfinding y construcción de User Personas, lo que implicó investigar nuevas herramientas y enfoques centrados en el usuario para mejorar la definición del público objetivo en Finteka. <br><br> **Sergio Aguirre Castillo** <br> TB1: Reconocí la importancia del aprendizaje continuo al investigar nuevas tecnologías, frameworks y herramientas de desarrollo, así como buenas prácticas de programación, con el fin de mejorar mi desempeño y aportar de manera más eficiente al proyecto Finteka. <br><br> **Gabriel Cristian Mamani Marca** <br> TB1: Reconocí la necesidad del aprendizaje continuo al investigar y aplicar enfoques para la identificación de segmentos objetivo y la elaboración de requisitos funcionales y no funcionales, incorporando nuevos conocimientos para mejorar la definición del sistema Finteka. <br><br> **Augusto Sebastian Montes Maza** <br> TB1: Reconocí la importancia del aprendizaje permanente al investigar sobre pasarelas de pago seguras, normativas de protección de datos y escalabilidad en la nube, integrando estos conceptos en los supuestos de negocio y características del producto para fortalecer la seguridad y confianza en FinTeka. | **Daiki Oscar Oshiro Yamashita** <br>**TB1:** El aprendizaje permanente es clave para adaptarse a nuevas metodologías y desarrollar soluciones más eficientes e innovadoras.<br><br>**TB2:** El modelo C4 reforzó la necesidad de aprendizaje continuo para comprender mejor la arquitectura del sistema.<br><br> **Anaely Burga Loarte** <br> TB1: El aprendizaje permanente permite desarrollar soluciones más centradas en el usuario, adaptándose a sus necesidades y mejorando la efectividad del diseño del software. <br><br> **Sergio Aguirre Castillo** <br> TB1: El aprendizaje continuo permite mantenerse actualizado en tecnologías y metodologías, facilitando el desarrollo de soluciones más eficientes, escalables y alineadas a las necesidades del proyecto. <br><br> **Gabriel Cristian Mamani Marca** <br> TB1: El aprendizaje permanente permite mejorar la identificación de segmentos objetivo y la correcta definición de requisitos, contribuyendo al desarrollo de soluciones de software más claras, estructuradas y alineadas a las necesidades del usuario. <br><br> **Augusto Sebastian Montes Maza** <br> TB1: El aprendizaje continuo es indispensable en la ingeniería de software para integrar tecnologías emergentes de seguridad y escalabilidad, asegurando que la solución sea competitiva y confiable a largo plazo. |
 
 # Capítulo I: Introducción
 
@@ -1076,6 +1091,30 @@ Para brindar funcionalidades complementarias se integran servicios externos como
 - Videollamadas: Genera enlaces de reunión mediante Zoom para sesiones remotas.
 
 <img src="../assets/containerdiagram.jpg" style="width: 100%;" alt="diagramacontenedores">
+
+### Search and Recommendation - Diagrama de Componentes
+
+A continuación, se muestra el diagrama de componentes correspondiente al microservicio Search and Recommendation. Su función principal es facilitar la localización de profesionales disponibles y sugerir opciones relevantes en la plataforma Finteka.
+
+<img src="../assets/componentdiagram1.jpg" style="width: 100%;" alt="diagramacomponentes1">
+
+### Session Management - Diagrama de Componentes
+
+A continuación, se presenta el diagrama de componentes del microservicio Session Management. Su función es gestionar las citas entre usuarios y profesionales, enviando confirmaciones por correo e integrando canales de comunicación como Zoom y chat en tiempo real.
+
+<img src="../assets/componentdiagram2.jpg" style="width: 100%;" alt="diagramacomponentes2">
+
+### Reservation Management
+
+A continuación, se presenta el diagrama de componentes del microservicio Reservation Management. Su función es administrar las reservas de asesorías dentro de Finteka, permitiendo registrar, consultar y actualizar las solicitudes realizadas por los usuarios.
+
+<img src="../assets/componentdiagram3.jpg" style="width: 100%;" alt="diagramacomponentes3">
+
+### Ratings and Reviews
+
+A continuación, se presenta el diagrama de componentes del microservicio Ratings and Reviews. Su función es gestionar las valoraciones y comentarios realizados por los usuarios sobre las asesorías recibidas y los profesionales dentro de la plataforma Finteka.
+
+<img src="../assets/componentdiagram4.jpg" style="width: 100%;" alt="diagramacomponentes4">
 
 ## 4.1.5
 
