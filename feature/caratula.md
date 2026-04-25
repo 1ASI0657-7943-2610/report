@@ -1126,6 +1126,22 @@ A continuación, se presenta el diagrama de componentes del microservicio Rating
 
 ## 4.1.7
 
+
+## 4.2 Architectural Drivers
+### 4.3.1 Iteration 1: Sprint1
+
+
+### 4.3.1.1 Architectural Design Backlog 1
+
+En esta primera iteración, se busca construir la primera versión del sistema, priorizando las reglas principales del negocio. Se permitirá que los usuarios puedan buscar especialidades, visualizar perfiles profesionales y concretar asesorías de manera funcional, mientras que los consultores obtendrán una visibilidad inicial sobre la gestión de sus servicios y su disponibilidad. Se busca implementar un flujo básico pero completo que cubra las principales interacciones del sistema, desde la exploración de especialistas hasta la confirmación de una asesoría. Asimismo, en esta etapa se definirán las bases de comunicación entre los componentes principales del sistema, garantizando que el intercambio de información sea claro y consistente. Esto facilitará el seguimiento de las operaciones realizadas dentro de la plataforma y aportará mayor transparencia en su funcionamiento.
+<br>
+Finalmente, esta iteración tiene como propósito establecer una base sólida sobre la cual se pueda validar el funcionamiento general de FinTeka, permitiendo identificar oportunidades de mejora e incorporar nuevas funcionalidades en futuras versiones, como pagos integrados, sistemas de calificación y herramientas de comunicación entre usuarios y consultores.
+
+### 4.3.1.2 Establish Iteration Goal by Selecting Drivers
+### 4.3.1.3 Choose One or More Elements of the System to Refine
+### 4.3.1.5 Choose One or More Design Concepts That Satisfy the Selected Drivers
+### 4.3.1.6 Sketch Views (C4 & UML) and Record Design Decisions
+### 4.3.1.7 Analysis of Current Design and Review Iteration Goal
 # Conclusiones
 
 - La investigación inicial permitió identificar que muchas personas y empresas presentan dificultades para acceder a asesoría profesional confiable debido a la fragmentación de la oferta y al uso de canales informales.
