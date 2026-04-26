@@ -1038,11 +1038,41 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 
 # Capítulo IV: Product Architecture Design
 
-## 4.1
+## 4.1 Design Concepts, ViewPoints & ER Diagrams
 
-## 4.1.1
+## 4.1.1 Principles Statements
 
-## 4.1.2
+* Alineación con la visión de negocio. A partir de la visión de negocio de centralizar el acceso a asesoría profesional de forma organizada, confiable y accesible, y de la visión de una arquitectura de plataforma de microservicios basada en DDD, se establecen los principios rectores que guían el diseño de FinTeka. Estos principios buscan garantizar transacciones seguras, maximizar la cohesión de cada servicio y habilitar cambios ágiles enfocados en la experiencia tanto de los usuarios solicitantes como de los consultores.
+* Comunicación asincrónica sobre sincrónica. Para procesos que no requieren respuesta inmediata del usuario (como el envío de recordatorios automáticos de sesiones o la actualización de métricas de desempeño), se privilegian mecanismos orientados a eventos mediante message brokers. Esto desacopla los servicios principales (como reservas y pagos) de los secundarios, aislando fallos y mejorando la escalabilidad.
+* Uso de tecnologías con soporte comercial y escalabilidad probada. Para garantizar un rendimiento óptimo, el desarrollo del frontend multiplataforma (móvil y web responsivo desde 360 px hasta 1920 px) se apoya en Flutter y React, asegurando una experiencia de usuario fluida e interfaces dinámicas. En el backend, se implementan servicios en Python, ideales para el manejo ágil de la lógica de negocio y APIs REST documentadas con OpenAPI 3.0 / Swagger. Para la persistencia de datos relacionales transaccionales (como el historial de sesiones y pagos), se emplean motores robustos como PostgreSQL o MySQL.
+* Seguridad y privacidad como principio transversal. La seguridad se aplica desde el diseño (Zero Trust). Toda comunicación entre cliente y servidor se realiza mediante HTTPS con TLS 1.2 o superior. Las contraseñas se almacenan utilizando algoritmos seguros como BCrypt. La autenticación es gestionada mediante la generación y validación de tokens de acceso y actualización, apoyada por un control de acceso basado en roles (RBAC) para diferenciar entre usuarios, consultores y administradores con una latencia de validación menor a 50 ms.
+* Rendimiento y resiliencia bajo concurrencia. El sistema está diseñado para cumplir con estrictos Acuerdos de Nivel de Servicio (SLAs). Las búsquedas de especialistas se resuelven en un tiempo máximo de 2 segundos, y las confirmaciones de reservas en un máximo de 3 segundos para el 95% de las transacciones. Para lograr esto, se implementan timeouts, circuit breakers y bloqueos temporales de horarios en la base de datos para evitar conflictos o superposiciones en las reservas.
+* Observabilidad integrada desde el inicio. El sistema registra logs detallados de autenticación, reservas, errores y operaciones críticas (con niveles INFO, WARN y ERROR), conservando esta información por un mínimo de 90 días para facilitar la trazabilidad completa sobre cancelaciones, reprogramaciones y cambios de estado de sesiones.
+* Compatibilidad con principios SOLID y DDD. La lógica de negocio principal (búsqueda de expertos, reservas de agenda, pagos seguros y sistema de valoraciones) se encapsula en servicios independientes. Se respeta el Principio de Responsabilidad Única (SRP) y se utiliza la Inversión de Dependencias (DIP) para aislar la infraestructura tecnológica de las invariantes del dominio.
+* Contenedorización y Portabilidad. El sistema es compatible con despliegues en contenedores, utilizando imágenes optimizadas (cuyo tamaño no excede los 500 MB) para agilizar el ciclo de integración y despliegue continuo (CI/CD), asegurando que los entornos de desarrollo, staging y producción sean consistentes.
+
+### 4.1.2 Approaches Statements Architectural Styles & Patterns
+
+Estilos arquitectónicos
+
+Para el desarrollo de FinTeka se adopta el enfoque de Domain-Driven Design (DDD). Este enfoque permite que el modelo de software refleje con alta precisión las reglas de negocio, como la gestión del ciclo de vida de una sesión (pendiente, confirmada, en curso, completada y cancelada) y las reglas de disponibilidad.
+
+El uso de Bounded Contexts segmenta la aplicación en áreas claramente delimitadas:
+* Identity & Access Management (IAM): Maneja el registro, la autenticación mediante tokens y la gestión de roles de usuarios y consultores. Especial atención al módulo de "autenticación", garantizando la seguridad en el acceso a la plataforma.
+* Search & Profile: Responsable del buscador avanzado (categoría, experiencia, tarifa) y la gestión de la reputación y visualización pública de los consultores.
+* Core Reservation (Booking): Maneja el motor de disponibilidad en tiempo real, bloqueos de agenda y conflictos de horarios.
+* Communication: Gestiona la mensajería instantánea en tiempo real entre usuarios y consultores.
+* Billing & Payments: Centraliza el flujo transaccional y el cobro automático.
+
+El estilo arquitectónico predominante es Microservices Architecture complementado con Event-Driven Architecture (EDA).
+* Cada servicio despliega su propio ciclo de vida y base de datos.
+* La comunicación entre microservicios (por ejemplo, notificar al módulo de IAM y al módulo de Reservas que un pago ha sido exitoso) se maneja de forma asíncrona mediante eventos de dominio (ej. ReservationConfirmed, PaymentProcessed), permitiendo tolerancia a fallos y alta disponibilidad.
+
+Patrones de diseño y procesamiento
+
+* API Gateway Pattern: Centraliza las solicitudes de las aplicaciones móviles y web, encargándose del enrutamiento, validación de tokens de acceso y rate-limiting.
+* CQRS (Command Query Responsibility Segregation): Dado que en una plataforma de búsquedas (como FinTeka) la cantidad de lecturas (usuarios buscando consultores y filtrando tarifas) superará ampliamente a las escrituras (creación de reservas), CQRS permite separar las bases de datos optimizadas para búsqueda rápida de las bases de datos relacionales seguras utilizadas para transacciones financieras y reservas.
+* Saga Pattern (Coreography / Orchestration): Utilizado para gestionar el flujo transaccional distribuido de la reserva, asegurando que si el proceso de pago falla, el horario bloqueado temporalmente se libere automáticamente para mantener la consistencia del sistema.
 
 ## 4.1.3 Context Diagram
 
