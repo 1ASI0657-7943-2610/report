@@ -1159,7 +1159,61 @@ A continuación, se presenta el diagrama de componentes del microservicio Rating
 
 ## 4.1.5
 
-## 4.1.6
+## 4.1.6 Design Pattems
+
+Entre los patrones de diseño que emplearemos en el desarrollo de FinTeka destacan los siguientes:
+
+**Patrones creacionales**
+
+Los patrones creacionales permiten instanciar objetos de manera flexible y consistente, reduciendo el acoplamiento entre las clases que solicitan un objeto y las que lo construyen.
+
+* Builder Pattern. Este patrón ofrece un proceso de construcción paso a paso para objetos que requieren múltiples atributos o validaciones antes de quedar listos. Su uso facilita que las entidades complejas de FinTeka, por ejemplo, los perfiles de consultores (con especialidades, tarifas y certificaciones) o las solicitudes de reserva de sesiones, se creen de forma legible y segura, sin depender de constructores con demasiados parámetros.
+* Factory Method Pattern. El patrón de fábrica encapsula la lógica de creación en un método especializado que devuelve instancias preparadas para su uso. En FinTeka, esto brinda una interfaz uniforme para obtener objetos como distintos tipos de notificaciones (alertas de disponibilidad, recordatorios de sesión) o integraciones de métodos de pago, independientemente de la clase concreta que los implementa.
+
+**Patrones estructurales**
+
+Los patrones estructurales organizan las relaciones entre clases y componentes para hacerlas más comprensibles y extensibles.
+
+* Facade Pattern. Sirve para exponer una interfaz simplificada y unificada que agrupa operaciones internas complejas. Así, el frontend móvil y web puede interactuar con el dominio de FinTeka (por ejemplo, el proceso unificado de buscar disponibilidad, agendar y pagar) sin conocer el detalle de los microservicios subyacentes, favoreciendo la mantenibilidad.
+* Adapter Pattern. Este patrón traduce o adapta la interfaz de un componente externo para que encaje con las necesidades del sistema. En FinTeka será vital para integrar servicios de terceros, como pasarelas de pago para el cobro de comisiones o proveedores de servicios de correo/SMS, evitando reescribir código interno si el proveedor externo cambia.
+* Repository Pattern. El repositorio abstrae el acceso a la base de datos (PostgreSQL/MySQL) y separa las consultas y persistencia de las reglas de negocio. Esta separación mejora las pruebas unitarias y reduce la duplicación de lógica al guardar el historial de sesiones o actualizar la reputación de los consultores.
+
+**Patrones de comportamiento**
+
+Los patrones de comportamiento definen cómo colaboran los objetos y encapsulan algoritmos para lograr mayor flexibilidad.
+
+* Command Pattern (CQRS). El patrón Command encapsula cada operación de escritura en FinTeka (ej. registrar especialista, confirmar reserva, procesar pago) en un objeto propio. Esto permite desacoplar la solicitud de la acción de su ejecución, lo que favorece el escalamiento y la integración con colas de mensajes para flujos asincrónicos.
+* Query Pattern (CQRS complementario). Al separar las consultas de lectura (ej. filtrar consultores por tarifa, ver historial de asesorías) de los comandos de escritura, se obtiene mayor rendimiento y claridad, algo crítico en el módulo de Search & Profile de la plataforma.
+* Strategy Pattern. Este patrón encapsula algoritmos intercambiables. En FinTeka, permite cambiar la estrategia en tiempo de ejecución, por ejemplo, alternar entre distintos algoritmos de ordenamiento de especialistas (por precio, por calificación, por disponibilidad) o distintas estrategias de cálculo de comisiones sin alterar el resto del código.
+* Template Method Pattern. Define en una clase base la estructura general de un proceso, delegando en las subclases los pasos específicos. Se emplea para estandarizar el ciclo de vida de las sesiones en FinTeka (Pendiente, Confirmada, En curso, Completada, Cancelada) y asegurar que las auditorías de estado se ejecuten uniformemente.
+* Observer Pattern (Eventos de Dominio). Implementa un mecanismo de publicación-suscripción para reaccionar a cambios en el estado de las entidades. En FinTeka, cuando se emite el evento "PagoProcesado", el sistema notifica automáticamente al módulo de reservas para confirmar la cita y al módulo de comunicación para enviar el recordatorio, manteniendo un bajo acoplamiento.
+* Service Layer Pattern. La capa de servicios orquesta el uso de repositorios, fábricas y comandos, aislando la lógica de aplicación (como la coordinación entre la pasarela de pagos y la agenda del consultor) del resto de componentes, lo que facilita pruebas y asegura la coherencia del negocio.
+
+**Disponibilidad**
+
+* Uso de técnicas de balanceo de carga en el API Gateway para asegurar que el buscador de especialistas y los perfiles se mantengan accesibles y con tiempos de respuesta menores a 2 segundos, incluso en picos de tráfico.
+* Implementación de sistemas de monitorización y alertas tempranas (mediante logs de niveles INFO, WARN, ERROR) que detecten caídas en servicios críticos como el motor de reservas o la pasarela de pagos.
+
+**Fiabilidad**
+
+* Realización de pruebas exhaustivas de software sobre los módulos de transacciones financieras y validación de cruces de horarios, para identificar y corregir errores antes de que afecten la reserva de un cliente.
+* Implementación de mecanismos de recuperación ante fallos mediante el patrón Saga, asegurando que si un pago falla, la reserva temporal del horario del consultor se libere automáticamente.
+* Uso de técnicas de registro y auditoría que permitan rastrear historial de cancelaciones, cambios de citas o inconsistencias en los cobros.
+
+**Modificabilidad**
+
+* Aplicación de un enfoque de microservicios basados en DDD que facilite la escalabilidad hacia nuevos modelos de negocio (por ejemplo, agregar sesiones grupales, masterclasses o suscripciones mensuales) sin afectar el flujo de asesorías individuales 1 a 1.
+* Uso de técnicas de refactoring y pruebas automatizadas para mantener los servicios de FinTeka fáciles de extender y modificar sin comprometer la experiencia del consultor ni del cliente.
+
+**Usabilidad**
+
+* Realización de pruebas de usabilidad con profesionales y usuarios reales, validando que el proceso de agendar una sesión tome la menor cantidad de pasos posibles y que el panel de gestión del consultor sea intuitivo.
+* Incorporación de retroalimentación directa de los usuarios para ajustar los filtros de búsqueda, el diseño visual (incluyendo el Modo Oscuro/Claro) y la claridad de la información en los perfiles.
+
+**Seguridad**
+
+* Implementación de medidas Zero Trust, autenticación con tokens, autorización basada en roles (RBAC) y cifrado TLS 1.2 para proteger cuentas de usuarios, historiales de asesoría y datos de tarjetas de crédito.
+* Realización de auditorías de seguridad regulares y control estricto de accesos para proteger la plataforma frente a intentos de fraude, suplantación de consultores o vulneración de datos personales.
 
 ## 4.1.7
 
