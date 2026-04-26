@@ -1229,6 +1229,19 @@ En esta primera iteración, se busca construir la primera versión del sistema, 
 Finalmente, esta iteración tiene como propósito establecer una base sólida sobre la cual se pueda validar el funcionamiento general de FinTeka, permitiendo identificar oportunidades de mejora e incorporar nuevas funcionalidades en futuras versiones, como pagos integrados, sistemas de calificación y herramientas de comunicación entre usuarios y consultores.
 
 ### 4.3.1.2 Establish Iteration Goal by Selecting Drivers
+
+
+En la primera iteración se busca priorizar los siguientes atributos de calidad:
+
+| Atributo de Calidad | Descripción |
+|--------------------|-------------|
+| Rendimiento (Performance) | Garantizar tiempos de respuesta bajos en la búsqueda de especialistas, carga de perfiles y proceso de reservas. |
+| Seguridad (Security) | Proteger la información personal de los usuarios, así como las transacciones y comunicaciones dentro de la plataforma. |
+| Disponibilidad (Availability) | Asegurar que la plataforma esté accesible en todo momento para la consulta y reserva de asesorías. |
+
+
+Se prioriza la funcionalidad core del sistema FinTeka, permitiendo a los usuarios buscar especialistas, visualizar perfiles y reservar sesiones de manera rápida, segura y confiable.
+
 ### 4.3.1.3 Choose One or More Elements of the System to Refine
 ### 4.3.1.5 Choose One or More Design Concepts That Satisfy the Selected Drivers
 ### 4.3.1.6 Sketch Views (C4 & UML) and Record Design Decisions
