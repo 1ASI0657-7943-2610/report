@@ -1234,15 +1234,29 @@ Finalmente, esta iteración tiene como propósito establecer una base sólida so
 En la primera iteración se busca priorizar los siguientes atributos de calidad:
 
 | Atributo de Calidad | Descripción |
-|--------------------|-------------|
-| Rendimiento (Performance) | Garantizar tiempos de respuesta bajos en la búsqueda de especialistas, carga de perfiles y proceso de reservas. |
-| Seguridad (Security) | Proteger la información personal de los usuarios, así como las transacciones y comunicaciones dentro de la plataforma. |
-| Disponibilidad (Availability) | Asegurar que la plataforma esté accesible en todo momento para la consulta y reserva de asesorías. |
+|-------------------|-------------|
+| Rendimiento  | Garantizar tiempos de respuesta bajos en la búsqueda de especialistas, carga de perfiles y proceso de reservas. |
+| Seguridad  | Proteger la información personal de los usuarios, así como las transacciones y comunicaciones dentro de la plataforma. |
+| Disponibilidad | Asegurar que la plataforma esté accesible en todo momento para la consulta y reserva de asesorías. |
 
 
 Se prioriza la funcionalidad core del sistema FinTeka, permitiendo a los usuarios buscar especialistas, visualizar perfiles y reservar sesiones de manera rápida, segura y confiable.
 
 ### 4.3.1.3 Choose One or More Elements of the System to Refine
+
+### Rendimiento:
+* Cada bounded context representará un microservicio, desplegado en Azure mediante contenedores, lo que permitirá escalar de manera independiente los servicios con mayor carga y mejorar los tiempos de respuesta del sistema.
+* Se reducirán los tiempos de respuesta en las operaciones críticas (búsqueda, reserva de sesiones) mediante APIs optimizadas.
+
+#### Seguridad
+* Se implementará autenticación basada en JWT (Json Web Token) para la gestión segura de sesiones de usuario.
+* Las contraseñas de los usuarios serán almacenadas utilizando algoritmos de hash seguro como bcrypt.
+* Se validarán los roles y permisos en los endpoints críticos (reservas, pagos y gestión de perfiles).
+* 
+#### Disponibilidad
+* La plataforma será desplegada en Azure, aprovechando servicios que garanticen alta disponibilidad.
+*  El microservicio de reservas incrementará automáticamente sus instancias cuando el tiempo de procesamiento de transacciones supere los 3 segundos en el 95% de los casos, asegurando la continuidad del servicio (RNF-002).* 
+* El microservicio de búsqueda de especialistas escalará horizontalmente cuando el tiempo de respuesta supere los 2 segundos bajo una carga de hasta 150 usuarios concurrentes, garantizando el cumplimiento del rendimiento esperado (RNF-001).
 ### 4.3.1.5 Choose One or More Design Concepts That Satisfy the Selected Drivers
 ### 4.3.1.6 Sketch Views (C4 & UML) and Record Design Decisions
 ### 4.3.1.7 Analysis of Current Design and Review Iteration Goal
