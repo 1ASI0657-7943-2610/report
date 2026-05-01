@@ -1224,40 +1224,88 @@ Los patrones de comportamiento definen cómo colaboran los objetos y encapsulan 
 
 ### 4.3.1.1 Architectural Design Backlog 1
 
-En esta primera iteración, se busca construir la primera versión del sistema, priorizando las reglas principales del negocio. Se permitirá que los usuarios puedan buscar especialidades, visualizar perfiles profesionales y concretar asesorías de manera funcional, mientras que los consultores obtendrán una visibilidad inicial sobre la gestión de sus servicios y su disponibilidad. Se busca implementar un flujo básico pero completo que cubra las principales interacciones del sistema, desde la exploración de especialistas hasta la confirmación de una asesoría. Asimismo, en esta etapa se definirán las bases de comunicación entre los componentes principales del sistema, garantizando que el intercambio de información sea claro y consistente. Esto facilitará el seguimiento de las operaciones realizadas dentro de la plataforma y aportará mayor transparencia en su funcionamiento.
-<br>
+En esta primera iteración, se busca construir la primera versión del sistema, priorizando las reglas principales del negocio. Se permitirá que los usuarios puedan buscar especialidades, visualizar perfiles profesionales y concretar asesorías de manera funcional, mientras que los consultores obtendrán una visibilidad inicial sobre la gestión de sus servicios y su disponibilidad. Se busca implementar un flujo básico pero completo que cubra las principales interacciones del sistema, desde la exploración de especialistas hasta la confirmación de una asesoría.
+
+Asimismo, en esta etapa se definirán las bases de comunicación entre los componentes principales del sistema, garantizando que el intercambio de información sea claro y consistente. Esto facilitará el seguimiento de las operaciones realizadas dentro de la plataforma y aportará mayor transparencia en su funcionamiento.
+
 Finalmente, esta iteración tiene como propósito establecer una base sólida sobre la cual se pueda validar el funcionamiento general de FinTeka, permitiendo identificar oportunidades de mejora e incorporar nuevas funcionalidades en futuras versiones, como pagos integrados, sistemas de calificación y herramientas de comunicación entre usuarios y consultores.
+
+| Tipo de Driver      | Driver Seleccionado                           | Razón                                                                                                                                                |
+| ------------------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Objetivo de Negocio | Lanzar versión funcional inicial              | Se busca contar con una primera versión operativa que permita conectar usuarios con consultores y validar el interés real del mercado.               |
+| Atributo de Calidad | Usability                                     | La plataforma debe ser intuitiva y fácil de usar para que los usuarios puedan registrarse, buscar especialistas y reservar asesorías sin dificultad. |
+| Atributo de Calidad | Availability                                  | El sistema debe mantenerse disponible para consultas y reservas en horarios variados, evitando interrupciones que afecten la confianza del usuario.  |
+| Atributo de Calidad | Modifiability                                 | La arquitectura debe facilitar futuras mejoras como pagos en línea, calificaciones y chat interno sin rehacer componentes principales.               |
+| Restricción         | Arquitectura basada en microservicios con enfoque DDD, utilizando Spring Boot, .NET y Go | Se adopta este enfoque para organizar mejor los dominios del negocio, permitir crecimiento progresivo y simplificar el mantenimiento del sistema.    |
+
+
 
 ### 4.3.1.2 Establish Iteration Goal by Selecting Drivers
 
 
 En la primera iteración se busca priorizar los siguientes atributos de calidad:
 
-| Atributo de Calidad | Descripción |
-|-------------------|-------------|
-| Rendimiento  | Garantizar tiempos de respuesta bajos en la búsqueda de especialistas, carga de perfiles y proceso de reservas. |
-| Seguridad  | Proteger la información personal de los usuarios, así como las transacciones y comunicaciones dentro de la plataforma. |
-| Disponibilidad | Asegurar que la plataforma esté accesible en todo momento para la consulta y reserva de asesorías. |
+| Atributo de Calidad | Descripción                                                                                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Usability           | Garantizar una experiencia intuitiva y sencilla para que los usuarios puedan registrarse, buscar especialistas y reservar asesorías sin dificultad.           |
+| Availability        | Asegurar que la plataforma se mantenga accesible para consultas y reservas en distintos horarios, minimizando interrupciones del servicio.                    |
+| Modifiability       | Facilitar la incorporación futura de nuevas funcionalidades como pagos en línea, calificaciones y herramientas de comunicación sin afectar el sistema actual. |
 
 
-Se prioriza la funcionalidad core del sistema FinTeka, permitiendo a los usuarios buscar especialistas, visualizar perfiles y reservar sesiones de manera rápida, segura y confiable.
+Se prioriza la funcionalidad core del sistema FinTeka, permitiendo a los usuarios registrarse, buscar especialistas, visualizar perfiles y reservar sesiones de manera rápida, segura y confiable.
 
 ### 4.3.1.3 Choose One or More Elements of the System to Refine
 
-### Rendimiento:
-* Cada bounded context representará un microservicio, desplegado en Azure mediante contenedores, lo que permitirá escalar de manera independiente los servicios con mayor carga y mejorar los tiempos de respuesta del sistema.
-* Se reducirán los tiempos de respuesta en las operaciones críticas (búsqueda, reserva de sesiones) mediante APIs optimizadas.
+Con el fin de responder a los drivers priorizados y asegurar la entrega  en esta primera iteración, se identifican los componentes más relevantes del sistema que serán detallados y refinados durante el diseño arquitectónico inicial.
 
-#### Seguridad
-* Se implementará autenticación basada en JWT (Json Web Token) para la gestión segura de sesiones de usuario.
-* Las contraseñas de los usuarios serán almacenadas utilizando algoritmos de hash seguro como bcrypt.
-* Se validarán los roles y permisos en los endpoints críticos (reservas, pagos y gestión de perfiles).
-* 
-#### Disponibilidad
-* La plataforma será desplegada en Azure, aprovechando servicios que garanticen alta disponibilidad.
-*  El microservicio de reservas incrementará automáticamente sus instancias cuando el tiempo de procesamiento de transacciones supere los 3 segundos en el 95% de los casos, asegurando la continuidad del servicio (RNF-002).* 
-* El microservicio de búsqueda de especialistas escalará horizontalmente cuando el tiempo de respuesta supere los 2 segundos bajo una carga de hasta 150 usuarios concurrentes, garantizando el cumplimiento del rendimiento esperado (RNF-001).
+
+Servicio de Gestión de Consultores y Especialidades
+
+* Administra la información profesional de los consultores, incluyendo perfiles, experiencia, áreas de especialización y disponibilidad.
+* Permite que los usuarios exploren especialistas y encuentren opciones acordes a sus necesidades.
+* Representa el punto principal de conexión entre la oferta de servicios y la demanda de asesorías dentro de la plataforma.
+
+Servicio de Reservas y Asesorías
+
+* Gestiona el proceso de solicitud, programación y confirmación de sesiones entre usuarios y consultores.
+* Controla horarios disponibles, estado de las reservas y seguimiento de cada asesoría agendada.
+* Garantiza una operación confiable y ordenada en el flujo principal del negocio.
+
+Estos componentes constituyen el núcleo funcional de FinTeka en esta iteración, ya que permiten materializar la propuesta de valor principal: conectar usuarios con especialistas y facilitar la contratación de asesorías de forma eficiente y confiable.
+
 ### 4.3.1.5 Choose One or More Design Concepts That Satisfy the Selected Drivers
+
+Con el propósito de cumplir los drivers arquitectónicos priorizados en esta iteración, se adoptan los siguientes conceptos de diseño orientados a usabilidad, disponibilidad y facilidad de evolución del sistema.
+
+
+Usability
+
+* La interfaz web será desarrollada con diseño responsive, garantizando una experiencia adecuada en móviles, tabletas y escritorio (RNF-015).
+* Los flujos principales de registro, búsqueda de especialistas, visualización de perfiles y reservas serán simples e intuitivos.
+* Los perfiles públicos de consultores deberán cargar en un tiempo máximo de 1.5 segundos para ofrecer navegación fluida (RNF-010).
+* La plataforma será compatible con navegadores modernos como Chrome, Firefox, Edge y Safari (RNF-014).
+
+Availability
+
+* Los microservicios serán desplegados en contenedores Docker, facilitando portabilidad, reinicios rápidos y recuperación ante fallos (RNF-013).
+* La solución utilizará una arquitectura distribuida donde fallos en un servicio no detengan completamente al sistema.
+* Las búsquedas de especialistas deberán responder en un máximo de 2 segundos bajo carga normal (RNF-001).
+* La creación y confirmación de reservas deberá completarse en un máximo de 3 segundos para la mayoría de solicitudes (RNF-002).
+* Se implementará monitoreo y trazabilidad mediante logs de autenticación, errores y operaciones críticas (RNF-012).
+
+
+Modifiability
+
+* El sistema se desarrollará bajo arquitectura de microservicios con enfoque DDD, separando dominios como autenticación, consultores, reservas y notificaciones.
+* Se emplearán tecnologías como Spring Boot, .NET y Go, seleccionando cada framework según las necesidades de rendimiento, mantenibilidad e integración de cada servicio.
+* Se incorporará un message broker Kafka para la comunicación asíncrona entre servicios, especialmente en procesos como notificaciones, confirmaciones y eventos de reservas.
+* Las APIs serán documentadas con OpenAPI / Swagger para facilitar futuras integraciones y mantenimiento (RNF-006).
+* El uso de UUID y variables de entorno permitirá escalar servicios y desplegar nuevos ambientes con menor complejidad (RNF-008, RNF-009).
+* Esta estructura permitirá incorporar posteriormente módulos como pagos en línea, calificaciones y mensajería interna sin afectar el núcleo principal.
+
+### 4.3.1.6 Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
+
+
 ### 4.3.1.6 Sketch Views (C4 & UML) and Record Design Decisions
 ### 4.3.1.7 Analysis of Current Design and Review Iteration Goal
 # Conclusiones
