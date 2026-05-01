@@ -1305,7 +1305,40 @@ Modifiability
 
 ### 4.3.1.6 Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
+La arquitectura de FinTeka se plantea como una solución basada en microservicios organizados por dominios de negocio, permitiendo separar responsabilidades funcionales y facilitar la evolución del sistema. Los servicios colaboran mediante APIs REST para operaciones síncronas y mensajería asíncrona mediante un broker de eventos para procesos desacoplados. En esta primera iteración se detallan los principales elementos arquitectónicos, sus responsabilidades y los mecanismos de integración definidos.
 
+#### Elementos arquitectónicos
+
+Se usará el enfoque DDD (Domain-Driven Design) para organizar la aplicación.Por ello, cada módulo será definido como un Bounded Context.
+
+
+* Iam: encargado del registro de usuarios, autenticación, recuperación de contraseña y gestión de roles.
+* Consultant: Administra perfiles profesionales, especialidades, experiencia y disponibilidad de los consultores.
+* Booking: Gestiona solicitudes, programación, confirmación y seguimiento de asesorías reservadas por los usuarios.
+* Notification: Procesa eventos del sistema y envía confirmaciones o alertas por correo electrónico.
+
+Los microservicios serán desarrollados con Spring Boot, .NET y Go, seleccionando la tecnología más adecuada según el dominio funcional y requerimientos de rendimiento.
+
+El frontend será desarrollado en Angular, consumiendo los servicios a través del API Gateway. La solución será desplegada en contenedores Docker, permitiendo portabilidad, escalabilidad y facilidad operativa.
+
+#### Asignación de responsabilidades
+
+Cada servicio mantiene autonomía sobre sus datos y lógica de negocio:
+
+* Iam: Valida: credenciales, genera tokens JWT y controla acceso según roles definidos.
+* Consultant: Publica información de consultores y responde consultas relacionadas con perfiles y especialidades.
+* Booking:  Verifica disponibilidad horaria, registra reservas y actualiza el estado de las asesorías.
+* Notification:  recibe eventos como registro exitoso o reserva confirmada y ejecuta envíos automáticos.
+
+#### Definición de interfaces
+La comunicación entre componentes se implementará mediante interfaces síncronas y asíncronas:
+
+* Las interfaces síncronas utilizarán REST APIs documentadas con OpenAPI 3.0 / Swagger, accesibles únicamente mediante el API Gateway.
+*  Las interfaces asíncronas emplearán un message broker (RabbitMQ o Kafka) para eventos como UserRegistered, BookingCreated y BookingConfirmed, desacoplando procesos secundarios del flujo principal.
+* Todas las comunicaciones externas estarán protegidas mediante HTTPS con TLS.
+* Los endpoints privados requerirán autenticación mediante JWT Bearer Token y validación de permisos por rol.
+
+El frontend Angular funcionará como cliente principal para usuarios y consultores, mostrando vistas diferenciadas según permisos y tipo de cuenta, pero consumiendo una misma capa de servicios centralizada.
 ### 4.3.1.6 Sketch Views (C4 & UML) and Record Design Decisions
 ### 4.3.1.7 Analysis of Current Design and Review Iteration Goal
 # Conclusiones
