@@ -1259,13 +1259,13 @@ Se prioriza la funcionalidad core del sistema FinTeka, permitiendo a los usuario
 Con el fin de responder a los drivers priorizados y asegurar la entrega  en esta primera iteración, se identifican los componentes más relevantes del sistema que serán detallados y refinados durante el diseño arquitectónico inicial.
 
 
-Servicio de Gestión de Consultores y Especialidades
+#### Servicio de Gestión de Consultores y Especialidades
 
 * Administra la información profesional de los consultores, incluyendo perfiles, experiencia, áreas de especialización y disponibilidad.
 * Permite que los usuarios exploren especialistas y encuentren opciones acordes a sus necesidades.
 * Representa el punto principal de conexión entre la oferta de servicios y la demanda de asesorías dentro de la plataforma.
 
-Servicio de Reservas y Asesorías
+#### Servicio de Reservas y Asesorías
 
 * Gestiona el proceso de solicitud, programación y confirmación de sesiones entre usuarios y consultores.
 * Controla horarios disponibles, estado de las reservas y seguimiento de cada asesoría agendada.
@@ -1278,14 +1278,14 @@ Estos componentes constituyen el núcleo funcional de FinTeka en esta iteración
 Con el propósito de cumplir los drivers arquitectónicos priorizados en esta iteración, se adoptan los siguientes conceptos de diseño orientados a usabilidad, disponibilidad y facilidad de evolución del sistema.
 
 
-Usability
+#### Usability
 
 * La interfaz web será desarrollada con diseño responsive, garantizando una experiencia adecuada en móviles, tabletas y escritorio (RNF-015).
 * Los flujos principales de registro, búsqueda de especialistas, visualización de perfiles y reservas serán simples e intuitivos.
 * Los perfiles públicos de consultores deberán cargar en un tiempo máximo de 1.5 segundos para ofrecer navegación fluida (RNF-010).
 * La plataforma será compatible con navegadores modernos como Chrome, Firefox, Edge y Safari (RNF-014).
 
-Availability
+#### Availability
 
 * Los microservicios serán desplegados en contenedores Docker, facilitando portabilidad, reinicios rápidos y recuperación ante fallos (RNF-013).
 * La solución utilizará una arquitectura distribuida donde fallos en un servicio no detengan completamente al sistema.
@@ -1294,7 +1294,7 @@ Availability
 * Se implementará monitoreo y trazabilidad mediante logs de autenticación, errores y operaciones críticas (RNF-012).
 
 
-Modifiability
+#### odifiability
 
 * El sistema se desarrollará bajo arquitectura de microservicios con enfoque DDD, separando dominios como autenticación, consultores, reservas y notificaciones.
 * Se emplearán tecnologías como Spring Boot, .NET y Go, seleccionando cada framework según las necesidades de rendimiento, mantenibilidad e integración de cada servicio.
@@ -1340,7 +1340,14 @@ La comunicación entre componentes se implementará mediante interfaces síncron
 
 El frontend Angular funcionará como cliente principal para usuarios y consultores, mostrando vistas diferenciadas según permisos y tipo de cuenta, pero consumiendo una misma capa de servicios centralizada.
 ### 4.3.1.6 Sketch Views (C4 & UML) and Record Design Decisions
+
 ### 4.3.1.7 Analysis of Current Design and Review Iteration Goal
+
+Para controlar las tareas en esta primera iteracion usamos la herramienta trello que nos permite organizar el trabajo en columnas de "To Do", "In Progress" y "Done". Esto facilita la visualización del progreso, la asignación de responsabilidades y la identificación de bloqueos o retrasos en el desarrollo de las funcionalidades planificadas.
+
+![trello1.jpeg](../assets/trello1.jpeg)
+
+Link del trablero trello: https://trello.com/invite/b/69f6574d811b27877f919b44/ATTI455d8960b544133b522a03a00ce8bfcfE7BD0119/fundamentos-iteration-1
 # Conclusiones
 
 - La investigación inicial permitió identificar que muchas personas y empresas presentan dificultades para acceder a asesoría profesional confiable debido a la fragmentación de la oferta y al uso de canales informales.
