@@ -1340,7 +1340,7 @@ La comunicación entre componentes se implementará mediante interfaces síncron
 
 El frontend Angular funcionará como cliente principal para usuarios y consultores, mostrando vistas diferenciadas según permisos y tipo de cuenta, pero consumiendo una misma capa de servicios centralizada.
 ### 4.3.1.6 Sketch Views (C4 & UML) and Record Design Decisions
-
+![it1.jpg](../assets/it1.jpg)
 ### 4.3.1.7 Analysis of Current Design and Review Iteration Goal
 
 Para controlar las tareas en esta primera iteracion usamos la herramienta trello que nos permite organizar el trabajo en columnas de "To Do", "In Progress" y "Done". Esto facilita la visualización del progreso, la asignación de responsabilidades y la identificación de bloqueos o retrasos en el desarrollo de las funcionalidades planificadas.
