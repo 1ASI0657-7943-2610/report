@@ -85,222 +85,238 @@ La arquitectura ha sido diseñada para dar soporte directo a las historias de us
 
 ### 4.1.10 Quality Attribute Scenarios
 
-Los escenarios de atributos de calidad (Quality Attribute Scenarios) constituyen uno de los mecanismos más importantes para validar si la arquitectura propuesta para **FinTeka** será capaz de satisfacer las exigencias funcionales y no funcionales del negocio. Estos escenarios permiten transformar requerimientos abstractos —como seguridad, rendimiento o disponibilidad— en situaciones concretas medibles y verificables.
+Los escenarios de atributos de calidad (*Quality Attribute Scenarios*) permiten validar de manera estructurada que la arquitectura propuesta para **FinTeka** será capaz de satisfacer los requerimientos no funcionales definidos por Nova Asesors. Estos escenarios transforman atributos abstractos como seguridad, disponibilidad o rendimiento en situaciones concretas, medibles y verificables dentro del contexto operativo de la plataforma.
 
-La definición de estos escenarios resulta crítica debido a que FinTeka opera sobre procesos sensibles relacionados con:
-- Gestión de asesorías profesionales.
-- Información personal de usuarios.
-- Procesos de pago y comisiones.
-- Comunicación en tiempo real.
-- Disponibilidad continua del servicio.
+Debido a que FinTeka gestiona:
+- Procesos financieros,
+- Información personal,
+- Comunicación en tiempo real,
+- Reservas de asesorías,
+- Integraciones con terceros,
 
-Por ello, la arquitectura fue diseñada considerando atributos de calidad prioritarios alineados con las necesidades operativas de Nova Asesors y con las expectativas de confiabilidad propias de una plataforma financiera digital moderna.
+la arquitectura debe responder de manera resiliente, segura y eficiente frente a eventos de alta concurrencia, fallos de infraestructura y amenazas de seguridad.
 
-Cada escenario se estructura bajo los siguientes elementos:
-- **Fuente:** entidad que origina el evento.
-- **Estímulo:** acción o evento que afecta al sistema.
-- **Entorno:** contexto operativo donde ocurre el estímulo.
-- **Artefacto:** componente arquitectónico impactado.
-- **Respuesta:** comportamiento esperado del sistema.
-- **Medida de Respuesta:** criterio cuantificable para evaluar el cumplimiento.
-
----
-
-## A. Escenarios de Seguridad (Security)
-
-La seguridad representa uno de los atributos arquitectónicos más críticos dentro del ecosistema FinTeka debido a que la plataforma procesa:
-- Información financiera.
-- Datos personales.
-- Historial de pagos.
-- Conversaciones privadas.
-- Información sensible de autenticación.
-
-El sistema debe protegerse frente a amenazas externas e internas garantizando:
-- Confidencialidad.
-- Integridad.
-- Autenticidad.
-- Trazabilidad.
+Cada escenario arquitectónico se define mediante:
+- **Fuente:** entidad que genera el evento.
+- **Estímulo:** acción que afecta al sistema.
+- **Entorno:** contexto operacional.
+- **Artefacto:** componente impactado.
+- **Respuesta:** comportamiento esperado.
+- **Medida de Respuesta:** criterio cuantificable.
 
 ---
 
-### Escenario A1 — Acceso No Autorizado a Recursos Protegidos
+#### Justificación Técnica General
+
+Los atributos de calidad definidos para FinTeka están directamente alineados con:
+- Los requerimientos no funcionales del proyecto.
+- La naturaleza financiera de la plataforma.
+- La necesidad de escalabilidad futura.
+- La experiencia móvil del usuario.
+- La continuidad operacional de Nova Asesors.
+
+La arquitectura basada en microservicios, persistencia políglota, API Gateway y despliegues distribuidos permite abordar estos escenarios mediante tácticas concretas de:
+- redundancia,
+- desacoplamiento,
+- caché,
+- observabilidad,
+- autenticación,
+- tolerancia a fallos.
+
+---
+
+### A. SEGURIDAD (Security)
+
+La seguridad representa uno de los atributos críticos del ecosistema FinTeka debido a que la plataforma administra:
+- información financiera,
+- datos personales,
+- sesiones privadas,
+- autenticación de usuarios,
+- historial de pagos y reservas.
+
+El objetivo principal es garantizar:
+- confidencialidad,
+- integridad,
+- autenticidad,
+- trazabilidad de las operaciones.
+
+---
+
+##### Escenario A1 — Acceso No Autorizado
 
 | Elemento | Descripción |
 | :--- | :--- |
-| **Fuente** | Usuario malicioso o actor no autenticado |
+| **Fuente** | Usuario no autenticado o atacante externo |
 | **Estímulo** | Intento de acceso a endpoints protegidos |
-| **Entorno** | Operación normal del sistema |
+| **Entorno** | Operación normal |
 | **Artefacto** | API Gateway / Authentication Service |
-| **Respuesta** | El sistema valida el JWT y bloquea inmediatamente el acceso |
-| **Medida de Respuesta** | Validación menor a 300 ms y rechazo del 100% de solicitudes inválidas |
+| **Respuesta** | El sistema valida el token JWT y bloquea automáticamente la solicitud |
+| **Medida de Respuesta** | Tiempo de validación menor a 300 ms y 100% de rechazo de accesos inválidos |
 
-#### Justificación Técnica
-Debido a que múltiples servicios son expuestos mediante APIs públicas, FinTeka implementa:
-- OAuth2 para autenticación descentralizada.
-- JWT para validación stateless.
-- API Gateway para centralizar políticas de acceso.
-- Middleware de autorización RBAC.
+###### Justificación Técnica
 
-La arquitectura evita exponer directamente microservicios internos, reduciendo riesgos de acceso indebido.
+Para proteger los recursos críticos del sistema:
+- se implementa OAuth2 para autenticación descentralizada,
+- JWT para validación stateless,
+- RBAC para control de permisos,
+- API Gateway para centralización de políticas de seguridad.
+
+Esto evita accesos indebidos y protege la información sensible de la plataforma.
 
 ---
 
-### Escenario A2 — Protección de Información Sensible
+##### Escenario A2 — Protección de Información Sensible
 
 | Elemento | Descripción |
 | :--- | :--- |
 | **Fuente** | Usuario autenticado |
-| **Estímulo** | Transmisión de información financiera |
-| **Entorno** | Pago o reserva de sesión |
+| **Estímulo** | Envío de información financiera |
+| **Entorno** | Proceso de pago o reserva |
 | **Artefacto** | Payment Service |
 | **Respuesta** | La información se transmite mediante canales cifrados |
-| **Medida de Respuesta** | 100% de comunicaciones bajo HTTPS/TLS |
+| **Medida de Respuesta** | 100% de las comunicaciones protegidas bajo HTTPS/TLS |
 
-#### Justificación Técnica
+###### Justificación Técnica
+
 Toda la comunicación entre:
-- Frontend.
-- API Gateway.
-- Microservicios.
-- Servicios externos.
+- frontend,
+- backend,
+- microservicios,
+- servicios externos,
 
-se realiza utilizando cifrado TLS para prevenir:
-- Intercepción de tráfico.
-- Ataques MITM.
-- Manipulación de datos.
+se realiza utilizando HTTPS/TLS para prevenir:
+- intercepción de datos,
+- ataques MITM,
+- manipulación de tráfico.
 
 Adicionalmente:
-- Las contraseñas se almacenan con hashing seguro.
-- Los tokens poseen expiración controlada.
-- Las credenciales nunca se almacenan en texto plano.
+- las contraseñas se almacenan mediante hashing seguro,
+- los tokens poseen expiración limitada,
+- no se almacenan credenciales en texto plano.
 
 ---
 
-### Escenario A3 — Escalamiento de Privilegios
+##### Escenario A3 — Escalamiento de Privilegios
 
 | Elemento | Descripción |
 | :--- | :--- |
 | **Fuente** | Usuario autenticado |
-| **Estímulo** | Intento de ejecutar acciones de administrador |
+| **Estímulo** | Intento de acceso a funciones administrativas |
 | **Entorno** | Operación normal |
 | **Artefacto** | Authorization Layer |
-| **Respuesta** | El sistema verifica permisos RBAC y deniega la operación |
+| **Respuesta** | El sistema valida permisos RBAC y deniega el acceso |
 | **Medida de Respuesta** | 0 accesos exitosos fuera del rol autorizado |
 
-#### Justificación Técnica
-FinTeka distingue múltiples perfiles:
-- Clientes.
-- Consultores.
-- Administradores.
+###### Justificación Técnica
 
-Cada rol posee permisos específicos definidos centralizadamente mediante RBAC, evitando:
-- Acceso indebido a datos.
-- Manipulación administrativa.
-- Ejecución de operaciones críticas no autorizadas.
+FinTeka diferencia:
+- Clientes,
+- Consultores,
+- Administradores,
+
+mediante RBAC, garantizando separación estricta de privilegios y evitando accesos no autorizados a funcionalidades críticas.
 
 ---
 
-## B. Escenarios de Disponibilidad (Availability)
+### B. DISPONIBILIDAD (Availability)
 
-La disponibilidad es fundamental debido a que FinTeka ofrece:
-- Reservas en tiempo real.
-- Procesamiento de pagos.
-- Comunicación instantánea.
-- Gestión continua de agendas.
+La disponibilidad es esencial debido a que FinTeka ofrece:
+- reservas en tiempo real,
+- pagos digitales,
+- mensajería instantánea,
+- gestión continua de agendas.
 
-La plataforma debe permanecer operativa incluso frente a:
-- Fallas de infraestructura.
-- Sobrecarga de tráfico.
-- Errores de servicios.
-- Caídas parciales.
+La plataforma debe mantenerse operativa incluso ante fallos parciales de infraestructura.
 
 ---
 
-### Escenario B1 — Falla de Zona de Disponibilidad
+##### Escenario B1 — Falla de Infraestructura
 
 | Elemento | Descripción |
 | :--- | :--- |
 | **Fuente** | Infraestructura cloud |
-| **Estímulo** | Caída completa de una Availability Zone |
+| **Estímulo** | Caída de una Availability Zone |
 | **Entorno** | Alta concurrencia |
-| **Artefacto** | Base de datos relacional y microservicios |
+| **Artefacto** | Base de datos y microservicios |
 | **Respuesta** | El tráfico es redirigido automáticamente hacia instancias secundarias |
 | **Medida de Respuesta** | Recuperación menor a 30 segundos y RPO = 0 |
 
-#### Justificación Técnica
-La arquitectura utiliza:
-- Replicación Multi-AZ.
-- Balanceadores de carga.
-- Failover automático.
-- Replicación síncrona.
+###### Justificación Técnica
 
-Esto permite garantizar continuidad operacional incluso ante fallos críticos de infraestructura.
+La arquitectura implementa:
+- despliegue Multi-AZ,
+- replicación síncrona,
+- balanceadores de carga,
+- failover automático.
+
+Esto garantiza continuidad operacional y evita pérdida de información crítica.
 
 ---
 
-### Escenario B2 — Reinicio Automático de Servicios
+##### Escenario B2 — Recuperación Automática de Servicios
 
 | Elemento | Descripción |
 | :--- | :--- |
-| **Fuente** | Error interno del microservicio |
-| **Estímulo** | Excepción crítica o caída del contenedor |
+| **Fuente** | Error interno del servicio |
+| **Estímulo** | Caída de un contenedor |
 | **Entorno** | Operación continua |
-| **Artefacto** | Kubernetes / Container Runtime |
-| **Respuesta** | El servicio es reiniciado automáticamente |
-| **Medida de Respuesta** | Recuperación automática menor a 1 minuto |
+| **Artefacto** | Kubernetes / Runtime de contenedores |
+| **Respuesta** | El servicio se reinicia automáticamente |
+| **Medida de Respuesta** | Recuperación menor a 1 minuto |
 
-#### Justificación Técnica
-La orquestación mediante contenedores permite:
-- Health checks automáticos.
-- Reinicio de pods defectuosos.
-- Autoescalado.
-- Recuperación rápida.
+###### Justificación Técnica
 
-Esto reduce intervención manual y mejora resiliencia.
+El uso de contenedores permite:
+- health checks automáticos,
+- reinicio de instancias defectuosas,
+- autoescalado,
+- alta resiliencia operacional.
 
 ---
 
-## C. Escenarios de Rendimiento (Performance)
+### C. RENDIMIENTO (Performance)
 
-La experiencia de usuario depende directamente de la capacidad del sistema para responder rápidamente frente a:
-- Búsquedas.
-- Reservas.
-- Carga de perfiles.
-- Mensajería.
-- Procesamiento financiero.
+La experiencia del usuario depende directamente de la capacidad del sistema para responder rápidamente frente a:
+- búsquedas,
+- reservas,
+- carga de perfiles,
+- mensajería,
+- procesos financieros.
 
 La arquitectura busca minimizar:
-- Latencia.
-- Tiempo de espera.
-- Sobrecarga de recursos.
+- latencia,
+- tiempos de espera,
+- saturación de recursos.
 
 ---
 
-### Escenario C1 — Consulta de Perfiles de Consultores
+##### Escenario C1 — Consulta de Perfiles de Consultores
 
 | Elemento | Descripción |
 | :--- | :--- |
 | **Fuente** | Usuario móvil |
-| **Estímulo** | Solicitud de búsqueda de especialistas |
+| **Estímulo** | Solicitud de búsqueda de consultores |
 | **Entorno** | Hora pico |
-| **Artefacto** | Consultant Service / Redis |
+| **Artefacto** | Consultant Service / Redis Cache |
 | **Respuesta** | La información es servida desde caché |
 | **Medida de Respuesta** | Tiempo promedio menor a 1 segundo |
 
-#### Justificación Técnica
-Redis permite:
-- Evitar consultas repetitivas.
-- Reducir carga SQL.
-- Acelerar lecturas frecuentes.
-- Mejorar experiencia móvil.
+###### Justificación Técnica
 
-La arquitectura aplica:
-- Caché Read-through.
-- Expiración controlada.
-- Invalidación automática.
+Redis permite:
+- almacenar consultas frecuentes,
+- reducir carga SQL,
+- acelerar respuestas,
+- mejorar experiencia móvil.
+
+La arquitectura utiliza:
+- caché Read-through,
+- expiración controlada,
+- actualización automática de datos.
 
 ---
 
-### Escenario C2 — Alta Concurrencia de Chats
+##### Escenario C2 — Comunicación en Tiempo Real
 
 | Elemento | Descripción |
 | :--- | :--- |
@@ -308,66 +324,70 @@ La arquitectura aplica:
 | **Estímulo** | Envío simultáneo de mensajes |
 | **Entorno** | Alta actividad |
 | **Artefacto** | Chat Service |
-| **Respuesta** | El sistema distribuye conexiones mediante WebSockets |
+| **Respuesta** | El sistema distribuye conexiones WebSocket eficientemente |
 | **Medida de Respuesta** | Latencia menor a 500 ms |
 
-#### Justificación Técnica
-El sistema utiliza:
-- WebSockets persistentes.
-- Persistencia NoSQL.
-- Balanceo de conexiones.
-- Comunicación asíncrona.
+###### Justificación Técnica
 
-Esto garantiza mensajería fluida en tiempo real.
+La comunicación en tiempo real se soporta mediante:
+- WebSockets persistentes,
+- almacenamiento NoSQL,
+- balanceo de conexiones,
+- procesamiento asíncrono.
 
----
-
-## D. Escenarios de Escalabilidad (Scalability)
-
-FinTeka debe soportar crecimiento progresivo tanto en:
-- Usuarios.
-- Consultores.
-- Reservas.
-- Transacciones.
-- Mensajes.
-
-La arquitectura debe escalar sin rediseños estructurales.
+Esto garantiza una experiencia fluida en la interacción cliente-consultor.
 
 ---
 
-### Escenario D1 — Incremento Masivo de Usuarios
+### D. ESCALABILIDAD (Scalability)
+
+FinTeka debe soportar crecimiento continuo de:
+- usuarios,
+- consultores,
+- reservas,
+- mensajes,
+- transacciones financieras.
+
+La arquitectura debe escalar sin rediseñar el sistema completo.
+
+---
+
+##### Escenario D1 — Incremento Masivo de Usuarios
 
 | Elemento | Descripción |
 | :--- | :--- |
-| **Fuente** | Campaña comercial |
-| **Estímulo** | Multiplicación de usuarios concurrentes |
+| **Fuente** | Campaña comercial o expansión del negocio |
+| **Estímulo** | Incremento abrupto de usuarios concurrentes |
 | **Entorno** | Alta demanda |
 | **Artefacto** | Microservicios |
 | **Respuesta** | Se crean nuevas instancias automáticamente |
 | **Medida de Respuesta** | SLA superior al 95% |
 
-#### Justificación Técnica
+###### Justificación Técnica
+
 La arquitectura desacoplada permite:
-- Escalabilidad horizontal.
-- Autoescalado dinámico.
-- Distribución de carga.
-- Aislamiento funcional.
+- escalabilidad horizontal,
+- autoescalado dinámico,
+- distribución de carga,
+- aislamiento funcional entre servicios.
 
-Cada servicio puede escalar independientemente según necesidad.
-
----
-
-## E. Escenarios de Integrabilidad (Integrability)
-
-FinTeka depende de múltiples integraciones externas:
-- Pasarelas de pago.
-- Servicios de notificación.
-- APIs de autenticación.
-- Servicios cloud.
+Cada microservicio puede crecer independientemente según la demanda.
 
 ---
 
-### Escenario E1 — Falla Temporal de Pasarela de Pago
+### E. INTEGRABILIDAD (Integrability)
+
+FinTeka depende de múltiples servicios externos:
+- pasarelas de pago,
+- servicios cloud,
+- APIs de autenticación,
+- notificaciones.
+
+La arquitectura debe garantizar integraciones resilientes y desacopladas.
+
+---
+
+##### Escenario E1 — Falla Temporal de Pasarela de Pago
 
 | Elemento | Descripción |
 | :--- | :--- |
@@ -378,28 +398,30 @@ FinTeka depende de múltiples integraciones externas:
 | **Respuesta** | El sistema activa Retry y Circuit Breaker |
 | **Medida de Respuesta** | No pérdida de consistencia transaccional |
 
-#### Justificación Técnica
-Se utilizan patrones:
-- Retry.
-- Circuit Breaker.
-- Timeout controlado.
-- Cola de eventos.
+###### Justificación Técnica
 
-Esto evita propagar fallas externas al núcleo del sistema.
+Para reducir el impacto de fallos externos:
+- se implementan Circuit Breakers,
+- mecanismos Retry,
+- colas asíncronas,
+- timeouts controlados.
 
----
-
-## F. Escenarios de Auditabilidad (Auditability)
-
-La auditabilidad es indispensable para:
-- Seguridad.
-- Trazabilidad.
-- Monitoreo.
-- Investigación de incidentes.
+Esto evita propagar fallos hacia el núcleo del sistema.
 
 ---
 
-### Escenario F1 — Registro de Actividades Críticas
+### F. AUDITABILIDAD (Auditability)
+
+La auditabilidad permite garantizar:
+- trazabilidad,
+- monitoreo,
+- control de operaciones,
+- análisis de incidentes,
+- cumplimiento de seguridad.
+
+---
+
+##### Escenario F1 — Registro de Eventos Críticos
 
 | Elemento | Descripción |
 | :--- | :--- |
@@ -407,355 +429,393 @@ La auditabilidad es indispensable para:
 | **Estímulo** | Login, pago o modificación sensible |
 | **Entorno** | Operación normal |
 | **Artefacto** | User Activity Logs |
-| **Respuesta** | El evento se registra de forma inmutable |
+| **Respuesta** | El sistema registra el evento de forma inmutable |
 | **Medida de Respuesta** | Persistencia menor a 2 segundos |
 
-#### Justificación Técnica
-Los logs:
-- Se almacenan en NoSQL.
-- Son independientes del núcleo SQL.
-- Permiten análisis posteriores.
-- Facilitan observabilidad distribuida.
+###### Justificación Técnica
+
+Los logs de auditoría:
+- se almacenan en NoSQL,
+- están desacoplados del núcleo transaccional,
+- soportan análisis posteriores,
+- mejoran la observabilidad distribuida.
 
 ---
 
-# 4.1.11 Constraints
+### 4.1.11 Constraints
 
-Las restricciones arquitectónicas representan limitaciones obligatorias que condicionan el diseño técnico del ecosistema FinTeka. Estas restricciones pueden originarse desde:
-- Necesidades del negocio.
-- Limitaciones tecnológicas.
-- Requerimientos regulatorios.
-- Condiciones operativas.
-- Estrategias organizacionales.
-
-El cumplimiento de estas restricciones garantiza que la arquitectura permanezca:
-- Viable.
-- Escalable.
-- Segura.
-- Mantenible.
-- Alineada con los objetivos de Nova Asesors.
+Las restricciones arquitectónicas representan limitaciones técnicas, operacionales y de negocio que condicionan el diseño del ecosistema FinTeka. Estas restricciones aseguran que la solución permanezca:
+- viable,
+- escalable,
+- segura,
+- mantenible,
+- alineada con los objetivos estratégicos de Nova Asesors.
 
 ---
 
-## A. Restricciones Tecnológicas
+#### Justificación Técnica General
 
-### Arquitectura Basada en Microservicios
+Las restricciones definidas responden directamente a:
+- la naturaleza financiera del sistema,
+- la necesidad de escalabilidad futura,
+- los requerimientos de alta disponibilidad,
+- la integración con terceros,
+- la protección de información sensible.
 
-La solución debe implementarse obligatoriamente mediante microservicios independientes.
+Estas limitaciones establecen lineamientos obligatorios para la implementación de la solución tecnológica.
 
-#### Implicancias
-- Cada dominio funcional debe estar desacoplado.
-- Los servicios deben desplegarse individualmente.
-- La comunicación debe realizarse vía APIs o eventos.
+---
 
-#### Justificación
+### A. Restricciones Tecnológicas
+
+#### Arquitectura Basada en Microservicios
+
+La solución debe implementarse obligatoriamente mediante microservicios desacoplados.
+
+##### Implicancias
+- Cada dominio funcional debe operar independientemente.
+- Los servicios deben desplegarse por separado.
+- La comunicación debe realizarse mediante APIs o eventos.
+
+##### Justificación Técnica
+
 Esto permite:
-- Escalabilidad independiente.
-- Reducción de impacto ante fallos.
-- Evolución modular.
+- escalabilidad independiente,
+- despliegues aislados,
+- resiliencia,
+- evolución modular del sistema.
 
 ---
 
-### Persistencia Políglota
+#### Persistencia Políglota
 
-El sistema debe utilizar:
-- SQL para operaciones críticas.
-- NoSQL para datos de alta concurrencia.
+La plataforma debe utilizar:
+- SQL para operaciones ACID,
+- NoSQL para mensajería y auditoría.
 
-#### Restricción
-No se permite centralizar toda la información en una única base de datos.
+##### Restricción
 
-#### Justificación
-Cada tipo de persistencia responde mejor a necesidades específicas:
-- ACID para pagos y reservas.
-- Alta velocidad para chats y logs.
+No se permite centralizar toda la información en un único motor de base de datos.
+
+##### Justificación Técnica
+
+Cada tecnología responde mejor a necesidades específicas:
+- consistencia transaccional,
+- alta concurrencia,
+- almacenamiento flexible,
+- velocidad de escritura.
 
 ---
 
-### Uso Obligatorio de APIs
+#### Comunicación Obligatoria Mediante APIs
 
 Los microservicios:
-- No pueden acceder directamente a bases de datos ajenas.
-- Deben comunicarse únicamente mediante APIs y eventos.
+- no pueden acceder directamente a bases de datos ajenas,
+- deben comunicarse únicamente mediante APIs y eventos.
 
-#### Beneficios
-- Bajo acoplamiento.
-- Mejor mantenibilidad.
-- Mayor seguridad.
+##### Justificación Técnica
 
----
-
-## B. Restricciones Operacionales
-
-### Alta Disponibilidad Obligatoria
-
-La plataforma debe mantener continuidad operacional incluso ante:
-- Fallas de servidores.
-- Caídas parciales.
-- Sobrecarga.
-
-#### Requerimientos
-- Multi-AZ.
-- Replicación síncrona.
-- Failover automático.
+Esto reduce:
+- acoplamiento,
+- dependencias rígidas,
+- riesgos de seguridad.
 
 ---
 
-### Compatibilidad Multiplataforma
+### B. Restricciones Operacionales
 
-El sistema debe funcionar correctamente en:
-- Web desktop.
-- Navegadores móviles.
-- Tablets.
+#### Alta Disponibilidad Obligatoria
 
-#### Justificación
-La mayoría de usuarios accederá desde dispositivos móviles.
+La plataforma debe mantenerse operativa incluso ante:
+- fallos de infraestructura,
+- sobrecarga,
+- errores parciales.
+
+##### Requerimientos
+- Multi-AZ,
+- replicación síncrona,
+- failover automático.
 
 ---
 
-## C. Restricciones de Seguridad
+#### Compatibilidad Multiplataforma
 
-### Protección de Datos Sensibles
+La solución debe funcionar correctamente en:
+- navegadores modernos,
+- dispositivos móviles,
+- tablets.
+
+##### Justificación Técnica
+
+La experiencia móvil representa uno de los objetivos principales del proyecto.
+
+---
+
+### C. Restricciones de Seguridad
+
+#### Protección de Información Sensible
 
 Toda información crítica debe:
-- Estar cifrada.
-- Transmitirse mediante HTTPS.
-- Validarse mediante autenticación segura.
+- transmitirse cifrada,
+- almacenarse de forma segura,
+- validarse mediante autenticación robusta.
 
 ---
 
-### Control de Acceso Basado en Roles
+#### Control de Acceso Basado en Roles
 
-El sistema debe implementar RBAC para:
-- Clientes.
-- Consultores.
+La plataforma debe implementar RBAC para:
+- Clientes,
+- Consultores,
 - Administradores.
 
-No se permite acceso libre a operaciones sensibles.
+No se permite acceso libre a operaciones críticas.
 
 ---
 
-## D. Restricciones de Negocio
+### D. Restricciones de Negocio
 
-### Gestión de Comisiones
+#### Integración con Pasarelas de Pago
 
-La plataforma debe calcular automáticamente:
-- Comisión de Nova Asesors.
-- Estado financiero de cada transacción.
-
----
-
-### Integración con Terceros
-
-FinTeka debe integrarse con:
-- Pasarelas de pago.
-- Sistemas de notificación.
-- Servicios cloud.
+FinTeka debe integrarse con servicios externos para:
+- procesamiento de pagos,
+- cobro de comisiones,
+- confirmación financiera.
 
 ---
 
-### Escalabilidad Comercial
+#### Gestión Automática de Comisiones
+
+El sistema debe calcular automáticamente:
+- comisiones de Nova Asesors,
+- montos netos,
+- estados transaccionales.
+
+---
+
+#### Escalabilidad Comercial
 
 La arquitectura debe soportar:
-- Nuevos módulos.
-- Nuevos tipos de asesoría.
-- Incremento masivo de usuarios.
+- crecimiento masivo de usuarios,
+- nuevas categorías de asesoría,
+- incorporación de nuevas funcionalidades,
 
-sin necesidad de rediseñar el núcleo del sistema.
-
----
-
-# 4.1.12 Architectural Concerns
-
-Las preocupaciones arquitectónicas representan los aspectos críticos que influyen directamente en las decisiones técnicas adoptadas para el diseño de FinTeka. Estas preocupaciones reflejan riesgos, desafíos y necesidades estratégicas que deben ser resueltos para garantizar que la plataforma opere de manera:
-- Confiable.
-- Segura.
-- Escalable.
-- Eficiente.
-- Mantenible.
+sin rediseñar el núcleo del sistema.
 
 ---
 
-## A. Consistencia Transaccional Distribuida
+### 4.1.12 Architectural Concerns
 
-Uno de los mayores desafíos arquitectónicos es garantizar consistencia entre:
-- Reservas.
-- Pagos.
-- Disponibilidad.
-- Confirmaciones.
-
-Debido al uso de microservicios, las transacciones distribuidas pueden generar:
-- Duplicidad de reservas.
-- Estados inconsistentes.
-- Cobros fallidos.
-
-### Solución Arquitectónica
-- Patrón Saga.
-- Eventos compensatorios.
-- Estados transaccionales.
-- Validación distribuida.
+Las preocupaciones arquitectónicas (*Architectural Concerns*) representan los aspectos críticos que influyen directamente en las decisiones técnicas adoptadas para el diseño de FinTeka. Estas preocupaciones reflejan riesgos, desafíos y necesidades estratégicas que deben resolverse para garantizar:
+- confiabilidad,
+- seguridad,
+- escalabilidad,
+- rendimiento,
+- mantenibilidad.
 
 ---
 
-## B. Seguridad Financiera
+#### Justificación Técnica General
 
-La plataforma gestiona:
-- Pagos.
-- Información personal.
-- Datos financieros.
+Debido a la naturaleza distribuida y financiera del ecosistema FinTeka, existen múltiples preocupaciones relacionadas con:
+- consistencia transaccional,
+- seguridad de la información,
+- escalabilidad,
+- dependencias externas,
+- observabilidad,
+- experiencia de usuario.
 
-### Riesgos
-- Robo de credenciales.
-- Accesos indebidos.
-- Intercepción de tráfico.
-- Fraude.
+La arquitectura propuesta incorpora patrones, tácticas y estilos arquitectónicos destinados a mitigar dichos riesgos.
 
-### Mitigación
-- OAuth2.
-- JWT.
-- RBAC.
-- HTTPS/TLS.
+---
+
+### A. Consistencia Transaccional Distribuida
+
+Uno de los principales desafíos es garantizar consistencia entre:
+- reservas,
+- pagos,
+- disponibilidad,
+- confirmaciones.
+
+#### Riesgos
+- reservas duplicadas,
+- pagos inconsistentes,
+- estados inválidos.
+
+#### Solución Arquitectónica
+
+La plataforma implementa:
+- patrón Saga,
+- eventos compensatorios,
+- control de estados,
+- validación distribuida.
+
+Esto permite mantener coherencia entre microservicios desacoplados.
+
+---
+
+### B. Seguridad Financiera
+
+FinTeka administra:
+- pagos,
+- datos personales,
+- información financiera,
+- autenticación.
+
+#### Riesgos
+- robo de credenciales,
+- accesos indebidos,
+- manipulación de información.
+
+#### Soluciones Implementadas
+- OAuth2,
+- JWT,
+- RBAC,
+- HTTPS/TLS,
 - API Gateway.
 
 ---
 
-## C. Rendimiento Bajo Alta Concurrencia
+### C. Rendimiento Bajo Alta Concurrencia
 
-FinTeka debe responder rápidamente incluso bajo:
-- Miles de usuarios concurrentes.
-- Chats simultáneos.
-- Reservas masivas.
+La plataforma debe responder eficientemente incluso bajo:
+- miles de usuarios concurrentes,
+- mensajería simultánea,
+- operaciones financieras intensivas.
 
-### Riesgos
-- Latencia elevada.
-- Saturación SQL.
-- Cuellos de botella.
+#### Riesgos
+- latencia elevada,
+- saturación SQL,
+- cuellos de botella.
 
-### Mitigación
-- Redis.
-- Balanceadores.
-- WebSockets.
-- Persistencia NoSQL.
-- Autoescalado.
-
----
-
-## D. Complejidad de Microservicios
-
-Aunque los microservicios aportan escalabilidad, también generan:
-- Complejidad operacional.
-- Dificultad de monitoreo.
-- Mayor coordinación.
-
-### Necesidades
-- Observabilidad distribuida.
-- Centralización de logs.
-- Trazabilidad.
+#### Estrategias Arquitectónicas
+- Redis Cache,
+- balanceadores de carga,
+- WebSockets,
+- persistencia NoSQL,
+- autoescalado.
 
 ---
 
-## E. Dependencia de Servicios Externos
+### D. Complejidad Operacional de Microservicios
+
+La arquitectura distribuida introduce desafíos relacionados con:
+- monitoreo,
+- trazabilidad,
+- coordinación,
+- debugging distribuido.
+
+#### Necesidades Técnicas
+- centralización de logs,
+- observabilidad distribuida,
+- tracing,
+- monitoreo continuo.
+
+---
+
+### E. Dependencia de Servicios Externos
 
 FinTeka depende de:
-- Pasarelas de pago.
-- APIs externas.
-- Servicios cloud.
+- pasarelas de pago,
+- APIs externas,
+- servicios cloud.
 
-### Riesgos
-- Latencia.
-- Caídas externas.
-- Timeouts.
+#### Riesgos
+- latencia externa,
+- caídas de proveedores,
+- timeouts.
 
-### Mitigación
-- Circuit Breakers.
-- Retries.
-- Timeout controlado.
-- Desacoplamiento mediante eventos.
+#### Mitigación
+- Circuit Breakers,
+- Retry,
+- timeout controlado,
+- integración desacoplada.
 
 ---
 
-## F. Evolución y Mantenibilidad
+### F. Evolución y Mantenibilidad
 
-La plataforma debe evolucionar continuamente:
-- Nuevos módulos.
-- Nuevas integraciones.
-- Nuevas reglas de negocio.
+La plataforma debe evolucionar continuamente para soportar:
+- nuevos módulos,
+- nuevas reglas de negocio,
+- nuevas integraciones.
 
-### Preocupación Principal
+#### Preocupación Principal
+
 Evitar dependencias rígidas entre componentes.
 
-### Estrategias
-- Arquitectura desacoplada.
-- APIs versionadas.
-- Separación por dominios.
-- Despliegues independientes.
+#### Estrategias
+- arquitectura desacoplada,
+- APIs versionadas,
+- separación por dominios,
+- despliegues independientes.
 
 ---
 
-## G. Observabilidad y Monitoreo
+### G. Observabilidad y Monitoreo
 
 La naturaleza distribuida del sistema requiere:
-- Monitoreo centralizado.
-- Métricas en tiempo real.
-- Detección temprana de fallos.
+- monitoreo centralizado,
+- métricas en tiempo real,
+- detección temprana de fallos.
 
-### Implementación
-- Logs centralizados.
-- Métricas de rendimiento.
-- Distributed tracing.
-- Alertas automatizadas.
+#### Implementación
+- logs centralizados,
+- métricas de rendimiento,
+- distributed tracing,
+- alertas automatizadas.
 
 ---
 
-## H. Experiencia de Usuario en Tiempo Real
+### H. Experiencia de Usuario en Tiempo Real
 
 El éxito de FinTeka depende de ofrecer:
-- Fluidez.
-- Baja latencia.
-- Comunicación instantánea.
+- baja latencia,
+- fluidez,
+- comunicación instantánea.
 
-### Riesgos
-- Retrasos en mensajes.
-- Lentitud de búsqueda.
-- Saturación de conexiones.
+#### Riesgos
+- retrasos en mensajes,
+- lentitud de consultas,
+- saturación de conexiones.
 
-### Soluciones
-- WebSockets.
-- Redis.
-- Balanceo de carga.
-- Caché distribuida.
+#### Soluciones
+- WebSockets,
+- Redis,
+- balanceadores,
+- caché distribuida.
 
 ---
 
-## I. Gestión de Datos Híbridos
+### I. Gestión de Datos Híbridos
 
 La coexistencia entre SQL y NoSQL introduce desafíos relacionados con:
-- Sincronización.
-- Consistencia.
-- Integridad de datos.
+- sincronización,
+- consistencia,
+- integridad.
 
-### Estrategias
-- Separación por dominios.
-- APIs especializadas.
-- Eventos asincrónicos.
-- Validaciones transaccionales.
+#### Estrategias
+- separación por dominios,
+- eventos asíncronos,
+- APIs especializadas,
+- validaciones transaccionales.
 
 ---
 
-## J. Continuidad Operacional y Recuperación
+### J. Continuidad Operacional y Recuperación
 
 La plataforma debe recuperarse rápidamente ante:
-- Errores críticos.
-- Caídas parciales.
-- Fallos cloud.
+- fallos críticos,
+- errores cloud,
+- interrupciones parciales.
 
-### Implementaciones
-- Multi-AZ.
-- Replicación.
-- Failover automático.
-- Backups continuos.
+#### Implementaciones
+- Multi-AZ,
+- replicación síncrona,
+- failover automático,
+- backups continuos.
 
-Esto garantiza resiliencia empresarial y continuidad de servicio para Nova Asesors. 
+Esto garantiza continuidad operacional y resiliencia empresarial para Nova Asesors.
 
 ## 4.3 ADD Iterations
 
