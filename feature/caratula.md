@@ -100,18 +100,6 @@
       <td>Oshiro Yamashita, Daiki Oscar</td>
       <td> Desarrollo del punto 4.1.3 y 4.1.4</td>
     </tr>
-     <tr>
-      <td rowspan="7" style="text-align: center; vertical-align: middle;"><b>TP1</b></td>
-      <td> 04/05/2026 </td>
-      <td>Aguirre Castillo, Sergio Cesar</td>
-      <td> Desarrollo del frontend</td>
-    </tr>
-    <tr>
-      <td>04/05/2026</td>
-      <td>Oshiro Yamashita, Daiki Oscar</td>
-      <td> Desarrollo del backend</td>
-    </tr>
-     <tr>
   </tbody>
 </table>
 
