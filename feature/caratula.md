@@ -2083,6 +2083,7 @@ Para controlar las tareas en esta primera iteracion usamos la herramienta trello
 ![trello1.jpeg](../assets/trello1.jpeg)
 
 Link del trablero trello: https://trello.com/invite/b/69f6574d811b27877f919b44/ATTI455d8960b544133b522a03a00ce8bfcfE7BD0119/fundamentos-iteration-1
+
 # Conclusiones
 
 - La investigación inicial permitió identificar que muchas personas y empresas presentan dificultades para acceder a asesoría profesional confiable debido a la fragmentación de la oferta y al uso de canales informales.
@@ -2156,3 +2157,7 @@ World Bank. (2023). *Digital development overview*. The World Bank. https://www.
 **Link de la entrevista 5:** https://acortar.link/TErjgY
 
 **Link de la entrevista 6:** https://acortar.link/EQVuW5
+
+**Link de los diagramas C4:** https://online.visual-paradigm.com/share.jsp?id=343537383331342d32
+
+**Link del trablero trello:** https://trello.com/invite/b/69f6574d811b27877f919b44/ATTI455d8960b544133b522a03a00ce8bfcfE7BD0119/fundamentos-iteration-1
