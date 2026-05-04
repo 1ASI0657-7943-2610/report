@@ -90,10 +90,10 @@
       <td>Elaborar presentación tras revisión del documento.</td>
     </tr>
     <tr>
-      <td rowspan="7" style="text-align: center; vertical-align: middle;"><b>TB2</b></td>
+      <td rowspan="5" style="text-align: center; vertical-align: middle;"><b>TB2</b></td>
       <td>18/04/2026</td>
       <td>Aguirre Castillo, Sergio Cesar</td>
-      <td>Ampliación del capítulo 3 según observaciones.</td>
+      <td>-</td>
     </tr>
     <tr>
       <td>19/04/2026</td>
@@ -115,8 +115,35 @@
       <td>Montes Maza, Augusto Sebastian</td>
       <td>-</td>
     </tr>
+    <tr>
+      <td rowspan="5" style="text-align: center; vertical-align: middle;"><b>TP1</b></td>
+      <td>05/05/2026</td>
+      <td>Aguirre Castillo, Sergio Cesar</td>
+      <td>Desarrollo del frontend</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Burga Loarte, Anaely Zarely</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Mamani Marca, Gabriel Cristian</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>04/05/2026</td>
+      <td>Oshiro Yamashita, Daiki Oscar</td>
+      <td>Desarrollo del backend</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Montes Maza, Augusto Sebastian</td>
+      <td>-</td>
+    </tr>
   </tbody>
 </table>
+
 
 # Contenido
 
