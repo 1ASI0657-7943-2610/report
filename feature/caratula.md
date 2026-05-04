@@ -100,17 +100,6 @@
       <td>Oshiro Yamashita, Daiki Oscar</td>
       <td> Desarrollo del punto 4.1.3 y 4.1.4</td>
     </tr>
-        <tr>
-      <td rowspan="7" style="text-align: center; vertical-align: middle;"><b>TB2</b></td>
-      <td> - </td>
-      <td>Aguirre Castillo, Sergio Cesar</td>
-      <td> - </td>
-    </tr>
-    <tr>
-      <td>23/04/2026</td>
-      <td>Oshiro Yamashita, Daiki Oscar</td>
-      <td> Desarrollo del punto 4.1.3 y 4.1.4</td>
-    </tr>
   </tbody>
 </table>
 
