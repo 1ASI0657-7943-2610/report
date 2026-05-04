@@ -111,6 +111,7 @@
       <td>Oshiro Yamashita, Daiki Oscar</td>
       <td> Desarrollo del backend</td>
     </tr>
+     <tr>
   </tbody>
 </table>
 
