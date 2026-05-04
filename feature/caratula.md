@@ -157,7 +157,7 @@ Tabla de contenidos
 
 - [Contenido](#contenido)
 
-- [Student Outcome](#student-outcome-1)
+- [Student Outcome](#student-outcome)
 
 - [Capítulo I: Introducción](#capitulo-i-introduccion)
   - [1.1. StartUp Profile](#11-startup-profile)
