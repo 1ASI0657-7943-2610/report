@@ -1954,8 +1954,8 @@ Esto garantiza continuidad operacional y resiliencia empresarial para Nova Aseso
 
 
 ## 4.2 Architectural Drivers
-### 4.3.1 Iteration 1: Sprint1
 
+### 4.3.1 Iteration 1: Sprint 1
 
 ### 4.3.1.1 Architectural Design Backlog 1
 
