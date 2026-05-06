@@ -2126,6 +2126,27 @@ Para controlar las tareas en esta primera iteracion usamos la herramienta trello
 
 Link del trablero trello: https://trello.com/invite/b/69f6574d811b27877f919b44/ATTI455d8960b544133b522a03a00ce8bfcfE7BD0119/fundamentos-iteration-1
 
+
+## 5.3 Microservices Implementation
+## 5.3.1 Sprint 1
+### 5.3.1.1 Sprint Backlog 1
+
+
+| Sprint   | User Story                        | Work-Item / Task                     | Description                                                                                             | Est. Hours | Assigned To   | Status |
+| -------- | --------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------- | ---------- | ------------- | ------ |
+| Sprint 1 | US001 — Registro de profesionales | T001 — Endpoint registro profesional | Implementar `POST /api/professionals` para registrar profesionales con validación de datos obligatorios | 8          | Backend Team  | Done   |
+| Sprint 1 | US001 — Registro de profesionales | T002 — Modelo Professional           | Crear entidad Professional con atributos: id, especialidad, tarifa, experiencia y profileId             | 5          | Backend Team  | Done   |
+| Sprint 1 | US001 — Registro de profesionales | T003 — UI registro profesional       | Diseñar formulario frontend para registrar profesionales con validaciones                               | 6          | Frontend Team | Done   |
+| Sprint 1 | US002 — Registro de clientes      | T004 — Endpoint registro cliente     | Implementar `POST /api/profiles` para crear perfiles de usuarios clientes                               | 6          | Backend Team  | Done   |
+| Sprint 1 | US002 — Registro de clientes      | T005 — UI registro cliente           | Crear interfaz de registro para clientes con datos personales                                           | 5          | Frontend Team | Done   |
+| Sprint 1 | US008 — Actualización de perfil   | T006 — Editar perfil                 | Implementar `PUT /api/profiles/{id}` para actualizar información del usuario                            | 4          | Backend Team  | Done   |
+
+
+###  5.3.1.4 Execution Evidence for Sprint Review
+![endpoints1.jpeg](../assets/endpoints1.jpeg)
+![endpoints2.jpeg](../assets/endpoints2.jpeg)
+###  5.3.1.5 Microservices Documentation Evidence for Sprint Review
+
 # Conclusiones
 
 - La investigación inicial permitió identificar que muchas personas y empresas presentan dificultades para acceder a asesoría profesional confiable debido a la fragmentación de la oferta y al uso de canales informales.
