@@ -90,7 +90,7 @@
       <td>Elaborar presentación tras revisión del documento.</td>
     </tr>
     <tr>
-      <td rowspan="6" style="text-align: center; vertical-align: middle;"><b>TB2</b></td>
+      <td rowspan="5" style="text-align: center; vertical-align: middle;"><b>TB2</b></td>
       <td>18/04/2026</td>
       <td>Aguirre Castillo, Sergio Cesar</td>
       <td>-</td>
@@ -116,7 +116,7 @@
       <td>-</td>
     </tr>
     <tr>
-      <td rowspan="5" style="text-align: center; vertical-align: middle;"><b>TP1</b></td>
+      <td rowspan="6" style="text-align: center; vertical-align: middle;"><b>TP1</b></td>
       <td>05/05/2026</td>
       <td>Aguirre Castillo, Sergio Cesar</td>
       <td>Desarrollo del frontend</td>
