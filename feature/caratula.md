@@ -1165,10 +1165,13 @@ Para brindar funcionalidades complementarias se integran servicios externos como
 
 #### Microservicios: 
 
-- Gestión de usuarios y perfiles: Encargado del registro, autenticación, roles y administración de perfiles de clientes y profesionales.
-- Gestión de reservas: Responsable de la creación, modificación y cancelación de citas entre clientes y profesionales.
-- Búsqueda y recomendación: Permite localizar profesionales según categoría, especialidad, calificación o disponibilidad.
-- Calificaciones y reseñas: Administra opiniones y valoraciones luego de cada servicio realizado.
+- Sistema de Autenticación: Gestiona registro, login y recuperación de contraseña.
+- Servicio de Notificaciones: Envía emails y push; maneja plantillas, colas y reintentos.
+- Gestión de Reservas y Disponibilidad: Administra horarios de consultores, creación de reservas, cancelaciones, bloqueos y sincronización con calendarios externos.
+- Reputación y Valoraciones: Procesa calificaciones (1-5 estrellas), comentarios, cálculo de trust score.
+- Pagos y Facturación: Procesa pagos y genera comprobantes electrónicos.
+- Búsqueda Avanzada: Permite búsqueda por filtros, autocomplete, facetas y boosting por reputación.
+- Gestión de Usuarios y Perfiles: Administra perfiles (cliente/consultor), documentos de identidad, preferencias, portafolio de certificados y suscripciones premium.
 
 #### Microservicios de soporte:
 
@@ -1177,31 +1180,49 @@ Para brindar funcionalidades complementarias se integran servicios externos como
 - Integración de calendario: Sincroniza eventos y recordatorios con Google Calendar.
 - Videollamadas: Genera enlaces de reunión mediante Zoom para sesiones remotas.
 
-<img src="../assets/containerdiagram.jpg" style="width: 100%;" alt="diagramacontenedores">
+<img src="../assets/c1.jpg" style="width: 100%;" alt="diagramacontenedores">
 
-### Search and Recommendation - Diagrama de Componentes
+### Sistema de Autenticación - Diagrama de Componentes
 
-A continuación, se muestra el diagrama de componentes correspondiente al microservicio Search and Recommendation. Su función principal es facilitar la localización de profesionales disponibles y sugerir opciones relevantes en la plataforma Finteka.
+A continuación, se muestra el diagrama de componentes correspondiente al microservicio Sistema de Autenticación. Su función principal es gestionar el registro, inicio de sesión, asignación de roles y recuperación de contraseña dentro de la plataforma FinTeka.
 
-<img src="../assets/componentdiagram1.jpg" style="width: 100%;" alt="diagramacomponentes1">
+<img src="../assets/c2.jpg" style="width: 100%;" alt="diagramacomponentes1">
 
-### Session Management - Diagrama de Componentes
+### Servicio de Notificaciones - Diagrama de Componentes
 
-A continuación, se presenta el diagrama de componentes del microservicio Session Management. Su función es gestionar las citas entre usuarios y profesionales, enviando confirmaciones por correo e integrando canales de comunicación como Zoom y chat en tiempo real.
+A continuación, se muestra el diagrama de componentes correspondiente al microservicio Servicio de Notificaciones. Su función principal es centralizar el envío de alertas y comunicaciones vía email, notificaciones push a usuarios y consultores de la plataforma FinTeka.
 
-<img src="../assets/componentdiagram4.jpg" style="width: 100%;" alt="diagramacomponentes4">
+<img src="../assets/c3.jpg" style="width: 100%;" alt="diagramacomponentes2">
 
-### Reservation Management
+### Gestión de Reservas y Disponibilidad - Diagrama de Componentes
 
-A continuación, se presenta el diagrama de componentes del microservicio Reservation Management. Su función es administrar las reservas de asesorías dentro de Finteka, permitiendo registrar, consultar y actualizar las solicitudes realizadas por los usuarios.
+A continuación, se muestra el diagrama de componentes correspondiente al microservicio Gestión de Reservas y Disponibilidad. Su función principal es administrar los horarios de los consultores, crear y validar reservas, gestionar cancelaciones y sincronizar eventos con calendarios externos en FinTeka.
 
-<img src="../assets/componentdiagram3.jpg" style="width: 100%;" alt="diagramacomponentes3">
+<img src="../assets/c4.jpg" style="width: 100%;" alt="diagramacomponentes3">
 
-### Ratings and Reviews
+### Reputación y Valoraciones - Diagrama de Componentes
 
-A continuación, se presenta el diagrama de componentes del microservicio Ratings and Reviews. Su función es gestionar las valoraciones y comentarios realizados por los usuarios sobre las asesorías recibidas y los profesionales dentro de la plataforma Finteka.
+A continuación, se muestra el diagrama de componentes correspondiente al microservicio Reputación y Valoraciones. Su función principal es procesar calificaciones (1-5 estrellas), comentarios de usuarios, calcular el trust score de los consultores y prevenir fraudes en las reseñas dentro de FinTeka.
 
-<img src="../assets/componentdiagram2.jpg" style="width: 100%;" alt="diagramacomponentes2">
+<img src="../assets/c5.jpg" style="width: 100%;" alt="diagramacomponentes4">
+
+### Pagos y Facturación - Diagrama de Componentes
+
+A continuación, se muestra el diagrama de componentes correspondiente al microservicio Pagos y Facturación. Su función principal es procesar transacciones económicas, retener fondos, liberar pagos a consultores y generar comprobantes electrónicos en la plataforma FinTeka.
+
+<img src="../assets/c6.jpg" style="width: 100%;" alt="diagramacomponentes5">
+
+### Búsqueda Avanzada - Diagrama de Componentes
+
+A continuación, se muestra el diagrama de componentes correspondiente al microservicio Búsqueda Avanzada. Su función principal es indexar consultores en motores de búsqueda, permitir filtros dinámicos, autocompletado y ordenamiento por relevancia dentro de FinTeka.
+
+<img src="../assets/c7.jpg" style="width: 100%;" alt="diagramacomponentes6">
+
+### Gestión de Usuarios y Perfiles - Diagrama de Componentes
+
+A continuación, se muestra el diagrama de componentes correspondiente al microservicio Gestión de Usuarios y Perfiles. Su función principal es administrar los datos personales y profesionales de clientes y consultores, documentos de identidad, portafolio de certificados y preferencias de cuenta en FinTeka.
+
+<img src="../assets/c8.jpg" style="width: 100%;" alt="diagramacomponentes7">
 
 **Link de los diagramas:** https://online.visual-paradigm.com/share.jsp?id=343537383331342d32
 
