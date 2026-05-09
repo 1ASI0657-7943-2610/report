@@ -2432,7 +2432,9 @@ A continuación, se presentan imágenes de evidencia correspondientes al Sprint 
 ![front1.jpeg](../assets/front1.jpeg)
 ![front2.jpeg](../assets/front2.jpeg)
 ### 5.3.1.5 Microservices Documentation Evidence for Sprint Review
-
+![azure1.jpeg](../assets/azure1.jpeg)
+![azure2.jpeg](../assets/azure2.jpeg)
+![azure3.jpeg](../assets/azure3.jpeg)
 ### 5.3.1.6 Software Deployment Evidence for Sprint Review<br><br>
 
 En este Sprint se realizaron las actividades de despliegue necesarias para publicar la plataforma **FinTeka**, permitiendo el acceso al frontend y backend desde entornos en la nube.<br><br>
@@ -2449,7 +2451,7 @@ Se utilizó **Microsoft Azure App Services** para desplegar la API REST desarrol
 - Configuración de variables de entorno.<br>
 - Publicación del archivo ejecutable `.jar`.<br>
 - Validación de endpoints activos.<br><br>
-- 
+
 ### B. Deployment Frontend en Vercel
 
 Se utilizó **Vercel** para desplegar la aplicación frontend desarrollada en Vue.js.<br><br>
@@ -2461,6 +2463,8 @@ Se utilizó **Vercel** para desplegar la aplicación frontend desarrollada en Vu
 - Publicación del proyecto en producción.<br>
 - Configuración de URL del backend Azure.<br><br>
 #### Evidencia 
+![endpoints1.jpeg](../assets/endpoints1.jpeg)
+![endpoints2.jpeg](../assets/endpoints2.jpeg)
 
 Frontend desplegado: https://frontend-finteka.vercel.app/
 
@@ -2468,6 +2472,13 @@ Frontend desplegado: https://frontend-finteka.vercel.app/
 ![sprint1cola3.jpeg](../assets/sprint1cola3.jpeg)
 ![sprint1cola2.jpeg](../assets/sprint1cola2.jpeg)
 ![sprint1cola.jpeg](../assets/sprint1cola.jpeg)
+
+### 5.3.1.8 Kanban Board
+Para organizar las tareas del frontend y backend de FinTeka utilizamos Trello. Con esta herramienta gestionamos y damos seguimiento a las actividades planificadas para este primer Sprint.
+
+![trellos1.jpeg](../assets/trellos1.jpeg)
+
+Link del tablero trello: https://trello.com/invite/b/69f6574d811b27877f919b44/ATTI455d8960b544133b522a03a00ce8bfcfE7BD0119/fundamentos-sprint-1
 # Conclusiones
 
 - La investigación inicial permitió identificar que muchas personas y empresas presentan dificultades para acceder a asesoría profesional confiable debido a la fragmentación de la oferta y al uso de canales informales.
