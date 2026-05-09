@@ -2349,6 +2349,76 @@ Este informe documenta las mejoras logradas mediante la aplicación de patrones 
 | FinTeka-Backend  | main   | g7h8i9j0k1l2 | Implement reservations and sessions module | Developed booking logic with available/unavailable schedules and session management endpoints.                | 05/09/2026          |
 | FinTeka-Backend  | main   | h8i9j0k1l2m3 | Add ratings and notifications API          | Added professional ratings system and notifications endpoint for reservation status alerts.                   | 05/09/2026          |
 
+
+### 5.3.1.3 Testing Suite Evidence for Sprint Review<br><br>
+
+### FinTeka Testing<br><br>
+
+**Feature:** Registro y Gestión de Usuarios<br>
+**Como** usuario cliente o profesional<br>
+**Quiero** registrarme y administrar mi perfil<br>
+**Para** acceder correctamente a la plataforma FinTeka.<br><br>
+
+---
+
+#### Scenario: Registro exitoso de cliente<br>
+**ID:** FIN-US-001<br>
+**Relacionado con:** US002<br><br>
+
+**Given** que soy un visitante sin cuenta registrada<br>
+**When** completo el formulario con nombre, correo válido y contraseña<br>
+**Then** el sistema crea mi cuenta correctamente<br>
+**And** se genera mi perfil de usuario<br>
+**And** se muestra un mensaje de bienvenida.<br><br>
+
+---
+
+#### Scenario: Registro exitoso de profesional<br>
+**ID:** FIN-US-002<br>
+**Relacionado con:** US001<br><br>
+
+**Given** que deseo ofrecer servicios en la plataforma<br>
+**When** completo el formulario con mis datos personales, especialidad, tarifa y experiencia<br>
+**Then** el sistema registra mi cuenta profesional correctamente<br>
+**And** mi perfil queda disponible para revisión<br>
+**And** se asigna un identificador único.<br><br>
+
+---
+
+#### Scenario: Registro rechazado por correo duplicado<br>
+**ID:** FIN-US-003<br>
+**Relacionado con:** US002<br><br>
+
+**Given** que ya existe una cuenta con el correo `usuario@correo.com`<br>
+**When** intento registrarme utilizando ese mismo correo<br>
+**Then** el sistema rechaza la operación<br>
+**And** muestra el mensaje "Correo ya registrado"<br>
+**And** no crea una nueva cuenta.<br><br>
+
+---
+
+#### Scenario: Actualización exitosa de perfil<br>
+**ID:** FIN-US-004<br>
+**Relacionado con:** US008<br><br>
+
+**Given** que soy un usuario autenticado<br>
+**When** modifico mi correo y número telefónico desde la sección perfil<br>
+**Then** el sistema guarda los cambios correctamente<br>
+**And** muestra una confirmación en pantalla<br>
+**And** los nuevos datos permanecen actualizados.<br><br>
+
+---
+
+#### Scenario: Error al actualizar perfil con datos inválidos<br>
+**ID:** FIN-US-005<br>
+**Relacionado con:** US008<br><br>
+
+**Given** que deseo actualizar mi perfil<br>
+**When** ingreso un correo con formato incorrecto<br>
+**Then** el sistema rechaza la actualización<br>
+**And** muestra un mensaje indicando el error<br>
+**And** mantiene la información anterior sin cambios.<br><br>
+
 ###  5.3.1.4 Execution Evidence for Sprint Review
 ![endpoints1.jpeg](../assets/endpoints1.jpeg)
 ![endpoints2.jpeg](../assets/endpoints2.jpeg)
