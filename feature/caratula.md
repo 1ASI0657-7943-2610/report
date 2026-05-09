@@ -843,27 +843,35 @@ Estos dos segmentos permiten comprender de manera clara las dos partes fundament
 
 A continuación se muestra el proceso para la realizacion del User Task Matrix para comprender las tareas que realizan los User Persona para cumplir sus objetivos.
 
-**Segmento #1: Solicitante de Servicios**
+### Segmento #1: Solicitante de Servicios
 
-| Tarea                         | Frecuencia    | Importancia      |
-|-------------------------------|----------------|----------------|
-| Buscar profesionales | Alta   | Alta   |
-| Crear y configurar su perfil | Media   | Alta    |
-| Realizar pagos por el servicio | Alta    | ALta   |
-| Calificar al profesional | Media   | Media   |
-| Coordinar fechas o entregas | Media  | Media  |
-| Consultar opiniones o reseñas | Alta  | Alta  |
+| Tarea | Frecuencia | Importancia |
+|---|---|---|
+| Registrarse e iniciar sesión de forma segura | Alta | Alta |
+| Crear y actualizar su perfil personal | Media | Alta |
+| Buscar especialistas con filtros avanzados | Alta | Alta |
+| Revisar perfiles, experiencia y valoraciones | Alta | Alta |
+| Reservar sesiones según disponibilidad | Alta | Alta |
+| Realizar pagos seguros y consultar comprobantes | Alta | Alta |
+| Reprogramar o cancelar sesiones | Media | Media |
+| Recibir notificaciones y recordatorios | Alta | Alta |
+| Consultar historial de sesiones y pagos | Media | Media |
+| Calificar al consultor luego de la sesión | Media | Alta |
 
-**Segmento #2: Proveedores de Servicios**
+### Segmento #2: Proveedores de Servicios (Consultores)
 
-| Tarea                         | Frecuencia    | Importancia      |
-|-------------------------------|----------------|----------------|
-| Crear y configurar su perfil | Alta   | Alta   |
-| Publicar servicios y actualizar info | Alta  | Alta    |
-| Responder mensajes y consultas | Alta    | ALta   |
-| Recibir pagos | Media   | Media   |
-| Promocionar su perfil | Media  | Media  |
-| Gestionar disponibilidad de horarios | Alta  | Alta  |
+| Tarea | Frecuencia | Importancia |
+|---|---|---|
+| Registrarse e iniciar sesión de forma segura | Alta | Alta |
+| Crear y mantener actualizado su perfil profesional | Alta | Alta |
+| Configurar especialidades, tarifas y modalidad de atención | Alta | Alta |
+| Gestionar disponibilidad y agenda de horarios | Alta | Alta |
+| Recibir y administrar reservas de sesiones | Alta | Alta |
+| Reprogramar o cancelar sesiones cuando corresponda | Media | Media |
+| Recibir pagos, revisar ingresos y comprobantes | Media | Alta |
+| Gestionar suscripción premium y renovaciones | Baja | Media |
+| Consultar métricas de desempeño y reputación | Media | Alta |
+| Responder notificaciones y seguimiento de sesiones | Alta | Alta |
 
 ### 2.3.3. User Journey Mapping
 
