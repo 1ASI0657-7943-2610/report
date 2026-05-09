@@ -2216,33 +2216,172 @@ Estos componentes constituyen el núcleo funcional de FinTeka en esta iteración
 
 ### 4.3.1.5 Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-Con el propósito de cumplir los drivers arquitectónicos priorizados en esta iteración, se adoptan los siguientes conceptos de diseño orientados a usabilidad, disponibilidad y facilidad de evolución del sistema.
+Con el propósito de satisfacer los drivers arquitectónicos priorizados para el ecosistema de **FinTeka**, se adoptan múltiples conceptos de diseño enfocados en garantizar:
+- experiencia de usuario,
+- disponibilidad continua,
+- escalabilidad,
+- seguridad,
+- facilidad de mantenimiento y evolución tecnológica.
 
+Estas decisiones arquitectónicas buscan asegurar que la plataforma pueda operar eficientemente bajo escenarios de alta concurrencia, integraciones distribuidas y crecimiento progresivo del negocio.
+
+---
 
 #### Usability
 
-* La interfaz web será desarrollada con diseño responsive, garantizando una experiencia adecuada en móviles, tabletas y escritorio (RNF-015).
-* Los flujos principales de registro, búsqueda de especialistas, visualización de perfiles y reservas serán simples e intuitivos.
-* Los perfiles públicos de consultores deberán cargar en un tiempo máximo de 1.5 segundos para ofrecer navegación fluida (RNF-010).
-* La plataforma será compatible con navegadores modernos como Chrome, Firefox, Edge y Safari (RNF-014).
+* La interfaz web será desarrollada bajo un enfoque **responsive design**, garantizando compatibilidad y correcta visualización en dispositivos móviles, tablets y escritorio (RNF-015).
+* Los flujos críticos de negocio como:
+  - registro,
+  - autenticación,
+  - búsqueda de especialistas,
+  - reserva de sesiones,
+  - pagos,
+  
+  deberán ser intuitivos y minimizar la cantidad de pasos requeridos por el usuario.
+
+* Los perfiles públicos de consultores deberán cargar en un tiempo máximo de **1.5 segundos** para garantizar navegación fluida y mejorar la percepción de rendimiento (RNF-010).
+* Se implementará diseño centrado en el usuario (*User-Centered Design*), priorizando accesibilidad, claridad visual y facilidad de navegación.
+* La plataforma será compatible con navegadores modernos como:
+  - Chrome,
+  - Firefox,
+  - Edge,
+  - Safari (RNF-014).
+
+* Se minimizará el *over-fetching* de información mediante APIs optimizadas para dispositivos móviles.
+* Los mensajes de error y validaciones serán claros y orientados a facilitar la corrección rápida por parte del usuario.
+
+---
 
 #### Availability
 
-* Los microservicios serán desplegados en contenedores Docker, facilitando portabilidad, reinicios rápidos y recuperación ante fallos (RNF-013).
-* La solución utilizará una arquitectura distribuida donde fallos en un servicio no detengan completamente al sistema.
-* Las búsquedas de especialistas deberán responder en un máximo de 2 segundos bajo carga normal (RNF-001).
-* La creación y confirmación de reservas deberá completarse en un máximo de 3 segundos para la mayoría de solicitudes (RNF-002).
-* Se implementará monitoreo y trazabilidad mediante logs de autenticación, errores y operaciones críticas (RNF-012).
+* Los microservicios serán desplegados utilizando contenedores Docker, permitiendo:
+  - portabilidad,
+  - recuperación rápida,
+  - despliegues consistentes,
+  - reinicio automático de servicios (RNF-013).
 
+* La solución utilizará una arquitectura distribuida donde fallos parciales no afecten completamente al ecosistema.
+* Los servicios críticos se desplegarán bajo una configuración **Multi-AZ (Multi Availability Zone)** para garantizar continuidad operacional.
+* Se implementarán balanceadores de carga para distribuir tráfico entre múltiples instancias.
+* Las búsquedas de especialistas deberán responder en un máximo de **2 segundos** bajo carga normal (RNF-001).
+* La creación y confirmación de reservas deberá completarse en un máximo de **3 segundos** para la mayoría de solicitudes (RNF-002).
+* El sistema incorporará:
+  - monitoreo centralizado,
+  - health checks,
+  - alertas automáticas,
+  - trazabilidad de errores y eventos críticos (RNF-012).
 
-#### odifiability
+* Se utilizarán mecanismos de failover automático para reducir el tiempo de recuperación ante fallos de infraestructura.
 
-* El sistema se desarrollará bajo arquitectura de microservicios con enfoque DDD, separando dominios como autenticación, consultores, reservas y notificaciones.
-* Se emplearán tecnologías como Spring Boot, .NET y Go, seleccionando cada framework según las necesidades de rendimiento, mantenibilidad e integración de cada servicio.
-* Se incorporará un message broker Kafka para la comunicación asíncrona entre servicios, especialmente en procesos como notificaciones, confirmaciones y eventos de reservas.
-* Las APIs serán documentadas con OpenAPI / Swagger para facilitar futuras integraciones y mantenimiento (RNF-006).
-* El uso de UUID y variables de entorno permitirá escalar servicios y desplegar nuevos ambientes con menor complejidad (RNF-008, RNF-009).
-* Esta estructura permitirá incorporar posteriormente módulos como pagos en línea, calificaciones y mensajería interna sin afectar el núcleo principal.
+---
+
+#### Modifiability
+
+* El sistema será desarrollado bajo una arquitectura de microservicios combinada con principios de **DDD (Domain-Driven Design)**.
+* Los dominios funcionales estarán desacoplados en servicios independientes como:
+  - autenticación,
+  - consultores,
+  - reservas,
+  - pagos,
+  - notificaciones,
+  - chat.
+
+* Se emplearán tecnologías como:
+  - Spring Boot,
+  - .NET,
+  - Go,
+
+  seleccionando cada framework según necesidades específicas de:
+  - rendimiento,
+  - mantenibilidad,
+  - integración,
+  - concurrencia.
+
+* Se incorporará un *message broker* basado en Kafka para comunicación asíncrona entre servicios.
+* Las APIs serán documentadas mediante **OpenAPI / Swagger**, facilitando:
+  - mantenimiento,
+  - integración,
+  - versionamiento,
+  - pruebas automatizadas (RNF-006).
+
+* El uso de:
+  - UUID,
+  - variables de entorno,
+  - contenedores,
+
+  permitirá escalar ambientes y automatizar despliegues con menor complejidad (RNF-008, RNF-009).
+
+* La arquitectura permitirá incorporar nuevos módulos como:
+  - pagos avanzados,
+  - reputación,
+  - videollamadas,
+  - analítica,
+  - inteligencia artificial,
+
+  sin afectar el núcleo transaccional de la plataforma.
+
+---
+
+#### Security
+
+* La autenticación será implementada mediante el estándar **OAuth2** utilizando tokens **JWT (JSON Web Tokens)** para validación descentralizada.
+* Se implementará un modelo de autorización basado en roles (**RBAC**) diferenciando permisos para:
+  - Clientes,
+  - Consultores,
+  - Administradores.
+
+* Toda la comunicación entre clientes, APIs y microservicios se realizará bajo protocolos seguros HTTPS/TLS.
+* Las contraseñas serán almacenadas utilizando algoritmos de hashing seguro.
+* Los endpoints sensibles estarán protegidos mediante un API Gateway centralizado.
+* Se implementarán mecanismos de:
+  - rate limiting,
+  - validación de tokens,
+  - expiración de sesiones,
+  - control de accesos.
+
+* Los logs de seguridad y auditoría serán persistidos en una base NoSQL especializada para garantizar trazabilidad y análisis posterior.
+* Se aplicarán principios de *Zero Trust* para minimizar riesgos de acceso indebido.
+* Las integraciones con pasarelas de pago se realizarán mediante conexiones seguras y desacopladas.
+
+---
+
+#### Scalability
+
+* La arquitectura basada en microservicios permitirá escalabilidad horizontal independiente para cada componente del sistema.
+* Los servicios con alta demanda, como:
+  - chat,
+  - reservas,
+  - búsqueda de consultores,
+
+  podrán incrementar instancias automáticamente según métricas de utilización.
+
+* Redis será utilizado como capa de caché distribuida para reducir carga sobre la base de datos relacional.
+* La persistencia políglota permitirá separar:
+  - operaciones transaccionales críticas,
+  - datos no estructurados,
+  - mensajería en tiempo real,
+  - auditoría.
+
+* La plataforma utilizará Kubernetes para:
+  - orquestación,
+  - autoescalado,
+  - balanceo interno,
+  - recuperación automática.
+
+* El sistema deberá soportar crecimiento progresivo de:
+  - usuarios concurrentes,
+  - reservas,
+  - mensajes,
+  - transacciones financieras,
+
+  sin degradar significativamente el rendimiento general.
+
+* Se implementarán colas asíncronas y procesamiento desacoplado para evitar cuellos de botella durante eventos de alta demanda.
+* La arquitectura permitirá expansión futura hacia:
+  - nuevos mercados,
+  - nuevos servicios financieros,
+  - aplicaciones móviles nativas,
+  - integraciones empresariales.
 
 ### 4.3.1.6 Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
