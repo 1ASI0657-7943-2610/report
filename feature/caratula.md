@@ -2420,10 +2420,54 @@ Este informe documenta las mejoras logradas mediante la aplicación de patrones 
 **And** mantiene la información anterior sin cambios.<br><br>
 
 ###  5.3.1.4 Execution Evidence for Sprint Review
+
+En este sprint se desarrolló la aplicación de FinTeka utilizando una arquitectura monolítica, tomando como referencia los requisitos funcionales y no funcionales identificados previamente. Asimismo, para esta primera versión se empleó Spring Boot en el desarrollo del backend y Vue para el frontend. Como sistema de base de datos se utilizó MySQL.
+
+Durante la implementación se siguieron buenas prácticas de desarrollo con el objetivo de facilitar, en etapas posteriores, una adecuada descomposición del monolito y su posterior migración hacia una arquitectura de microservicios.
+
+A continuación, se presentan imágenes de evidencia correspondientes al Sprint 1.
+
 ![endpoints1.jpeg](../assets/endpoints1.jpeg)
 ![endpoints2.jpeg](../assets/endpoints2.jpeg)
-###  5.3.1.5 Microservices Documentation Evidence for Sprint Review
+![front1.jpeg](../assets/front1.jpeg)
+![front2.jpeg](../assets/front2.jpeg)
+### 5.3.1.5 Microservices Documentation Evidence for Sprint Review
 
+### 5.3.1.6 Software Deployment Evidence for Sprint Review<br><br>
+
+En este Sprint se realizaron las actividades de despliegue necesarias para publicar la plataforma **FinTeka**, permitiendo el acceso al frontend y backend desde entornos en la nube.<br><br>
+
+---
+
+#### A. Deployment Backend en Azure
+
+Se utilizó **Microsoft Azure App Services** para desplegar la API REST desarrollada en Spring Boot.<br><br>
+
+#### Actividades realizadas:<br>
+
+- Creación del servicio web en Azure.<br>
+- Configuración de variables de entorno.<br>
+- Publicación del archivo ejecutable `.jar`.<br>
+- Validación de endpoints activos.<br><br>
+- 
+### B. Deployment Frontend en Vercel
+
+Se utilizó **Vercel** para desplegar la aplicación frontend desarrollada en Vue.js.<br><br>
+
+#### Actividades realizadas:<br>
+
+- Conexión del repositorio GitHub con Vercel.<br>
+- Configuración automática de build con Vite.<br>
+- Publicación del proyecto en producción.<br>
+- Configuración de URL del backend Azure.<br><br>
+#### Evidencia 
+
+Frontend desplegado: https://frontend-finteka.vercel.app/
+
+### 5.3.1.7 Team Collaboration Insights during Sprint
+![sprint1cola3.jpeg](../assets/sprint1cola3.jpeg)
+![sprint1cola2.jpeg](../assets/sprint1cola2.jpeg)
+![sprint1cola.jpeg](../assets/sprint1cola.jpeg)
 # Conclusiones
 
 - La investigación inicial permitió identificar que muchas personas y empresas presentan dificultades para acceder a asesoría profesional confiable debido a la fragmentación de la oferta y al uso de canales informales.
