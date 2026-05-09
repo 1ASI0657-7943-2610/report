@@ -1277,7 +1277,7 @@ A continuación, se muestra el diagrama de componentes correspondiente al micros
 
 #### Diagrama de Base de Datos
 
-![Diagrama de Base de Datos Híbrido - Finteka](https://res.cloudinary.com/dx0i2vioe/image/upload/v1778369378/14e6eea1-3830-48be-bf0f-4cab0440c065_pvrdal.jpg)
+![Diagrama de Base de Datos Híbrido - Finteka](https://res.cloudinary.com/dx0i2vioe/image/upload/v1778370290/Captura_de_pantalla_2026-05-09_a_la_s_6.24.39_p._m._xxe3sa.png)
 
 #### Explicación del Gráfico y Justificación Técnica
 
