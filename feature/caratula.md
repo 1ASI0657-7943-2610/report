@@ -840,37 +840,154 @@ Estos dos segmentos permiten comprender de manera clara las dos partes fundament
   
 ### 2.3.2. User Task Matrix
 
-A continuación se muestra el proceso para la realizacion del User Task Matrix para comprender las tareas que realizan los User Persona para cumplir sus objetivos.
+### 2.3.2 User Task Matrix
 
-### Segmento #1: Solicitante de Servicios
+La siguiente matriz presenta las principales tareas identificadas para los segmentos objetivo de **FinTeka**, relacionándolas directamente con funcionalidades, User Stories y componentes funcionales del sistema. Esto permite mantener coherencia entre:
+- necesidades detectadas durante la investigación,
+- funcionalidades priorizadas en el backlog,
+- decisiones de diseño del producto,
+- componentes arquitectónicos implementados.
 
-| Tarea | Frecuencia | Importancia |
+La matriz facilita visualizar qué funcionalidades responden a tareas críticas de los usuarios y cómo estas se distribuyen dentro de los distintos dominios funcionales de la plataforma.
+
+---
+
+#### Criterios de Evaluación
+
+Las tareas fueron clasificadas considerando:
+- **Frecuencia:** cantidad de veces que la tarea es ejecutada por el usuario.
+- **Importancia:** impacto de la tarea sobre la experiencia y el valor del negocio.
+- **Feature Relacionada:** funcionalidad principal que soporta la tarea.
+- **User Stories Relacionadas:** historias de usuario vinculadas a la funcionalidad.
+- **Epic:** agrupación funcional de alto nivel dentro del backlog del producto.
+
+---
+
+### Segmento #1 — Solicitantes de Servicios
+
+| Tarea del Usuario | Frecuencia | Importancia | Feature Relacionada | User Stories | Epic |
+|---|---|---|---|---|---|
+| Registrarse e iniciar sesión de forma segura | Alta | Alta | Autenticación y Gestión de Cuenta | US001, US002 | EP01 |
+| Crear y actualizar su perfil personal | Media | Alta | Gestión de Perfil de Usuario | US008 | EP01 |
+| Buscar especialistas utilizando filtros avanzados | Alta | Alta | Motor de Búsqueda Inteligente | US003, US026 | EP02 |
+| Revisar perfiles, experiencia y valoraciones de consultores | Alta | Alta | Visualización de Perfil Profesional | US006, US007 | EP02 |
+| Reservar sesiones según disponibilidad | Alta | Alta | Gestión de Reservas y Agenda | US010, US011 | EP03 |
+| Realizar pagos seguros y consultar comprobantes | Alta | Alta | Pasarela de Pago Integrada | US014, US015 | EP04 |
+| Reprogramar o cancelar sesiones | Media | Media | Gestión del Ciclo de Vida de Reservas | US012, US013 | EP03 |
+| Recibir recordatorios y notificaciones | Alta | Alta | Sistema de Notificaciones | US004, US016 | EP05 |
+| Consultar historial de sesiones y pagos | Media | Media | Historial y Seguimiento | US017 | EP04 |
+| Calificar especialistas luego de una asesoría | Media | Alta | Sistema de Reputación y Valoraciones | US007 | EP02 |
+| Guardar especialistas favoritos | Media | Media | Favoritos y Seguimiento | US009 | EP03 |
+| Compartir perfiles profesionales | Baja | Media | Compartir Perfil | US028 | EP03 |
+| Configurar preferencias visuales | Baja | Baja | Personalización de Interfaz | US029 | EP03 |
+| Consultar soporte y preguntas frecuentes | Media | Media | Centro de Ayuda | US026, US027 | EP06 |
+
+---
+
+#### Análisis del Segmento
+
+Las tareas asociadas al solicitante de servicios se concentran principalmente en:
+- descubrimiento de especialistas,
+- validación de confianza,
+- gestión de reservas,
+- pagos,
+- seguimiento de asesorías.
+
+Las funcionalidades relacionadas con:
+- búsqueda,
+- perfiles,
+- reservas,
+- pagos,
+
+presentan alta frecuencia e importancia, por lo que tienen impacto directo en la priorización técnica y arquitectónica del sistema.
+
+Esto justifica decisiones como:
+- uso de Redis para optimizar consultas frecuentes,
+- persistencia relacional para reservas y pagos,
+- integración desacoplada con pasarelas externas,
+- notificaciones en tiempo real mediante WebSockets.
+
+---
+
+### Segmento #2 — Consultores y Proveedores de Servicios
+
+| Tarea del Usuario | Frecuencia | Importancia | Feature Relacionada | User Stories | Epic |
+|---|---|---|---|---|---|
+| Registrarse e iniciar sesión de forma segura | Alta | Alta | Autenticación y Gestión de Cuenta | US001 | EP01 |
+| Crear y mantener actualizado su perfil profesional | Alta | Alta | Gestión de Perfil Profesional | US008 | EP01 |
+| Configurar especialidades, tarifas y modalidades de atención | Alta | Alta | Configuración de Servicios Profesionales | US018, US019 | EP02 |
+| Gestionar disponibilidad y horarios | Alta | Alta | Gestión de Agenda y Disponibilidad | US010 | EP03 |
+| Recibir y administrar reservas de sesiones | Alta | Alta | Gestión de Reservas | US011 | EP03 |
+| Reprogramar o cancelar sesiones | Media | Media | Gestión del Ciclo de Vida de Sesiones | US012, US013 | EP03 |
+| Consultar ingresos, pagos y comprobantes | Media | Alta | Gestión Financiera y Comisiones | US014, US015 | EP04 |
+| Gestionar suscripciones premium | Baja | Media | Gestión de Suscripciones | US020 | EP04 |
+| Consultar métricas y reputación profesional | Media | Alta | Dashboard Analítico y Reputación | US021, US007 | EP05 |
+| Recibir notificaciones relacionadas con sesiones | Alta | Alta | Sistema de Notificaciones | US004, US016 | EP05 |
+| Administrar comunicación con clientes | Alta | Alta | Chat y Comunicación Directa | US022, US023 | EP05 |
+| Consultar historial de sesiones realizadas | Media | Media | Historial Profesional | US024 | EP04 |
+| Configurar preferencias y seguridad de cuenta | Media | Alta | Seguridad y Configuración | US025 | EP01 |
+
+---
+
+#### Análisis del Segmento
+
+Las tareas relacionadas con consultores están orientadas principalmente a:
+- organización profesional,
+- administración de disponibilidad,
+- monetización de servicios,
+- reputación,
+- comunicación con clientes.
+
+La necesidad de mantener sincronización en tiempo real entre:
+- disponibilidad,
+- reservas,
+- pagos,
+- notificaciones,
+
+Influye directamente sobre decisiones arquitectónicas como:
+- separación de dominios mediante microservicios,
+- persistencia híbrida SQL/NoSQL,
+- eventos asíncronos,
+- mecanismos de consistencia transaccional.
+
+Asimismo, la gestión dinámica de agendas y reservas motivó el diseño de componentes especializados como:
+- `BOOKING_SLOTS`,
+- `ADVISORY_SESSIONS`,
+- servicios desacoplados de notificación y mensajería.
+
+---
+
+### Relación entre Tareas, Features y Componentes del Sistema
+
+La siguiente tabla resume cómo las tareas de usuario se relacionan con las principales funcionalidades y componentes arquitectónicos del ecosistema FinTeka.
+
+| Área Funcional | Feature Principal | Componente Relacionado |
 |---|---|---|
-| Registrarse e iniciar sesión de forma segura | Alta | Alta |
-| Crear y actualizar su perfil personal | Media | Alta |
-| Buscar especialistas con filtros avanzados | Alta | Alta |
-| Revisar perfiles, experiencia y valoraciones | Alta | Alta |
-| Reservar sesiones según disponibilidad | Alta | Alta |
-| Realizar pagos seguros y consultar comprobantes | Alta | Alta |
-| Reprogramar o cancelar sesiones | Media | Media |
-| Recibir notificaciones y recordatorios | Alta | Alta |
-| Consultar historial de sesiones y pagos | Media | Media |
-| Calificar al consultor luego de la sesión | Media | Alta |
+| Autenticación | Login y Seguridad | Identity Service / API Gateway |
+| Búsqueda | Filtros y descubrimiento de especialistas | Consultant Service / Redis |
+| Reservas | Gestión de agenda y sesiones | Booking Service |
+| Pagos | Procesamiento financiero y comisiones | Payment Service |
+| Comunicación | Chat y notificaciones | Chat Service / WebSockets |
+| Reputación | Valoraciones y métricas | Reputation Service |
+| Auditoría | Historial y trazabilidad | User Activity Logs |
+| Personalización | Preferencias de interfaz | Frontend UI Layer |
 
-### Segmento #2: Proveedores de Servicios (Consultores)
+---
 
-| Tarea | Frecuencia | Importancia |
-|---|---|---|
-| Registrarse e iniciar sesión de forma segura | Alta | Alta |
-| Crear y mantener actualizado su perfil profesional | Alta | Alta |
-| Configurar especialidades, tarifas y modalidad de atención | Alta | Alta |
-| Gestionar disponibilidad y agenda de horarios | Alta | Alta |
-| Recibir y administrar reservas de sesiones | Alta | Alta |
-| Reprogramar o cancelar sesiones cuando corresponda | Media | Media |
-| Recibir pagos, revisar ingresos y comprobantes | Media | Alta |
-| Gestionar suscripción premium y renovaciones | Baja | Media |
-| Consultar métricas de desempeño y reputación | Media | Alta |
-| Responder notificaciones y seguimiento de sesiones | Alta | Alta |
+#### Consideraciones Funcionales y Arquitectónicas
+
+La relación entre tareas, funcionalidades y componentes técnicos permite:
+- identificar funcionalidades de mayor impacto,
+- validar cobertura funcional del sistema,
+- priorizar correctamente el backlog,
+- justificar decisiones arquitectónicas,
+- mantener alineación entre UX, negocio y tecnología.
+
+Además, esta trazabilidad facilita futuras iteraciones del producto al permitir identificar rápidamente:
+- funcionalidades críticas,
+- dependencias funcionales,
+- dominios de mayor complejidad,
+- oportunidades de escalabilidad y mejora continua.
 
 ### 2.3.3. User Journey Mapping
 
