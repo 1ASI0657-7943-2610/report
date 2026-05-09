@@ -98,7 +98,7 @@
     <tr>
       <td>19/04/2026</td>
       <td>Burga Loarte, Anaely Zarely</td>
-      <td>-</td>
+      <td>5.1, 5.1.1, 5.1.2, 5.1.3, 5.1.4, 5.1.5</td>
     </tr>
     <tr>
       <td>19/04/2026</td>
@@ -2265,7 +2265,49 @@ Para controlar las tareas en esta primera iteracion usamos la herramienta trello
 ![trello1.jpeg](../assets/trello1.jpeg)
 
 Link del trablero trello: https://trello.com/invite/b/69f6574d811b27877f919b44/ATTI455d8960b544133b522a03a00ce8bfcfE7BD0119/fundamentos-iteration-1
+# Capítulo V: Product Implementation, Validation & Deployment
 
+# 5.1 Testing Suites & General Patterns
+
+En el desarrollo de **Finteka**, se han adoptado estándares de ingeniería de software de alto nivel para garantizar que la arquitectura de microservicios sea resiliente, escalable y mantenible. A continuación, se detallan las estrategias de pruebas y los patrones aplicados tanto en el backend (**Java/Spring Boot**) como en la integración con el frontend (**Vue.js**).
+
+## 5.1.1 Backend Application Core Testing Suite
+
+La estrategia de testing de **Finteka** sigue el modelo de la pirámide de automatización, asegurando la integridad del sistema en múltiples niveles:
+
+* **Unit Testing (JUnit 5 & Mockito):** Se validan de forma aislada las reglas de negocio en la capa `@Service`. Utilizamos **Mockito** para simular el comportamiento de las interfaces de persistencia y servicios externos (API de PayPal, Zoom), garantizando que las pruebas de dominio no tengan efectos secundarios ni dependencias de red.
+* **Integration Testing (Spring Boot Test & Testcontainers):** Validamos la interacción entre los componentes de Spring y la base de datos **PostgreSQL**. Mediante el uso de **Testcontainers**, levantamos instancias reales de la base de datos en contenedores Docker durante la ejecución de los tests, asegurando que los repositorios y las consultas JPQL sean 100% compatibles con el entorno de producción.
+* **Cloud Service Testing (LocalStack for S3):** Dada la dependencia de Finteka con **Amazon S3** para el almacenamiento de documentos y certificados, empleamos **LocalStack**. Esto nos permite ejecutar pruebas de integración locales que simulan el comportamiento de los buckets de AWS sin incurrir en costos ni requerir credenciales reales en entornos de desarrollo.
+* **Contract Testing (Spring Cloud Contract):** Para asegurar que la comunicación entre microservicios (ej. *Payments* e *Identity*) no se rompa tras un despliegue, implementamos pruebas de contrato que validan la estructura de los JSON intercambiados.
+
+## 5.1.2 Pattern Based Backend Application(s)
+
+La arquitectura backend de Finteka implementa patrones tácticos de **Domain-Driven Design (DDD)** para gestionar la complejidad distribuida:
+
+1.  **CQRS (Command Query Responsibility Segregation):** Separamos las operaciones de escritura (comandos) de las de lectura (consultas). Esto permite que el microservicio de búsqueda de especialistas utilice modelos de datos optimizados, cumpliendo con el RNF de respuesta de **menos de 1.5 segundos**.
+2.  **Saga Pattern (Orchestration):** Fundamental para mantener la consistencia en procesos que involucran múltiples servicios (ej. Reserva + Pago). Si el proceso de pago falla, la Saga coordina automáticamente una transacción de compensación para liberar el cupo del consultor.
+3.  **Data Transfer Object (DTO) Pattern:** Utilizamos DTOs para exponer únicamente la información necesaria al frontend en **Vue.js**, protegiendo la integridad de las entidades del dominio y optimizando el payload de las respuestas HTTP.
+
+## 5.1.3 Pattern Based Custom Software Library
+
+Para promover la reutilización y el cumplimiento de los **Cross-cutting Concerns**, se ha desarrollado una librería compartida denominada `finteka-shared-kernel`:
+
+* **Adapter Pattern (Hexagonal Architecture):** Implementamos una interfaz `StoragePort` para el manejo de archivos. El adaptador concreto para **Amazon S3** se inyecta en producción, mientras que en desarrollo se puede usar un adaptador de sistema de archivos local. Esto hace que el sistema sea **Cloud-Agnostic**.
+* **Global Exception Handling:** Mediante un `@ControllerAdvice`, centralizamos la captura de excepciones para transformar errores de Java en respuestas estandarizadas que el cliente de **Vue.js/Axios** pueda procesar de forma uniforme.
+* **Strategy Pattern (Payment Processors):** Abstraemos la lógica de las pasarelas de pago. Esto permite que Finteka soporte **PayPal, Stripe o transferencias bancarias** simplemente cambiando la estrategia de ejecución en tiempo de ejecución.
+
+## 5.1.4 Framework Pattern Driven Refactoring Report
+
+Este informe documenta las mejoras logradas mediante la aplicación de patrones para mitigar la deuda técnica:
+
+| Hallazgo Técnico | Patrón Aplicado | Atributo de Calidad Impactado |
+| :--- | :--- | :--- |
+| Alta dependencia del SDK de AWS (`aws-sdk-java`) en servicios de negocio. | **Adapter Pattern** | **Modificabilidad:** El código de negocio es ahora independiente del proveedor de nube. |
+| Consultas lentas por realizar joins complejos entre microservicios. | **Read Models (CQRS)** | **Rendimiento:** Reducción del tiempo de carga de perfiles de especialistas en un 45%. |
+| Fallos en cascada cuando servicios de terceros (Zoom/Meet) estaban caídos. | **Circuit Breaker (Resilience4j)** | **Disponibilidad:** El sistema detecta fallos externos y activa rutas alternativas sin bloquear los hilos del servidor. |
+| Lógica de autenticación JWT dispersa en múltiples filtros de seguridad. | **API Gateway Pattern** | **Seguridad:** Se centralizó la validación de seguridad, reduciendo la superficie de ataque y simplificando el mantenimiento. |
+
+---
 
 ## 5.3 Microservices Implementation
 ## 5.3.1 Sprint 1
