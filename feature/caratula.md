@@ -1275,29 +1275,46 @@ A continuación, se muestra el diagrama de componentes correspondiente al micros
 
 ## 4.1.5 Relational / Non-Relational Database Diagram 
 
-Para el ecosistema de **Finteka**, se ha diseñado una arquitectura de persistencia políglota que separa las operaciones financieras críticas de los flujos de alta disponibilidad y datos no estructurados. Basándonos en los requerimientos del proyecto, se ha evolucionado el modelo original hacia una estructura híbrida:
+#### Diagrama de Base de Datos
 
-1.  **Modelo Relacional (SQL):** Gestiona el núcleo de confianza (ACID). Se han reemplazado conceptos genéricos por entidades de dominio específicas como `Consultants`, `Advisory_Sessions` y `Payments`.
-2.  **Modelo No Relacional (NoSQL):** Implementado para la gestión de mensajes de chat (US-04) y logs de auditoría (US-08), permitiendo escalabilidad horizontal sin degradar el rendimiento de la base de datos principal.
-
-#### Diagrama de Base de Datos Híbrido
-
-![Diagrama de Base de Datos Híbrido - Finteka](https://res.cloudinary.com/dx0i2vioe/image/upload/f_auto,q_auto/Captura_de_pantalla_2026-04-27_a_la_s_5.06.10_a._m._vi5c1x)
+![Diagrama de Base de Datos Híbrido - Finteka](https://res.cloudinary.com/dx0i2vioe/image/upload/v1778369378/14e6eea1-3830-48be-bf0f-4cab0440c065_pvrdal.jpg)
 
 #### Explicación del Gráfico y Justificación Técnica
 
-El diagrama presenta una arquitectura dividida en dos grandes bloques tecnológicos para optimizar los Atributos de Calidad del sistema:
+# Explicación del Modelo de Datos Relacional (3FN) - Finteka
 
-**A. Bloque Relacional (Gestión Transaccional):**
-* **Gestión de Perfiles (`USERS`, `CONSULTANTS`, `CLIENTS`):** Se utiliza una relación de especialización para diferenciar a los usuarios. Esto permite soportar el **Plan Premium** y las suscripciones mencionadas en la documentación, vinculando cada perfil con sus permisos específicos.
-* **Núcleo de Intermediación (`ADVISORY_SESSIONS`):** Es la tabla central que conecta a clientes y asesores. Al ser relacional, garantiza que cada sesión agendada sea única y coherente.
-* **Disponibilidad en Tiempo Real (`BOOKING_SLOTS`):** Esta tabla gestiona los bloques de tiempo. Su diseño permite consultas rápidas de disponibilidad, evitando el "double-booking" mediante restricciones de integridad referencial.
-* **Transaccionalidad Financiera (`PAYMENTS`):** Crucial para el cobro de comisiones de la plataforma. Se ha diseñado para soportar el **patrón Saga**, permitiendo gestionar estados transaccionales (Pendiente, Completado, Fallido) en procesos distribuidos.
+El diseño de la base de datos de **Finteka** se ha estructurado bajo un modelo relacional unificado, completamente normalizado hasta la **Tercera Forma Normal (3FN)**. El objetivo primordial es garantizar la integridad referencial, eliminar la redundancia de datos y soportar de manera escalable todos los requisitos funcionales detallados en el informe.
 
-**B. Bloque NoSQL (Datos de Alto Volumen):**
-* **Historial de Comunicación (`CHAT_MESSAGES`):** Colección basada en documentos que almacena la interacción entre cliente y asesor. Al ser NoSQL, permite una escritura veloz y flexible para mensajes de texto y metadatos del chat.
-* **Auditoría y Seguridad (`USER_ACTIVITY_LOGS`):** Soporta el Atributo de Calidad de **Auditoría**. Almacena de forma inmutable cada acción crítica del usuario (logins, cambios de saldo, postulaciones) sin estresar las tablas transaccionales de la base de datos SQL.
+## 1. Arquitectura de Identidad (Patrón Supertipo/Subtipo)
+Para gestionar eficientemente los distintos roles del sistema manteniendo una base de autenticación única, se ha implementado un esquema de **Especialización**:
 
+* **USERS (Supertipo):** Centraliza las credenciales de acceso (`Email`, `PasswordHash`), el rol del usuario y el estado de la cuenta. Esto permite un control de seguridad centralizado y una gestión de sesiones uniforme.
+* **CLIENTS y ADVISORS (Subtipos):** Se vinculan de forma **1:1** con la tabla de usuarios. Esta separación permite que cada perfil posea atributos exclusivos (como `HourlyRate`, `Specialty` y `Bio` para los asesores; o `Preferences` para los clientes) sin comprometer la limpieza del modelo ni mezclar lógicas de negocio.
+
+## 2. Núcleo Transaccional: Gestión de Sesiones
+La entidad **ADVISORY_SESSIONS** actúa como el eje central del sistema, orquestando la interacción entre los actores:
+
+* **Relaciones Cardinales:** Conecta a un cliente con un asesor mediante relaciones **1:N**. Esto permite que un usuario registre múltiples asesorías históricas mientras cada registro individual de sesión apunta a un solo par cliente-asesor.
+* **Persistencia de Seguimiento (Normalización 3FN):** Para evitar el crecimiento excesivo de la tabla de sesiones y cumplir con las historias de usuario de seguimiento post-cita, se han desacoplado las siguientes entidades:
+    * **SESSION_NOTES:** Almacena notas privadas del asesor y apuntes de seguimiento (`FollowUpNotes`).
+    * **SESSION_RECOMENDATIONS:** Centraliza el texto de recomendaciones finales y los enlaces a materiales adjuntos para el cliente.
+
+## 3. Integridad Financiera y Reputacional
+* **PAYMENTS:** Cada sesión exitosa genera un registro de pago único (**1:1**). Esta tabla registra el monto, la comisión de la plataforma (`PlatformFee`) y el estado transaccional, asegurando una auditoría financiera precisa.
+* **REVIEWS:** Implementa el sistema de confianza. Al estar ligada directamente a una sesión (**1:1**), garantiza que solo los clientes que efectivamente pagaron y asistieron a una asesoría puedan calificar al profesional, evitando reseñas fraudulentas.
+
+## 4. Interacción y Auditoría
+* **CLIENT_FAVORITES:** Resuelve la relación **Muchos a Muchos (N:M)** entre clientes y asesores, permitiendo a los usuarios gestionar su lista personalizada de profesionales preferidos.
+* **MESSAGES y LOGS:** * **MESSAGES:** Gestiona la comunicación vinculándose a la tabla `USERS` para identificar emisores y receptores.
+    * **USER_ACTIVITY_LOGS:** Registra de forma secuencial cada acción crítica (logins, cambios de estado, transacciones), cumpliendo con los requisitos de seguridad y trazabilidad.
+
+---
+
+### Justificación Técnica de la Normalización
+* **1FN:** Todos los atributos son atómicos y cada tabla posee una clave primaria (`PK`) definida.
+* **2FN:** Se han eliminado dependencias parciales; los atributos dependen totalmente de su clave primaria.
+* **3FN:** Se han eliminado dependencias transitivas. La información de pagos, notas o recomendaciones reside en tablas satélites relacionadas por llaves foráneas (`FK`), lo que previene anomalías de actualización.
+  
 ## 4.1.6 Design Pattems
 
 Entre los patrones de diseño que emplearemos en el desarrollo de FinTeka destacan los siguientes:
