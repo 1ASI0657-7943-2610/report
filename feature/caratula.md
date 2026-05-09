@@ -8,7 +8,7 @@
 ### 202610
 ### NRC: 7943
 ### Profesor: Ernesto Ocampo Tello
-## Informe de TB2
+## Informe de Trabajo Parcial
 
 ## Producto:  Finteka
 
@@ -32,7 +32,7 @@
 <br>
 <br>
 
-### Abril,2026
+### Mayo,2026
 
 </div>
 
@@ -103,7 +103,7 @@
     <tr>
       <td>19/04/2026</td>
       <td>Mamani Marca, Gabriel Cristian</td>
-      <td>-</td>
+      <td>Desarrollo todo el Architectural Design Backlog 1</td>
     </tr>
     <tr>
       <td>27/04/2026</td>
@@ -129,7 +129,7 @@
     <tr>
       <td>-</td>
       <td>Mamani Marca, Gabriel Cristian</td>
-      <td>-</td>
+      <td>Desarrollo sprint 1</td>
     </tr>
     <tr>
       <td>04/05/2026</td>
