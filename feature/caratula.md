@@ -127,7 +127,7 @@
       <td>-</td>
     </tr>
     <tr>
-      <td>-</td>
+      <td>09/05/2026</td>
       <td>Mamani Marca, Gabriel Cristian</td>
       <td>Desarrollo sprint 1</td>
     </tr>
