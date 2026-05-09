@@ -310,25 +310,35 @@ Frente a esta situación, resulta pertinente el desarrollo de una solución digi
 A partir del análisis de los antecedentes y la problemática, se aplica la técnica de las 5W y 2H para estructurar la solución propuesta:
 
 **What (Qué)**  
-El problema identificado es la inexistencia de una plataforma centralizada que facilite el acceso a asesoría profesional especializada y que permita a los consultores ofrecer sus servicios de manera estructurada.
+La problemática principal consiste en la ausencia de una solución digital unificada que conecte eficientemente a usuarios con consultores profesionales. Actualmente, la búsqueda de especialistas suele realizarse mediante redes sociales, referencias informales o páginas aisladas, lo que dificulta comparar alternativas y genera incertidumbre al momento de contratar.
+
+Adicionalmente, muchos consultores no cuentan con herramientas tecnológicas que les permitan gestionar reservas, mostrar información profesional confiable, automatizar procesos de atención o consolidar su reputación mediante reseñas verificadas.
 
 **When (Cuándo)**  
-La necesidad se presenta de forma recurrente, cada vez que personas, emprendedores o empresas requieren orientación para resolver problemas, tomar decisiones o mejorar sus resultados.
+La necesidad surge cada vez que una persona o empresa requiere orientación profesional para resolver un problema puntual, desarrollar un proyecto, mejorar resultados o recibir acompañamiento especializado.
+
+Su importancia se ha incrementado en los últimos años debido al crecimiento del trabajo remoto, la digitalización de servicios y la expansión de modelos independientes de consultoría profesional.
 
 **Where (Dónde)**  
-La problemática se manifiesta en entornos personales, académicos y empresariales, especialmente en medios digitales donde la oferta de servicios se encuentra fragmentada.
+Esta situación se presenta principalmente en el ecosistema digital, donde la oferta de asesorías profesionales se encuentra fragmentada en múltiples canales no integrados, como redes sociales, aplicaciones de mensajería, anuncios independientes o contactos personales.<br>
+Asimismo, afecta diversos contextos como el ámbito empresarial, académico, financiero, tecnológico y personal, donde la necesidad de contratar expertos especializados es cada vez más frecuente.
 
 **Who (Quiénes)**  
-Los principales involucrados son usuarios que necesitan asesoría confiable y profesionales independientes que buscan captar clientes y gestionar sus servicios de manera eficiente.
+Dentro del entorno analizado se identifican como actores principales a los usuarios que buscan asesoría especializada, entre ellos personas naturales, emprendedores, estudiantes y pequeñas empresas que necesitan apoyo profesional para resolver dudas, optimizar procesos o tomar mejores decisiones.
+
+También forman parte esencial los consultores independientes y especialistas, quienes requieren un espacio digital confiable para promocionar sus servicios, administrar citas, recibir pagos y fortalecer su reputación profesional. Finalmente, intervienen los administradores de la plataforma, encargados de supervisar la seguridad, validar operaciones y mantener el correcto funcionamiento del sistema.
 
 **Why (Por qué)**  
-La situación se origina por la falta de herramientas integrales que centralicen la búsqueda de especialistas, la reserva de sesiones, los pagos y la evaluación del servicio.
+El origen del problema radica en la falta de plataformas integrales que reúnan en un solo entorno funcionalidades como registro seguro, perfiles profesionales, filtros de búsqueda, reservas automáticas, pagos protegidos y sistemas de valoración confiables.<br>
+Como consecuencia, los usuarios enfrentan procesos lentos y poco transparentes, mientras que los consultores encuentran limitaciones para captar clientes, organizar su agenda y diferenciarse en el mercado.
 
 **How (Cómo)**  
-FinTeka propone una plataforma web que integra búsqueda de expertos, perfiles profesionales, reservas, pagos seguros, comunicación directa y sistemas de valoración.
+En la actualidad, gran parte de estas interacciones se desarrolla de manera manual. Los usuarios localizan consultores por recomendaciones o publicaciones, coordinan horarios mediante mensajes directos, realizan pagos externos y no siempre disponen de evidencia clara sobre la calidad del servicio recibido.<br>
+Frente a ello, FinTeka plantea una plataforma web que centraliza autenticación segura, perfiles personales y profesionales, motor de búsqueda avanzada, programación de sesiones, pagos digitales, notificaciones automáticas y reputación basada en experiencias reales de los usuarios.
 
 **How Much (Cuánto impacto)**  
-La solución puede beneficiar a personas naturales, emprendedores, pequeñas empresas y consultores independientes, incrementando la eficiencia en la postulación de asesorías y ampliando el acceso a servicios especializados.
+El impacto de esta problemática se refleja en pérdida de tiempo, menor confianza en las contrataciones y desaprovechamiento de oportunidades comerciales tanto para clientes como para especialistas.<br>
+Con la implementación de FinTeka se espera optimizar el acceso a servicios profesionales, incrementar la eficiencia en la contratación, mejorar la experiencia de ambas partes y ampliar las oportunidades económicas dentro del mercado digital de asesorías.
 
 ### 1.2.2 Lean UX Process
 
@@ -352,55 +362,58 @@ Con el fin de validar la propuesta de valor de FinTeka, se identificaron los pri
 
 ### Business Assumptions
 
-- Existe una demanda creciente por servicios de asesoría profesional postulados mediante canales digitales.
-- Los usuarios valoran plataformas que ofrezcan rapidez, seguridad y transparencia durante el proceso de postulación.
-- Los consultores independientes están dispuestos a utilizar herramientas digitales para captar clientes y gestionar sus servicios.
-- Un modelo basado en comisión por sesión y planes premium resulta viable para monetizar la plataforma.
-- Las redes sociales y recomendaciones personales constituyen la principal competencia indirecta.
-- Una propuesta especializada permitirá diferenciarse de plataformas genéricas de servicios.
-- La generación de confianza inicial será un factor crítico para la adopción temprana del producto.
+* Existe una necesidad creciente de acceder a asesorías profesionales mediante plataformas digitales confiables y estructuradas.
+* Los usuarios estarán más dispuestos a contratar servicios si el proceso incluye identidad verificada, pagos seguros y reputación visible.
+* Los consultores independientes adoptarán soluciones que les permitan captar clientes, administrar horarios y aumentar ingresos.
+* Un esquema de monetización basado en comisiones por sesión, suscripciones premium y posicionamiento destacado será sostenible.
+* La seguridad, velocidad de respuesta y disponibilidad del sistema serán factores determinantes para competir en el mercado.
+* La centralización de búsqueda, reservas, pagos y valoraciones generará ventaja frente a canales informales.
+* La confianza inicial del usuario dependerá de una buena experiencia digital, protección de datos y transparencia operativa.
 
 ### User Assumptions
 
-- Los usuarios necesitan encontrar especialistas confiables sin invertir tiempo excesivo en búsquedas informales.
-- Las personas comparan experiencia, precio, disponibilidad y valoraciones antes de postular a un servicio.
-- Los usuarios prefieren procesos simples de reserva y pago desde un solo entorno digital.
-- Los consultores requieren herramientas para administrar agenda, reservas y reputación profesional.
-- Tanto clientes como especialistas valoran una comunicación clara y ordenada.
-- La facilidad de uso influirá directamente en la permanencia dentro de la plataforma.
+* Los usuarios desean encontrar especialistas confiables sin depender de recomendaciones informales o búsquedas extensas.
+* Antes de contratar, las personas comparan precio, experiencia, reputación, disponibilidad y modalidad de atención.
+* Los clientes prefieren registrarse e iniciar sesión mediante procesos simples pero seguros.
+* Los usuarios esperan poder reservar, pagar y recibir confirmaciones desde un único entorno digital.
+* Los consultores necesitan paneles donde puedan gestionar agenda, sesiones, métricas y perfil profesional.
+* Las notificaciones automáticas y recordatorios incrementarán asistencia y puntualidad en las sesiones programadas.
+* La interfaz responsive y tiempos rápidos de carga influirán directamente en la permanencia dentro de la plataforma.
 
 ### User Outcomes
 
-- Los usuarios tomarán decisiones mejor informadas al contar con perfiles verificables y valoraciones visibles.
-- El tiempo necesario para encontrar y contactar asesoría se reducirá significativamente.
-- Los clientes percibirán mayor seguridad en pagos y postulación.
-- Los consultores incrementarán su visibilidad y acceso a nuevos clientes.
-- Ambas partes mejorarán la organización y seguimiento de sesiones programadas.
+* Los usuarios tomarán decisiones mejor fundamentadas gracias a perfiles completos, reputación visible y valoraciones reales.
+* El tiempo para encontrar especialistas adecuados disminuirá mediante filtros y búsqueda avanzada.
+* Los clientes sentirán mayor confianza al usar pagos protegidos y autenticación segura.
+* Los consultores mejorarán su organización mediante agenda digital, reservas automatizadas e historial de sesiones.
+* Ambas partes tendrán mejor seguimiento de citas gracias a recordatorios, estados de sesión y trazabilidad.
+* Los usuarios podrán administrar fácilmente sus cuentas, historial y preferencias personales.
 
 ### Business Outcomes
 
-- Alcanzar una tasa de conversión mínima del 25% de visitantes registrados durante los primeros tres meses.
-- Lograr una retención del 60% de usuarios registrados en el primer trimestre.
-- Conseguir que al menos el 80% de valoraciones sean positivas.
-- Incorporar entre 50 y 100 consultores activos durante los primeros seis meses.
-- Establecer entre 3 y 5 alianzas estratégicas iniciales con profesionales o comunidades especializadas.
+* Conseguir una conversión mínima del 25% de visitantes registrados durante la etapa inicial.
+* Lograr una retención del 60% de usuarios activos durante el primer trimestre operativo.
+* Alcanzar al menos un 80% de valoraciones positivas sobre sesiones completadas.
+* Incorporar entre 50 y 100 consultores activos en los primeros seis meses.
+* Obtener ingresos sostenibles mediante comisiones y suscripciones premium.
+* Mantener tiempos de respuesta y desempeño alineados con los requisitos no funcionales definidos.
+* Posicionar la marca FinTeka como alternativa confiable frente a medios informales de contratación.
 
 ### Feature Assumptions
 
-- Buscador avanzado con filtros por categoría, precio, experiencia y disponibilidad.
-- Perfiles profesionales con experiencia, certificaciones y reseñas.
-- Sistema de reservas con calendario integrado.
-- Pasarela de pagos segura.
-- Historial de sesiones realizadas.
-- Dashboard de seguimiento para usuarios.
-- Panel administrativo para consultores.
-- Sistema de calificaciones y comentarios.
-- Notificaciones y recordatorios automáticos.
-- Chat entre usuario y consultor.
-- Reportes de desempeño para especialistas.
-- Opciones premium para destacar perfiles.
-- Integración con videollamadas.
-- Soporte y atención al cliente.
+* Registro, inicio de sesión seguro y recuperación de contraseña.
+* Gestión de roles: usuario, consultor y administrador.
+* Buscador avanzado con filtros por especialidad, reputación, precio y disponibilidad.
+* Perfiles profesionales con experiencia, certificaciones, tarifas y comentarios.
+* Sistema de reservas con calendario y validación de horarios en tiempo real.
+* Confirmación de pagos seguros mediante pasarela integrada.
+* Reprogramación, cancelación y seguimiento del ciclo de vida de sesiones.
+* Historial de sesiones, pagos y notificaciones.
+* Sistema de calificaciones, reputación y reseñas verificadas.
+* Dashboard con métricas para consultores.
+* Gestión de suscripción premium y posicionamiento destacado.
+* Notificaciones automáticas por registro, pago, reserva, cancelación y recordatorios.
+* Diseño responsive para móvil, tablet y escritorio.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
@@ -534,6 +547,7 @@ En este capítulo se realizará el proceso de Análisis competitivo y Needfindin
 
 ### 2.1.1. Análisis Competitivo
 # Competitive Analysis Landscape
+
 | **¿Por qué llevar a cabo este análisis?** | ¿Nuestro servicio tiene lo necesario para poder salir adelante ante sus competidores más conocidos? |
 |                       | <img src="../assets/FinTeka.png" width="100" height="100"><br>**Nova Asesors** | <img src="../assets/clarityfm.png" width="100" height="100"><br>**Clarity.fm** | <img src="../assets/superpeer.png" width="100" height="100"><br>**Superpeer** | <img src="../assets/maven.jpg" width="100" height="100"><br>**Maven** |
 |-----------------------|-----------------------------------------------------------|---------------------------------------------|-------------------------------------------|--------------------------------------|
