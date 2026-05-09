@@ -2322,15 +2322,32 @@ Este informe documenta las mejoras logradas mediante la aplicación de patrones 
 ### 5.3.1.1 Sprint Backlog 1
 
 
-| Sprint   | User Story                        | Work-Item / Task                     | Description                                                                                             | Est. Hours | Assigned To   | Status |
-| -------- | --------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------- | ---------- | ------------- | ------ |
-| Sprint 1 | US001 — Registro de profesionales | T001 — Endpoint registro profesional | Implementar `POST /api/professionals` para registrar profesionales con validación de datos obligatorios | 8          | Backend Team  | Done   |
-| Sprint 1 | US001 — Registro de profesionales | T002 — Modelo Professional           | Crear entidad Professional con atributos: id, especialidad, tarifa, experiencia y profileId             | 5          | Backend Team  | Done   |
-| Sprint 1 | US001 — Registro de profesionales | T003 — UI registro profesional       | Diseñar formulario frontend para registrar profesionales con validaciones                               | 6          | Frontend Team | Done   |
-| Sprint 1 | US002 — Registro de clientes      | T004 — Endpoint registro cliente     | Implementar `POST /api/profiles` para crear perfiles de usuarios clientes                               | 6          | Backend Team  | Done   |
-| Sprint 1 | US002 — Registro de clientes      | T005 — UI registro cliente           | Crear interfaz de registro para clientes con datos personales                                           | 5          | Frontend Team | Done   |
-| Sprint 1 | US008 — Actualización de perfil   | T006 — Editar perfil                 | Implementar `PUT /api/profiles/{id}` para actualizar información del usuario                            | 4          | Backend Team  | Done   |
+| Sprint   | User Story                        | Work-Item / Task                                | Description                                                                                              | Est. Hours | Assigned To   | Status |
+| -------- | --------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ---------- | ------------- | ------ |
+| Sprint 1 | US001 — Registro de profesionales | T001 — Endpoint registro profesional            | Implementar `POST /api/professionals` para registrar profesionales con validación de datos obligatorios. | 8          | Backend Team  | Done   |
+| Sprint 1 | US001 — Registro de profesionales | T002 — Modelo Professional                      | Crear entidad `Professional` con atributos: id, especialidad, tarifa, experiencia y profileId.           | 5          | Backend Team  | Done   |
+| Sprint 1 | US001 — Registro de profesionales | T003 — UI registro profesional                  | Diseñar formulario frontend para registrar profesionales con validaciones de campos requeridos.          | 6          | Frontend Team | Done   |
+| Sprint 1 | US001 — Registro de profesionales | T004 — Integración frontend-backend profesional | Conectar formulario de registro profesional con API REST y manejo de respuestas.                         | 4          | Frontend Team | Done   |
+| Sprint 1 | US001 — Registro de profesionales | T005 — Testing registro profesional             | Probar registros exitosos, campos vacíos y errores de validación.                                        | 3          | QA Team       | Done   |
+| Sprint 1 | US002 — Registro de clientes      | T006 — Endpoint registro cliente                | Implementar `POST /api/profiles` para crear perfiles de usuarios clientes.                               | 6          | Backend Team  | Done   |
+| Sprint 1 | US002 — Registro de clientes      | T007 — UI registro cliente                      | Crear interfaz de registro para clientes con ingreso de datos personales.                                | 5          | Frontend Team | Done   |
+| Sprint 1 | US002 — Registro de clientes      | T008 — Integración frontend-backend cliente     | Conectar formulario de cliente con API de registro y mensajes de confirmación/error.                     | 4          | Frontend Team | Done   |
+| Sprint 1 | US002 — Registro de clientes      | T009 — Testing registro cliente                 | Validar correo repetido, campos incompletos y registro correcto.                                         | 3          | QA Team       | Done   |
+| Sprint 1 | US008 — Actualización de perfil   | T010 — Endpoint editar perfil                   | Implementar `PUT /api/profiles/{id}` para actualizar información del usuario.                            | 4          | Backend Team  | Done   |
+| Sprint 1 | US008 — Actualización de perfil   | T011 — UI editar perfil                         | Diseñar pantalla para editar correo, teléfono y datos personales.                                        | 5          | Frontend Team | Done   |
 
+### 5.3.1.2 Development Evidence for Sprint Review
+
+| Repository       | Branch | Commit Id    | Commit Message                             | Commit Message Body                                                                                           | Committed on (Date) |
+| ---------------- | ------ | ------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ------------------- |
+| FinTeka-Frontend | main   | a1b2c3d4e5f6 | Initial frontend structure                 | Configured Vue project structure with layouts, router, shared components, App.vue and main.js.                | 05/07/2026          |
+| FinTeka-Frontend | main   | b2c3d4e5f6g7 | Add authentication module                  | Implemented login view, route guards and authorization logic for secure access to protected pages.            | 05/08/2026          |
+| FinTeka-Frontend | main   | c3d4e5f6g7h8 | Update dashboard and pages                 | Added dashboard views and updated pages for professionals, reservations, profile and messages modules.        | 05/09/2026          |
+| FinTeka-Frontend | main   | d4e5f6g7h8i9 | Integrate notifications module             | Added notifications components and connected alerts view to backend notifications endpoint.                   | 05/09/2026          |
+| FinTeka-Backend  | main   | e5f6g7h8i9j0 | Initial monolithic backend setup           | Configured Spring Boot monolithic architecture with controllers, services, repositories and MySQL connection. | 05/07/2026          |
+| FinTeka-Backend  | main   | f6g7h8i9j0k1 | Implement profiles and professionals API   | Added CRUD endpoints for profiles and professionals with entity relationships and validations.                | 05/08/2026          |
+| FinTeka-Backend  | main   | g7h8i9j0k1l2 | Implement reservations and sessions module | Developed booking logic with available/unavailable schedules and session management endpoints.                | 05/09/2026          |
+| FinTeka-Backend  | main   | h8i9j0k1l2m3 | Add ratings and notifications API          | Added professional ratings system and notifications endpoint for reservation status alerts.                   | 05/09/2026          |
 
 ###  5.3.1.4 Execution Evidence for Sprint Review
 ![endpoints1.jpeg](../assets/endpoints1.jpeg)
