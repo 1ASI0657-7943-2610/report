@@ -122,7 +122,7 @@
       <td>Desarrollo del frontend</td>
     </tr>
     <tr>
-      <td>-</td>
+      <td>04/05/2026</td>
       <td>Burga Loarte, Anaely Zarely</td>
       <td>Diagrama basado en 3FN, con entidades, relaciones y claves</td>
     </tr>
