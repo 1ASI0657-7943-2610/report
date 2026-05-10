@@ -124,7 +124,7 @@
     <tr>
       <td>-</td>
       <td>Burga Loarte, Anaely Zarely</td>
-      <td>-</td>
+      <td>Diagrama basado en 3FN, con entidades, relaciones y claves</td>
     </tr>
     <tr>
       <td>09/05/2026</td>
@@ -203,7 +203,14 @@ Tabla de contenidos
       - [4.1.2. Approaches Statments Architectural Styles & Patterns](#412-Approaches-Statements-Architectural-Styles-&-Patterns)
       - [4.1.3. Context Diagram](#413-context-diagram)
       - [4.1.4. Approach driven ViewPoints Diagrams](#414-approach-driven-viewpoints-diagrams)
+      - [4.1.5 Relational / Non-Relational Database Diagram](#415-relational-non-relational-database-diagram)
       - [4.1.6. Design Patterns](#416-Design-patterns)
+- [Capítulo V: Product Implementation, Validation & Deployment](#capítulo-v-product-implementation-validation-deployment)
+  - [5.1 Testing Suites & General Patterns](#51-testing-suites-general-patterns)
+    - [5.1.1 Backend Application Core Testing Suite](#511-backend-application-core-testing-suite)
+    - [5.1.2 Pattern Based Backend Application(s)](#512-pattern-based-backend-applications)
+    - [5.1.3 Pattern Based Custom Software Library](#513-pattern-based-custom-software-library)
+    - [5.1.4 Framework Pattern Driven Refactoring Report](#514-framework-pattern-driven-refactoring-report)
 - [Conclusiones y Recomendaciones](#conclusiones-y-recomendaciones)
   - [Conclusiones](#conclusiones)
   - [Recomendaciones](#recomendaciones)
