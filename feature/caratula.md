@@ -282,6 +282,62 @@ Del mismo modo, FinTeka incorpora funcionalidades que benefician tanto a los usu
 * Herramientas avanzadas para la gestión de servicios.
 * Soporte prioritario y atención extendida.
 
+#### Modelo de Suscripción
+
+| Plan | Comisión por Sesión | Beneficios Principales |
+|---|---|---|
+| Básico | 10% | Acceso estándar a reservas y funcionalidades principales |
+| Premium | 4% | Menor comisión por sesión, promociones exclusivas y prioridad en soporte |
+
+---
+
+#### Beneficios Funcionales
+
+##### Plan Básico
+
+Incluye:
+- acceso estándar a la plataforma,
+- reservas de sesiones,
+- visualización de perfiles profesionales,
+- historial básico de asesorías,
+- acceso a funcionalidades principales del sistema.
+
+La comisión estándar del 10% se aplica sobre cada sesión reservada.
+
+---
+
+##### Plan Premium
+
+Incluye:
+- reducción de comisión por sesión del 10% al 4%,
+- acceso prioritario a promociones y especialistas destacados,
+- historial extendido de asesorías,
+- notificaciones avanzadas,
+- prioridad en soporte dentro de la plataforma,
+- acceso anticipado a futuras funcionalidades premium.
+
+La reducción de comisión representa el principal beneficio funcional y económico para usuarios frecuentes de FinTeka.
+
+---
+
+#### Consideraciones Funcionales y Técnicas
+
+La gestión de suscripciones será administrada mediante un módulo desacoplado conectado al Payment Service.
+
+El sistema permitirá:
+- activar o desactivar planes,
+- modificar porcentajes de comisión dinámicamente,
+- incorporar promociones temporales,
+- gestionar renovaciones de suscripción,
+
+sin afectar el flujo principal de reservas y pagos.
+
+Asimismo, los beneficios premium podrán extenderse en futuras iteraciones hacia:
+- programas de fidelización,
+- descuentos especiales,
+- paquetes de asesorías,
+- beneficios por recurrencia.
+
 ## 1.2.1. Antecedentes y problemática
 
 **Antecedentes:**
