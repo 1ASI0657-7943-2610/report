@@ -93,7 +93,7 @@
       <td rowspan="5" style="text-align: center; vertical-align: middle;"><b>TB2</b></td>
       <td>18/04/2026</td>
       <td>Aguirre Castillo, Sergio Cesar</td>
-      <td>-</td>
+      <td>4.1.1 - 4.1.2 - 4.1.6 </td>
     </tr>
     <tr>
       <td>19/04/2026</td>
