@@ -3250,7 +3250,6 @@ Las configuraciones de producción de FinTeka incluyen políticas estrictas:
 - control de accesos estricto (IAM),
 - aislamiento de red de las bases de datos.
 
-Las credenciales y secretos de las pasarelas de pago y las bases de datos nunca son almacenados directamente en el repositorio del proyecto.
 ---
 
 ## 5.3 Microservices Implementation
