@@ -2001,18 +2001,30 @@ Los logs de auditoría:
 
 ### 4.1.11 Constraints
 
-Las restricciones arquitectónicas representan limitaciones técnicas, operacionales y de negocio que condicionan el diseño del ecosistema **FinTeka**. Estas restricciones permiten mantener coherencia entre:
-- requerimientos funcionales,
-- atributos de calidad,
-- decisiones tecnológicas,
-- objetivos estratégicos de Nova Asesors.
+Las restricciones arquitectónicas representan limitaciones técnicas, operacionales y de negocio que condicionan el diseño del ecosistema **FinTeka**.
 
-Debido a la naturaleza financiera y distribuida del sistema, las restricciones definidas establecen lineamientos obligatorios para:
-- desarrollo,
-- integración,
-- despliegue,
-- seguridad,
-- escalabilidad.
+---
+
+#### Lineamientos Generales
+
+| Categoría | Descripción |
+|---|---|
+| Requerimientos Funcionales | Las restricciones deben mantener coherencia con las funcionalidades principales del sistema. |
+| Atributos de Calidad | Las decisiones arquitectónicas deben alinearse con disponibilidad, seguridad, rendimiento y escalabilidad. |
+| Decisiones Tecnológicas | Las tecnologías seleccionadas condicionan la implementación y evolución del sistema. |
+| Objetivos Estratégicos | La arquitectura debe responder a las metas de crecimiento y sostenibilidad de Nova Asesors. |
+
+---
+
+#### Alcance de las Restricciones
+
+| Área | Aplicación |
+|---|---|
+| Desarrollo | Lineamientos obligatorios para implementación y codificación del sistema. |
+| Integración | Restricciones relacionadas con comunicación entre servicios y sistemas externos. |
+| Despliegue | Condiciones obligatorias para ambientes cloud y pipelines de entrega continua. |
+| Seguridad | Políticas técnicas para protección de datos y control de accesos. |
+| Escalabilidad | Restricciones orientadas al crecimiento progresivo de la plataforma. |
 
 ---
 
@@ -2020,36 +2032,35 @@ Debido a la naturaleza financiera y distribuida del sistema, las restricciones d
 
 | ID | Categoría | Restricción | Justificación Técnica |
 |---|---|---|---|
-| CON-01 | Tecnológica | La solución debe implementarse mediante arquitectura basada en microservicios desacoplados. | Permite escalabilidad independiente, resiliencia y despliegues aislados. |
-| CON-02 | Tecnológica | Cada dominio funcional debe operar de manera independiente. | Reduce acoplamiento y facilita mantenibilidad. |
-| CON-03 | Tecnológica | Los servicios deben comunicarse únicamente mediante APIs REST o eventos. | Evita accesos directos entre bases de datos y mejora seguridad. |
-| CON-04 | Tecnológica | La plataforma debe utilizar persistencia políglota (SQL + NoSQL). | Optimiza consistencia transaccional y procesamiento de datos de alta concurrencia. |
-| CON-05 | Tecnológica | No se permite centralizar toda la información en un único motor de base de datos. | Evita cuellos de botella y limita riesgos de escalabilidad. |
-| CON-06 | Operacional | La plataforma debe soportar alta disponibilidad mediante infraestructura distribuida. | Garantiza continuidad operacional ante fallos parciales. |
-| CON-07 | Operacional | El sistema debe implementar replicación y failover automático. | Minimiza interrupciones y pérdida de información. |
-| CON-08 | Operacional | La solución debe ser compatible con navegadores modernos y dispositivos móviles. | La experiencia multiplataforma es un requisito crítico del negocio. |
-| CON-09 | Seguridad | Toda información sensible debe transmitirse utilizando HTTPS/TLS. | Protege confidencialidad e integridad de datos. |
-| CON-10 | Seguridad | La autenticación debe implementarse utilizando OAuth2 y JWT. | Permite autenticación descentralizada y segura. |
-| CON-11 | Seguridad | El control de acceso debe implementarse mediante RBAC. | Restringe operaciones críticas según roles definidos. |
-| CON-12 | Negocio | El sistema debe integrarse con pasarelas de pago externas. | Permite procesamiento de pagos y gestión de comisiones. |
-| CON-13 | Negocio | La plataforma debe calcular automáticamente comisiones según el plan del usuario. | Soporta la lógica comercial de suscripciones Básico y Premium. |
-| CON-14 | Negocio | La arquitectura debe soportar crecimiento progresivo sin rediseñar el núcleo del sistema. | Facilita evolución comercial y escalabilidad futura. |
+| CON-01 | Tecnológica | La solución backend debe implementarse mediante arquitectura de microservicios utilizando **Spring Boot** y **Java 21**. | Permite escalabilidad independiente, resiliencia y el aprovechamiento de características de alto rendimiento como Virtual Threads. |
+| CON-02 | Tecnológica | El frontend debe desarrollarse como una Single Page Application (SPA) utilizando **Vue.js**. | Garantiza una experiencia de usuario fluida, reactiva y optimizada para navegadores modernos. |
+| CON-03 | Tecnológica | Los servicios deben comunicarse únicamente mediante **APIs REST**. | Reduce acoplamiento y asegura contratos de comunicación claros y estandarizados. |
+| CON-04 | Tecnológica | La persistencia de datos debe centralizarse en el motor relacional **MySQL**. | Garantiza cumplimiento de propiedades ACID necesarias para operaciones financieras. |
+| CON-05 | Tecnológica | Cada dominio funcional debe operar de forma independiente sobre su propio esquema lógico dentro de MySQL. | Reduce dependencias y facilita mantenibilidad del sistema. |
+| CON-06 | Operacional | El despliegue del frontend debe realizarse sobre **Vercel**. | Mejora rendimiento mediante Edge CDN y facilita despliegues automatizados. |
+| CON-07 | Operacional | El backend debe desplegarse sobre infraestructura cloud de **Microsoft Azure**. | Proporciona escalabilidad, alta disponibilidad y servicios empresariales administrados. |
+| CON-08 | Operacional | La interfaz debe ser completamente responsive y compatible con dispositivos móviles. | La accesibilidad multiplataforma constituye un requisito clave del negocio. |
+| CON-09 | Seguridad | Toda información sensible debe transmitirse utilizando **HTTPS/TLS**. | Protege confidencialidad e integridad de los datos en tránsito. |
+| CON-10 | Seguridad | La autenticación debe implementarse utilizando **OAuth2** y **JWT** mediante Spring Security. | Permite autenticación segura y desacoplada para arquitecturas distribuidas. |
+| CON-11 | Seguridad | El control de acceso debe implementarse mediante **RBAC**. | Restringe operaciones según el rol y permisos del usuario. |
+| CON-12 | Negocio | El sistema debe integrarse con pasarelas de pago externas. | Permite procesar pagos y gestionar transacciones financieras. |
+| CON-13 | Negocio | La plataforma debe calcular automáticamente cobros y comisiones según el plan del usuario. | Automatiza la lógica comercial asociada a los planes Básico y Premium. |
+| CON-14 | Negocio | La arquitectura debe soportar crecimiento progresivo sin rediseñar el núcleo del sistema. | Facilita escalabilidad futura y expansión funcional. |
 
 ---
 
 #### Relación Entre Restricciones y Arquitectura
 
-| Restricción | Componente Relacionado |
+| Restricción | Componente Relacionado / Tecnología |
 |---|---|
-| Microservicios desacoplados | API Gateway + Microservices |
-| Persistencia híbrida | PostgreSQL + MongoDB |
-| Comunicación vía APIs | REST APIs + Event Broker |
-| Seguridad y autenticación | OAuth2 + JWT + RBAC |
-| Alta disponibilidad | Kubernetes + Multi-AZ |
-| Integración de pagos | Payment Service |
-| Escalabilidad | Docker + Auto Scaling |
-
----
+| Microservicios y Core Backend | **Spring Boot** (Java 21) |
+| Interfaz de Usuario y SPA | **Vue.js** |
+| Alojamiento y Despliegue Frontend | **Vercel** |
+| Alojamiento y Despliegue Backend | **Microsoft Azure** |
+| Persistencia Relacional | **MySQL** |
+| Comunicación entre Servicios | **APIs REST** |
+| Seguridad y Autenticación | **Spring Security** (OAuth2 + JWT + RBAC) |
+| Integración Financiera | **Payment Service** |
 
 ### 4.1.12 Architectural Concerns
 
