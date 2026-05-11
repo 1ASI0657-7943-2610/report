@@ -2001,378 +2001,118 @@ Los logs de auditoría:
 
 ### 4.1.11 Constraints
 
-Las restricciones arquitectónicas representan limitaciones técnicas, operacionales y de negocio que condicionan el diseño del ecosistema FinTeka. Estas restricciones aseguran que la solución permanezca:
-- viable,
-- escalable,
-- segura,
-- mantenible,
-- alineada con los objetivos estratégicos de Nova Asesors.
+Las restricciones arquitectónicas representan limitaciones técnicas, operacionales y de negocio que condicionan el diseño del ecosistema **FinTeka**. Estas restricciones permiten mantener coherencia entre:
+- requerimientos funcionales,
+- atributos de calidad,
+- decisiones tecnológicas,
+- objetivos estratégicos de Nova Asesors.
+
+Debido a la naturaleza financiera y distribuida del sistema, las restricciones definidas establecen lineamientos obligatorios para:
+- desarrollo,
+- integración,
+- despliegue,
+- seguridad,
+- escalabilidad.
 
 ---
 
-#### Justificación Técnica General
+#### Restricciones Arquitectónicas
 
-Las restricciones definidas responden directamente a:
-- la naturaleza financiera del sistema,
-- la necesidad de escalabilidad futura,
-- los requerimientos de alta disponibilidad,
-- la integración con terceros,
-- la protección de información sensible.
-
-Estas limitaciones establecen lineamientos obligatorios para la implementación de la solución tecnológica.
-
----
-
-### A. Restricciones Tecnológicas
-
-#### Arquitectura Basada en Microservicios
-
-La solución debe implementarse obligatoriamente mediante microservicios desacoplados.
-
-##### Implicancias
-- Cada dominio funcional debe operar independientemente.
-- Los servicios deben desplegarse por separado.
-- La comunicación debe realizarse mediante APIs o eventos.
-
-##### Justificación Técnica
-
-Esto permite:
-- escalabilidad independiente,
-- despliegues aislados,
-- resiliencia,
-- evolución modular del sistema.
+| ID | Categoría | Restricción | Justificación Técnica |
+|---|---|---|---|
+| CON-01 | Tecnológica | La solución debe implementarse mediante arquitectura basada en microservicios desacoplados. | Permite escalabilidad independiente, resiliencia y despliegues aislados. |
+| CON-02 | Tecnológica | Cada dominio funcional debe operar de manera independiente. | Reduce acoplamiento y facilita mantenibilidad. |
+| CON-03 | Tecnológica | Los servicios deben comunicarse únicamente mediante APIs REST o eventos. | Evita accesos directos entre bases de datos y mejora seguridad. |
+| CON-04 | Tecnológica | La plataforma debe utilizar persistencia políglota (SQL + NoSQL). | Optimiza consistencia transaccional y procesamiento de datos de alta concurrencia. |
+| CON-05 | Tecnológica | No se permite centralizar toda la información en un único motor de base de datos. | Evita cuellos de botella y limita riesgos de escalabilidad. |
+| CON-06 | Operacional | La plataforma debe soportar alta disponibilidad mediante infraestructura distribuida. | Garantiza continuidad operacional ante fallos parciales. |
+| CON-07 | Operacional | El sistema debe implementar replicación y failover automático. | Minimiza interrupciones y pérdida de información. |
+| CON-08 | Operacional | La solución debe ser compatible con navegadores modernos y dispositivos móviles. | La experiencia multiplataforma es un requisito crítico del negocio. |
+| CON-09 | Seguridad | Toda información sensible debe transmitirse utilizando HTTPS/TLS. | Protege confidencialidad e integridad de datos. |
+| CON-10 | Seguridad | La autenticación debe implementarse utilizando OAuth2 y JWT. | Permite autenticación descentralizada y segura. |
+| CON-11 | Seguridad | El control de acceso debe implementarse mediante RBAC. | Restringe operaciones críticas según roles definidos. |
+| CON-12 | Negocio | El sistema debe integrarse con pasarelas de pago externas. | Permite procesamiento de pagos y gestión de comisiones. |
+| CON-13 | Negocio | La plataforma debe calcular automáticamente comisiones según el plan del usuario. | Soporta la lógica comercial de suscripciones Básico y Premium. |
+| CON-14 | Negocio | La arquitectura debe soportar crecimiento progresivo sin rediseñar el núcleo del sistema. | Facilita evolución comercial y escalabilidad futura. |
 
 ---
 
-#### Persistencia Políglota
+#### Relación Entre Restricciones y Arquitectura
 
-La plataforma debe utilizar:
-- SQL para operaciones ACID,
-- NoSQL para mensajería y auditoría.
-
-##### Restricción
-
-No se permite centralizar toda la información en un único motor de base de datos.
-
-##### Justificación Técnica
-
-Cada tecnología responde mejor a necesidades específicas:
-- consistencia transaccional,
-- alta concurrencia,
-- almacenamiento flexible,
-- velocidad de escritura.
-
----
-
-#### Comunicación Obligatoria Mediante APIs
-
-Los microservicios:
-- no pueden acceder directamente a bases de datos ajenas,
-- deben comunicarse únicamente mediante APIs y eventos.
-
-##### Justificación Técnica
-
-Esto reduce:
-- acoplamiento,
-- dependencias rígidas,
-- riesgos de seguridad.
-
----
-
-### B. Restricciones Operacionales
-
-#### Alta Disponibilidad Obligatoria
-
-La plataforma debe mantenerse operativa incluso ante:
-- fallos de infraestructura,
-- sobrecarga,
-- errores parciales.
-
-##### Requerimientos
-- Multi-AZ,
-- replicación síncrona,
-- failover automático.
-
----
-
-#### Compatibilidad Multiplataforma
-
-La solución debe funcionar correctamente en:
-- navegadores modernos,
-- dispositivos móviles,
-- tablets.
-
-##### Justificación Técnica
-
-La experiencia móvil representa uno de los objetivos principales del proyecto.
-
----
-
-### C. Restricciones de Seguridad
-
-#### Protección de Información Sensible
-
-Toda información crítica debe:
-- transmitirse cifrada,
-- almacenarse de forma segura,
-- validarse mediante autenticación robusta.
-
----
-
-#### Control de Acceso Basado en Roles
-
-La plataforma debe implementar RBAC para:
-- Clientes,
-- Consultores,
-- Administradores.
-
-No se permite acceso libre a operaciones críticas.
-
----
-
-### D. Restricciones de Negocio
-
-#### Integración con Pasarelas de Pago
-
-FinTeka debe integrarse con servicios externos para:
-- procesamiento de pagos,
-- cobro de comisiones,
-- confirmación financiera.
-
----
-
-#### Gestión Automática de Comisiones
-
-El sistema debe calcular automáticamente:
-- comisiones de Nova Asesors,
-- montos netos,
-- estados transaccionales.
-
----
-
-#### Escalabilidad Comercial
-
-La arquitectura debe soportar:
-- crecimiento masivo de usuarios,
-- nuevas categorías de asesoría,
-- incorporación de nuevas funcionalidades,
-
-sin rediseñar el núcleo del sistema.
+| Restricción | Componente Relacionado |
+|---|---|
+| Microservicios desacoplados | API Gateway + Microservices |
+| Persistencia híbrida | PostgreSQL + MongoDB |
+| Comunicación vía APIs | REST APIs + Event Broker |
+| Seguridad y autenticación | OAuth2 + JWT + RBAC |
+| Alta disponibilidad | Kubernetes + Multi-AZ |
+| Integración de pagos | Payment Service |
+| Escalabilidad | Docker + Auto Scaling |
 
 ---
 
 ### 4.1.12 Architectural Concerns
 
-Las preocupaciones arquitectónicas (*Architectural Concerns*) representan los aspectos críticos que influyen directamente en las decisiones técnicas adoptadas para el diseño de FinTeka. Estas preocupaciones reflejan riesgos, desafíos y necesidades estratégicas que deben resolverse para garantizar:
-- confiabilidad,
-- seguridad,
-- escalabilidad,
-- rendimiento,
-- mantenibilidad.
+Las preocupaciones arquitectónicas (*Architectural Concerns*) representan los aspectos críticos que influyen directamente sobre las decisiones técnicas adoptadas en FinTeka. Estas preocupaciones reflejan:
+- riesgos operacionales,
+- desafíos técnicos,
+- necesidades de negocio,
+- requerimientos de calidad.
+
+La arquitectura propuesta incorpora patrones, tácticas y mecanismos específicos orientados a mitigar dichos riesgos y garantizar estabilidad del ecosistema.
 
 ---
 
-#### Justificación Técnica General
+#### Architectural Concerns
 
-Debido a la naturaleza distribuida y financiera del ecosistema FinTeka, existen múltiples preocupaciones relacionadas con:
-- consistencia transaccional,
-- seguridad de la información,
-- escalabilidad,
-- dependencias externas,
+| ID | Concern | Riesgo Principal | Impacto | Estrategia Arquitectónica |
+|---|---|---|---|---|
+| ARC-01 | Consistencia transaccional distribuida | Reservas duplicadas y pagos inconsistentes | Alto | Patrón Saga + eventos compensatorios |
+| ARC-02 | Seguridad financiera | Robo de credenciales y accesos indebidos | Alto | OAuth2 + JWT + RBAC + HTTPS |
+| ARC-03 | Rendimiento bajo alta concurrencia | Latencia elevada y saturación de servicios | Alto | Redis Cache + Auto Scaling |
+| ARC-04 | Complejidad operacional de microservicios | Dificultad de monitoreo y debugging | Alto | Observabilidad centralizada + tracing |
+| ARC-05 | Dependencia de servicios externos | Fallos en pasarelas de pago y APIs | Alto | Circuit Breaker + Retry Pattern |
+| ARC-06 | Evolución y mantenibilidad | Dependencias rígidas entre módulos | Alto | Arquitectura desacoplada + APIs versionadas |
+| ARC-07 | Observabilidad y monitoreo | Detección tardía de incidentes | Medio | Logs centralizados + métricas |
+| ARC-08 | Experiencia de usuario en tiempo real | Lentitud y retrasos de comunicación | Alto | WebSockets + Redis |
+| ARC-09 | Gestión de datos híbridos | Inconsistencia entre SQL y NoSQL | Medio | Separación por dominios + eventos |
+| ARC-10 | Continuidad operacional | Caídas críticas del sistema | Alto | Multi-AZ + failover automático |
+
+---
+
+#### Relación Entre Concerns y Soluciones Arquitectónicas
+
+| Concern Arquitectónico | Solución Implementada |
+|---|---|
+| Consistencia transaccional | Saga Pattern |
+| Seguridad financiera | API Gateway + OAuth2 |
+| Rendimiento concurrente | Redis + Load Balancer |
+| Complejidad distribuida | Centralized Logging |
+| Dependencia externa | Circuit Breaker |
+| Mantenibilidad | DDD + Microservices |
+| Observabilidad | Monitoring Stack |
+| Tiempo real | WebSockets |
+| Datos híbridos | Persistencia Políglota |
+| Continuidad operacional | Kubernetes + Replication |
+
+---
+
+#### Impacto de los Concerns en el Diseño del Sistema
+
+Las preocupaciones arquitectónicas definidas influyen directamente sobre:
+- selección tecnológica,
+- estructura de microservicios,
+- tácticas de disponibilidad,
+- mecanismos de seguridad,
+- estrategias de despliegue,
 - observabilidad,
-- experiencia de usuario.
+- escalabilidad.
 
-La arquitectura propuesta incorpora patrones, tácticas y estilos arquitectónicos destinados a mitigar dichos riesgos.
-
----
-
-### A. Consistencia Transaccional Distribuida
-
-Uno de los principales desafíos es garantizar consistencia entre:
-- reservas,
-- pagos,
-- disponibilidad,
-- confirmaciones.
-
-#### Riesgos
-- reservas duplicadas,
-- pagos inconsistentes,
-- estados inválidos.
-
-#### Solución Arquitectónica
-
-La plataforma implementa:
-- patrón Saga,
-- eventos compensatorios,
-- control de estados,
-- validación distribuida.
-
-Esto permite mantener coherencia entre microservicios desacoplados.
-
----
-
-### B. Seguridad Financiera
-
-FinTeka administra:
-- pagos,
-- datos personales,
-- información financiera,
-- autenticación.
-
-#### Riesgos
-- robo de credenciales,
-- accesos indebidos,
-- manipulación de información.
-
-#### Soluciones Implementadas
-- OAuth2,
-- JWT,
-- RBAC,
-- HTTPS/TLS,
-- API Gateway.
-
----
-
-### C. Rendimiento Bajo Alta Concurrencia
-
-La plataforma debe responder eficientemente incluso bajo:
-- miles de usuarios concurrentes,
-- mensajería simultánea,
-- operaciones financieras intensivas.
-
-#### Riesgos
-- latencia elevada,
-- saturación SQL,
-- cuellos de botella.
-
-#### Estrategias Arquitectónicas
-- Redis Cache,
-- balanceadores de carga,
-- WebSockets,
-- persistencia NoSQL,
-- autoescalado.
-
----
-
-### D. Complejidad Operacional de Microservicios
-
-La arquitectura distribuida introduce desafíos relacionados con:
-- monitoreo,
-- trazabilidad,
-- coordinación,
-- debugging distribuido.
-
-#### Necesidades Técnicas
-- centralización de logs,
-- observabilidad distribuida,
-- tracing,
-- monitoreo continuo.
-
----
-
-### E. Dependencia de Servicios Externos
-
-FinTeka depende de:
-- pasarelas de pago,
-- APIs externas,
-- servicios cloud.
-
-#### Riesgos
-- latencia externa,
-- caídas de proveedores,
-- timeouts.
-
-#### Mitigación
-- Circuit Breakers,
-- Retry,
-- timeout controlado,
-- integración desacoplada.
-
----
-
-### F. Evolución y Mantenibilidad
-
-La plataforma debe evolucionar continuamente para soportar:
-- nuevos módulos,
-- nuevas reglas de negocio,
-- nuevas integraciones.
-
-#### Preocupación Principal
-
-Evitar dependencias rígidas entre componentes.
-
-#### Estrategias
-- arquitectura desacoplada,
-- APIs versionadas,
-- separación por dominios,
-- despliegues independientes.
-
----
-
-### G. Observabilidad y Monitoreo
-
-La naturaleza distribuida del sistema requiere:
-- monitoreo centralizado,
-- métricas en tiempo real,
-- detección temprana de fallos.
-
-#### Implementación
-- logs centralizados,
-- métricas de rendimiento,
-- distributed tracing,
-- alertas automatizadas.
-
----
-
-### H. Experiencia de Usuario en Tiempo Real
-
-El éxito de FinTeka depende de ofrecer:
-- baja latencia,
-- fluidez,
-- comunicación instantánea.
-
-#### Riesgos
-- retrasos en mensajes,
-- lentitud de consultas,
-- saturación de conexiones.
-
-#### Soluciones
-- WebSockets,
-- Redis,
-- balanceadores,
-- caché distribuida.
-
----
-
-### I. Gestión de Datos Híbridos
-
-La coexistencia entre SQL y NoSQL introduce desafíos relacionados con:
-- sincronización,
-- consistencia,
-- integridad.
-
-#### Estrategias
-- separación por dominios,
-- eventos asíncronos,
-- APIs especializadas,
-- validaciones transaccionales.
-
----
-
-### J. Continuidad Operacional y Recuperación
-
-La plataforma debe recuperarse rápidamente ante:
-- fallos críticos,
-- errores cloud,
-- interrupciones parciales.
-
-#### Implementaciones
-- Multi-AZ,
-- replicación síncrona,
-- failover automático,
-- backups continuos.
-
-Esto garantiza continuidad operacional y resiliencia empresarial para Nova Asesors.
+Esto garantiza que la arquitectura de FinTeka responda adecuadamente a:
+- requerimientos del negocio,
+- atributos de calidad,
+- crecimiento futuro,
+- continuidad operacional del ecosistema.
 
 
 ## 4.2 Architectural Drivers
