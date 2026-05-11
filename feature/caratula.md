@@ -2872,6 +2872,386 @@ Este informe documenta las mejoras logradas mediante la aplicación de patrones 
 | Lógica de autenticación JWT dispersa en múltiples filtros de seguridad. | **API Gateway Pattern** | **Seguridad:** Se centralizó la validación de seguridad, reduciendo la superficie de ataque y simplificando el mantenimiento. |
 
 ---
+## 5.2 Software Configuration Management
+
+La gestión de configuración de software (*Software Configuration Management — SCM*) en **FinTeka**, el producto principal desarrollado por la startup **Nova Asesors**, tiene como objetivo garantizar:
+- control de cambios en la plataforma de intermediación de consultorías,
+- trazabilidad desde la concepción hasta el despliegue,
+- consistencia entre ambientes de desarrollo y producción,
+- estabilidad de despliegues para asegurar la disponibilidad a usuarios y consultores,
+- colaboración eficiente entre los equipos de desarrollo.
+
+Debido a la naturaleza distribuida y escalable de la arquitectura orientada a la postulación y gestión de reservas, se establecen políticas y lineamientos técnicos orientados a mantener integridad sobre:
+- código fuente del frontend y backend,
+- infraestructura de servidores y bases de datos,
+- dependencias de múltiples lenguajes,
+- pipelines de integración continua,
+- configuraciones de despliegue en la nube.
+
+La estrategia de SCM busca reducir riesgos asociados a:
+- conflictos de integración entre diferentes módulos,
+- errores de despliegue que afecten la gestión de agendas o pagos,
+- inconsistencias entre ambientes locales y la nube,
+- pérdida de trazabilidad técnica.
+
+---
+
+### 5.2.1 Software Development Environment Configuration
+
+El entorno de desarrollo de FinTeka fue definido para garantizar:
+- homogeneidad entre los desarrolladores del equipo,
+- compatibilidad entre los diferentes servicios construidos,
+- facilidad de integración para el procesamiento de suscripciones (Plan Básico y Premium),
+- automatización de procesos locales.
+
+Cada integrante del equipo trabaja bajo configuraciones estandarizadas que permiten minimizar errores derivados de diferencias de entorno, soportando el stack tecnológico variado del equipo, que incluye Python, Java, .NET y C#.
+
+---
+
+#### Herramientas Principales del Entorno de Desarrollo
+
+| Herramienta | Propósito en FinTeka |
+|---|---|
+| Visual Studio Code | Desarrollo frontend (HTML, CSS, JavaScript) y scripting en Python |
+| Visual Studio 2022 / Rider | Desarrollo del backend principal en C# y .NET |
+| IntelliJ IDEA | Desarrollo de microservicios complementarios en Java |
+| Docker Desktop | Contenerización y ambientes locales unificados |
+| Postman | Pruebas de APIs REST para los módulos de reservas y pagos |
+| Git | Control de versiones distribuido |
+| GitHub | Repositorio centralizado y flujos de CI/CD |
+| MySQL Workbench | Persistencia relacional para transacciones de pagos |
+| MongoDB Compass | Persistencia NoSQL para historiales de asesorías y registros flexibles |
+| Redis | Caché distribuido para acelerar la búsqueda de especialistas |
+
+---
+
+#### Configuración del Entorno Local
+
+Cada desarrollador debe configurar:
+- variables de entorno locales,
+- dependencias específicas por lenguaje (NuGet, pip, npm, Maven),
+- contenedores Docker,
+- acceso a repositorios,
+- credenciales de desarrollo.
+
+La ejecución local del sistema se realiza mediante Docker Compose para asegurar consistencia entre:
+- ambientes locales,
+- testing,
+- staging,
+- producción.
+
+---
+
+#### Variables de Entorno
+
+Las configuraciones sensibles no se almacenan directamente en el código fuente para proteger la plataforma.
+
+Se utilizan variables de entorno para:
+- credenciales de bases de datos MySQL y MongoDB,
+- secretos JWT para la autenticación de usuarios y profesionales,
+- claves API de pasarelas de pago para gestionar las comisiones del 10% (Básico) y 4% (Premium),
+- configuraciones cloud,
+- parámetros de despliegue.
+
+Ejemplo:
+
+```env
+DB_RELATIONAL_HOST=localhost
+DB_RELATIONAL_PORT=3306
+DB_NOSQL_HOST=localhost
+DB_NOSQL_PORT=27017
+JWT_SECRET=finteka_secure_jwt_2026
+PAYMENT_API_KEY=XXXX-XXXX
+PREMIUM_COMMISSION_RATE=0.04
+BASIC_COMMISSION_RATE=0.10
+```
+
+---
+
+#### Contenerización del Entorno
+
+Todos los servicios principales son ejecutados mediante contenedores Docker para garantizar:
+- portabilidad de los servicios,
+- aislamiento entre los lenguajes como Python, Java y .NET,
+- facilidad de despliegue,
+- consistencia operativa.
+
+Los principales componentes contenerizados incluyen:
+- API Gateway,
+- microservicios de reservas y pagos,
+- Redis,
+- MongoDB,
+- MySQL.
+
+---
+
+### 5.2.2 Source Code Management
+
+La gestión del código fuente de FinTeka se realiza utilizando Git como sistema distribuido de control de versiones y GitHub como plataforma centralizada de colaboración.
+
+La estrategia de versionamiento permite:
+- trazabilidad de cambios en los módulos,
+- trabajo colaborativo simultáneo,
+- control de releases de los planes de suscripción,
+- integración continua,
+- revisión de código.
+
+---
+
+#### Estrategia de Branching
+
+El proyecto utiliza una estrategia basada en GitFlow simplificado para mantener el orden.
+
+| Rama | Propósito |
+|---|---|
+| `main` | Código estable de producción de FinTeka |
+| `develop` | Integración principal de desarrollo y nuevas características |
+| `feature/*` | Desarrollo de nuevas funcionalidades (ej. historial extendido premium) |
+| `hotfix/*` | Corrección urgente de errores en producción |
+| `release/*` | Preparación de versiones previas al pase a producción |
+
+---
+
+#### Flujo de Trabajo
+
+El flujo de trabajo estándar contempla:
+1. Creación de rama `feature` desde `develop`.
+2. Desarrollo local utilizando los stacks correspondientes.
+3. Commit siguiendo convenciones definidas.
+4. Push al repositorio remoto en GitHub.
+5. Pull Request hacia `develop`.
+6. Revisión de código obligatoria por parte de otro miembro del equipo.
+7. Integración y validación automática.
+
+---
+
+#### Convención de Commits
+
+Se adoptan convenciones semánticas para mejorar la trazabilidad y la lectura del historial.
+
+Ejemplos:
+
+```bash
+feat(consultants): add search filters by category and experience
+fix(bookings): correct validation for overlapping sessions
+refactor(payments): update commission calculation to 4% for premium
+docs(api): update Swagger documentation for chat module
+```
+
+---
+
+#### Pull Requests y Code Review
+
+Todo cambio debe pasar por:
+- revisión técnica cruzada,
+- validación automática de pipelines,
+- aprobación de al menos un integrante del equipo.
+
+Los Pull Requests permiten:
+- detectar errores tempranamente,
+- mantener la calidad del código,
+- validar el cumplimiento arquitectónico de FinTeka.
+
+---
+
+### 5.2.3 Source Code Style Guide & Conventions
+
+FinTeka adopta estándares de codificación orientados a:
+- mantenibilidad del software,
+- legibilidad entre los distintos lenguajes usados,
+- modularidad del sistema,
+- consistencia técnica.
+
+Las convenciones aplican tanto para los desarrollos frontend como para los microservicios backend.
+
+---
+
+#### Convenciones Generales
+
+| Elemento | Convención |
+|---|---|
+| Clases | PascalCase |
+| Variables | camelCase |
+| Constantes | UPPER_SNAKE_CASE |
+| Métodos | camelCase (JavaScript/Java) / PascalCase (C#) |
+| Endpoints REST | kebab-case |
+| Tabulación | 4 espacios |
+| Idioma del código | Inglés |
+
+---
+
+#### Convenciones Backend
+
+Los microservicios construidos en .NET, Java o Python deben seguir:
+- arquitectura por capas o Clean Architecture,
+- separación clara de responsabilidades,
+- alineación a los principios SOLID,
+- nomenclatura consistente y clara.
+
+Estructura estándar de directorios:
+
+```text
+Controllers/
+Services/
+Repositories/
+Models/
+DTOs/
+Configurations/
+Security/
+```
+
+---
+
+#### Convenciones Frontend
+
+El frontend desarrollado empleando HTML, CSS y frameworks de JavaScript seguirá:
+- componentización reutilizable,
+- separación entre la lógica de negocio y la presentación,
+- modularidad de vistas para la búsqueda de especialistas y visualización de perfiles.
+
+Ejemplo de estructura:
+
+```text
+components/
+pages/
+services/
+hooks/
+styles/
+assets/
+```
+
+---
+
+#### Convenciones para APIs
+
+Las APIs REST que conectan a usuarios con consultores deben:
+- utilizar sustantivos para definir recursos,
+- mantener un versionamiento explícito (ej. `/v1/`),
+- responder estructuradamente mediante JSON.
+
+Ejemplos:
+
+```http
+GET /api/v1/consultants
+POST /api/v1/bookings
+PUT /api/v1/users/{id}/subscription
+```
+
+---
+
+#### Calidad y Validación
+
+Se utilizarán herramientas automáticas para mantener la calidad técnica del código:
+- ESLint para JavaScript,
+- Prettier para el formateo global,
+- SonarQube para el análisis estático profundo,
+- analizadores nativos de .NET y herramientas de linting para Python.
+
+Estas herramientas permiten:
+- detectar vulnerabilidades de seguridad,
+- validar estándares,
+- reducir la deuda técnica progresivamente.
+
+---
+
+### 5.2.4 Software Deployment Configuration
+
+La estrategia de despliegue de FinTeka fue diseñada para soportar:
+- escalabilidad frente a la demanda de usuarios,
+- alta disponibilidad de las agendas en tiempo real,
+- automatización de la infraestructura,
+- recuperación rápida ante fallos en los servidores.
+
+El despliegue se basa en contenedores Docker y flujos continuos gestionados en la nube.
+
+---
+
+#### Ambientes del Sistema
+
+| Ambiente | Propósito |
+|---|---|
+| Development | Desarrollo local orquestado con Docker Compose |
+| Testing | Validación funcional y pruebas de aseguramiento de calidad (QA) |
+| Staging | Validación previa a producción, clon exacto del entorno en vivo |
+| Production | Ambiente productivo, estable y accesible a los clientes finales |
+
+---
+
+#### Pipeline CI/CD
+
+El pipeline automatizado en GitHub Actions contempla:
+1. Build automático del código en sus respectivos lenguajes.
+2. Ejecución de pruebas unitarias.
+3. Análisis estático de calidad y seguridad.
+4. Construcción y etiquetado de imágenes Docker.
+5. Deploy automático hacia los clústeres definidos según el ambiente.
+
+---
+
+#### Contenerización y Orquestación
+
+Todos los servicios críticos de la plataforma se empaquetan mediante Docker.
+
+La orquestación será gestionada mediante Kubernetes para:
+- autoescalado horizontal de los servicios de alta demanda,
+- balanceo de cargas entre instancias,
+- recuperación automática (*Self-healing*),
+- despliegues distribuidos sin afectar el servicio activo.
+
+---
+
+#### Estrategia de Despliegue
+
+La plataforma utilizará:
+- despliegues *rolling update* para no interrumpir el servicio,
+- despliegues desacoplados (ej. actualizar el sistema de calificaciones sin tocar los pagos),
+- rollback automático ante fallos críticos.
+
+Esto permite minimizar interrupciones y mantener un servicio confiable.
+
+---
+
+#### Configuración de Infraestructura
+
+La infraestructura en la nube de FinTeka contempla:
+- API Gateway para enrutamiento,
+- balanceadores de carga,
+- clústeres de Redis Cache,
+- instancias gestionadas de bases de datos MySQL y MongoDB,
+- nodos de cómputo para los servicios contenerizados.
+
+La configuración se gestiona mediante infraestructura como código (IaC):
+- archivos YAML declarativos,
+- variables de entorno aisladas,
+- configuraciones desacopladas por ambiente.
+
+---
+
+#### Monitoreo y Observabilidad
+
+Para asegurar el rendimiento óptimo, los despliegues incorporan:
+- monitoreo del consumo de servicios,
+- centralización de logs de los distintos microservicios,
+- métricas de rendimiento y tiempos de respuesta,
+- alertas automáticas frente a caídas.
+
+Esto facilita:
+- detección temprana de incidentes operativos,
+- análisis operativo,
+- mantenimiento preventivo de la plataforma.
+
+---
+
+#### Seguridad en Despliegues
+
+Las configuraciones de producción de FinTeka incluyen políticas estrictas:
+- manejo seguro de secretos a través de bóvedas criptográficas,
+- cifrado HTTPS/TLS para todas las comunicaciones externas,
+- control de accesos estricto (IAM),
+- aislamiento de red de las bases de datos.
+
+Las credenciales y secretos de las pasarelas de pago y las bases de datos nunca son almacenados directamente en el repositorio del proyecto.
+---
 
 ## 5.3 Microservices Implementation
 ## 5.3.1 Sprint 1
