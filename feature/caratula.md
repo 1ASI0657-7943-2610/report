@@ -2854,34 +2854,51 @@ Para organizar las tareas del frontend y backend de FinTeka utilizamos Trello. C
 ![trellos1.jpeg](../assets/trellos1.jpeg)
 
 Link del tablero trello: https://trello.com/invite/b/69f6574d811b27877f919b44/ATTI455d8960b544133b522a03a00ce8bfcfE7BD0119/fundamentos-sprint-1
+
 # Conclusiones
 
-- La investigación inicial permitió identificar que muchas personas y empresas presentan dificultades para acceder a asesoría profesional confiable debido a la fragmentación de la oferta y al uso de canales informales.
-- El análisis del contexto digital evidenció una oportunidad de negocio relacionada con el crecimiento del uso de plataformas tecnológicas para contactar con servicios profesionales especializados.
-- FinTeka se plantea como una solución viable al centralizar procesos como búsqueda de especialistas, reservas, pagos seguros, comunicación directa y reputación profesional en un solo entorno digital.
-- La definición clara de segmentos objetivo permitió reconocer dos actores principales del ecosistema: usuarios que buscan asesoría y consultores que desean captar clientes y gestionar sus servicios.
-- La aplicación de Lean UX facilitó validar supuestos de negocio, identificar riesgos tempranos y orientar el desarrollo hacia funcionalidades de mayor valor para el mercado.
-- El proceso de Needfinding permitió comprender necesidades reales, motivaciones, comportamientos y puntos de dolor mediante herramientas centradas en el usuario.
-- Los artefactos desarrollados, como User Personas, User Journey Mapping, Empathy Mapping y Scenario Mapping, contribuyeron a diseñar una experiencia alineada con las expectativas de los usuarios.
-- El análisis competitivo demostró que existen plataformas internacionales posicionadas, pero también oportunidades de diferenciación para una propuesta enfocada en el mercado peruano y latinoamericano.
-- La especificación de requisitos funcionales, no funcionales, historias de usuario e impact mapping proporciona una base sólida para el desarrollo técnico y la planificación del producto.
-- FinTeka posee potencial de crecimiento sostenible gracias al avance de la digitalización, el aumento del trabajo remoto y la creciente demanda por asesorías profesionales en línea.
+- En esta entrega se logró refinar los requisitos funcionales y no funcionales de FinTeka, permitiendo una definición más clara del alcance del sistema y de las funcionalidades prioritarias para el producto.
 
+- La actualización de historias de usuario, criterios de aceptación y backlog facilitó una mejor organización del trabajo y una planificación más precisa de los siguientes Sprints.
+
+- Se desarrolló la aplicación frontend y backend de FinTeka, logrando implementar módulos principales como registro de usuarios, autenticación, perfiles, profesionales, reservas y notificaciones.
+
+- La integración entre frontend y backend permitió validar el flujo completo de datos entre la interfaz de usuario y los servicios del sistema, consolidando una versión funcional del producto.
+
+- La arquitectura implementada en esta etapa fue monolítica, pero fue diseñada considerando una futura migración hacia microservicios, lo que brinda escalabilidad y facilidad de mantenimiento.
+
+- La elaboración de los diagramas de **Context**, **Container** y **Component** permitió representar de manera clara la estructura técnica del sistema y la interacción entre sus elementos principales.
+
+- El despliegue del frontend en **Vercel** y del backend en **Microsoft Azure** demostró la viabilidad operativa del sistema en entornos cloud modernos.
+
+- Las pruebas de funcionamiento confirmaron la correcta conectividad entre los componentes desplegados y la disponibilidad de los servicios principales.
+
+- El uso de **Trello** como herramienta de gestión ágil facilitó la organización de tareas, el seguimiento del avance y la coordinación entre frontend y backend durante el Sprint.
+
+- FinTeka avanza como una solución digital sólida y escalable, preparada para futuras iteraciones orientadas a nuevas funcionalidades, mejora continua y evolución arquitectónica.
 ---
 
 # Recomendaciones
 
-- Validar continuamente la propuesta de valor mediante entrevistas, encuestas y pruebas con usuarios reales durante las primeras etapas del proyecto.
-- Desarrollar un Producto Mínimo Viable (MVP) enfocado en funciones esenciales como registro, búsqueda de especialistas, reservas y sistema de valoraciones.
-- Diseñar la plataforma considerando una experiencia intuitiva, rápida y adaptable tanto para usuarios como para consultores.
-- Mantener actualizados los perfiles profesionales con información clara sobre experiencia, tarifas, disponibilidad y reputación.
-- Aplicar metodologías centradas en el usuario de forma continua para detectar mejoras en navegación, procesos y satisfacción general.
-- Implementar estrategias competitivas de diferenciación basadas en confianza, verificación de expertos y enfoque especializado en mercados locales.
-- Establecer una arquitectura técnica robusta que contemple seguridad, rendimiento, disponibilidad y escalabilidad desde el inicio.
-- Priorizar el desarrollo de requisitos críticos como autenticación segura, pagos integrados, reservas en tiempo real y mensajería interna.
-- Gestionar el Product Backlog con metodologías ágiles, priorizando funcionalidades según valor de negocio y retroalimentación de usuarios.
-- Planificar una estrategia de expansión progresiva, iniciando en el mercado peruano y escalando posteriormente hacia otros países de Latinoamérica.
+- Continuar refinando los requisitos funcionales y no funcionales en cada Sprint, incorporando retroalimentación técnica y de usuarios para mejorar el alcance del producto.
 
+- Mantener una gestión activa del Product Backlog en Trello, priorizando tareas según valor de negocio, complejidad técnica y objetivos de cada iteración.
+
+- Fortalecer el frontend y backend con nuevas funcionalidades prioritarias como pagos en línea, mensajería en tiempo real, historial de sesiones y sistema de calificaciones.
+
+- Realizar pruebas funcionales, de integración y usabilidad de forma continua para detectar errores tempranos y asegurar una experiencia estable para los usuarios.
+
+- Optimizar la interfaz del sistema para dispositivos móviles, garantizando diseño responsive, navegación intuitiva y tiempos de carga reducidos.
+
+- Continuar documentando la arquitectura mediante diagramas Context, Container y Component, actualizándolos conforme evolucione la solución.
+
+- Preparar progresivamente la migración de la arquitectura monolítica hacia microservicios, separando módulos críticos como autenticación, reservas y notificaciones.
+
+- Implementar pipelines de CI/CD para automatizar pruebas, compilación y despliegues continuos tanto en frontend como backend.
+
+- Reforzar aspectos de seguridad como manejo de credenciales, control de acceso, protección de datos y validación de endpoints expuestos públicamente.
+
+- Aprovechar los despliegues en Vercel y Azure para monitorear rendimiento, disponibilidad y escalabilidad del sistema ante futuras etapas de crecimiento.
 # Referencias Bibliográficas
 
 Chaffey, D., & Ellis-Chadwick, F. (2019). *Digital marketing* (7th ed.). Pearson.
@@ -2931,3 +2948,5 @@ World Bank. (2023). *Digital development overview*. The World Bank. https://www.
 **Link de los diagramas C4:** https://online.visual-paradigm.com/share.jsp?id=343537383331342d32
 
 **Link del trablero trello:** https://trello.com/invite/b/69f6574d811b27877f919b44/ATTI455d8960b544133b522a03a00ce8bfcfE7BD0119/fundamentos-iteration-1
+
+**Link del frontend desplegado:** https://frontend-finteka.vercel.app/
