@@ -113,7 +113,7 @@
     <tr>
       <td>21/04/2026</td>
       <td>Montes Maza, Augusto Sebastian</td>
-      <td>-</td>
+      <td>Desarrollo del punto 4.2</td>
     </tr>
     <tr>
       <td rowspan="6" style="text-align: center; vertical-align: middle;"><b>TP1</b></td>
@@ -144,7 +144,7 @@
     <tr>
       <td>-</td>
       <td>Montes Maza, Augusto Sebastian</td>
-      <td>-</td>
+      <td>Desarrollo del punto 5.2 y correciones en base a feedback</td>
     </tr>
   </tbody>
 </table>
