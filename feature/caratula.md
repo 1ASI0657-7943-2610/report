@@ -2377,39 +2377,224 @@ Esto garantiza continuidad operacional y resiliencia empresarial para Nova Aseso
 
 ## 4.2 Architectural Drivers
 
-### 4.3.1 Iteration 1: Sprint 1
+Los *Architectural Drivers* representan los factores críticos que influyen directamente en las decisiones de diseño de la arquitectura de **FinTeka**. Estos drivers permiten priorizar atributos de calidad, restricciones técnicas y necesidades del negocio para asegurar que la solución responda adecuadamente a los objetivos funcionales y no funcionales del proyecto.
 
-### 4.3.1.1 Architectural Design Backlog 1
+Debido a la naturaleza distribuida y transaccional de la plataforma, los drivers seleccionados se enfocan en:
+- experiencia de usuario,
+- continuidad operacional,
+- facilidad de evolución,
+- protección de información,
+- crecimiento escalable del sistema.
 
-En esta primera iteración, se busca construir la primera versión del sistema, priorizando las reglas principales del negocio. Se permitirá que los usuarios puedan buscar especialidades, visualizar perfiles profesionales y concretar asesorías de manera funcional, mientras que los consultores obtendrán una visibilidad inicial sobre la gestión de sus servicios y su disponibilidad. Se busca implementar un flujo básico pero completo que cubra las principales interacciones del sistema, desde la exploración de especialistas hasta la confirmación de una asesoría.
+La arquitectura basada en:
+- microservicios,
+- persistencia políglota,
+- API Gateway,
+- contenedores,
+- integración desacoplada,
 
-Asimismo, en esta etapa se definirán las bases de comunicación entre los componentes principales del sistema, garantizando que el intercambio de información sea claro y consistente. Esto facilitará el seguimiento de las operaciones realizadas dentro de la plataforma y aportará mayor transparencia en su funcionamiento.
+fue diseñada específicamente para responder a estos drivers prioritarios.
 
-Finalmente, esta iteración tiene como propósito establecer una base sólida sobre la cual se pueda validar el funcionamiento general de FinTeka, permitiendo identificar oportunidades de mejora e incorporar nuevas funcionalidades en futuras versiones, como pagos integrados, sistemas de calificación y herramientas de comunicación entre usuarios y consultores.
+---
 
-| Tipo de Driver      | Driver Seleccionado                           | Razón                                                                                                                                                |
-| ------------------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Objetivo de Negocio | Lanzar versión funcional inicial              | Se busca contar con una primera versión operativa que permita conectar usuarios con consultores y validar el interés real del mercado.               |
-| Atributo de Calidad | Usability                                     | La plataforma debe ser intuitiva y fácil de usar para que los usuarios puedan registrarse, buscar especialistas y reservar asesorías sin dificultad. |
-| Atributo de Calidad | Availability                                  | El sistema debe mantenerse disponible para consultas y reservas en horarios variados, evitando interrupciones que afecten la confianza del usuario.  |
-| Atributo de Calidad | Modifiability                                 | La arquitectura debe facilitar futuras mejoras como pagos en línea, calificaciones y chat interno sin rehacer componentes principales.               |
-| Restricción         | Arquitectura basada en microservicios con enfoque DDD, utilizando Spring Boot, .NET y Go | Se adopta este enfoque para organizar mejor los dominios del negocio, permitir crecimiento progresivo y simplificar el mantenimiento del sistema.    |
+### 4.2.1 Usability
 
+La usabilidad constituye uno de los principales drivers arquitectónicos debido a que FinTeka busca ofrecer una experiencia simple, intuitiva y eficiente tanto para clientes como para consultores.
 
+La plataforma debe permitir:
+- búsqueda rápida de especialistas,
+- navegación fluida,
+- reservas simples,
+- interacción intuitiva desde dispositivos móviles y escritorio.
 
-### 4.3.1.2 Establish Iteration Goal by Selecting Drivers
+---
 
+#### Decisiones Arquitectónicas Relacionadas
 
-En la primera iteración se busca priorizar los siguientes atributos de calidad:
+- Implementación de frontend responsive multiplataforma.
+- Optimización de APIs para reducir sobrecarga de datos.
+- Uso de Redis para acelerar consultas frecuentes.
+- Interfaces desacopladas y reutilizables.
+- Diseño centrado en experiencia de usuario.
 
-| Atributo de Calidad | Descripción                                                                                                                                                   |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Usability           | Garantizar una experiencia intuitiva y sencilla para que los usuarios puedan registrarse, buscar especialistas y reservar asesorías sin dificultad.           |
-| Availability        | Asegurar que la plataforma se mantenga accesible para consultas y reservas en distintos horarios, minimizando interrupciones del servicio.                    |
-| Modifiability       | Facilitar la incorporación futura de nuevas funcionalidades como pagos en línea, calificaciones y herramientas de comunicación sin afectar el sistema actual. |
+---
 
+#### Requerimientos Relacionados
 
-Se prioriza la funcionalidad core del sistema FinTeka, permitiendo a los usuarios registrarse, buscar especialistas, visualizar perfiles y reservar sesiones de manera rápida, segura y confiable.
+| RNF | Descripción |
+|---|---|
+| RNF-001 | Tiempo de respuesta rápido en búsquedas |
+| RNF-010 | Carga eficiente de perfiles |
+| RNF-014 | Compatibilidad multiplataforma |
+| RNF-015 | Diseño responsive |
+
+---
+
+### 4.2.2 Availability
+
+La disponibilidad es crítica debido a que FinTeka administra:
+- reservas,
+- pagos,
+- comunicación entre usuarios,
+- sesiones activas en tiempo real.
+
+La plataforma debe permanecer operativa incluso ante:
+- fallos parciales,
+- caídas de infraestructura,
+- alta concurrencia.
+
+---
+
+#### Decisiones Arquitectónicas Relacionadas
+
+- Arquitectura distribuida basada en microservicios.
+- Despliegue Multi-AZ.
+- Balanceadores de carga.
+- Failover automático.
+- Contenedores Docker y orquestación Kubernetes.
+
+---
+
+#### Requerimientos Relacionados
+
+| RNF | Descripción |
+|---|---|
+| RNF-002 | Tiempo máximo de confirmación de reservas |
+| RNF-012 | Monitoreo y trazabilidad |
+| RNF-013 | Recuperación ante fallos |
+
+---
+
+### 4.2.3 Modifiability
+
+FinTeka debe evolucionar continuamente para incorporar:
+- nuevas funcionalidades,
+- integraciones,
+- mejoras de negocio,
+- módulos adicionales.
+
+La arquitectura debe facilitar cambios sin afectar la estabilidad general del sistema.
+
+---
+
+#### Decisiones Arquitectónicas Relacionadas
+
+- Arquitectura de microservicios desacoplados.
+- Domain-Driven Design (DDD).
+- APIs REST versionadas.
+- Comunicación asíncrona mediante eventos.
+- Separación por dominios funcionales.
+
+---
+
+#### Requerimientos Relacionados
+
+| RNF | Descripción |
+|---|---|
+| RNF-006 | APIs documentadas y mantenibles |
+| RNF-008 | Escalabilidad de ambientes |
+| RNF-009 | Configuración flexible |
+
+---
+
+### 4.2.4 Security
+
+La seguridad representa un driver prioritario debido a que FinTeka procesa:
+- información personal,
+- autenticación de usuarios,
+- pagos,
+- datos financieros,
+- sesiones privadas.
+
+La arquitectura debe proteger:
+- confidencialidad,
+- integridad,
+- autenticidad,
+- trazabilidad.
+
+---
+
+#### Decisiones Arquitectónicas Relacionadas
+
+- OAuth2 y JWT para autenticación.
+- RBAC para autorización.
+- API Gateway para protección centralizada.
+- HTTPS/TLS en todas las comunicaciones.
+- Auditoría y trazabilidad desacoplada.
+
+---
+
+#### Requerimientos Relacionados
+
+| RNF | Descripción |
+|---|---|
+| RNF-004 | Protección de datos sensibles |
+| RNF-005 | Control de acceso seguro |
+| RNF-012 | Auditoría y monitoreo |
+
+---
+
+### 4.2.5 Scalability
+
+FinTeka debe soportar crecimiento progresivo de:
+- usuarios concurrentes,
+- reservas,
+- mensajes,
+- transacciones,
+- funcionalidades futuras.
+
+La solución debe escalar horizontalmente sin rediseñar el núcleo del sistema.
+
+---
+
+#### Decisiones Arquitectónicas Relacionadas
+
+- Microservicios independientes.
+- Autoescalado horizontal.
+- Persistencia políglota.
+- Redis como capa de caché distribuida.
+- Procesamiento asíncrono mediante eventos.
+
+---
+
+#### Requerimientos Relacionados
+
+| RNF | Descripción |
+|---|---|
+| RNF-001 | Rendimiento bajo carga |
+| RNF-003 | Escalabilidad concurrente |
+| RNF-013 | Continuidad operacional |
+
+---
+
+### Relación Entre Drivers y Arquitectura
+
+| Driver Arquitectónico | Decisión Arquitectónica Principal |
+|---|---|
+| Usability | Frontend responsive + Redis Cache |
+| Availability | Multi-AZ + Kubernetes |
+| Modifiability | Microservicios + DDD |
+| Security | OAuth2 + JWT + API Gateway |
+| Scalability | Autoescalado + Persistencia Políglota |
+
+---
+
+### Impacto de los Drivers en el Diseño del Sistema
+
+Los drivers arquitectónicos definidos influyen directamente sobre:
+- estructura de microservicios,
+- selección tecnológica,
+- mecanismos de persistencia,
+- comunicación entre servicios,
+- estrategia de despliegue,
+- observabilidad,
+- seguridad operacional.
+
+Esto garantiza que la arquitectura de FinTeka mantenga coherencia entre:
+- objetivos del negocio,
+- experiencia del usuario,
+- restricciones técnicas,
+- crecimiento futuro de la plataforma.
 
 ### 4.3.1.3 Choose One or More Elements of the System to Refine
 
