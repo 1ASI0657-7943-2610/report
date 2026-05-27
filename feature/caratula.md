@@ -1283,11 +1283,10 @@ Los requisitos funcionales primarios corresponden a las funcionalidades esencial
 | RNF-016 | El sistema debe expirar sesiones inactivas de usuario luego de **30 minutos** sin actividad autenticada. |
 | RNF-017 | El sistema debe bloquear automáticamente una cuenta luego de **5 intentos fallidos consecutivos** de inicio de sesión durante un periodo de **15 minutos**. |
 | RNF-018 | El sistema debe permitir recuperación de contraseña mediante correo electrónico verificado con enlace temporal de validez máxima de **15 minutos**. |
-| RNF-019 | El sistema debe implementar comunicación asíncrona mediante un message broker basado en RabbitMQ para el procesamiento desacoplado de notificaciones, eventos de pagos, reservas y operaciones de larga duración. |
-| RNF-020 | El sistema debe garantizar la persistencia y reintento automático de mensajes críticos procesados mediante RabbitMQ ante fallos temporales de comunicación o disponibilidad de servicios. |
-| RNF-021 | El sistema debe garantizar disponibilidad mínima del 99.5% mensual para funcionalidades críticas relacionadas con reservas, pagos y suscripciones. |
-
-
+| RNF-019 | El sistema debe procesar al menos el 95% de mensajes asíncronos enviados mediante RabbitMQ en un tiempo máximo de 5 segundos bajo carga normal de operación. |
+| RNF-020 | El sistema debe garantizar reintento automático de mensajes fallidos procesados mediante RabbitMQ con un máximo de 3 reintentos consecutivos antes de registrar el evento como error permanente. |
+| RNF-021 | El sistema debe garantizar una disponibilidad mínima mensual del 99.5% para funcionalidades críticas relacionadas con reservas, pagos y suscripciones. |
+| RNF-022 | El sistema debe soportar el procesamiento concurrente de al menos 500 mensajes asíncronos por minuto mediante RabbitMQ sin degradar el rendimiento general de la plataforma. |
 
 ### 3.3 User Stories
 
