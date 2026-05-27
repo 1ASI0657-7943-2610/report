@@ -1149,12 +1149,13 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 **Leyenda de prefijos:**
 
 
-- **IRF** = *Identity Requirements Features*: funciones de identidad, autenticación, seguridad y control de acceso.  
-- **NRF** = *Notification Requirements Features*: funciones de notificación, alertas automáticas, recordatorios, comunicaciones del sistema y seguimiento de mensajes enviados.
-- **CRRF** = *Calendar, Reservation and Resource Features*: funciones de gestión de reservas, disponibilidad horaria, programación de sesiones, control de agendas y seguimiento del ciclo de vida de las citas.
-- **RVF** = *Reputation and Valuation Features*: funciones de gestión de reservas, disponibilidad horaria, programación de sesiones, control de agendas y seguimiento del ciclo de vida de las citas.
+- **IRF** = *Identity Requirements Features*: Funciones de identidad, autenticación, seguridad y control de acceso.  
+- **NRF** = *Notification Requirements Features*: Funciones de notificación, alertas automáticas, recordatorios, comunicaciones del sistema y seguimiento de mensajes enviados.
+- **CRRF** = *Calendar, Reservation and Resource Features*: Funciones de gestión de reservas, disponibilidad horaria, programación de sesiones, control de agendas y seguimiento del ciclo de vida de las citas.
+- **RVF** = *Reputation and Valuation Features*: Funciones relacionadas con reputación, calificaciones, reseñas, puntuaciones y métricas de satisfacción de los consultores dentro de la plataforma.
 - **BAF** = *Browse and Advanced Search Features*: funciones de búsqueda avanzada, filtrado inteligente, ordenamiento de resultados, descubrimiento de especialistas y priorización de perfiles dentro de la plataforma.
-- **PRF** = *Profile and User Requirements Features:* funciones de gestión de usuarios, administración de perfiles, información personal, perfiles profesionales, métricas y configuración de cuentas dentro de la plataforma.
+- **PRF** = *Profile and User Requirements Features:* Funciones de gestión de usuarios, administración de perfiles, información personal, perfiles profesionales, métricas y configuración de cuentas dentro de la plataforma.
+- **PFF** = *Payment and Financial Features*: Funciones relacionadas con pagos, transacciones financieras, comprobantes, reembolsos, suscripciones premium y gestión económica dentro de la plataforma.
 
 | ID      | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1212,6 +1213,14 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | PFF-014 | El sistema debe suspender automáticamente los beneficios premium cuando la suscripción expire, sea cancelada o el pago recurrente sea rechazado.                                                               |
 | PFF-015 | El sistema debe permitir al consultor consultar su historial de suscripciones, pagos realizados, renovaciones y vencimientos desde su cuenta personal.                                                         |
 | PFF-016 | El sistema debe generar comprobantes digitales por cada pago asociado a suscripciones premium contratadas dentro de la plataforma.                                                                             |
+| PFF-017 | El sistema debe gestionar el ciclo de vida de las suscripciones premium mediante estados definidos como activa, pendiente, suspendida, cancelada y expirada. |
+| PFF-018 | El sistema debe validar automáticamente el estado de la suscripción premium del consultor antes de habilitar funcionalidades exclusivas dentro de la plataforma. |
+| PFF-019 | El sistema debe permitir al consultor activar o desactivar la renovación automática de su suscripción premium desde su cuenta personal. |
+| PFF-020 | El sistema debe enviar notificaciones automáticas antes del vencimiento de una suscripción premium, indicando fecha de expiración y opciones de renovación disponibles. |
+| PFF-021 | El sistema debe permitir administrar distintos planes de suscripción premium con beneficios, duración y porcentajes de comisión configurables por la plataforma. |
+| PFF-022 | El sistema debe suspender automáticamente los beneficios premium cuando la suscripción expire, sea cancelada o el pago recurrente asociado sea rechazado. |
+| PFF-023 | El sistema debe conservar trazabilidad completa sobre activaciones, renovaciones, cancelaciones, suspensiones y expiraciones de suscripciones premium. |
+| PFF-024 | El sistema debe aplicar automáticamente el porcentaje de comisión correspondiente según el tipo de plan activo del consultor al momento de procesar cada sesión completada. |
 | BAF-001 | El sistema debe permitir a los usuarios buscar especialistas mediante un motor de búsqueda interno utilizando criterios como categoría profesional, especialidad, experiencia, tarifa por sesión, reputación y disponibilidad horaria.               |
 | BAF-002 | El sistema debe actualizar dinámicamente los resultados de búsqueda cada vez que el usuario aplique, modifique o elimine filtros, sin necesidad de recargar completamente la interfaz de la plataforma.                                              |
 | BAF-003 | El sistema debe permitir ordenar los resultados obtenidos según diferentes criterios configurables, tales como menor precio, mayor experiencia, mejor calificación, mayor disponibilidad o relevancia general.                                       |
@@ -1237,6 +1246,21 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | PRF-011 | El sistema debe permitir al usuario administrar preferencias de cuenta, incluyendo configuración de notificaciones, privacidad de datos y opciones generales disponibles dentro de la plataforma.                                                         |
 | PRF-012 | El sistema debe restringir la edición de información sensible o crítica cuando no exista validación previa de identidad o autorización correspondiente, garantizando seguridad sobre los datos almacenados.                                               |
 
+
+#### Requisitos Funcionales Primarios
+
+Los requisitos funcionales primarios corresponden a las funcionalidades esenciales para la operación principal de la plataforma FinTeka. Estos requisitos representan los procesos críticos del negocio relacionados con autenticación, búsqueda de especialistas, reservas, pagos, suscripciones y reputación de consultores.
+
+
+| Modulo                | Requisitos Primarios                                 |
+|-----------------------| ---------------------------------------------------- |
+| Identidad y acceso    | IRF-001, IRF-004, IRF-005, IRF-008                   |
+| Reservas              | CRRF-002, CRRF-003, CRRF-004, CRRF-005, CRRF-008     |
+| Pagos y suscripciones | PFF-001, PFF-002, PFF-008, PFF-011, PFF-013, PFF-024 |
+| Búsqueda              | BAF-001, BAF-003, BAF-004, BAF-005                   |
+| Reputación            | RVF-001, RVF-003, RVF-005                            |
+
+
 ### 3.2.2 Requisitos no Funcionales
 
 | ID | Descripción |
@@ -1259,6 +1283,11 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | RNF-016 | El sistema debe expirar sesiones inactivas de usuario luego de **30 minutos** sin actividad autenticada. |
 | RNF-017 | El sistema debe bloquear automáticamente una cuenta luego de **5 intentos fallidos consecutivos** de inicio de sesión durante un periodo de **15 minutos**. |
 | RNF-018 | El sistema debe permitir recuperación de contraseña mediante correo electrónico verificado con enlace temporal de validez máxima de **15 minutos**. |
+| RNF-019 | El sistema debe implementar comunicación asíncrona mediante un message broker basado en RabbitMQ para el procesamiento desacoplado de notificaciones, eventos de pagos, reservas y operaciones de larga duración. |
+| RNF-020 | El sistema debe garantizar la persistencia y reintento automático de mensajes críticos procesados mediante RabbitMQ ante fallos temporales de comunicación o disponibilidad de servicios. |
+| RNF-021 | El sistema debe garantizar disponibilidad mínima del 99.5% mensual para funcionalidades críticas relacionadas con reservas, pagos y suscripciones. |
+
+
 
 ### 3.3 User Stories
 
