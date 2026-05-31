@@ -1521,43 +1521,69 @@ A continuación, se muestra el diagrama de componentes correspondiente al micros
 
 #### Diagrama de Base de Datos
 
-![Diagrama de Base de Datos Híbrido - Finteka](https://res.cloudinary.com/dx0i2vioe/image/upload/v1778370290/Captura_de_pantalla_2026-05-09_a_la_s_6.24.39_p._m._xxe3sa.png)
+![Diagrama de Base de Datos - Finteka](<img width="1600" height="1535" alt="image" src="https://github.com/user-attachments/assets/611447cf-3284-4bfc-8e15-e69ba412fdbd" />
+)
 
-#### Explicación del Gráfico y Justificación Técnica
+# Explicación del Modelo de Datos Relacional (3FN)
 
-# Explicación del Modelo de Datos Relacional (3FN) - Finteka
-
-El diseño de la base de datos de **Finteka** se ha estructurado bajo un modelo relacional unificado, completamente normalizado hasta la **Tercera Forma Normal (3FN)**. El objetivo primordial es garantizar la integridad referencial, eliminar la redundancia de datos y soportar de manera escalable todos los requisitos funcionales detallados en el informe.
-
-## 1. Arquitectura de Identidad (Patrón Supertipo/Subtipo)
-Para gestionar eficientemente los distintos roles del sistema manteniendo una base de autenticación única, se ha implementado un esquema de **Especialización**:
-
-* **USERS (Supertipo):** Centraliza las credenciales de acceso (`Email`, `PasswordHash`), el rol del usuario y el estado de la cuenta. Esto permite un control de seguridad centralizado y una gestión de sesiones uniforme.
-* **CLIENTS y ADVISORS (Subtipos):** Se vinculan de forma **1:1** con la tabla de usuarios. Esta separación permite que cada perfil posea atributos exclusivos (como `HourlyRate`, `Specialty` y `Bio` para los asesores; o `Preferences` para los clientes) sin comprometer la limpieza del modelo ni mezclar lógicas de negocio.
-
-## 2. Núcleo Transaccional: Gestión de Sesiones
-La entidad **ADVISORY_SESSIONS** actúa como el eje central del sistema, orquestando la interacción entre los actores:
-
-* **Relaciones Cardinales:** Conecta a un cliente con un asesor mediante relaciones **1:N**. Esto permite que un usuario registre múltiples asesorías históricas mientras cada registro individual de sesión apunta a un solo par cliente-asesor.
-* **Persistencia de Seguimiento (Normalización 3FN):** Para evitar el crecimiento excesivo de la tabla de sesiones y cumplir con las historias de usuario de seguimiento post-cita, se han desacoplado las siguientes entidades:
-    * **SESSION_NOTES:** Almacena notas privadas del asesor y apuntes de seguimiento (`FollowUpNotes`).
-    * **SESSION_RECOMENDATIONS:** Centraliza el texto de recomendaciones finales y los enlaces a materiales adjuntos para el cliente.
-
-## 3. Integridad Financiera y Reputacional
-* **PAYMENTS:** Cada sesión exitosa genera un registro de pago único (**1:1**). Esta tabla registra el monto, la comisión de la plataforma (`PlatformFee`) y el estado transaccional, asegurando una auditoría financiera precisa.
-* **REVIEWS:** Implementa el sistema de confianza. Al estar ligada directamente a una sesión (**1:1**), garantiza que solo los clientes que efectivamente pagaron y asistieron a una asesoría puedan calificar al profesional, evitando reseñas fraudulentas.
-
-## 4. Interacción y Auditoría
-* **CLIENT_FAVORITES:** Resuelve la relación **Muchos a Muchos (N:M)** entre clientes y asesores, permitiendo a los usuarios gestionar su lista personalizada de profesionales preferidos.
-* **MESSAGES y LOGS:** * **MESSAGES:** Gestiona la comunicación vinculándose a la tabla `USERS` para identificar emisores y receptores.
-    * **USER_ACTIVITY_LOGS:** Registra de forma secuencial cada acción crítica (logins, cambios de estado, transacciones), cumpliendo con los requisitos de seguridad y trazabilidad.
+El diseño de la base de datos se ha estructurado bajo un modelo relacional unificado, completamente normalizado hasta la **Tercera Forma Normal (3FN)**. El objetivo primordial es garantizar la integridad referencial, eliminar la redundancia de datos y soportar de manera escalable todos los requisitos funcionales del sistema.
 
 ---
 
-### Justificación Técnica de la Normalización
-* **1FN:** Todos los atributos son atómicos y cada tabla posee una clave primaria (`PK`) definida.
-* **2FN:** Se han eliminado dependencias parciales; los atributos dependen totalmente de su clave primaria.
-* **3FN:** Se han eliminado dependencias transitivas. La información de pagos, notas o recomendaciones reside en tablas satélites relacionadas por llaves foráneas (`FK`), lo que previene anomalías de actualización.
+## 1. Arquitectura de Identidad (Patrón Supertipo/Subtipo)
+
+Para gestionar eficientemente los distintos roles del sistema manteniendo una base de autenticación única, se ha implementado un esquema de **Especialización**:
+
+- **USERS (Supertipo):** Centraliza las credenciales de acceso (`email`, `password_hash`), el rol del usuario (`CLIENT | PROFESSIONAL | ADMIN`) y el estado de la cuenta. Esto permite un control de seguridad centralizado y una gestión de sesiones uniforme para todos los actores del sistema.
+
+- **CLIENTS y PROFESSIONALS (Subtipos):** Se vinculan de forma **1:1** con la tabla de usuarios a través de `user_id`. Esta separación permite que cada perfil posea atributos exclusivos sin comprometer la limpieza del modelo ni mezclar lógicas de negocio distintas. Los clientes almacenan datos como `preferences`, `district` y `languages`, mientras que los profesionales registran `specialty`, `highlight_info`, `work_experience`, `average_rating` y `is_premium`.
+
+---
+
+## 2. Ciclo de Servicio: De la Publicación a la Sesión
+
+El flujo transaccional del sistema sigue una cadena clara de entidades interrelacionadas:
+
+### 2.1 Publicaciones del Profesional
+La entidad **PUBLICATIONS** representa la oferta de servicios del profesional. Contiene el detalle del servicio que brindará (`title`, `description`, `specialty`), el precio, la duración, la modalidad (online o presencial) y los horarios disponibles (`time_slots` como JSON). Esto desacopla correctamente el perfil del profesional de sus servicios publicados, permitiendo que un profesional tenga múltiples publicaciones activas simultáneamente.
+
+### 2.2 Reservas
+**RESERVATIONS** actúa como el puente entre una publicación específica y la intención del cliente de contratarla. Registra el `time_slot` elegido y el estado de la reserva (`PENDING | CONFIRMED | CANCELLED`), vinculando directamente la publicación, el profesional y el cliente en un único registro.
+
+### 2.3 Sesiones de Asesoría
+**ADVISORY_SESSIONS** es el eje central del sistema. Se genera a partir de una reserva confirmada (**1:1** con `RESERVATIONS`) y almacena la información operativa de la cita: `appointment_date_time`, `duration`, `status` y el `meeting_link` para la sesión virtual. Conecta al cliente con el profesional mediante relaciones **1:N**, permitiendo historial acumulado de sesiones.
+
+---
+
+## 3. Integridad Financiera y Reputacional
+
+- **PAYMENTS:** Cada sesión genera un único registro de pago (**1:1** con `ADVISORY_SESSIONS`). Registra el monto, la comisión de plataforma (`platform_fee`), la moneda y el estado transaccional (`PENDING | CONFIRMED | FAILED | REFUNDED`), asegurando una auditoría financiera precisa y trazable.
+
+- **REVIEWS:** Implementa el sistema de confianza y reputación. Al estar ligada directamente a una sesión completada (**1:1**), garantiza que únicamente los clientes que efectivamente asistieron a una asesoría puedan calificar al profesional, previniendo reseñas fraudulentas. La calificación numérica (`rating` entre 1 y 5) alimenta el campo `average_rating` del profesional.
+
+- **SESSION_NOTES:** Almacena el registro cualitativo de la sesión, incluyendo notas privadas del profesional (`private_notes`), apuntes de seguimiento (`follow_up_notes`), recomendaciones finales, enlaces de materiales adjuntos y el comentario del cliente sobre la experiencia. Su desacoplamiento de `ADVISORY_SESSIONS` cumple con la **3FN** al evitar dependencias transitivas.
+
+---
+
+## 4. Interacción, Preferencias y Auditoría
+
+- **CLIENT_FAVORITES:** Resuelve la relación **Muchos a Muchos (N:M)** entre clientes y profesionales, permitiendo a los usuarios gestionar su lista personalizada de profesionales favoritos sin redundancia de datos.
+
+- **MESSAGES:** Gestiona la comunicación directa entre actores del sistema, vinculándose doblemente a la tabla `USERS` para identificar con precisión al emisor (`sender_id`) y al receptor (`receiver_id`) de cada mensaje.
+
+- **NOTIFICATIONS:** Centraliza los avisos del sistema hacia los usuarios, clasificados por tipo (`SESSION_REMINDER | PAYMENT | CANCELLATION`) e incluyendo el estado de lectura (`is_read`) para gestión de alertas pendientes.
+
+- **USER_ACTIVITY_LOGS:** Registra de forma secuencial cada acción crítica del sistema (logins, cambios de estado, transacciones), cumpliendo con los requisitos de seguridad, trazabilidad y auditoría del sistema.
+
+---
+
+## 5. Justificación Técnica de la Normalización
+
+- **1FN:** Todos los atributos son atómicos y cada tabla posee una clave primaria (`PK`) definida. Los únicos campos JSON (`time_slots`, `availability`) están justificados por representar colecciones de valores homogéneos de consulta no relacional.
+
+- **2FN:** Se han eliminado dependencias parciales; todos los atributos no clave dependen completamente de su clave primaria. No existen claves compuestas con dependencias parciales.
+
+- **3FN:** Se han eliminado dependencias transitivas. La información de pagos, notas, recomendaciones, reseñas y notificaciones reside en tablas satélites relacionadas mediante llaves foráneas (`FK`), lo que previene anomalías de inserción, actualización y eliminación, garantizando la consistencia del modelo a largo plazo.
   
 ## 4.1.6 Design Pattems
 
