@@ -3023,8 +3023,8 @@ La estrategia de despliegue de Finteka fue diseñada bajo principios *Cloud-Nati
 ---
 
 ## 5.3 Microservices Implementation
-## 5.3.1 Sprint 1
-### 5.3.1.1 Sprint Backlog 1
+## 5.2.1 Sprint 1
+### 5.2.1.1 Sprint Backlog 1
 
 
 | Sprint | User Story | Work-Item / Task | Description | Est. Hours | Assigned To | Status |
@@ -3045,7 +3045,7 @@ La estrategia de despliegue de Finteka fue diseñada bajo principios *Cloud-Nati
 
 El Sprint 1 tiene una duración estimada de **2 semanas (10 días hábiles)**, considerando una carga total aproximada de 86 horas distribuidas entre los equipos de Backend, Frontend, QA y DevOps.
 
-### 5.3.1.2 Development Evidence for Sprint Review
+### 5.2.1.2 Development Evidence for Sprint Review
 
 | Repository       | Branch | Commit Id    | Commit Message                             | Commit Message Body                                                                                           | Committed on (Date) |
 | ---------------- | ------ | ------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ------------------- |
@@ -3059,7 +3059,7 @@ El Sprint 1 tiene una duración estimada de **2 semanas (10 días hábiles)**, c
 | FinTeka-Backend  | main   | h8i9j0k1l2m3 | Add ratings and notifications API          | Added professional ratings system and notifications endpoint for reservation status alerts.                   | 05/09/2026          |
 
 
-### 5.3.1.3 Testing Suite Evidence for Sprint Review<br><br>
+### 5.2.1.3 Testing Suite Evidence for Sprint Review<br><br>
 
 ### FinTeka Testing<br><br>
 
@@ -3128,7 +3128,7 @@ El Sprint 1 tiene una duración estimada de **2 semanas (10 días hábiles)**, c
 **And** muestra un mensaje indicando el error<br>
 **And** mantiene la información anterior sin cambios.<br><br>
 
-###  5.3.1.4 Execution Evidence for Sprint Review
+###  5.2.1.4 Execution Evidence for Sprint Review
 
 En este sprint se desarrolló la aplicación de FinTeka utilizando una arquitectura monolítica, tomando como referencia los requisitos funcionales y no funcionales identificados previamente. Asimismo, para esta primera versión se empleó Spring Boot en el desarrollo del backend y Vue para el frontend. Como sistema de base de datos se utilizó MySQL.
 
@@ -3140,11 +3140,11 @@ A continuación, se presentan imágenes de evidencia correspondientes al Sprint 
 ![endpoints2.jpeg](../assets/endpoints2.jpeg)
 ![front1.jpeg](../assets/front1.jpeg)
 ![front2.jpeg](../assets/front2.jpeg)
-### 5.3.1.5 Microservices Documentation Evidence for Sprint Review
+### 5.2.1.5 Microservices Documentation Evidence for Sprint Review
 ![azure1.jpeg](../assets/azure1.jpeg)
 ![azure2.jpeg](../assets/azure2.jpeg)
 ![azure3.jpeg](../assets/azure3.jpeg)
-### 5.3.1.6 Software Deployment Evidence for Sprint Review<br><br>
+### 5.2.1.6 Software Deployment Evidence for Sprint Review<br><br>
 
 En este Sprint se realizaron las actividades de despliegue necesarias para publicar la plataforma **FinTeka**, permitiendo el acceso al frontend y backend desde entornos en la nube.<br><br>
 
@@ -3177,7 +3177,7 @@ Se utilizó **Vercel** para desplegar la aplicación frontend desarrollada en Vu
 
 Frontend desplegado: https://frontend-finteka.vercel.app/
 
-### 5.3.1.7 Team Collaboration Insights during Sprint
+### 5.2.1.7 Team Collaboration Insights during Sprint
 ![sprint1cola3.jpeg](../assets/sprint1cola3.jpeg)
 ![sprint1cola2.jpeg](../assets/sprint1cola2.jpeg)
 ![sprint1cola.jpeg](../assets/sprint1cola.jpeg)
@@ -3189,6 +3189,26 @@ Para organizar las tareas del frontend y backend de FinTeka utilizamos Trello. C
 
 Link del tablero trello: https://trello.com/invite/b/69f6574d811b27877f919b44/ATTI455d8960b544133b522a03a00ce8bfcfE7BD0119/fundamentos-sprint-1
 
+
+
+
+## 5.2.2 Sprint 2
+En este sprint se iniciará el proceso de migración del sistema Finteka desde una arquitectura monolítica hacia una arquitectura de microservicios, con el objetivo de mejorar la escalabilidad, mantenibilidad y flexibilidad de la plataforma. Asimismo, se utilizarán los servicios en la nube proporcionados por Microsoft Azure para el despliegue del backend, mientras que el frontend será desplegado mediante Firebase, aprovechando sus capacidades de alojamiento y gestión de aplicaciones web.
+
+### 5.2.1.5 Microservices Documentation Evidence for Sprint Review
+En este punto se detallan los microservicios desarrollados durante el presente sprint. Se implementaron los módulos de Profile y Gestión de Reservas, encargados de la administración de perfiles de usuario y de las operaciones relacionadas con las reservas. Asimismo, se configuraron los componentes de infraestructura necesarios para la arquitectura de microservicios, incluyendo el servicio de Registry para el registro de servicios, el servicio de Config para la gestión centralizada de configuraciones y el API Gateway para el enrutamiento y control de las solicitudes hacia los distintos microservicios.
+
+#### Bounded Context Profile
+
+En este Bounded Context se gestiona la información de los consultores y de los usuarios que requieren asesoría. Los datos serán registrados en la base de datos cuando un usuario se registre en la plataforma Finteka. Asimismo, el sistema brindará la opción de visualizar y actualizar dicha información a través del frontend.
+
+![sprint2micro_profile.png](../assets/sprint2micro_profile.png)
+
+### 5.2.1.6 Software Deployment Evidence for Sprint Review
+
+
+
+##
 # Conclusiones
 
 - En esta entrega se logró refinar los requisitos funcionales y no funcionales de FinTeka, permitiendo una definición más clara del alcance del sistema y de las funcionalidades prioritarias para el producto.
