@@ -3302,6 +3302,13 @@ Para maximizar la productividad y evitar que el equipo de Frontend fuera bloquea
 ##### 3. Prevención de Riesgos de Concurrencia por la Célula de QA
 El equipo de Aseguramiento de la Calidad (QA) lideró sesiones de diseño técnico preventivo con el fin de modelar el comportamiento transaccional de la historia de usuario **US012** (Agendamiento de sesiones).
 
+<p align="center">
+  <img src="https://res.cloudinary.com/dx0i2vioe/image/upload/v1780306362/Captura_de_pantalla_2026-06-01_a_la_s_4.32.37_a._m._w5ceti.png" width="80%"/>
+</p>
+<p align="center">
+  <img src="https://res.cloudinary.com/dx0i2vioe/image/upload/v1780306440/Captura_de_pantalla_2026-06-01_a_la_s_4.33.56_a._m._hbbpdi.png" width="80%"/>
+</p>
+
 ##### 5.2.2.8 Kanban Board 
 Para la gestión y seguimiento del Sprint 2, se organizó el tablero en Trello dividiendo las tareas de infraestructura, migración del Bounded Context Profile y las historias de usuario `US010` y `US012` en los estados correspondientes de flujo de trabajo:
 
