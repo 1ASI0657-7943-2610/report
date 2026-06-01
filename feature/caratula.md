@@ -1006,7 +1006,6 @@ Esto justifica decisiones como:
 - uso de Redis para optimizar consultas frecuentes,
 - persistencia relacional para reservas y pagos,
 - integración desacoplada con pasarelas externas,
-- notificaciones en tiempo real mediante WebSockets.
 
 ---
 
@@ -1065,10 +1064,10 @@ La siguiente tabla resume cómo las tareas de usuario se relacionan con las prin
 | Área Funcional | Feature Principal | Componente Relacionado |
 |---|---|---|
 | Autenticación | Login y Seguridad | Identity Service / API Gateway |
-| Búsqueda | Filtros y descubrimiento de especialistas | Consultant Service / Redis |
+| Búsqueda | Filtros y descubrimiento de especialistas | Consultant Service  |
 | Reservas | Gestión de agenda y sesiones | Booking Service |
 | Pagos | Procesamiento financiero y comisiones | Payment Service |
-| Comunicación | Chat y notificaciones | Chat Service / WebSockets |
+| Comunicación | Chat y notificaciones | Chat Service  |
 | Reputación | Valoraciones y métricas | Reputation Service |
 | Auditoría | Historial y trazabilidad | User Activity Logs |
 | Personalización | Preferencias de interfaz | Frontend UI Layer |
@@ -1708,12 +1707,10 @@ Los atributos de calidad definidos para FinTeka están directamente alineados co
 - Los requerimientos no funcionales del proyecto.
 - La naturaleza financiera de la plataforma.
 - La necesidad de escalabilidad futura.
-- La experiencia móvil del usuario.
 - La continuidad operacional de Nova Asesors.
 
-La arquitectura basada en microservicios, persistencia políglota, API Gateway y despliegues distribuidos permite abordar estos escenarios mediante tácticas concretas de:
+La arquitectura basada en microservicios, API Gateway y despliegues distribuidos permite abordar estos escenarios mediante tácticas concretas de:
 - redundancia,
-- desacoplamiento,
 - caché,
 - observabilidad,
 - autenticación,
@@ -1770,7 +1767,7 @@ Esto evita accesos indebidos y protege la información sensible de la plataforma
 | **Entorno** | Proceso de pago o reserva |
 | **Artefacto** | Payment Service |
 | **Respuesta** | La información se transmite mediante canales cifrados |
-| **Medida de Respuesta** | 100% de las comunicaciones protegidas bajo HTTPS/TLS |
+| **Medida de Respuesta** | 100% de las comunicaciones protegidas bajo HTTPS |
 
 ###### Justificación Técnica
 
@@ -1780,7 +1777,7 @@ Toda la comunicación entre:
 - microservicios,
 - servicios externos,
 
-se realiza utilizando HTTPS/TLS para prevenir:
+se realiza utilizando HTTPS para prevenir:
 - intercepción de datos,
 - ataques MITM,
 - manipulación de tráfico.
@@ -1800,7 +1797,7 @@ Adicionalmente:
 | **Estímulo** | Intento de acceso a funciones administrativas |
 | **Entorno** | Operación normal |
 | **Artefacto** | Authorization Layer |
-| **Respuesta** | El sistema valida permisos RBAC y deniega el acceso |
+| **Respuesta** | El sistema valida permisos y deniega el acceso |
 | **Medida de Respuesta** | 0 accesos exitosos fuera del rol autorizado |
 
 ###### Justificación Técnica
@@ -1809,8 +1806,6 @@ FinTeka diferencia:
 - Clientes,
 - Consultores,
 - Administradores,
-
-mediante RBAC, garantizando separación estricta de privilegios y evitando accesos no autorizados a funcionalidades críticas.
 
 ---
 
@@ -1840,9 +1835,8 @@ La plataforma debe mantenerse operativa incluso ante fallos parciales de infraes
 ###### Justificación Técnica
 
 La arquitectura implementa:
-- despliegue Multi-AZ,
 - replicación síncrona,
-- balanceadores de carga,
+- API Gateway,
 - failover automático.
 
 Esto garantiza continuidad operacional y evita pérdida de información crítica.
@@ -1856,14 +1850,13 @@ Esto garantiza continuidad operacional y evita pérdida de información crítica
 | **Fuente** | Error interno del servicio |
 | **Estímulo** | Caída de un contenedor |
 | **Entorno** | Operación continua |
-| **Artefacto** | Kubernetes / Runtime de contenedores |
+| **Artefacto** |  Runtime de contenedores |
 | **Respuesta** | El servicio se reinicia automáticamente |
 | **Medida de Respuesta** | Recuperación menor a 1 minuto |
 
 ###### Justificación Técnica
 
 El uso de contenedores permite:
-- health checks automáticos,
 - reinicio de instancias defectuosas,
 - autoescalado,
 - alta resiliencia operacional.
@@ -1890,10 +1883,10 @@ La arquitectura busca minimizar:
 
 | Elemento | Descripción |
 | :--- | :--- |
-| **Fuente** | Usuario móvil |
+| **Fuente** | Usuario web |
 | **Estímulo** | Solicitud de búsqueda de consultores |
 | **Entorno** | Hora pico |
-| **Artefacto** | Consultant Service / Redis Cache |
+| **Artefacto** | Consultant Service |
 | **Respuesta** | La información es servida desde caché |
 | **Medida de Respuesta** | Tiempo promedio menor a 1 segundo |
 
@@ -1903,10 +1896,9 @@ Redis permite:
 - almacenar consultas frecuentes,
 - reducir carga SQL,
 - acelerar respuestas,
-- mejorar experiencia móvil.
+- mejorar experiencia web.
 
 La arquitectura utiliza:
-- caché Read-through,
 - expiración controlada,
 - actualización automática de datos.
 
@@ -1920,15 +1912,12 @@ La arquitectura utiliza:
 | **Estímulo** | Envío simultáneo de mensajes |
 | **Entorno** | Alta actividad |
 | **Artefacto** | Chat Service |
-| **Respuesta** | El sistema distribuye conexiones WebSocket eficientemente |
+| **Respuesta** | El sistema distribuye conexiones  |
 | **Medida de Respuesta** | Latencia menor a 500 ms |
 
 ###### Justificación Técnica
 
 La comunicación en tiempo real se soporta mediante:
-- WebSockets persistentes,
-- almacenamiento NoSQL,
-- balanceo de conexiones,
 - procesamiento asíncrono.
 
 Esto garantiza una experiencia fluida en la interacción cliente-consultor.
@@ -1991,16 +1980,15 @@ La arquitectura debe garantizar integraciones resilientes y desacopladas.
 | **Estímulo** | Timeout o indisponibilidad |
 | **Entorno** | Pago en proceso |
 | **Artefacto** | Payment Integration Service |
-| **Respuesta** | El sistema activa Retry y Circuit Breaker |
+| **Respuesta** | El sistema activa Retry |
 | **Medida de Respuesta** | No pérdida de consistencia transaccional |
 
 ###### Justificación Técnica
 
 Para reducir el impacto de fallos externos:
-- se implementan Circuit Breakers,
-- mecanismos Retry,
-- colas asíncronas,
-- timeouts controlados.
+- Mecanismos Retry,
+- Colas asíncronas,
+- Timeouts controlados.
 
 Esto evita propagar fallos hacia el núcleo del sistema.
 
@@ -2031,7 +2019,7 @@ La auditabilidad permite garantizar:
 ###### Justificación Técnica
 
 Los logs de auditoría:
-- se almacenan en NoSQL,
+- se almacena en SQL,
 - están desacoplados del núcleo transaccional,
 - soportan análisis posteriores,
 - mejoran la observabilidad distribuida.
@@ -2079,12 +2067,11 @@ Las restricciones arquitectónicas representan limitaciones técnicas, operacion
 | CON-06 | Operacional | El despliegue del frontend debe realizarse sobre **Vercel**. | Mejora rendimiento mediante Edge CDN y facilita despliegues automatizados. |
 | CON-07 | Operacional | El backend debe desplegarse sobre infraestructura cloud de **Microsoft Azure**. | Proporciona escalabilidad, alta disponibilidad y servicios empresariales administrados. |
 | CON-08 | Operacional | La interfaz debe ser completamente responsive y compatible con dispositivos móviles. | La accesibilidad multiplataforma constituye un requisito clave del negocio. |
-| CON-09 | Seguridad | Toda información sensible debe transmitirse utilizando **HTTPS/TLS**. | Protege confidencialidad e integridad de los datos en tránsito. |
+| CON-09 | Seguridad | Toda información sensible debe transmitirse utilizando **HTTPS**. | Protege confidencialidad e integridad de los datos en tránsito. |
 | CON-10 | Seguridad | La autenticación debe implementarse utilizando **OAuth2** y **JWT** mediante Spring Security. | Permite autenticación segura y desacoplada para arquitecturas distribuidas. |
-| CON-11 | Seguridad | El control de acceso debe implementarse mediante **RBAC**. | Restringe operaciones según el rol y permisos del usuario. |
-| CON-12 | Negocio | El sistema debe integrarse con pasarelas de pago externas. | Permite procesar pagos y gestionar transacciones financieras. |
-| CON-13 | Negocio | La plataforma debe calcular automáticamente cobros y comisiones según el plan del usuario. | Automatiza la lógica comercial asociada a los planes Básico y Premium. |
-| CON-14 | Negocio | La arquitectura debe soportar crecimiento progresivo sin rediseñar el núcleo del sistema. | Facilita escalabilidad futura y expansión funcional. |
+| CON-11 | Negocio | El sistema debe integrarse con pasarelas de pago externas. | Permite procesar pagos y gestionar transacciones financieras. |
+| CON-12 | Negocio | La plataforma debe calcular automáticamente cobros y comisiones según el plan del usuario. | Automatiza la lógica comercial asociada a los planes Básico y Premium. |
+| CON-13 | Negocio | La arquitectura debe soportar crecimiento progresivo sin rediseñar el núcleo del sistema. | Facilita escalabilidad futura y expansión funcional. |
 
 ---
 
@@ -2098,7 +2085,7 @@ Las restricciones arquitectónicas representan limitaciones técnicas, operacion
 | Alojamiento y Despliegue Backend | **Microsoft Azure** |
 | Persistencia Relacional | **MySQL** |
 | Comunicación entre Servicios | **APIs REST** |
-| Seguridad y Autenticación | **Spring Security** (OAuth2 + JWT + RBAC) |
+| Seguridad y Autenticación | **Spring Security** (OAuth2 + JWT) |
 | Integración Financiera | **Payment Service** |
 
 ### 4.1.12 Architectural Concerns
@@ -2117,16 +2104,16 @@ La arquitectura propuesta incorpora patrones, tácticas y mecanismos específico
 
 | ID | Concern | Riesgo Principal | Impacto | Estrategia Arquitectónica |
 |---|---|---|---|---|
-| ARC-01 | Consistencia transaccional distribuida | Reservas duplicadas y pagos inconsistentes | Alto | Patrón Saga + eventos compensatorios |
-| ARC-02 | Seguridad financiera | Robo de credenciales y accesos indebidos | Alto | OAuth2 + JWT + RBAC + HTTPS |
-| ARC-03 | Rendimiento bajo alta concurrencia | Latencia elevada y saturación de servicios | Alto | Redis Cache + Auto Scaling |
+| ARC-01 | Consistencia transaccional distribuida | Reservas duplicadas y pagos inconsistentes | Alto | Eventos compensatorios |
+| ARC-02 | Seguridad financiera | Robo de credenciales y accesos indebidos | Alto | OAuth2 + JWT + HTTPS |
+| ARC-03 | Rendimiento bajo alta concurrencia | Latencia elevada y saturación de servicios | Alto |  Auto Scaling |
 | ARC-04 | Complejidad operacional de microservicios | Dificultad de monitoreo y debugging | Alto | Observabilidad centralizada + tracing |
-| ARC-05 | Dependencia de servicios externos | Fallos en pasarelas de pago y APIs | Alto | Circuit Breaker + Retry Pattern |
+| ARC-05 | Dependencia de servicios externos | Fallos en pasarelas de pago y APIs | Alto | Retry Pattern |
 | ARC-06 | Evolución y mantenibilidad | Dependencias rígidas entre módulos | Alto | Arquitectura desacoplada + APIs versionadas |
 | ARC-07 | Observabilidad y monitoreo | Detección tardía de incidentes | Medio | Logs centralizados + métricas |
-| ARC-08 | Experiencia de usuario en tiempo real | Lentitud y retrasos de comunicación | Alto | WebSockets + Redis |
+| ARC-08 | Experiencia de usuario en tiempo real | Lentitud y retrasos de comunicación | Alto | MySQL |
 | ARC-09 | Gestión de datos híbridos | Inconsistencia entre SQL y NoSQL | Medio | Separación por dominios + eventos |
-| ARC-10 | Continuidad operacional | Caídas críticas del sistema | Alto | Multi-AZ + failover automático |
+| ARC-10 | Continuidad operacional | Caídas críticas del sistema | Alto | Azure failover |
 
 ---
 
@@ -2134,16 +2121,12 @@ La arquitectura propuesta incorpora patrones, tácticas y mecanismos específico
 
 | Concern Arquitectónico | Solución Implementada |
 |---|---|
-| Consistencia transaccional | Saga Pattern |
 | Seguridad financiera | API Gateway + OAuth2 |
-| Rendimiento concurrente | Redis + Load Balancer |
+| Rendimiento concurrente | Load Balancer (API Gateway) |
 | Complejidad distribuida | Centralized Logging |
-| Dependencia externa | Circuit Breaker |
 | Mantenibilidad | DDD + Microservices |
 | Observabilidad | Monitoring Stack |
-| Tiempo real | WebSockets |
-| Datos híbridos | Persistencia Políglota |
-| Continuidad operacional | Kubernetes + Replication |
+| Continuidad operacional |  Replication |
 
 ---
 
