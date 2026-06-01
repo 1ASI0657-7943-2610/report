@@ -3243,6 +3243,21 @@ En este sprint se iniciará el proceso de migración del sistema Finteka desde u
 
 #### 5.2.2.2 Development Evidence for Sprint Review
 
+En el presente sprint se logró desarrollar la primera versión de los microservicios de Finteka. Se identificaron y se empezaron a desarrollar cada uno de los microservicios como perfil, autenticación, reservas, valoración, entre otros. En la siguiente tabla, se podrá visualizar los commits más destacados de este sprint relacionado a los microservicios.
+
+| Repository   | Branch | Commit Id | Commit Message            | Commit Message Body               | Commited on (Date) |
+| ------------ | ------ | --------- | ------------------------- | --------------------------------- | ------------------ |
+| finteka-profile-service | main   | c9beceb   | Initial commit            | create the README.md              | 27/05/2026         |
+|              | main   | 46bc680   | Create profile-service         | create the profile-service             | 27/05/2026         |
+|              | main   | 2ad1e07   | feat: added application  | added the application carpet | 27/05/2026         |
+|              | main   | 9aa23w9   | feat: added domain | create the domain carpet          | 27/05/2026         |
+|              | main   | 09a0384   | feat: added interfaces    | create the interfaces carpet             | 27/05/2026         |
+|              | main   | 63ec60e   | feat: added infrastructure  | create the infrastructure carpet           | 27/05/2026         |
+|              | main   | 0d80fd8   | feat: added ProfileCommandService  | create the ProfileCommandService.java           | 27/05/2026         |
+|              | main   | 18ur0y5   | feat: added Profile  | create the Profile.java           | 27/05/2026         |
+|              | main   | 02a1d5s   | feat: added ProfileRepository  | create the ProfileRepository.java           | 27/05/2026         |
+|              | main   | 2awcw8s   | feat: added ProfileController  | create the ProfileController.java           | 27/05/2026         |
+
 #### 5.2.2.3 Testing Suite Evidence for Sprint Review
 
 #### 5.2.2.4 Execution Evidence for Sprint Review
