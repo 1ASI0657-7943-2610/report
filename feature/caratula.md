@@ -3261,9 +3261,9 @@ En este Bounded Context se gestiona la información de los consultores y de los 
 
 #### 5.2.2.7 Team Collaboration Insights during Sprint
 
-#### 5.2.2.8 Kanban Board --> (Avance 3)
+#### 5.2.2.8 Kanban Board 
 
-##
+
 # Conclusiones
 
 - En esta entrega se logró refinar los requisitos funcionales y no funcionales de FinTeka, permitiendo una definición más clara del alcance del sistema y de las funcionalidades prioritarias para el producto.
