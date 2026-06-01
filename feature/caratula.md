@@ -1387,11 +1387,11 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
   
 * Comunicación asincrónica sobre sincrónica. Para procesos que no requieren respuesta inmediata del usuario (como el envío de recordatorios automáticos de sesiones o la actualización de métricas de desempeño ), se privilegian mecanismos orientados a eventos mediante message brokers. Esto desacopla los servicios principales (como reservas y pagos) de los secundarios, aislando fallos y mejorando la escalabilidad.
 
-* Uso de tecnologías con soporte comercial y escalabilidad probada. Para garantizar un rendimiento óptimo, el desarrollo del frontend multiplataforma (móvil y web responsivo desde 360 px hasta 1920 px ) se apoya en Flutter y React, asegurando una experiencia de usuario fluida e interfaces dinámicas. En el backend, se implementan servicios en Python, ideales para el manejo ágil de la lógica de negocio y APIs REST documentadas con OpenAPI 3.0 / Swagger. Para la persistencia de datos relacionales transaccionales (como el historial de sesiones y pagos), se emplean motores robustos como PostgreSQL o MySQL.
+* Uso de tecnologías con soporte comercial y escalabilidad probada. Para garantizar un rendimiento óptimo, el desarrollo del frontend multiplataforma (móvil y web responsivo desde 360 px hasta 1920 px ) se apoya en Flutter y React, asegurando una experiencia de usuario fluida e interfaces dinámicas. En el backend, se implementan servicios en Java21, ideales para el manejo ágil de la lógica de negocio y APIs REST documentadas con OpenAPI 3.0 / Swagger. Para la persistencia de datos relacionales transaccionales (como el historial de sesiones y pagos), se emplean motores robustos como MySQL.
   
-* Seguridad y privacidad como principio transversal. La seguridad se aplica desde el diseño (Zero Trust). Toda comunicación entre cliente y servidor se realiza mediante HTTPS con TLS 1.2 o superior. Las contraseñas se almacenan utilizando algoritmos seguros como BCrypt. La autenticación es gestionada mediante la generación y validación de tokens de acceso y actualización , apoyada por un control de acceso basado en roles (RBAC) para diferenciar entre usuarios, consultores y administradores con una latencia de validación menor a 50 ms.
+* Seguridad y privacidad como principio transversal. La seguridad se aplica desde el diseño. Toda comunicación entre cliente y servidor se realiza mediante HTTPS con TLS 1.2 o superior. Las contraseñas se almacenan utilizando algoritmos seguros. La autenticación es gestionada mediante la generación y validación de tokens de acceso y actualización , apoyada por un control de acceso basado en roles para diferenciar entre usuarios, consultores y administradores con una latencia de validación menor a 50 ms.
 
-* Rendimiento y resiliencia bajo concurrencia. El sistema está diseñado para cumplir con estrictos Acuerdos de Nivel de Servicio (SLAs). Las búsquedas de especialistas se resuelven en un tiempo máximo de 2 segundos, y las confirmaciones de reservas en un máximo de 3 segundos para el 95% de las transacciones. Para lograr esto, se implementan timeouts, circuit breakers y bloqueos temporales de horarios en la base de datos para evitar conflictos o superposiciones en las reservas.
+* Rendimiento y resiliencia bajo concurrencia. El sistema está diseñado para cumplir con estrictos Acuerdos de Nivel de Servicio (SLAs). Las búsquedas de especialistas se resuelven en un tiempo máximo de 2 segundos, y las confirmaciones de reservas en un máximo de 3 segundos para el 95% de las transacciones. 
 
 * Observabilidad integrada desde el inicio. El sistema registra logs detallados de autenticación, reservas, errores y operaciones críticas (con niveles INFO, WARN y ERROR), conservando esta información por un mínimo de 90 días para facilitar la trazabilidad completa sobre cancelaciones, reprogramaciones y cambios de estado de sesiones.
 
@@ -1420,7 +1420,6 @@ Patrones de diseño y procesamiento
 
 * API Gateway Pattern: Centraliza las solicitudes de las aplicaciones móviles y web, encargándose del enrutamiento, validación de tokens de acceso y rate-limiting.
 * CQRS (Command Query Responsibility Segregation): Dado que en una plataforma de búsquedas (como FinTeka) la cantidad de lecturas (usuarios buscando consultores y filtrando tarifas) superará ampliamente a las escrituras (creación de reservas), CQRS permite separar las bases de datos optimizadas para búsqueda rápida de las bases de datos relacionales seguras utilizadas para transacciones financieras y reservas.
-* Saga Pattern (Coreography / Orchestration): Utilizado para gestionar el flujo transaccional distribuido de la reserva, asegurando que si el proceso de pago falla, el horario bloqueado temporalmente se libere automáticamente para mantener la consistencia del sistema.
 
 ## 4.1.3 Context Diagram
 
@@ -1590,20 +1589,11 @@ La entidad **PUBLICATIONS** representa la oferta de servicios del profesional. C
 
 Entre los patrones de diseño que emplearemos en el desarrollo de FinTeka destacan los siguientes:
 
-**Patrones creacionales**
-
-Los patrones creacionales permiten instanciar objetos de manera flexible y consistente, reduciendo el acoplamiento entre las clases que solicitan un objeto y las que lo construyen.
-
-* Builder Pattern. Este patrón ofrece un proceso de construcción paso a paso para objetos que requieren múltiples atributos o validaciones antes de quedar listos. Su uso facilita que las entidades complejas de FinTeka, por ejemplo, los perfiles de consultores (con especialidades, tarifas y certificaciones) o las solicitudes de reserva de sesiones, se creen de forma legible y segura, sin depender de constructores con demasiados parámetros.
-* Factory Method Pattern. El patrón de fábrica encapsula la lógica de creación en un método especializado que devuelve instancias preparadas para su uso. En FinTeka, esto brinda una interfaz uniforme para obtener objetos como distintos tipos de notificaciones (alertas de disponibilidad, recordatorios de sesión) o integraciones de métodos de pago, independientemente de la clase concreta que los implementa.
-
 **Patrones estructurales**
 
 Los patrones estructurales organizan las relaciones entre clases y componentes para hacerlas más comprensibles y extensibles.
 
-* Facade Pattern. Sirve para exponer una interfaz simplificada y unificada que agrupa operaciones internas complejas. Así, el frontend móvil y web puede interactuar con el dominio de FinTeka (por ejemplo, el proceso unificado de buscar disponibilidad, agendar y pagar) sin conocer el detalle de los microservicios subyacentes, favoreciendo la mantenibilidad.
-* Adapter Pattern. Este patrón traduce o adapta la interfaz de un componente externo para que encaje con las necesidades del sistema. En FinTeka será vital para integrar servicios de terceros, como pasarelas de pago para el cobro de comisiones o proveedores de servicios de correo/SMS, evitando reescribir código interno si el proveedor externo cambia.
-* Repository Pattern. El repositorio abstrae el acceso a la base de datos (PostgreSQL/MySQL) y separa las consultas y persistencia de las reglas de negocio. Esta separación mejora las pruebas unitarias y reduce la duplicación de lógica al guardar el historial de sesiones o actualizar la reputación de los consultores.
+* Repository Pattern. El repositorio abstrae el acceso a la base de datos (MySQL) y separa las consultas y persistencia de las reglas de negocio. Esta separación mejora las pruebas unitarias y reduce la duplicación de lógica al guardar el historial de sesiones o actualizar la reputación de los consultores.
 
 **Patrones de comportamiento**
 
@@ -1611,10 +1601,6 @@ Los patrones de comportamiento definen cómo colaboran los objetos y encapsulan 
 
 * Command Pattern (CQRS). El patrón Command encapsula cada operación de escritura en FinTeka (ej. registrar especialista, confirmar reserva, procesar pago) en un objeto propio. Esto permite desacoplar la solicitud de la acción de su ejecución, lo que favorece el escalamiento y la integración con colas de mensajes para flujos asincrónicos.
 * Query Pattern (CQRS complementario). Al separar las consultas de lectura (ej. filtrar consultores por tarifa, ver historial de asesorías) de los comandos de escritura, se obtiene mayor rendimiento y claridad, algo crítico en el módulo de Search & Profile de la plataforma.
-* Strategy Pattern. Este patrón encapsula algoritmos intercambiables. En FinTeka, permite cambiar la estrategia en tiempo de ejecución, por ejemplo, alternar entre distintos algoritmos de ordenamiento de especialistas (por precio, por calificación, por disponibilidad) o distintas estrategias de cálculo de comisiones sin alterar el resto del código.
-* Template Method Pattern. Define en una clase base la estructura general de un proceso, delegando en las subclases los pasos específicos. Se emplea para estandarizar el ciclo de vida de las sesiones en FinTeka (Pendiente, Confirmada, En curso, Completada, Cancelada) y asegurar que las auditorías de estado se ejecuten uniformemente.
-* Observer Pattern (Eventos de Dominio). Implementa un mecanismo de publicación-suscripción para reaccionar a cambios en el estado de las entidades. En FinTeka, cuando se emite el evento "PagoProcesado", el sistema notifica automáticamente al módulo de reservas para confirmar la cita y al módulo de comunicación para enviar el recordatorio, manteniendo un bajo acoplamiento.
-* Service Layer Pattern. La capa de servicios orquesta el uso de repositorios, fábricas y comandos, aislando la lógica de aplicación (como la coordinación entre la pasarela de pagos y la agenda del consultor) del resto de componentes, lo que facilita pruebas y asegura la coherencia del negocio.
 
 **Disponibilidad**
 
@@ -1635,11 +1621,9 @@ Los patrones de comportamiento definen cómo colaboran los objetos y encapsulan 
 **Usabilidad**
 
 * Realización de pruebas de usabilidad con profesionales y usuarios reales, validando que el proceso de agendar una sesión tome la menor cantidad de pasos posibles y que el panel de gestión del consultor sea intuitivo.
-* Incorporación de retroalimentación directa de los usuarios para ajustar los filtros de búsqueda, el diseño visual (incluyendo el Modo Oscuro/Claro) y la claridad de la información en los perfiles.
 
 **Seguridad**
 
-* Implementación de medidas Zero Trust, autenticación con tokens, autorización basada en roles (RBAC) y cifrado TLS 1.2 para proteger cuentas de usuarios, historiales de asesoría y datos de tarjetas de crédito.
 * Realización de auditorías de seguridad regulares y control estricto de accesos para proteger la plataforma frente a intentos de fraude, suplantación de consultores o vulneración de datos personales.
 
 ## 4.1.7 Tactics 
