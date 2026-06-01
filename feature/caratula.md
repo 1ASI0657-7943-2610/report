@@ -3231,7 +3231,37 @@ En este Bounded Context se gestiona la información de los consultores y de los 
 
 ### 5.2.1.6 Software Deployment Evidence for Sprint Review
 
+### 5.2.2 Sprint 2
 
+#### 5.2.2.1 Sprint Backlog 2
+
+| Sprint | User Story | Work-Item / Task | Description | Est. Hours | Assigned To | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Sprint 2 | Infraestructura Microservicios | T012 — Setup Service Registry | Configuración de Eureka Server para el registro y descubrimiento de los microservicios. | 6 | Backend Team | To Do |
+| Sprint 2 | Infraestructura Microservicios | T013 — Setup Config Server | Implementación de servidor de configuración centralizada para los microservicios. | 5 | Backend Team | To Do |
+| Sprint 2 | Infraestructura Microservicios | T014 — Setup API Gateway | Configuración de Spring Cloud Gateway para el enrutamiento y validación de tokens JWT. | 8 | Backend Team | To Do |
+| Sprint 2 | Migración Bounded Context Profile | T015 — Extracción de Microservicio Profile | Separación de la lógica y base de datos de perfiles del monolito hacia su propio microservicio. | 12 | Backend Team | To Do |
+| Sprint 2 | Migración Bounded Context Profile | T016 — Refactorización UI Profile | Actualización de endpoints en Vue.js para consumir el nuevo microservicio a través del API Gateway. | 8 | Frontend Team | To Do |
+| Sprint 2 | US010 — Gestión de disponibilidad | T017 — Endpoints de disponibilidad | Implementar `POST` y `GET /api/availability` para registrar y consultar bloques de horarios en la BD. | 8 | Backend Team | To Do |
+| Sprint 2 | US010 — Gestión de disponibilidad | T018 — UI Calendario Profesional | Diseñar e implementar componente interactivo en Vue para que el profesional seleccione sus horas libres. | 10 | Frontend Team | To Do |
+| Sprint 2 | US010 — Gestión de disponibilidad | T019 — Integración de disponibilidad | Conectar el calendario del frontend con el backend y manejar validaciones de horarios. | 6 | Frontend Team | To Do |
+| Sprint 2 | US012 — Agendamiento de sesiones | T020 — Endpoint de reservas | Implementar `POST /api/reservations` validando el cruce de horarios y cambiando el estado a "Pendiente". | 10 | Backend Team | To Do |
+| Sprint 2 | US012 — Agendamiento de sesiones | T021 — UI Formulario de reserva | Crear vista para el cliente con selector de fecha, hora disponible y confirmación de la cita. | 8 | Frontend Team | To Do |
+| Sprint 2 | US012 — Agendamiento de sesiones | T022 — Testing de concurrencia en reservas | Validar el comportamiento del sistema cuando dos clientes intentan agendar el mismo horario simultáneamente. | 6 | QA Team | To Do |
+
+#### 5.2.2.2 Development Evidence for Sprint Review
+
+#### 5.2.2.3 Testing Suite Evidence for Sprint Review
+
+#### 5.2.2.4 Execution Evidence for Sprint Review
+
+#### 5.2.2.5 Microservices Documentation Evidence for Sprint Review
+
+#### 5.2.2.6 Software Deployment Evidence for Sprint Review
+
+#### 5.2.2.7 Team Collaboration Insights during Sprint
+
+#### 5.2.2.8 Kanban Board --> (Avance 3)
 
 ##
 # Conclusiones
