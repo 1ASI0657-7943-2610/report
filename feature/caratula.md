@@ -3285,7 +3285,13 @@ En este Bounded Context se gestiona la información de los consultores y de los 
 #### 5.2.2.7 Team Collaboration Insights during Sprint
 
 #### 5.2.2.8 Kanban Board 
+Para la gestión y seguimiento del Sprint 2, se organizó el tablero en Trello dividiendo las tareas de infraestructura, migración del Bounded Context Profile y las historias de usuario `US010` y `US012` en los estados correspondientes de flujo de trabajo:
 
+<p align="center">
+  <img src="https://res.cloudinary.com/dx0i2vioe/image/upload/v1780305559/Captura_de_pantalla_2026-06-01_a_la_s_4.19.13_a._m._z0uizz.png" alt="Tablero Kanban Trello Sprint 2" width="80%"/>
+</p>
+
+Link del tablero trello: https://trello.com/invite/b/6a1d44fd1bf4c73a46a3438b/ATTI70f9d23817b78033b17aaba229689b99DF1DBA78/kanban-board
 
 # Conclusiones
 
