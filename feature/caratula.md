@@ -3262,8 +3262,13 @@ En el presente sprint se logró desarrollar la primera versión de los microserv
 
 #### 5.2.2.4 Execution Evidence for Sprint Review
 
+Durante el primer sprint, se lograron varios hitos importantes en el desarrollo de los microservicios en Finteka. A continuación, se presenta un resumen de los logros alcanzados:
+
+Microservicio perfiles:
+![sprint2micro_profile.png](../assets/sprint2micro_profile.png)
 
 #### 5.2.2.5 Microservices Documentation Evidence for Sprint Review
+
 En este punto se detallan los microservicios desarrollados durante el presente sprint. Se implementaron los módulos de Profile y Gestión de Reservas, encargados de la administración de perfiles de usuario y de las operaciones relacionadas con las reservas. Asimismo, se configuraron los componentes de infraestructura necesarios para la arquitectura de microservicios, incluyendo el servicio de Registry para el registro de servicios, el servicio de Config para la gestión centralizada de configuraciones y el API Gateway para el enrutamiento y control de las solicitudes hacia los distintos microservicios.
 
 #### Bounded Context Profile
