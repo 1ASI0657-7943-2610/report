@@ -3210,7 +3210,7 @@ Frontend desplegado: https://frontend-finteka.vercel.app/
 ![sprint1cola2.jpeg](../assets/sprint1cola2.jpeg)
 ![sprint1cola.jpeg](../assets/sprint1cola.jpeg)
 
-### 5.3.1.8 Kanban Board
+### 5.2.1.8 Kanban Board
 Para organizar las tareas del frontend y backend de FinTeka utilizamos Trello. Con esta herramienta gestionamos y damos seguimiento a las actividades planificadas para este primer Sprint.
 
 ![trellos1.jpeg](../assets/trellos1.jpeg)
@@ -3222,19 +3222,6 @@ Link del tablero trello: https://trello.com/invite/b/69f6574d811b27877f919b44/AT
 
 ## 5.2.2 Sprint 2
 En este sprint se iniciará el proceso de migración del sistema Finteka desde una arquitectura monolítica hacia una arquitectura de microservicios, con el objetivo de mejorar la escalabilidad, mantenibilidad y flexibilidad de la plataforma. Asimismo, se utilizarán los servicios en la nube proporcionados por Microsoft Azure para el despliegue del backend, mientras que el frontend será desplegado mediante Firebase, aprovechando sus capacidades de alojamiento y gestión de aplicaciones web.
-
-### 5.2.1.5 Microservices Documentation Evidence for Sprint Review
-En este punto se detallan los microservicios desarrollados durante el presente sprint. Se implementaron los módulos de Profile y Gestión de Reservas, encargados de la administración de perfiles de usuario y de las operaciones relacionadas con las reservas. Asimismo, se configuraron los componentes de infraestructura necesarios para la arquitectura de microservicios, incluyendo el servicio de Registry para el registro de servicios, el servicio de Config para la gestión centralizada de configuraciones y el API Gateway para el enrutamiento y control de las solicitudes hacia los distintos microservicios.
-
-#### Bounded Context Profile
-
-En este Bounded Context se gestiona la información de los consultores y de los usuarios que requieren asesoría. Los datos serán registrados en la base de datos cuando un usuario se registre en la plataforma Finteka. Asimismo, el sistema brindará la opción de visualizar y actualizar dicha información a través del frontend.
-
-![sprint2micro_profile.png](../assets/sprint2micro_profile.png)
-
-### 5.2.1.6 Software Deployment Evidence for Sprint Review
-
-### 5.2.2 Sprint 2
 
 #### 5.2.2.1 Sprint Backlog 2
 
@@ -3258,9 +3245,20 @@ En este Bounded Context se gestiona la información de los consultores y de los 
 
 #### 5.2.2.4 Execution Evidence for Sprint Review
 
+
 #### 5.2.2.5 Microservices Documentation Evidence for Sprint Review
+En este punto se detallan los microservicios desarrollados durante el presente sprint. Se implementaron los módulos de Profile y Gestión de Reservas, encargados de la administración de perfiles de usuario y de las operaciones relacionadas con las reservas. Asimismo, se configuraron los componentes de infraestructura necesarios para la arquitectura de microservicios, incluyendo el servicio de Registry para el registro de servicios, el servicio de Config para la gestión centralizada de configuraciones y el API Gateway para el enrutamiento y control de las solicitudes hacia los distintos microservicios.
+
+#### Bounded Context Profile
+
+En este Bounded Context se gestiona la información de los consultores y de los usuarios que requieren asesoría. Los datos serán registrados en la base de datos cuando un usuario se registre en la plataforma Finteka. Asimismo, el sistema brindará la opción de visualizar y actualizar dicha información a través del frontend.
+
+![sprint2micro_profile.png](../assets/sprint2micro_profile.png)
 
 #### 5.2.2.6 Software Deployment Evidence for Sprint Review
+
+
+
 
 #### 5.2.2.7 Team Collaboration Insights during Sprint
 
