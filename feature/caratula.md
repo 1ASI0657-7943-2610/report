@@ -142,7 +142,7 @@
       <td>Corrección de los diagramas c4</td>
     </tr>
     <tr>
-      <td>-</td>
+      <td>07/05/2026</td>
       <td>Montes Maza, Augusto Sebastian</td>
       <td>Desarrollo del punto 5.2 y correciones en base a feedback</td>
     </tr>
