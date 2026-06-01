@@ -3283,8 +3283,26 @@ En este Bounded Context se gestiona la información de los consultores y de los 
 
 
 #### 5.2.2.7 Team Collaboration Insights during Sprint
+El desarrollo del Sprint 2 demandó una rigurosa coordinación interfuncional dentro del equipo de Finteka, impulsada principalmente por el desafío técnico que conlleva fragmentar código de producción vivo.
 
-#### 5.2.2.8 Kanban Board 
+---
+
+##### 1. Coordinación Técnica Basada en Capas y Arquitectura Limpia
+La colaboración dentro del equipo de Backend fue crucial el día **27/05/2026**, fecha en la que se integraron los pilares del repositorio `finteka-profile-service`. El equipo dividió de manera organizada las tareas de desarrollo para dar cumplimiento a los patrones de diseño establecidos: 
+
+* **Célula de desarrollo core:** Estructuraba las capas internas del microservicio (`domain` e `infrastructure`).
+* **Ingenieros de soporte:** Desplegaban la configuración de comunicación perimetral externa (`Eureka` y `Spring Cloud Gateway`), logrando un ensamble limpio sin generar conflictos de código fuente.
+
+##### 2. Adopción del Enfoque API-First para Evitar Bloqueos
+Para maximizar la productividad y evitar que el equipo de Frontend fuera bloqueado por los desarrollos del Backend, se implementó una estrategia de diseño anticipado de contratos de API. Gracias a esto, el equipo Frontend pudo diseñar de manera independiente:
+
+* El componente interactivo del **Calendario Profesional (T018)**.
+* La interfaz del **Formulario de reserva (T021)** usando datos estáticos simulados (*mockings*), mientras los desarrolladores de Backend culminaban la persistencia real de las rutas de la API en la base de datos.
+
+##### 3. Prevención de Riesgos de Concurrencia por la Célula de QA
+El equipo de Aseguramiento de la Calidad (QA) lideró sesiones de diseño técnico preventivo con el fin de modelar el comportamiento transaccional de la historia de usuario **US012** (Agendamiento de sesiones).
+
+##### 5.2.2.8 Kanban Board 
 Para la gestión y seguimiento del Sprint 2, se organizó el tablero en Trello dividiendo las tareas de infraestructura, migración del Bounded Context Profile y las historias de usuario `US010` y `US012` en los estados correspondientes de flujo de trabajo:
 
 <p align="center">
