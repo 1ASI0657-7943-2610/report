@@ -3142,6 +3142,7 @@ El Sprint 1 tiene una duración estimada de **2 semanas (10 días hábiles)**, c
 **And** los nuevos datos permanecen actualizados.<br><br>
 
 ---
+```gherkin
 
 #### Scenario: Error al actualizar perfil con datos inválidos<br>
 **ID:** FIN-US-005<br>
@@ -3152,6 +3153,8 @@ El Sprint 1 tiene una duración estimada de **2 semanas (10 días hábiles)**, c
 **Then** el sistema rechaza la actualización<br>
 **And** muestra un mensaje indicando el error<br>
 **And** mantiene la información anterior sin cambios.<br><br>
+
+```
 
 ###  5.2.1.4 Execution Evidence for Sprint Review
 
