@@ -1627,35 +1627,20 @@ Los patrones de comportamiento definen cómo colaboran los objetos y encapsulan 
 
 ## 4.1.7 Tactics 
 
-Las tácticas arquitecturales son las decisiones técnicas concretas implementadas para satisfacer los Atributos de Calidad (Quality Attributes) exigidos por el ecosistema de **Finteka**. Estas decisiones permiten que el sistema sea resiliente, seguro y eficiente bajo las condiciones operativas de Nova Asesors.
+Las tácticas arquitecturales son las decisiones técnicas concretas implementadas para satisfacer los Atributos de Calidad (Quality Attributes) exigidos por el ecosistema de **Finteka**. Estas decisiones permiten que el sistema sea resiliente, seguro y eficiente bajo las condiciones operativas de Finteka.
 
-#### Mapa de Tácticas Arquitecturales
-
-![Mapa de Tácticas Arquitecturales - Finteka](https://res.cloudinary.com/dx0i2vioe/image/upload/f_auto,q_auto/Captura_de_pantalla_2026-04-27_a_la_s_5.12.24_a._m._mk0dic)
-
-#### Justificación Técnica (Basada en los RNF del Proyecto)
 
 Para garantizar que la arquitectura soporte los requerimientos no funcionales (RNF) detallados en el proyecto, se han aplicado las siguientes tácticas:
 
-**A. SEGURIDAD (Security)**
-* **Táctica:** *Authenticate Actors / Authorize.*
-* **Implementación:** Se implementa una **Autenticación Descentralizada** mediante el estándar **OAuth2** utilizando tokens **JWT (JSON Web Tokens)**. 
-* **Justificación:** Dado el carácter financiero de la aplicación, es imperativo asegurar que cada petición sea legítima. Se utiliza **RBAC (Control de Acceso Basado en Roles)** para diferenciar las capacidades entre Clientes y Asesores, protegiendo los endpoints sensibles de la API mediante un API Gateway (ej. Kong o AWS API Gateway).
+A continuación, se presenta la táctica que se utilizará para cada atributo de calidad.
 
-**B. DISPONIBILIDAD (Availability)**
-* **Táctica:** *Active Redundancy (Failover).*
-* **Implementación:** La base de datos relacional core y los microservicios se despliegan en una arquitectura **Multi-AZ (Multi-Availability Zones)** con replicación síncrona.
-* **Justificación:** El sistema debe garantizar un punto de recuperación de datos igual a cero (**RPO=0**). En caso de una caída en la zona principal, el balanceador de carga redirige el tráfico a la zona de reserva de forma transparente, asegurando la continuidad del servicio para las postulaciones y sesiones.
+#### Seguridad
 
-**C. RENDIMIENTO (Performance)**
-* **Táctica:** *Manage Resources (Caching).*
-* **Implementación:** Uso de **Redis Caching** como capa de almacenamiento en memoria para datos de lectura intensiva.
-* **Justificación:** Para satisfacer los requerimientos de latencia ultra-baja (respuesta de API **<1s**), se cachean consultas frecuentes como los perfiles de asesores, balances de cuentas y bloques de disponibilidad. Esto reduce la carga sobre la base de datos relacional y acelera la experiencia del usuario en la aplicación móvil.
-
-**D. INTEGRABILIDAD (Integrability)**
-* **Táctica:** *External Integration Layer.*
-* **Implementación:** Uso de microservicios especializados para la comunicación con pasarelas de pago externas y servicios de notificación.
-* **Justificación:** Permite que Finteka interactúe con sistemas de terceros (ej. Stripe o PayPal) de forma desacoplada, facilitando el cobro de comisiones y la confirmación de asesorías sin comprometer la estabilidad del núcleo del sistema.
+#### Rendimiento
+#### Disponibilidad
+#### Usabilidad
+#### Mantenibilidad
+#### Escalabilidad
 
 ### 4.1.8 Design Purpose
 
@@ -3244,9 +3229,18 @@ En este Bounded Context se gestiona la información de los consultores y de los 
 
 ![sprint2micro_profile.png](../assets/sprint2micro_profile.png)
 
+#### Bounded Context Iam
+
+
+En este Bounded Context se asignan los roles de usuario y se gestiona la autenticación y autorización de los usuarios en la plataforma Finteka. Se usa bcrypt para el cifrado de contraseñas y JWT para la generación de tokens de acceso, asegurando así la protección de las credenciales y la seguridad en las comunicaciones entre el frontend y el backend.
+
+![iamscreen.png](../assets/iamscreen.png)
+
 #### 5.2.2.6 Software Deployment Evidence for Sprint Review
 
 
+![sprint2micro_profile.png](../assets/sprint2micro_profile.png)
+![iamscreen.png](../assets/iamscreen.png)
 
 
 #### 5.2.2.7 Team Collaboration Insights during Sprint
