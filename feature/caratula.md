@@ -1643,15 +1643,42 @@ A continuación, se presenta la táctica que se utilizará para cada atributo de
 
 #### SEGURIDAD 
 
+* Autenticación de usuarios mediante roles diferenciados (usuario, consultor, administrador) y control de permisos según funciones.
+* Protección de información sensible con cifrado tanto en tránsito como en almacenamiento.
+* Verificación de identidad reforzada para consultores y administradores mediante 2FA.
+* Escaneo y actualización periódica de componentes para prevenir vulnerabilidades.
+* Mecanismos de detección de accesos inusuales y prevención de fraudes en reservas y pagos
+
+
 #### DISPONIBILIDAD 
+
+* Distribución de la carga de usuarios entre múltiples servidores para evitar interrupciones en picos de tráfico.
+*¨Alertas automáticas y monitorización de servicios críticos como reservas, pagos y motor de búsqueda de especialistas.
+* Diseño de infraestructura redundante, de manera que fallos en un servicio no afecten la operación general.
+* Respaldos frecuentes de la base de datos para asegurar la continuidad del servicio en caso de incidentes.
 
 #### RENDIMIENTO 
 
+* Implementación de RabbitMQ como message broker para gestionar tareas asíncronas, evitando que procesos como envío de correos, notificaciones, generación de reportes o actualizaciones de reputación afecten los tiempos de respuesta al usuario.
+* Uso de colas de mensajes para desacoplar procesos de alta carga y optimizar el procesamiento de solicitudes concurrentes.
+* Monitorización continua de las colas para identificar cuellos de botella y garantizar tiempos de respuesta estables.
+
 #### ESCALABILIDAD 
+* Utilización de RabbitMQ para distribuir eventos y tareas entre múltiples consumidores, permitiendo incrementar la capacidad de procesamiento conforme aumente la demanda.
+* Escalado independiente de servicios consumidores de mensajes, evitando afectar otros módulos de la plataforma.
+* Soporte para arquitecturas orientadas a eventos, facilitando la incorporación de nuevos servicios sin modificar los existentes.
 
 #### INTEGRABILIDAD 
+* APIs REST para permitir conexión con sistemas externos, como pasarelas de pago o CRM de consultores.
+* Soporte para intercambio de información estándar entre plataformas de terceros.
+* Eventos y notificaciones que facilitan la sincronización con otras aplicaciones en tiempo real.
+* Código modular que facilita la implementación de nuevas funcionalidades y servicios complementarios.
 
 #### AUDITABILIDAD 
+* Registro detallado de acciones clave, incluyendo reservas, pagos, cambios de perfil y cancelaciones.
+* Historial completo de interacciones entre usuarios y consultores, garantizando trazabilidad y resolución de conflictos.
+* Generación de reportes periódicos para control interno y supervisión administrativa.
+* Gestión de accesos y retención de datos sensibles conforme a normativas de privacidad y seguridad.
 
 ### 4.1.8 Design Purpose
 
