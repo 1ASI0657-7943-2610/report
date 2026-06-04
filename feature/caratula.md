@@ -2155,6 +2155,8 @@ Esto garantiza que la arquitectura de FinTeka responda adecuadamente a:
 
 
 ## 4.2 Architectural Drivers
+## 4.3.1 Iteration 1: Sprint1
+##  4.3.1.1 Architectural Design Backlog 1
 
 Los *Architectural Drivers* representan los factores críticos que influyen directamente en las decisiones de diseño de la arquitectura de **FinTeka**. Estos drivers permiten priorizar atributos de calidad, restricciones técnicas y necesidades del negocio para asegurar que la solución responda adecuadamente a los objetivos funcionales y no funcionales del proyecto.
 
