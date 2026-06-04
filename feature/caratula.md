@@ -1641,17 +1641,17 @@ Para garantizar que la arquitectura soporte los requerimientos no funcionales (R
 
 A continuación, se presenta la táctica que se utilizará para cada atributo de calidad.
 
-####SEGURIDAD 
+#### SEGURIDAD 
 
-####DISPONIBILIDAD 
+#### DISPONIBILIDAD 
 
-####RENDIMIENTO 
+#### RENDIMIENTO 
 
-####ESCALABILIDAD 
+#### ESCALABILIDAD 
 
-####INTEGRABILIDAD 
+#### INTEGRABILIDAD 
 
-AUDITABILIDAD 
+#### AUDITABILIDAD 
 
 ### 4.1.8 Design Purpose
 
