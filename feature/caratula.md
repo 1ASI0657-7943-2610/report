@@ -1641,13 +1641,17 @@ Para garantizar que la arquitectura soporte los requerimientos no funcionales (R
 
 A continuación, se presenta la táctica que se utilizará para cada atributo de calidad.
 
-#### Seguridad
+####SEGURIDAD 
 
-#### Rendimiento
-#### Disponibilidad
-#### Usabilidad
-#### Mantenibilidad
-#### Escalabilidad
+####DISPONIBILIDAD 
+
+####RENDIMIENTO 
+
+####ESCALABILIDAD 
+
+####INTEGRABILIDAD 
+
+AUDITABILIDAD 
 
 ### 4.1.8 Design Purpose
 
@@ -1710,7 +1714,7 @@ La arquitectura basada en microservicios, API Gateway y despliegues distribuidos
 
 ---
 
-### A. SEGURIDAD (Security)
+### A. SEGURIDAD 
 
 La seguridad representa uno de los atributos críticos del ecosistema FinTeka debido a que la plataforma administra:
 - información financiera,
@@ -1801,7 +1805,7 @@ FinTeka diferencia:
 
 ---
 
-### B. DISPONIBILIDAD (Availability)
+### B. DISPONIBILIDAD 
 
 La disponibilidad es esencial debido a que FinTeka ofrece:
 - reservas en tiempo real,
@@ -1855,7 +1859,7 @@ El uso de contenedores permite:
 
 ---
 
-### C. RENDIMIENTO (Performance)
+### C. RENDIMIENTO
 
 La experiencia del usuario depende directamente de la capacidad del sistema para responder rápidamente frente a:
 - búsquedas,
@@ -1916,7 +1920,7 @@ Esto garantiza una experiencia fluida en la interacción cliente-consultor.
 
 ---
 
-### D. ESCALABILIDAD (Scalability)
+### D. ESCALABILIDAD 
 
 FinTeka debe soportar crecimiento continuo de:
 - usuarios,
@@ -1952,7 +1956,7 @@ Cada microservicio puede crecer independientemente según la demanda.
 
 ---
 
-### E. INTEGRABILIDAD (Integrability)
+### E. INTEGRABILIDAD 
 
 FinTeka depende de múltiples servicios externos:
 - pasarelas de pago,
@@ -1986,7 +1990,7 @@ Esto evita propagar fallos hacia el núcleo del sistema.
 
 ---
 
-### F. AUDITABILIDAD (Auditability)
+### F. AUDITABILIDAD 
 
 La auditabilidad permite garantizar:
 - trazabilidad,
