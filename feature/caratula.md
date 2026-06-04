@@ -2525,18 +2525,6 @@ Estas decisiones arquitectónicas buscan asegurar que la plataforma pueda operar
 
   podrán incrementar instancias automáticamente según métricas de utilización.
 
-* Redis será utilizado como capa de caché distribuida para reducir carga sobre la base de datos relacional.
-* La persistencia políglota permitirá separar:
-  - operaciones transaccionales críticas,
-  - datos no estructurados,
-  - mensajería en tiempo real,
-  - auditoría.
-
-* La plataforma utilizará Kubernetes para:
-  - orquestación,
-  - autoescalado,
-  - balanceo interno,
-  - recuperación automática.
 
 * El sistema deberá soportar crecimiento progresivo de:
   - usuarios concurrentes,
@@ -2598,6 +2586,37 @@ Para controlar las tareas en esta primera iteracion usamos la herramienta trello
 ![trello1.jpeg](../assets/trello1.jpeg)
 
 Link del trablero trello: https://trello.com/invite/b/69f6574d811b27877f919b44/ATTI455d8960b544133b522a03a00ce8bfcfE7BD0119/fundamentos-iteration-1
+
+
+
+##  4.3.2 Iteration 2: Sprint2
+
+###  4.3.2.1 Architectural Design Backlog 2
+
+Para la segunda iteración se priorizará la migración del backend monolítico hacia una arquitectura basada en microservicios. Para ello, se realizará la descomposición del monolito con el objetivo de identificar y separar los distintos dominios del sistema. Asimismo, se iniciará el desarrollo de los microservicios de IAM (Identity and Access Management) y Profiles, encargados de la gestión de autenticación, autorización y perfiles de usuario. Adicionalmente, estos servicios serán integrados mediante un API Gateway para centralizar el acceso a las APIs, y se llevará a cabo su despliegue en la plataforma cloud de Microsoft Azure
+
+* Desarrollo del microservicio IAM (Identity and Access Management) para gestionar autenticación, autorización y roles de usuario en Springboot.
+* Desarrollo del microservicio Profiles para gestionar la información de los usuarios y consultores en Springboot.
+* Implementacion de API Gateway.
+* Desarrollo de message broker RabbitMq para comunicacion asincrona 
+* Pruebas unitarias 
+* Documentacion de APIs con OpenAPI/Swagger.
+* Despliegue de microservicios en Microsoft Azure utilizando contenedores Docker.
+
+
+### 4.3.2.2 Establish Iteration Goal by Selecting Drivers
+
+En este punto se establecen los drivers arquitectónicos prioritarios para la segunda iteración, los cuales guiarán las decisiones de diseño y desarrollo del sistema. 
+
+
+| Tipo de Driver | Driver Seleccionado | Descripcion                                                   |
+| :--- |:--------------------|:--------------------------------------------------------------|
+| Atributo de Calidad | Rendimiento         |  |
+| Atributo de Calidad | Seguridad           |       |
+| Atributo de Calidad | Disponibilidad      |      |
+| Atributo de Calidad |             |    |
+
+
 # Capítulo V: Product Implementation, Validation & Deployment
 
 # 5.1 Testing Suites & General Patterns
