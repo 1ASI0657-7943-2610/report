@@ -1004,7 +1004,6 @@ Las funcionalidades relacionadas con:
 presentan alta frecuencia e importancia, por lo que tienen impacto directo en la priorización técnica y arquitectónica del sistema.
 
 Esto justifica decisiones como:
-- uso de Redis para optimizar consultas frecuentes,
 - persistencia relacional para reservas y pagos,
 - integración desacoplada con pasarelas externas,
 
@@ -1898,11 +1897,7 @@ La arquitectura busca minimizar:
 
 ###### Justificación Técnica
 
-Redis permite:
-- almacenar consultas frecuentes,
-- reducir carga SQL,
-- acelerar respuestas,
-- mejorar experiencia web.
+
 
 La arquitectura utiliza:
 - expiración controlada,
@@ -2230,9 +2225,7 @@ La plataforma debe permanecer operativa incluso ante:
 
 - Arquitectura distribuida basada en microservicios.
 - Despliegue Multi-AZ.
-- Balanceadores de carga.
-- Failover automático.
-- Contenedores Docker y orquestación Kubernetes.
+- Uso de contenedores de docker.
 
 ---
 
@@ -2298,10 +2291,8 @@ La arquitectura debe proteger:
 #### Decisiones Arquitectónicas Relacionadas
 
 - OAuth2 y JWT para autenticación.
-- RBAC para autorización.
 - API Gateway para protección centralizada.
-- HTTPS/TLS en todas las comunicaciones.
-- Auditoría y trazabilidad desacoplada.
+- HTTPS en todas las comunicaciones.
 
 ---
 
@@ -2332,8 +2323,6 @@ La solución debe escalar horizontalmente sin rediseñar el núcleo del sistema.
 
 - Microservicios independientes.
 - Autoescalado horizontal.
-- Persistencia políglota.
-- Redis como capa de caché distribuida.
 - Procesamiento asíncrono mediante eventos.
 
 ---
@@ -2352,11 +2341,10 @@ La solución debe escalar horizontalmente sin rediseñar el núcleo del sistema.
 
 | Driver Arquitectónico | Decisión Arquitectónica Principal |
 |---|---|
-| Usability | Frontend responsive + Redis Cache |
-| Availability | Multi-AZ + Kubernetes |
+| Usability | Frontend responsive  |
 | Modifiability | Microservicios + DDD |
 | Security | OAuth2 + JWT + API Gateway |
-| Scalability | Autoescalado + Persistencia Políglota |
+| Scalability | Autoescalado  |
 
 ---
 
