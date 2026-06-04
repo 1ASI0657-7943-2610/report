@@ -28,6 +28,7 @@
 </div>
 
 <div align="center">
+
   
 <br>
 <br>
@@ -1600,7 +1601,7 @@ Entre los patrones de diseño que emplearemos en el desarrollo de FinTeka destac
 Los patrones estructurales organizan las relaciones entre clases y componentes para hacerlas más comprensibles y extensibles.
 
 * Repository Pattern. El repositorio abstrae el acceso a la base de datos (MySQL) y separa las consultas y persistencia de las reglas de negocio. Esta separación mejora las pruebas unitarias y reduce la duplicación de lógica al guardar el historial de sesiones o actualizar la reputación de los consultores.
-
+* Adapter Pattern. Permite integrar servicios externos como pasarelas de pago, sistemas de mensajería o proveedores de analítica, sin modificar la lógica interna de FinTeka.
 **Patrones de comportamiento**
 
 Los patrones de comportamiento definen cómo colaboran los objetos y encapsulan algoritmos para lograr mayor flexibilidad.
@@ -1608,29 +1609,11 @@ Los patrones de comportamiento definen cómo colaboran los objetos y encapsulan 
 * Command Pattern (CQRS). El patrón Command encapsula cada operación de escritura en FinTeka (ej. registrar especialista, confirmar reserva, procesar pago) en un objeto propio. Esto permite desacoplar la solicitud de la acción de su ejecución, lo que favorece el escalamiento y la integración con colas de mensajes para flujos asincrónicos.
 * Query Pattern (CQRS complementario). Al separar las consultas de lectura (ej. filtrar consultores por tarifa, ver historial de asesorías) de los comandos de escritura, se obtiene mayor rendimiento y claridad, algo crítico en el módulo de Search & Profile de la plataforma.
 
-**Disponibilidad**
+**Patrones creacionales** 
 
-* Uso de técnicas de balanceo de carga en el API Gateway para asegurar que el buscador de especialistas y los perfiles se mantengan accesibles y con tiempos de respuesta menores a 2 segundos, incluso en picos de tráfico.
-* Implementación de sistemas de monitorización y alertas tempranas (mediante logs de niveles INFO, WARN, ERROR) que detecten caídas en servicios críticos como el motor de reservas o la pasarela de pagos.
+* Factory Pattern. Se utilizará para la creación de objetos relacionados con los usuarios de la plataforma: Usuario, Consultor o Administrador.
+* Singleton Pattern. Implementado para servicios críticos como el Payment Service o el Search , asegurando que exista una única instancia gestionando las transacciones o consultas, evitando inconsistencias y reduciendo consumo de recursos.
 
-**Fiabilidad**
-
-* Realización de pruebas exhaustivas de software sobre los módulos de transacciones financieras y validación de cruces de horarios, para identificar y corregir errores antes de que afecten la reserva de un cliente.
-* Implementación de mecanismos de recuperación ante fallos mediante el patrón Saga, asegurando que si un pago falla, la reserva temporal del horario del consultor se libere automáticamente.
-* Uso de técnicas de registro y auditoría que permitan rastrear historial de cancelaciones, cambios de citas o inconsistencias en los cobros.
-
-**Modificabilidad**
-
-* Aplicación de un enfoque de microservicios basados en DDD que facilite la escalabilidad hacia nuevos modelos de negocio (por ejemplo, agregar sesiones grupales, masterclasses o suscripciones mensuales) sin afectar el flujo de asesorías individuales 1 a 1.
-* Uso de técnicas de refactoring y pruebas automatizadas para mantener los servicios de FinTeka fáciles de extender y modificar sin comprometer la experiencia del consultor ni del cliente.
-
-**Usabilidad**
-
-* Realización de pruebas de usabilidad con profesionales y usuarios reales, validando que el proceso de agendar una sesión tome la menor cantidad de pasos posibles y que el panel de gestión del consultor sea intuitivo.
-
-**Seguridad**
-
-* Realización de auditorías de seguridad regulares y control estricto de accesos para proteger la plataforma frente a intentos de fraude, suplantación de consultores o vulneración de datos personales.
 
 ## 4.1.7 Tactics 
 
