@@ -1462,9 +1462,10 @@ Para brindar funcionalidades complementarias se integran servicios externos como
 - Reputación y Valoraciones: Procesa calificaciones (1-5 estrellas), comentarios, cálculo de trust score.
 - Pagos y Facturación: Procesa pagos y genera comprobantes electrónicos.
 - Búsqueda Avanzada: Permite búsqueda por filtros, autocomplete, facetas y boosting por reputación.
-- Gestión de Usuarios y Perfiles: Administra perfiles (cliente/consultor), documentos de identidad, preferencias, portafolio de certificados y suscripciones premium.
+- Gestión de Usuarios y Perfiles: Administra perfiles (cliente/consultor), documentos de identidad, preferencias, portafolio de certificados.
+- Planes y suscripciones: Administra las suscripciones y planes de los usuarios.
 
-#### Microservicios de soporte:
+#### Servicios externos:
 
 - Pagos: Encargado de comunicar y validar pagos realizados mediante PayPal.
 - Notificaciones: Envía alertas sobre reservas, recordatorios, pagos confirmados o cambios de cita mediante correo o push notifications.
@@ -1514,6 +1515,12 @@ A continuación, se muestra el diagrama de componentes correspondiente al micros
 A continuación, se muestra el diagrama de componentes correspondiente al microservicio Gestión de Usuarios y Perfiles. Su función principal es administrar los datos personales y profesionales de clientes y consultores, documentos de identidad, portafolio de certificados y preferencias de cuenta en FinTeka.
 
 <img src="../assets/c8.jpg" style="width: 100%;" alt="diagramacomponentes7">
+
+### Planes y suscripciones - Diagrama de Componentes
+
+A continuación, se muestra el diagrama de componentes correspondiente al microservicio planes y suscrpciones. Su función principal es administrar los suscrpciones de clientes y consultores de Finteka.
+
+<img src="../assets/c9.jpg" style="width: 100%;" alt="diagramacomponentes8">
 
 **Link de los diagramas:** https://online.visual-paradigm.com/share.jsp?id=343537383331342d32
 
