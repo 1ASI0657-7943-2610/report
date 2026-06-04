@@ -1528,7 +1528,7 @@ A continuación, se muestra el diagrama de componentes correspondiente al micros
 
 #### Diagrama de Base de Datos
 
-<img width="1600" height="1535" alt="image" src="https://github.com/user-attachments/assets/0c6a2827-9f55-4ab7-ae92-13ce020de2a4" />
+<img src="../assets/entidade.png" style="width: 100%;" alt="diagramaentidad">
 
 # Explicación del Modelo de Datos Relacional (3FN)
 
