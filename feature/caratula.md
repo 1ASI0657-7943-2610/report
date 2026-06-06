@@ -919,8 +919,6 @@ Entre sus necesidades destacan contar con una plataforma que les brinde visibili
 ---
 
 Estos dos segmentos permiten comprender de manera clara las dos partes fundamentales del ecosistema de la plataforma, facilitando el diseño de una solución equilibrada tanto para usuarios solicitantes como para proveedores de servicios.
-  
-### 2.3.2. User Task Matrix
 
 ### 2.3.2 User Task Matrix
 
