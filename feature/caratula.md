@@ -364,26 +364,6 @@ Incluye:
 
 La reducción de comisión representa el principal beneficio funcional y económico para usuarios frecuentes de FinTeka.
 
----
-
-#### Consideraciones Funcionales y Técnicas
-
-La gestión de suscripciones será administrada mediante un módulo desacoplado conectado al Payment Service.
-
-El sistema permitirá:
-- activar o desactivar planes,
-- modificar porcentajes de comisión dinámicamente,
-- incorporar promociones temporales,
-- gestionar renovaciones de suscripción,
-
-sin afectar el flujo principal de reservas y pagos.
-
-Asimismo, los beneficios premium podrán extenderse en futuras iteraciones hacia:
-- programas de fidelización,
-- descuentos especiales,
-- paquetes de asesorías,
-- beneficios por recurrencia.
-
 ## 1.2.1. Antecedentes y problemática
 
 **Antecedentes:**
