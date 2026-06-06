@@ -330,7 +330,7 @@ Del mismo modo, FinTeka incorpora funcionalidades que benefician tanto a los usu
 
 #### Modelo de Suscripción
 
-| Plan | Comisión por Sesión | Beneficios Principales |
+| Suscripción | Comisión por Sesión | Beneficios Principales |
 |---|---|---|
 | Básico | 10% | Acceso estándar a reservas y funcionalidades principales |
 | Premium | 4% | Menor comisión por sesión, promociones exclusivas y prioridad en soporte |
@@ -1440,7 +1440,7 @@ Para brindar funcionalidades complementarias se integran servicios externos como
 - Pagos y Facturación: Procesa pagos y genera comprobantes electrónicos.
 - Búsqueda Avanzada: Permite búsqueda por filtros, autocomplete, facetas y boosting por reputación.
 - Gestión de Usuarios y Perfiles: Administra perfiles (cliente/consultor), documentos de identidad, preferencias, portafolio de certificados.
-- Planes y suscripciones: Administra las suscripciones y planes de los usuarios.
+- Suscripciones: Administra las suscripciones de los usuarios.
 
 #### Servicios externos:
 
@@ -1493,7 +1493,7 @@ A continuación, se muestra el diagrama de componentes correspondiente al micros
 
 <img src="../assets/c8.jpg" style="width: 100%;" alt="diagramacomponentes7">
 
-### Planes y suscripciones - Diagrama de Componentes
+### Suscripciones - Diagrama de Componentes
 
 A continuación, se muestra el diagrama de componentes correspondiente al microservicio planes y suscrpciones. Su función principal es administrar los suscrpciones de clientes y consultores de Finteka.
 
