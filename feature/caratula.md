@@ -1604,7 +1604,6 @@ A continuación, se presenta la táctica que se utilizará para cada atributo de
 
 * Autenticación de usuarios mediante roles diferenciados (usuario, consultor) y control de permisos según funciones.
 * Protección de información sensible con cifrado tanto en tránsito como en almacenamiento.
-* Verificación de identidad reforzada para consultores mediante 2FA.
 * Escaneo y actualización periódica de componentes para prevenir vulnerabilidades.
 * Mecanismos de detección de accesos inusuales y prevención de fraudes en reservas y pagos
 
@@ -1636,7 +1635,6 @@ A continuación, se presenta la táctica que se utilizará para cada atributo de
 #### AUDITABILIDAD 
 * Registro detallado de acciones clave, incluyendo reservas, pagos, cambios de perfil y cancelaciones.
 * Historial completo de interacciones entre usuarios y consultores, garantizando trazabilidad y resolución de conflictos.
-* Generación de reportes periódicos para control interno y supervisión administrativa.
 * Gestión de accesos y retención de datos sensibles conforme a normativas de privacidad y seguridad.
 
 ### 4.1.8 Design Purpose
