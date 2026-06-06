@@ -1517,7 +1517,7 @@ El diseño de la base de datos se ha estructurado bajo un modelo relacional unif
 
 Para gestionar eficientemente los distintos roles del sistema manteniendo una base de autenticación única, se ha implementado un esquema de **Especialización**:
 
-- **USERS (Supertipo):** Centraliza las credenciales de acceso (`email`, `password_hash`), el rol del usuario (`CLIENT | PROFESSIONAL | ADMIN`) y el estado de la cuenta. Esto permite un control de seguridad centralizado y una gestión de sesiones uniforme para todos los actores del sistema.
+- **USERS (Supertipo):** Centraliza las credenciales de acceso (`email`, `password_hash`), el rol del usuario (`CLIENT | PROFESSIONAL`) y el estado de la cuenta. Esto permite un control de seguridad centralizado y una gestión de sesiones uniforme para todos los actores del sistema.
 
 - **CLIENTS y PROFESSIONALS (Subtipos):** Se vinculan de forma **1:1** con la tabla de usuarios a través de `user_id`. Esta separación permite que cada perfil posea atributos exclusivos sin comprometer la limpieza del modelo ni mezclar lógicas de negocio distintas. Los clientes almacenan datos como `preferences`, `district` y `languages`, mientras que los profesionales registran `specialty`, `highlight_info`, `work_experience`, `average_rating` y `is_premium`.
 
@@ -1602,9 +1602,9 @@ A continuación, se presenta la táctica que se utilizará para cada atributo de
 
 #### SEGURIDAD 
 
-* Autenticación de usuarios mediante roles diferenciados (usuario, consultor, administrador) y control de permisos según funciones.
+* Autenticación de usuarios mediante roles diferenciados (usuario, consultor) y control de permisos según funciones.
 * Protección de información sensible con cifrado tanto en tránsito como en almacenamiento.
-* Verificación de identidad reforzada para consultores y administradores mediante 2FA.
+* Verificación de identidad reforzada para consultores mediante 2FA.
 * Escaneo y actualización periódica de componentes para prevenir vulnerabilidades.
 * Mecanismos de detección de accesos inusuales y prevención de fraudes en reservas y pagos
 
