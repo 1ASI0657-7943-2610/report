@@ -1024,7 +1024,7 @@ La necesidad de mantener sincronización en tiempo real entre:
 
 Influye directamente sobre decisiones arquitectónicas como:
 - separación de dominios mediante microservicios,
-- persistencia híbrida SQL/NoSQL,
+- persistencia híbrida SQL,
 - eventos asíncronos,
 - mecanismos de consistencia transaccional.
 
@@ -1126,7 +1126,6 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 ### 3.2.1 Requisitos Funcionales
 
 **Leyenda de prefijos:**
-
 
 - **IRF** = *Identity Requirements Features*: Funciones de identidad, autenticación, seguridad y control de acceso.  
 - **NRF** = *Notification Requirements Features*: Funciones de notificación, alertas automáticas, recordatorios, comunicaciones del sistema y seguimiento de mensajes enviados.
