@@ -1093,7 +1093,7 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | PFF-018 | El sistema debe validar automáticamente el estado de la suscripción premium del consultor antes de habilitar funcionalidades exclusivas dentro de la plataforma. |
 | PFF-019 | El sistema debe permitir al consultor activar o desactivar la renovación automática de su suscripción premium desde su cuenta personal. |
 | PFF-020 | El sistema debe enviar notificaciones automáticas antes del vencimiento de una suscripción premium, indicando fecha de expiración y opciones de renovación disponibles. |
-| PFF-021 | El sistema debe permitir administrar distintos planes de suscripción premium con beneficios, duración y porcentajes de comisión configurables por la plataforma. |
+| PFF-021 | El sistema debe permitir administrar una única suscripción premium, con beneficios, duración y porcentaje de comisión configurables por la plataforma. |
 | PFF-022 | El sistema debe suspender automáticamente los beneficios premium cuando la suscripción expire, sea cancelada o el pago recurrente asociado sea rechazado. |
 | PFF-023 | El sistema debe conservar trazabilidad completa sobre activaciones, renovaciones, cancelaciones, suspensiones y expiraciones de suscripciones premium. |
 | PFF-024 | El sistema debe aplicar automáticamente el porcentaje de comisión correspondiente según el tipo de plan activo del consultor al momento de procesar cada sesión completada. |
