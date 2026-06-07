@@ -2128,230 +2128,44 @@ Esto garantiza que la arquitectura de FinTeka responda adecuadamente a:
 ## 4.3.1 Iteration 1: Sprint1
 ##  4.3.1.1 Architectural Design Backlog 1
 
-Los *Architectural Drivers* representan los factores críticos que influyen directamente en las decisiones de diseño de la arquitectura de **FinTeka**. Estos drivers permiten priorizar atributos de calidad, restricciones técnicas y necesidades del negocio para asegurar que la solución responda adecuadamente a los objetivos funcionales y no funcionales del proyecto.
 
-Debido a la naturaleza distribuida y transaccional de la plataforma, los drivers seleccionados se enfocan en:
-- experiencia de usuario,
-- continuidad operacional,
-- facilidad de evolución,
-- protección de información,
-- crecimiento escalable del sistema.
+Los Architectural Drivers representan los factores críticos que influyen directamente en las decisiones de diseño de la arquitectura de FinTeka. Estos drivers permiten priorizar atributos de calidad, restricciones técnicas y necesidades del negocio para asegurar que la solución responda adecuadamente a los objetivos funcionales y no funcionales del proyecto.
 
-La arquitectura basada en:
-- microservicios,
-- persistencia políglota,
-- API Gateway,
-- contenedores,
-- integración desacoplada,
+En esta primera iteración se identifican los requisitos del sistema y se desarrolla una primera versión basada en una arquitectura monolítica. Posteriormente, en la siguiente iteración, esta será migrada a una arquitectura de microservicios. A continuación, se presentan los drivers arquitectónicos seleccionados.
 
-fue diseñada específicamente para responder a estos drivers prioritarios.
+| Tipo de Driver | Driver Seleccionado | Razón |
+| :--- | :--- | :--- |
+| Atributo de Calidad | Escalabilidad |La plataforma debe soportar un crecimiento progresivo en la cantidad de usuarios, especialistas, reservas y transacciones sin afectar significativamente el rendimiento del sistema.  |
+| Atributo de Calidad | Rendimiento |Las búsquedas de especialistas, reservas y operaciones de pago deben ejecutarse en tiempos reducidos para garantizar una experiencia satisfactoria para los usuarios. |
+| Atributo de Calidad | Seguridad |Proteger la información personal y financiera mediante autenticación segura, control de acceso basado en roles, cifrado de contraseñas y uso de tokens de acceso.  |
+|Requisito Funcional  | Moderación |La plataforma debe garantizar que las reseñas y calificaciones cumplan las políticas establecidas, evitando contenido ofensivo o inapropiado que pueda afectar la confianza de los usuarios. |
+| Requisito Funcional | Recomendaciones personalizadas |El sistema debe facilitar el descubrimiento de especialistas relevantes mediante filtros, búsquedas avanzadas y recomendaciones basadas en el comportamiento e intereses de los usuarios.  |
 
----
 
-### 4.2.1 Usability
+## 4.3.1.2 Establish Iteration Goal by Selecting Drivers
 
-La usabilidad constituye uno de los principales drivers arquitectónicos debido a que FinTeka busca ofrecer una experiencia simple, intuitiva y eficiente tanto para clientes como para consultores.
+Para esta primera iteración se han seleccionado los drivers que aportan mayor valor al núcleo funcional de la plataforma. En particular, se priorizan los siguientes atributos de calidad:
 
-La plataforma debe permitir:
-- búsqueda rápida de especialistas,
-- navegación fluida,
-- reservas simples,
-- interacción intuitiva desde dispositivos móviles y escritorio.
+* Rendimiento: asegurar una respuesta ágil en procesos clave como el registro e inicio de sesión, la búsqueda de especialistas, la gestión de reservas y las transacciones de pago.
+* Seguridad: garantizar la protección de la información de usuarios y consultores mediante mecanismos de autenticación, autorización y gestión segura de credenciales.
+* Escalabilidad: preparar la solución para soportar un incremento gradual en la cantidad de usuarios, reservas y operaciones realizadas dentro de la plataforma.
 
----
+El propósito de esta iteración es desarrollar una primera versión operativa de FinTeka que permita a los usuarios registrarse, encontrar especialistas, reservar asesorías y realizar pagos de forma eficiente y segura, sentando las bases para la evolución posterior hacia una arquitectura de microservicios.
 
-#### Decisiones Arquitectónicas Relacionadas
 
-- Implementación de frontend responsive multiplataforma.
-- Optimización de APIs para reducir sobrecarga de datos.
-- Uso de Redis para acelerar consultas frecuentes.
-- Interfaces desacopladas y reutilizables.
-- Diseño centrado en experiencia de usuario.
-
----
-
-#### Requerimientos Relacionados
-
-| RNF | Descripción |
-|---|---|
-| RNF-001 | Tiempo de respuesta rápido en búsquedas |
-| RNF-010 | Carga eficiente de perfiles |
-| RNF-014 | Compatibilidad multiplataforma |
-| RNF-015 | Diseño responsive |
-
----
-
-### 4.2.2 Availability
-
-La disponibilidad es crítica debido a que FinTeka administra:
-- reservas,
-- pagos,
-- comunicación entre usuarios,
-- sesiones activas en tiempo real.
-
-La plataforma debe permanecer operativa incluso ante:
-- fallos parciales,
-- caídas de infraestructura,
-- alta concurrencia.
-
----
-
-#### Decisiones Arquitectónicas Relacionadas
-
-- Arquitectura distribuida basada en microservicios.
-- Despliegue Multi-AZ.
-- Uso de contenedores de docker.
-
----
-
-#### Requerimientos Relacionados
-
-| RNF | Descripción |
-|---|---|
-| RNF-002 | Tiempo máximo de confirmación de reservas |
-| RNF-012 | Monitoreo y trazabilidad |
-| RNF-013 | Recuperación ante fallos |
-
----
-
-### 4.2.3 Modifiability
-
-FinTeka debe evolucionar continuamente para incorporar:
-- nuevas funcionalidades,
-- integraciones,
-- mejoras de negocio,
-- módulos adicionales.
-
-La arquitectura debe facilitar cambios sin afectar la estabilidad general del sistema.
-
----
-
-#### Decisiones Arquitectónicas Relacionadas
-
-- Arquitectura de microservicios desacoplados.
-- Domain-Driven Design (DDD).
-- APIs REST versionadas.
-- Comunicación asíncrona mediante eventos.
-- Separación por dominios funcionales.
-
----
-
-#### Requerimientos Relacionados
-
-| RNF | Descripción |
-|---|---|
-| RNF-006 | APIs documentadas y mantenibles |
-| RNF-008 | Escalabilidad de ambientes |
-| RNF-009 | Configuración flexible |
-
----
-
-### 4.2.4 Security
-
-La seguridad representa un driver prioritario debido a que FinTeka procesa:
-- información personal,
-- autenticación de usuarios,
-- pagos,
-- datos financieros,
-- sesiones privadas.
-
-La arquitectura debe proteger:
-- confidencialidad,
-- integridad,
-- autenticidad,
-- trazabilidad.
-
----
-
-#### Decisiones Arquitectónicas Relacionadas
-
-- OAuth2 y JWT para autenticación.
-- API Gateway para protección centralizada.
-- HTTPS en todas las comunicaciones.
-
----
-
-#### Requerimientos Relacionados
-
-| RNF | Descripción |
-|---|---|
-| RNF-004 | Protección de datos sensibles |
-| RNF-005 | Control de acceso seguro |
-| RNF-012 | Auditoría y monitoreo |
-
----
-
-### 4.2.5 Scalability
-
-FinTeka debe soportar crecimiento progresivo de:
-- usuarios concurrentes,
-- reservas,
-- mensajes,
-- transacciones,
-- funcionalidades futuras.
-
-La solución debe escalar horizontalmente sin rediseñar el núcleo del sistema.
-
----
-
-#### Decisiones Arquitectónicas Relacionadas
-
-- Microservicios independientes.
-- Autoescalado horizontal.
-- Procesamiento asíncrono mediante eventos.
-
----
-
-#### Requerimientos Relacionados
-
-| RNF | Descripción |
-|---|---|
-| RNF-001 | Rendimiento bajo carga |
-| RNF-003 | Escalabilidad concurrente |
-| RNF-013 | Continuidad operacional |
-
----
-
-### Relación Entre Drivers y Arquitectura
-
-| Driver Arquitectónico | Decisión Arquitectónica Principal |
-|---|---|
-| Usability | Frontend responsive  |
-| Modifiability | Microservicios + DDD |
-| Security | OAuth2 + JWT + API Gateway |
-| Scalability | Autoescalado  |
-
----
-
-### Impacto de los Drivers en el Diseño del Sistema
-
-Los drivers arquitectónicos definidos influyen directamente sobre:
-- estructura de microservicios,
-- selección tecnológica,
-- mecanismos de persistencia,
-- comunicación entre servicios,
-- estrategia de despliegue,
-- observabilidad,
-- seguridad operacional.
-
-Esto garantiza que la arquitectura de FinTeka mantenga coherencia entre:
-- objetivos del negocio,
-- experiencia del usuario,
-- restricciones técnicas,
-- crecimiento futuro de la plataforma.
 
 ### 4.3.1.3 Choose One or More Elements of the System to Refine
 
 Con el fin de responder a los drivers priorizados y asegurar la entrega  en esta primera iteración, se identifican los componentes más relevantes del sistema que serán detallados y refinados durante el diseño arquitectónico inicial.
 
 
-#### Servicio de Gestión de Consultores y Especialidades
+#### Modulo de Gestión de Consultores y Especialidades
 
 * Administra la información profesional de los consultores, incluyendo perfiles, experiencia, áreas de especialización y disponibilidad.
 * Permite que los usuarios exploren especialistas y encuentren opciones acordes a sus necesidades.
 * Representa el punto principal de conexión entre la oferta de servicios y la demanda de asesorías dentro de la plataforma.
 
-#### Servicio de Reservas y Asesorías
+#### Modulo de Reservas y Asesorías
 
 * Gestiona el proceso de solicitud, programación y confirmación de sesiones entre usuarios y consultores.
 * Controla horarios disponibles, estado de las reservas y seguimiento de cada asesoría agendada.
@@ -2359,164 +2173,25 @@ Con el fin de responder a los drivers priorizados y asegurar la entrega  en esta
 
 Estos componentes constituyen el núcleo funcional de FinTeka en esta iteración, ya que permiten materializar la propuesta de valor principal: conectar usuarios con especialistas y facilitar la contratación de asesorías de forma eficiente y confiable.
 
-### 4.3.1.5 Choose One or More Design Concepts That Satisfy the Selected Drivers
+### 4.3.1.4 Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-Con el propósito de satisfacer los drivers arquitectónicos priorizados para el ecosistema de **FinTeka**, se adoptan múltiples conceptos de diseño enfocados en garantizar:
-- experiencia de usuario,
-- disponibilidad continua,
-- escalabilidad,
-- seguridad,
-- facilidad de mantenimiento y evolución tecnológica.
+Con el propósito de satisfacer los drivers arquitectónicos priorizados para FinTeka, se adoptan diversos conceptos de diseño orientados a garantizar el rendimiento, la seguridad y la escalabilidad de la plataforma. Estas decisiones servirán como base para el desarrollo de la primera versión del sistema y facilitarán su posterior evolución hacia una arquitectura de microservicios.
 
-Estas decisiones arquitectónicas buscan asegurar que la plataforma pueda operar eficientemente bajo escenarios de alta concurrencia, integraciones distribuidas y crecimiento progresivo del negocio.
+#### Rendimiento
 
----
+* Se desarrollará una arquitectura monolítica modular que reduzca la complejidad de comunicación entre componentes durante las etapas iniciales del proyecto.
+*  El sistema será desplegado en Azure utilizando contenedores Docker, lo que permitirá optimizar la utilización de recursos computacionales y mantener tiempos de respuesta adecuados ante variaciones en la carga de trabajo.
 
-#### Usability
+#### Seguridad
+* La autenticación de usuarios se implementará mediante JWT , para garantizar un mecanismo seguro para la gestión de sesiones.
+* Todas las contraseñas serán almacenadas utilizando algoritmos de hashing seguro como BCrypt.
+* La comunicación entre cliente y servidor se realizará mediante HTTPS con TLS 1.2 o superior.
 
-* La interfaz web será desarrollada bajo un enfoque **responsive design**, garantizando compatibilidad y correcta visualización en dispositivos móviles, tablets y escritorio (RNF-015).
-* Los flujos críticos de negocio como:
-  - registro,
-  - autenticación,
-  - búsqueda de especialistas,
-  - reserva de sesiones,
-  - pagos,
-  
-  deberán ser intuitivos y minimizar la cantidad de pasos requeridos por el usuario.
+#### Escalabilidad
+* Se utilizarán identificadores UUID para garantizar unicidad y facilitar la distribución futura de los datos.
+* La arquitectura será diseñada considerando una futura incorporación de mecanismos de comunicación asíncrona mediante un message broker
 
-* Los perfiles públicos de consultores deberán cargar en un tiempo máximo de **1.5 segundos** para garantizar navegación fluida y mejorar la percepción de rendimiento (RNF-010).
-* Se implementará diseño centrado en el usuario (*User-Centered Design*), priorizando accesibilidad, claridad visual y facilidad de navegación.
-* La plataforma será compatible con navegadores modernos como:
-  - Chrome,
-  - Firefox,
-  - Edge,
-  - Safari (RNF-014).
-
-* Se minimizará el *over-fetching* de información mediante APIs optimizadas para dispositivos móviles.
-* Los mensajes de error y validaciones serán claros y orientados a facilitar la corrección rápida por parte del usuario.
-
----
-
-#### Availability
-
-* Los microservicios serán desplegados utilizando contenedores Docker, permitiendo:
-  - portabilidad,
-  - recuperación rápida,
-  - despliegues consistentes,
-  - reinicio automático de servicios (RNF-013).
-
-* La solución utilizará una arquitectura distribuida donde fallos parciales no afecten completamente al ecosistema.
-* Los servicios críticos se desplegarán bajo una configuración **Multi-AZ (Multi Availability Zone)** para garantizar continuidad operacional.
-* Se implementarán balanceadores de carga para distribuir tráfico entre múltiples instancias.
-* Las búsquedas de especialistas deberán responder en un máximo de **2 segundos** bajo carga normal (RNF-001).
-* La creación y confirmación de reservas deberá completarse en un máximo de **3 segundos** para la mayoría de solicitudes (RNF-002).
-* El sistema incorporará:
-  - monitoreo centralizado,
-  - health checks,
-  - alertas automáticas,
-  - trazabilidad de errores y eventos críticos (RNF-012).
-
-* Se utilizarán mecanismos de failover automático para reducir el tiempo de recuperación ante fallos de infraestructura.
-
----
-
-#### Modifiability
-
-* El sistema será desarrollado bajo una arquitectura de microservicios combinada con principios de **DDD (Domain-Driven Design)**.
-* Los dominios funcionales estarán desacoplados en servicios independientes como:
-  - autenticación,
-  - consultores,
-  - reservas,
-  - pagos,
-  - notificaciones,
-  - chat.
-
-* Se emplearán tecnologías como:
-  - Spring Boot,
-  - .NET,
-  - Go,
-
-  seleccionando cada framework según necesidades específicas de:
-  - rendimiento,
-  - mantenibilidad,
-  - integración,
-  - concurrencia.
-
-* Se incorporará un *message broker* basado en Kafka para comunicación asíncrona entre servicios.
-* Las APIs serán documentadas mediante **OpenAPI / Swagger**, facilitando:
-  - mantenimiento,
-  - integración,
-  - versionamiento,
-  - pruebas automatizadas (RNF-006).
-
-* El uso de:
-  - UUID,
-  - variables de entorno,
-  - contenedores,
-
-  permitirá escalar ambientes y automatizar despliegues con menor complejidad (RNF-008, RNF-009).
-
-* La arquitectura permitirá incorporar nuevos módulos como:
-  - pagos avanzados,
-  - reputación,
-  - videollamadas,
-  - analítica,
-  - inteligencia artificial,
-
-  sin afectar el núcleo transaccional de la plataforma.
-
----
-
-#### Security
-
-* La autenticación será implementada mediante el estándar **OAuth2** utilizando tokens **JWT (JSON Web Tokens)** para validación descentralizada.
-* Se implementará un modelo de autorización basado en roles (**RBAC**) diferenciando permisos para:
-  - Clientes,
-  - Consultores,
-  - Administradores.
-
-* Toda la comunicación entre clientes, APIs y microservicios se realizará bajo protocolos seguros HTTPS/TLS.
-* Las contraseñas serán almacenadas utilizando algoritmos de hashing seguro.
-* Los endpoints sensibles estarán protegidos mediante un API Gateway centralizado.
-* Se implementarán mecanismos de:
-  - rate limiting,
-  - validación de tokens,
-  - expiración de sesiones,
-  - control de accesos.
-
-* Los logs de seguridad y auditoría serán persistidos en una base NoSQL especializada para garantizar trazabilidad y análisis posterior.
-* Se aplicarán principios de *Zero Trust* para minimizar riesgos de acceso indebido.
-* Las integraciones con pasarelas de pago se realizarán mediante conexiones seguras y desacopladas.
-
----
-
-#### Scalability
-
-* La arquitectura basada en microservicios permitirá escalabilidad horizontal independiente para cada componente del sistema.
-* Los servicios con alta demanda, como:
-  - chat,
-  - reservas,
-  - búsqueda de consultores,
-
-  podrán incrementar instancias automáticamente según métricas de utilización.
-
-
-* El sistema deberá soportar crecimiento progresivo de:
-  - usuarios concurrentes,
-  - reservas,
-  - mensajes,
-  - transacciones financieras,
-
-  sin degradar significativamente el rendimiento general.
-
-* Se implementarán colas asíncronas y procesamiento desacoplado para evitar cuellos de botella durante eventos de alta demanda.
-* La arquitectura permitirá expansión futura hacia:
-  - nuevos mercados,
-  - nuevos servicios financieros,
-  - aplicaciones móviles nativas,
-  - integraciones empresariales.
-
-### 4.3.1.6 Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
+### 4.3.1.5 Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
 La arquitectura de FinTeka se plantea como una solución basada en microservicios organizados por dominios de negocio, permitiendo separar responsabilidades funcionales y facilitar la evolución del sistema. Los servicios colaboran mediante APIs REST para operaciones síncronas y mensajería asíncrona mediante un broker de eventos para procesos desacoplados. En esta primera iteración se detallan los principales elementos arquitectónicos, sus responsabilidades y los mecanismos de integración definidos.
 
@@ -2525,22 +2200,22 @@ La arquitectura de FinTeka se plantea como una solución basada en microservicio
 Se usará el enfoque DDD (Domain-Driven Design) para organizar la aplicación.Por ello, cada módulo será definido como un Bounded Context.
 
 
-* Iam: encargado del registro de usuarios, autenticación, recuperación de contraseña y gestión de roles.
-* Consultant: Administra perfiles profesionales, especialidades, experiencia y disponibilidad de los consultores.
-* Booking: Gestiona solicitudes, programación, confirmación y seguimiento de asesorías reservadas por los usuarios.
+* Autenticacion: encargado del registro de usuarios, autenticación, recuperación de contraseña y gestión de roles.
+* Busqueda avanzada: Administra perfiles profesionales, especialidades, experiencia y disponibilidad de los consultores.
+* Gestion de reservas: Gestiona solicitudes, programación, confirmación y seguimiento de asesorías reservadas por los usuarios.
 * Notification: Procesa eventos del sistema y envía confirmaciones o alertas por correo electrónico.
 
-Los microservicios serán desarrollados con Spring Boot, .NET y Go, seleccionando la tecnología más adecuada según el dominio funcional y requerimientos de rendimiento.
+Los microservicios serán desarrollados con Spring Boot seleccionando la tecnología más adecuada según el dominio funcional y requerimientos de rendimiento.
 
-El frontend será desarrollado en Angular, consumiendo los servicios a través del API Gateway. La solución será desplegada en contenedores Docker, permitiendo portabilidad, escalabilidad y facilidad operativa.
+El frontend será desarrollado en Vue, consumiendo los servicios a través del API Gateway. La solución será desplegada en contenedores Docker, permitiendo portabilidad, escalabilidad y facilidad operativa.
 
 #### Asignación de responsabilidades
 
 Cada servicio mantiene autonomía sobre sus datos y lógica de negocio:
 
-* Iam: Valida: credenciales, genera tokens JWT y controla acceso según roles definidos.
-* Consultant: Publica información de consultores y responde consultas relacionadas con perfiles y especialidades.
-* Booking:  Verifica disponibilidad horaria, registra reservas y actualiza el estado de las asesorías.
+* Autenticacion: Valida: credenciales, genera tokens JWT y controla acceso según roles definidos.
+* Busqueda avanzada: Publica información de consultores y responde consultas relacionadas con perfiles y especialidades.
+* Gestion de reservas:  Verifica disponibilidad horaria, registra reservas y actualiza el estado de las asesorías.
 * Notification:  recibe eventos como registro exitoso o reserva confirmada y ejecuta envíos automáticos.
 
 #### Definición de interfaces
@@ -2548,12 +2223,16 @@ La comunicación entre componentes se implementará mediante interfaces síncron
 
 * Las interfaces síncronas utilizarán REST APIs documentadas con OpenAPI 3.0 / Swagger, accesibles únicamente mediante el API Gateway.
 *  Las interfaces asíncronas emplearán un message broker (RabbitMQ o Kafka) para eventos como UserRegistered, BookingCreated y BookingConfirmed, desacoplando procesos secundarios del flujo principal.
-* Todas las comunicaciones externas estarán protegidas mediante HTTPS con TLS.
+* Todas las comunicaciones externas estarán protegidas mediante HTTPS .
 * Los endpoints privados requerirán autenticación mediante JWT Bearer Token y validación de permisos por rol.
 
 El frontend Angular funcionará como cliente principal para usuarios y consultores, mostrando vistas diferenciadas según permisos y tipo de cuenta, pero consumiendo una misma capa de servicios centralizada.
 ### 4.3.1.6 Sketch Views (C4 & UML) and Record Design Decisions
-![it1.jpg](../assets/it1.jpg)
+
+![contextdiagram.jpg](../assets/contextdiagram.jpg)
+
+![containerdiagram.jpg](../assets/containerdiagram.jpg)
+
 ### 4.3.1.7 Analysis of Current Design and Review Iteration Goal
 
 Para controlar las tareas en esta primera iteracion usamos la herramienta trello que nos permite organizar el trabajo en columnas de "To Do", "In Progress" y "Done". Esto facilita la visualización del progreso, la asignación de responsabilidades y la identificación de bloqueos o retrasos en el desarrollo de las funcionalidades planificadas.
