@@ -313,25 +313,22 @@ Del mismo modo, FinTeka incorpora funcionalidades que benefician tanto a los usu
 | Suscripción | Comisión por Sesión | Beneficios Principales |
 | :--- | :---: | :--- |
 | **Básico** | 10% | Acceso estándar a búsquedas, visualización de perfiles, reseñas y reservas básicas. |
-| **Premium** | 4% | Menor comisión por sesión, posicionamiento destacado, gestión de agenda en tiempo real, chat directo e historial extendido con métricas avanzadas. |
+| **Premium** | 4% | Menor comisión por sesión. |
 
 ---
 
 ### Beneficios Funcionales por Nivel
 
 #### Plan Básico
-* **Acceso Estándar:** Búsqueda avanzada de especialistas por categoría, experiencia y valoraciones estructuradas sobre la interfaz responsiva en Vue.js.
-* **Gestión Operativa:** Visualización de perfiles profesionales verificados y reserva de sesiones según la disponibilidad sincronizada en el microservicio correspondiente.
-* **Interacción Social:** Acceso al sistema de calificaciones y comentarios validados post-asesoría, junto con un historial básico de atenciones y notificaciones de confirmación vía recordatorios asíncronos.
+* **Acceso Estándar:** Búsqueda avanzada de especialistas por categoría y valoraciones estructuradas.
+* **Gestión Operativa:** Visualización de perfiles profesionales verificados y reserva de sesiones según la disponibilidad sincronizada.
+* **Interacción Social:** Acceso al sistema de comentarios post-asesoría y notificaciones de confirmación vía recordatorios asíncronos.
 
-La comisión estándar del 10% se aplica de forma automática sobre cada sesión reservada y procesada en la base de datos relacional.
+La comisión estándar del 10% se aplica de forma automática sobre cada sesión reservada.
 
 #### Plan Premium
-* **Optimización Financiera:** Reducción drástica de la comisión transaccional por sesión del 10% al 4%, maximizando el margen de ganancia del consultor.
-* **Visibilidad Destacada:** Posicionamiento algorítmico prioritario del perfil del consultor dentro del buscador principal de la plataforma.
-* **Herramientas Avanzadas:** Gestión avanzada de la agenda con actualización de horarios en tiempo real, integración nativa de pasarelas de pago protegidas, acceso a chats directos bidireccionales y dashboards con métricas analíticas de desempeño y reputación profesional.
 
-La reducción de comisión representa el principal beneficio funcional y económico para usuarios frecuentes y consultores de FinTeka.
+* **Optimización Financiera:** Reducción de la comisión transaccional por sesión del 10% al 4%, maximizando el margen de ganancia del consultor.
 
 ---
 
