@@ -1402,141 +1402,105 @@ A continuación, se muestra el diagrama de componentes correspondiente al micros
 
 <img src="../assets/entidade.png" style="width: 100%;" alt="diagramaentidad">
 
-# Explicación del Modelo de Datos Relacional (3FN)
 
-El diseño de la base de datos se ha estructurado bajo un modelo relacional unificado, completamente normalizado hasta la **Tercera Forma Normal (3FN)**. El objetivo primordial es garantizar la integridad referencial, eliminar la redundancia de datos y soportar de manera escalable todos los requisitos funcionales del sistema.
+#### Explicación del Modelo de Datos Relacional (3FN)
 
----
+##### 1. Arquitectura de Identidad y Roles Nativos
+Para la administración y autenticación de los accesos sin dependencias de servicios de identidad externos, se implementa una estructura de supertipo y subtipo:
+* **USERS (Supertipo):** Centraliza las credenciales de acceso esenciales (`user_id`, `email`, `password_hash`), el estado operativo de la cuenta (`status`) y el rol del sistema (`role`), el cual se encuentra estrictamente limitado a los valores del dominio web: `CLIENT` o `PROFESSIONAL`.
+* **CLIENTS (Subtipo):** Entidad vinculada en una relación jerárquica 1:1 con `USERS` a través del campo `user_id`. Almacena datos particulares del usuario solicitante, tales como `age`, `district`, `languages` y un campo de texto `preferences` destinado a la persistencia de configuraciones de la interfaz web.
+* **PROFESSIONALS (Subtipo):** Entidad conectada de forma 1:1 con `USERS` mediante `user_id`. Contiene el perfil curricular del asesor (`specialty`, `work_experience`, `average_rating`) y el campo booleano `is_premium`, que determina si el profesional cuenta con la suscripción activa para el posicionamiento destacado de sus publicaciones.
 
-## 1. Arquitectura de Identidad (Patrón Supertipo/Subtipo)
+##### 2. Ciclo de Postulación: De la Publicación a la Sesión de Asesoría
+El flujo de postulación y registro de citas en el entorno web se define a través de las siguientes entidades interrelacionadas:
+* **PUBLICATIONS:** Representa las ofertas de asesoría especializadas publicadas por el profesional. Contiene especificaciones del servicio (`title`, `description`, `price`, `duration`, `modality`) y los rangos de tiempo disponibles codificados en `time_slots`. Se asocia en una relación 1:N con `PROFESSIONALS`.
+* **ADVISORY_SESSIONS:** Constituye el eje transaccional central de la base de datos. Se genera directamente cuando un cliente selecciona una publicación web específica, vinculando en un solo registro la publicación (`publication_id`), el profesional (`professional_id`) y el cliente postulante (`client_id`) mediante relaciones 1:N. Almacena la fecha de ejecución (`appointment_date_time`), el estado interno de la sesión (`status`) y el enlace de la videollamada (`meeting_link`).
 
-Para gestionar eficientemente los distintos roles del sistema manteniendo una base de autenticación única, se ha implementado un esquema de **Especialización**:
+##### 3. Integridad Financiera, Reputacional y Notas de Seguimiento
+Las siguientes tablas satélites se desprenden directamente del ciclo de la sesión, asegurando que no existan dependencias transitivas:
+* **PAYMENTS:** Mantiene una relación estricta 1:1 con `ADVISORY_SESSIONS`. Registra los datos de la transacción económica por concepto de postulación (`amount`, `platform_fee`, `currency`, `payment_status`). En concordancia con las reglas de negocio, se omiten estados o lógicas de devolución automatizada.
+* **REVIEWS:** Implementa el control de reputación de la plataforma web. Al estar vinculada en una relación 1:1 con `ADVISORY_SESSIONS`, el modelo garantiza físicamente que solo los clientes que completaron una sesión de asesoría puedan registrar una calificación (`rating`) y un comentario, previniendo distorsiones por spam o perfiles falsos.
+* **SESSION_NOTES:** Entidad relacionada de forma 1:1 con `ADVISORY_SESSIONS`. Permite al profesional almacenar anotaciones cualitativas distribuidas en campos independientes (`private_notes`, `follow_up_notes`, `recommendations`, `attachment_links`), asegurando que la información de seguimiento no afecte el rendimiento de la tabla principal de sesiones.
 
-- **USERS (Supertipo):** Centraliza las credenciales de acceso (`email`, `password_hash`), el rol del usuario (`CLIENT | PROFESSIONAL`) y el estado de la cuenta. Esto permite un control de seguridad centralizado y una gestión de sesiones uniforme para todos los actores del sistema.
+##### 4. Interacción, Preferencias y Logs de Auditoría
+* **CLIENT_FAVORITES:** Resuelve la relación de Muchos a Muchos (N:M) existente entre `CLIENTS` y `PROFESSIONALS`, permitiendo que un usuario guarde el registro de sus asesores preferidos sin generar duplicidad de datos.
+* **MESSAGES:** Gestiona la comunicación por chat privado dentro de la plataforma web. Posee dos llaves foráneas apuntando a `USERS` (`sender_id` y `receiver_id`) para identificar el origen y destino de cada interacción de texto de forma lineal.
+* **NOTIFICATIONS:** Centraliza los avisos automáticos generados por el sistema hacia los usuarios, indexados por tipo y estado de lectura (`is_read`).
+* **USER_ACTIVITY_LOGS:** Almacena de manera secuencial los registros de auditoría de operaciones críticas en el sitio web (`action`, `details`, `timestamp`), enlazado a la tabla `USERS` para proveer una trazabilidad completa ante cambios de configuración o accesos.
 
-- **CLIENTS y PROFESSIONALS (Subtipos):** Se vinculan de forma **1:1** con la tabla de usuarios a través de `user_id`. Esta separación permite que cada perfil posea atributos exclusivos sin comprometer la limpieza del modelo ni mezclar lógicas de negocio distintas. Los clientes almacenan datos como `preferences`, `district` y `languages`, mientras que los profesionales registran `specialty`, `highlight_info`, `work_experience`, `average_rating` y `is_premium`.
-
----
-
-## 2. Ciclo de Servicio: De la Publicación a la Sesión
-
-El flujo transaccional del sistema sigue una cadena clara de entidades interrelacionadas:
-
-### 2.1 Publicaciones del Profesional
-La entidad **PUBLICATIONS** representa la oferta de servicios del profesional. Contiene el detalle del servicio que brindará (`title`, `description`, `specialty`), el precio, la duración, la modalidad (online o presencial) y los horarios disponibles (`time_slots` como JSON). Esto desacopla correctamente el perfil del profesional de sus servicios publicados, permitiendo que un profesional tenga múltiples publicaciones activas simultáneamente.
-
-### 2.2 Reservas
-**RESERVATIONS** actúa como el puente entre una publicación específica y la intención del cliente de contratarla. Registra el `time_slot` elegido y el estado de la reserva (`PENDING | CONFIRMED | CANCELLED`), vinculando directamente la publicación, el profesional y el cliente en un único registro.
-
-### 2.3 Sesiones de Asesoría
-**ADVISORY_SESSIONS** es el eje central del sistema. Se genera a partir de una reserva confirmada (**1:1** con `RESERVATIONS`) y almacena la información operativa de la cita: `appointment_date_time`, `duration`, `status` y el `meeting_link` para la sesión virtual. Conecta al cliente con el profesional mediante relaciones **1:N**, permitiendo historial acumulado de sesiones.
-
----
-
-## 3. Integridad Financiera y Reputacional
-
-- **PAYMENTS:** Cada sesión genera un único registro de pago (**1:1** con `ADVISORY_SESSIONS`). Registra el monto, la comisión de plataforma (`platform_fee`), la moneda y el estado transaccional (`PENDING | CONFIRMED | FAILED | REFUNDED`), asegurando una auditoría financiera precisa y trazable.
-
-- **REVIEWS:** Implementa el sistema de confianza y reputación. Al estar ligada directamente a una sesión completada (**1:1**), garantiza que únicamente los clientes que efectivamente asistieron a una asesoría puedan calificar al profesional, previniendo reseñas fraudulentas. La calificación numérica (`rating` entre 1 y 5) alimenta el campo `average_rating` del profesional.
-
-- **SESSION_NOTES:** Almacena el registro cualitativo de la sesión, incluyendo notas privadas del profesional (`private_notes`), apuntes de seguimiento (`follow_up_notes`), recomendaciones finales, enlaces de materiales adjuntos y el comentario del cliente sobre la experiencia. Su desacoplamiento de `ADVISORY_SESSIONS` cumple con la **3FN** al evitar dependencias transitivas.
+##### 5. Justificación Técnica de la Normalización
+* **1FN:** Todos los atributos definidos en las entidades poseen valores atómicos. Los campos destinados a almacenar colecciones homogéneas de datos de consulta no relacional se estructuran en formato de cadena de texto plana para evitar el uso de arreglos multivalorados complejos.
+* **2FN:** Se han eliminado por completo las dependencias parciales. Todas las columnas que no forman parte de las claves primarias dependen estrictamente de la totalidad de la clave primaria de la tabla.
+* **3FN:** El diseño no presenta dependencias transitivas. Los atributos no clave se refieren de manera exclusiva y directa a la clave primaria correspondiente. La información financiera (`PAYMENTS`), la reputación (`REVIEWS`) y los apuntes técnicos (`SESSION_NOTES`) se aíslan en tablas independientes relacionadas mediante llaves foráneas (`FK`), evitando anomalías de inserción, actualización o borrado de datos.
 
 ---
 
-## 4. Interacción, Preferencias y Auditoría
+### 4.1.6 Design Patterns
 
-- **CLIENT_FAVORITES:** Resuelve la relación **Muchos a Muchos (N:M)** entre clientes y profesionales, permitiendo a los usuarios gestionar su lista personalizada de profesionales favoritos sin redundancia de datos.
+La arquitectura de software de la plataforma web FinTeka incorpora patrones de diseño orientados a garantizar el desacoplamiento de los módulos del sistema y optimizar el procesamiento transaccional en el backend:
 
-- **MESSAGES:** Gestiona la comunicación directa entre actores del sistema, vinculándose doblemente a la tabla `USERS` para identificar con precisión al emisor (`sender_id`) y al receptor (`receiver_id`) de cada mensaje.
+#### Patrones Estructurales
+* **Repository Pattern:** Implementado en el backend con **Spring Boot** para mediar entre la capa de lógica de negocio y el acceso a la base de datos relacional **MySQL**. Este patrón encapsula las operaciones de consulta y persistencia, aislando el dominio de la aplicación y simplificando la ejecución de pruebas unitarias automatizadas.
+* **Adapter Pattern:** Utilizado para conectar la plataforma web con servicios externos de procesamiento de pagos transaccionales o APIs de mensajería sin acoplar el código fuente de FinTeka a las interfaces de programación de dichos proveedores independientes.
 
-- **NOTIFICATIONS:** Centraliza los avisos del sistema hacia los usuarios, clasificados por tipo (`SESSION_REMINDER | PAYMENT | CANCELLATION`) e incluyendo el estado de lectura (`is_read`) para gestión de alertas pendientes.
+#### Patrones de Comportamiento
+* **Command Pattern (CQRS - Escritura):** Encapsula cada operación que genera una modificación de estado en la base de datos (como la publicación de un servicio, la postulación a una asesoría o la actualización de los datos de seguridad de la cuenta) en un objeto de comando único. Esto facilita el aislamiento de las solicitudes y su canalización asíncrona a través del broker de mensajería.
+* **Query Pattern (CQRS - Lectura):** Separa de manera estricta las consultas de lectura de datos (tales como la visualización de perfiles y el filtrado por especialidades) de las lógicas de escritura. Permite optimizar el rendimiento del frontend en **Vue.js** al consumir directamente vistas o réplicas de lectura optimizadas en **MySQL**.
 
-- **USER_ACTIVITY_LOGS:** Registra de forma secuencial cada acción crítica del sistema (logins, cambios de estado, transacciones), cumpliendo con los requisitos de seguridad, trazabilidad y auditoría del sistema.
+#### Patrones Creacionales
+* **Factory Pattern:** Delegado para la creación parametrizada de perfiles de usuario en el microservicio de **Autenticación**, instanciando de manera controlada las entidades `CLIENTS` o `PROFESSIONALS` de acuerdo con el rol provisto en el momento del registro en la interfaz web.
+* **Singleton Pattern:** Aplicado por defecto en la inyección de dependencias de Spring Boot para asegurar la existencia de una única instancia de los servicios críticos del sistema (como el motor de procesamiento de suscripciones o el despachador de notificaciones), impidiendo colisiones en la gestión de memoria del backend.
 
 ---
 
-## 5. Justificación Técnica de la Normalización
+### 4.1.7 Tactics
 
-- **1FN:** Todos los atributos son atómicos y cada tabla posee una clave primaria (`PK`) definida. Los únicos campos JSON (`time_slots`, `availability`) están justificados por representar colecciones de valores homogéneos de consulta no relacional.
+Las tácticas arquitectónicas representan las decisiones de diseño técnico adoptadas para satisfacer los atributos de calidad requeridos por el sistema, garantizando la estabilidad operativa del entorno web de FinTeka sin recurrir a consideraciones de disponibilidad:
 
-- **2FN:** Se han eliminado dependencias parciales; todos los atributos no clave dependen completamente de su clave primaria. No existen claves compuestas con dependencias parciales.
+#### SEGURIDAD
+* **Microservicio de Autenticación Propio:** Control de identidad centralizado mediante un componente interno que emite tokens JSON Web Tokens (JWT) firmados criptográficamente, implementando un control de acceso basado en roles (RBAC) que restringe los endpoints a nivel de Gateway para los roles `CLIENT` y `PROFESSIONAL`.
+* **Cifrado de Datos Críticos:** Aplicación del algoritmo de hashing robusto BCrypt para las contraseñas guardadas en la base de datos **MySQL**, junto con el uso mandatorio del protocolo HTTPS (TLS 1.3) para asegurar la confidencialidad de la información en tránsito.
+* **Tácticas de Mitigación de Spam y Ataques:** Implementación de políticas de control de tasa de peticiones (*Rate Limiting*) en el API Gateway para mitigar la saturación de endpoints críticos por parte de bots o solicitudes maliciosas concurrentes.
 
-- **3FN:** Se han eliminado dependencias transitivas. La información de pagos, notas, recomendaciones, reseñas y notificaciones reside en tablas satélites relacionadas mediante llaves foráneas (`FK`), lo que previene anomalías de inserción, actualización y eliminación, garantizando la consistencia del modelo a largo plazo.
-  
-## 4.1.6 Design Pattems
+#### RENDIMIENTO
+* **Procesamiento Asíncrono de Tareas:** Integración de un broker de mensajería para gestionar los flujos de trabajo que no requieren una respuesta inmediata en el navegador del usuario, tales como el envío de correos de confirmación, la actualización asíncrona de métricas de reputación o el registro de registros en `USER_ACTIVITY_LOGS`.
+* **Optimización del Lado del Cliente (Frontend):** Uso de técnicas de división de código fuente (*code-splitting*) y carga diferida (*lazy loading*) en el desarrollo con **Vue.js**, reduciendo sustancialmente el tamaño de los paquetes JavaScript iniciales transferidos al navegador y acelerando el tiempo de interactividad de la interfaz.
 
-Entre los patrones de diseño que emplearemos en el desarrollo de FinTeka destacan los siguientes:
+#### ESCALABILIDAD
+* **Arquitectura Orientada a Microservicios:** Descomposición funcional de la plataforma en servicios web autónomos y desacoplados desarrollados en **Spring Boot**, facilitando el escalado horizontal independiente de aquellos módulos que registren una alta carga transaccional (como el buscador de publicaciones o el gestor de mensajería).
+* **Segregación de Consultas Relacionales:** Configuración de una arquitectura de base de datos en **MySQL** que desvía los flujos intensivos de lectura hacia réplicas dedicadas, evitando la contención de cerraduras de tablas en el nodo principal durante los procesos de inserción y modificación de datos de postulación.
 
-**Patrones estructurales**
+#### MODERACIÓN
+* **Garantía de Reseñas Verificadas:** Restricción a nivel de lógica de backend que valida en la base de datos la existencia de una relación previa entre el cliente y el profesional en estado "Completada" dentro de `ADVISORY_SESSIONS` antes de autorizar la inserción de un registro en la tabla `REVIEWS`.
 
-Los patrones estructurales organizan las relaciones entre clases y componentes para hacerlas más comprensibles y extensibles.
+#### PERSONALIZACIÓN
+* **Administración del Estado Global de Interfaz:** Empleo de contenedores de estado centralizados en el frontend de **Vue.js** para renderizar en tiempo real y sin latencia las preferencias visuales del usuario (como el contraste de color o temas de interfaz), sincronizando dichos cambios de forma asíncrona con el campo `preferences` de la base de datos.
 
-* Repository Pattern. El repositorio abstrae el acceso a la base de datos (MySQL) y separa las consultas y persistencia de las reglas de negocio. Esta separación mejora las pruebas unitarias y reduce la duplicación de lógica al guardar el historial de sesiones o actualizar la reputación de los consultores.
-* Adapter Pattern. Permite integrar servicios externos como pasarelas de pago, sistemas de mensajería o proveedores de analítica, sin modificar la lógica interna de FinTeka.
-**Patrones de comportamiento**
-
-Los patrones de comportamiento definen cómo colaboran los objetos y encapsulan algoritmos para lograr mayor flexibilidad.
-
-* Command Pattern (CQRS). El patrón Command encapsula cada operación de escritura en FinTeka (ej. registrar especialista, confirmar reserva, procesar pago) en un objeto propio. Esto permite desacoplar la solicitud de la acción de su ejecución, lo que favorece el escalamiento y la integración con colas de mensajes para flujos asincrónicos.
-* Query Pattern (CQRS complementario). Al separar las consultas de lectura (ej. filtrar consultores por tarifa, ver historial de asesorías) de los comandos de escritura, se obtiene mayor rendimiento y claridad, algo crítico en el módulo de Search & Profile de la plataforma.
-
-
-## 4.1.7 Tactics 
-
-Las tácticas arquitecturales son las decisiones técnicas concretas implementadas para satisfacer los Atributos de Calidad (Quality Attributes) exigidos por el ecosistema de **Finteka**. Estas decisiones permiten que el sistema sea resiliente, seguro y eficiente bajo las condiciones operativas de Finteka.
-
-
-Para garantizar que la arquitectura soporte los requerimientos no funcionales (RNF) detallados en el proyecto, se han aplicado las siguientes tácticas:
-
-A continuación, se presenta la táctica que se utilizará para cada atributo de calidad.
-
-#### SEGURIDAD 
-
-* Autenticación de usuarios mediante roles diferenciados (usuario, consultor) y control de permisos según funciones.
-* Protección de información sensible con cifrado tanto en tránsito como en almacenamiento.
-* Escaneo y actualización periódica de componentes para prevenir vulnerabilidades.
-* Mecanismos de detección de accesos inusuales y prevención de fraudes en reservas y pagos
-
-#### RENDIMIENTO 
-
-* Implementación de RabbitMQ como message broker para gestionar tareas asíncronas, evitando que procesos como envío de correos, notificaciones, generación de reportes o actualizaciones de reputación afecten los tiempos de respuesta al usuario.
-* Uso de colas de mensajes para desacoplar procesos de alta carga y optimizar el procesamiento de solicitudes concurrentes.
-* Monitorización continua de las colas para identificar cuellos de botella y garantizar tiempos de respuesta estables.
-
-#### ESCALABILIDAD 
-* Utilización de RabbitMQ para distribuir eventos y tareas entre múltiples consumidores, permitiendo incrementar la capacidad de procesamiento conforme aumente la demanda.
-* Escalado independiente de servicios consumidores de mensajes, evitando afectar otros módulos de la plataforma.
-* Soporte para arquitecturas orientadas a eventos, facilitando la incorporación de nuevos servicios sin modificar los existentes.
-
-#### INTEGRABILIDAD 
-* APIs REST para permitir conexión con sistemas externos, como pasarelas de pago o CRM de consultores.
-* Soporte para intercambio de información estándar entre plataformas de terceros.
-* Eventos y notificaciones que facilitan la sincronización con otras aplicaciones en tiempo real.
-* Código modular que facilita la implementación de nuevas funcionalidades y servicios complementarios.
-
-#### AUDITABILIDAD 
-* Registro detallado de acciones clave, incluyendo reservas, pagos, cambios de perfil y cancelaciones.
-* Historial completo de interacciones entre usuarios y consultores, garantizando trazabilidad y resolución de conflictos.
-* Gestión de accesos y retención de datos sensibles conforme a normativas de privacidad y seguridad.
+---
 
 ### 4.1.8 Design Purpose
 
-El propósito del diseño de **Finteka** es proporcionar una plataforma de intermediación financiera escalable, centrada en el usuario y técnicamente resiliente. Los objetivos principales son:
+El propósito del diseño de la arquitectura de FinTeka consiste en proveer un entorno web técnicamente robusto, desacoplado y centrado en la eficiencia del proceso de postulación de asesorías. Los objetivos del diseño de software se definen en los siguientes puntos:
 
-1.  **Fiabilidad Transaccional:** Garantizar que el flujo de agendamiento y pago sea atómico. Si una parte del proceso falla, el sistema debe revertir los cambios automáticamente (Patrón Saga).
-2.  **Mantenibilidad Modular:** Mediante una arquitectura de microservicios, permitir que el equipo de Nova Asesors despliegue mejoras en el módulo de chat o pagos de forma independiente, reduciendo el riesgo de errores en producción.
+1.  **Consistencia Transaccional Distribuida:** Asegurar la integridad de las operaciones complejas que involucran múltiples microservicios (como la reserva simultánea de una sesión y la validación de la pasarela de pagos) mediante la implementación del patrón **SAGA**. Este patrón coordina las transacciones compensatorias en caso de fallos en el procesamiento del pago, garantizando la reversión lógica del estado de la sesión en **MySQL** sin incorporar mecanismos de devolución financiera automatizada.
+2.  **Eficiencia y Baja Latencia Web:** Optimizar la comunicación entre la interfaz de usuario en **Vue.js** y el backend en **Spring Boot** mediante un punto único de entrada (API Gateway), reduciendo la sobrecarga de solicitudes HTTP y asegurando una navegación ágil en el navegador web del usuario.
+3.  **Modularidad y Extensibilidad del Sistema:** Establecer límites de contexto claros por cada microservicio, lo que permite la modificación o adición de funciones en el módulo de soporte, la base de preguntas frecuentes o las preferencias visuales de la cuenta de manera aislada, mitigando el riesgo de regresiones en el entorno de producción.
 
 ---
 
 ### 4.1.9 Primary Functionality (Primary User Stories)
 
-La arquitectura ha sido diseñada para dar soporte directo a las historias de usuario de mayor valor de negocio, asegurando que los flujos técnicos sean eficientes:
+La arquitectura de FinTeka se encuentra estructurada para dar soporte directo e independiente a los flujos operativos de mayor valor para el negocio:
 
 | ID | Historia de Usuario | Flujo Técnico de Arquitectura | Componente Crítico |
 | :--- | :--- | :--- | :--- |
-| **US-01** | **Agendar Sesión de Asesoría** | El `Reservation Service` realiza una reserva atómica verificando la disponibilidad en tiempo real en la BD Relacional. | Reservation Microservice |
-| **US-02** | **Visualizar Perfil de Asesor** | Se utiliza una táctica de caché para servir la información del asesor desde MySQL, minimizando la latencia. | Profile Microservice |
-| **US-03** | **Pago Seguro y Comisión** | Integración asíncrona con pasarelas de pago. El sistema calcula la comisión de Nova Asesors antes de confirmar la sesión. | Payment Gateway Service |
+| **US-01** | Postulación a Sesión de Asesoría | El cliente selecciona un horario en la interfaz web; el microservicio de reservas valida la disponibilidad y asocia los identificadores correspondientes de forma atómica en **MySQL**. | `Booking Microservice` |
+| **US-02** | Filtrado y Búsqueda de Publicaciones | El usuario aplica filtros de especialidad y precio en el frontend; el componente realiza la consulta optimizada apuntando a las réplicas de lectura de la base de datos. | `Search & Profile Service` |
+| **US-03** | Procesamiento de Suscripción Premium | El profesional solicita la suscripción; el backend coordina mediante el patrón **SAGA** la validación del cobro y la actualización del estado `is_premium` a verdadero en la tabla de profesionales. | `Subscription & Payment Service` |
+| **US-04** | Configuración de Preferencias Visuales | El usuario modifica los parámetros visuales en la plataforma web; el frontend en **Vue.js** actualiza el estado local de la interfaz y envía los datos para persistirlos en la tabla `CLIENTS`. | `User Interface Component` |
+| **US-05** | Configuración de Seguridad de la Cuenta | El usuario actualiza sus credenciales de acceso; el microservicio de **Autenticación** procesa el cambio de contraseñas aplicando hashing y actualiza la entidad `USERS` generando un log en la auditoría. | `Authentication Microservice` |
+| **US-06** | Consulta de Soporte y Preguntas Frecuentes | El cliente o profesional accede al centro de ayuda web; el sistema sirve el contenido informativo de soporte técnico desde la persistencia relacional sin afectar los flujos de postulación. | `Support & FAQ Component` |
+
 
 ### 4.1.10 Quality Attribute Scenarios
 
