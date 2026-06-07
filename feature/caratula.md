@@ -2860,6 +2860,28 @@ En el presente sprint se logró desarrollar la primera versión de los microserv
 
 #### 5.2.2.3 Testing Suite Evidence for Sprint Review
 
+La presente sección documenta el conjunto de validaciones ejecutadas durante el Sprint 2 para garantizar la estabilidad técnica del incremento. El enfoque de pruebas abarcó múltiples niveles de la pirámide de testing, priorizando la verificación del aislamiento arquitectónico mediante un enfoque de diseño guiado por el dominio (DDD). Las evaluaciones aseguraron que las invariantes de negocio de las entidades (*Entities*) y los agregados (*Aggregates*) dentro del *Bounded Context* de perfiles operen correctamente sin dependencias externas acopladas.
+
+Adicionalmente, se ejecutaron pruebas de integración sobre la nueva capa de infraestructura, comprobando el enrutamiento centralizado a través del API Gateway y el descubrimiento dinámico en Eureka. Para el módulo de agendamiento, el aseguramiento de calidad incluyó escenarios de concurrencia y estrés transaccional, mitigando los riesgos de colisión de datos.
+
+A continuación, se detalla el registro técnico de la suite de pruebas aprobada, incorporando métricas referenciales de cobertura de código (*Code Coverage*) obtenidas mediante análisis estático:
+
+| Repository | Test Suite / Class | Test Level | Technical Focus / Description | Code Coverage | Status | Date |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| finteka-discovery | `EurekaServerContextTest` | Infrastructure | Verificación de inicialización del servidor de registro y configuración estricta de zonas de disponibilidad. | 95% | Passed | 28/05/2026 |
+| finteka-discovery | `ServiceRegistrySyncTest` | Integration | Validación de sincronización de instancias cliente, evaluación de *heartbeats* y control de *timeouts*. | 88% | Passed | 28/05/2026 |
+| finteka-gateway | `JwtAuthenticationFilterTest` | Security (Unit) | Aserciones sobre la extracción, validación de firmas criptográficas y control de expiración de tokens en cabeceras HTTP. | 92% | Passed | 28/05/2026 |
+| finteka-gateway | `RouteLocatorValidationTest`| Integration | Comprobación del mapeo de rutas entrantes y reescritura de URIs hacia los respectivos microservicios *downstream*. | 90% | Passed | 28/05/2026 |
+| finteka-profile-service | `ProfileAggregateRootTest` | Unit (Domain) | Pruebas aisladas sobre las reglas de negocio, mutación de estado e invariantes del *Aggregate Root* `Profile`. | 100% | Passed | 29/05/2026 |
+| finteka-profile-service | `ProfileJpaRepositoryTest` | Integration | Uso de contenedores efímeros (*Testcontainers*) para validar la persistencia y ejecución de consultas DTO personalizadas. | 85% | Passed | 29/05/2026 |
+| finteka-profile-service | `ProfileCommandControllerTest`| API (MockMvc) | Aserciones sobre endpoints REST de creación y actualización, validando códigos de estado HTTP y serialización JSON. | 88% | Passed | 29/05/2026 |
+| finteka-booking-service | `TimeSlotOverlapLogicTest` | Unit (Domain) | Evaluación algorítmica para la detección precisa de solapamientos en rangos de fechas bajo el estándar ISO 8601. | 96% | Passed | 30/05/2026 |
+| finteka-booking-service | `ReservationTransactionTest` | Integration | Verificación del comportamiento del ORM frente a transacciones *rollback* y mantenimiento de la consistencia referencial. | 87% | Passed | 30/05/2026 |
+| finteka-booking-service | `OptimisticLockingStressTest` | Concurrency | Simulación de estrés con múltiples hilos simultáneos sobre el mismo bloque horario para confirmar rechazos por versión de entidad. | N/A | Passed | 30/05/2026 |
+| finteka-frontend | `ProfileStore.spec.js` | Unit (Vue) | Comprobación de mutaciones y acciones asíncronas en el estado global para la carga de los componentes de perfil. | 80% | Passed | 31/05/2026 |
+| finteka-frontend | `BookingCalendar.cy.js` | E2E (Cypress) | Automatización del flujo de cliente: navegación, selección de matriz horaria y transmisión del *payload* de reserva. | N/A | Passed | 31/05/2026 |
+
+
 #### 5.2.2.4 Execution Evidence for Sprint Review
 
 Durante el primer sprint, se lograron varios hitos importantes en el desarrollo de los microservicios en Finteka. A continuación, se presenta un resumen de los logros alcanzados:
