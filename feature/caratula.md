@@ -2263,19 +2263,19 @@ Para la segunda iteración se priorizará la migración del backend monolítico 
 En este punto se establecen los drivers arquitectónicos prioritarios para la segunda iteración, los cuales guiarán las decisiones de diseño y desarrollo del sistema. 
 
 
-| Tipo de Driver      | Driver Seleccionado | Descripcion                                                                                                                                                                                                       |
-|:--------------------|:--------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Atributo de Calidad | Rendimiento         | El sistema debe responder de manera eficiente a las solicitudes de los usuarios, permitiendo escalar los microservicios de forma independiente para soportar una mayor carga de trabajo sin afectar el desempeño general de la plataforma.                                                                                                                                                                                                                  |
-| Atributo de Calidad | Seguridad           | El sistema debe garantizar la autenticación y autorización segura de los usuarios mediante el microservicio IAM, protegiendo los datos sensibles y controlando el acceso a los recursos según el rol del usuario. |
-| Atributo de Calidad | Disponibilidad      | Los servicios deben mantenerse operativos y accesibles ante fallos parciales, aprovechando el despliegue en la nube y la separación en microservicios para minimizar interrupciones del sistema.                  |
-| Requisito funcional | Gestión de autenticación y perfiles de usuario            | El sistema debe permitir el registro, inicio de sesión, gestión de roles y consulta de perfiles de usuario mediante los microservicios IAM y Profiles.                                                            |
+| Tipo de Driver      | Driver Seleccionado                            | Descripcion                                                                                                                                                                                                       |
+|:--------------------|:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Atributo de Calidad | Rendimiento                                    | El sistema debe responder de manera eficiente a las solicitudes de los usuarios, permitiendo escalar los microservicios de forma independiente para soportar una mayor carga de trabajo sin afectar el desempeño general de la plataforma.                                                                                                                                                                                                                  |
+| Atributo de Calidad | Seguridad                                      | El sistema debe garantizar la autenticación y autorización segura de los usuarios mediante el microservicio IAM, protegiendo los datos sensibles y controlando el acceso a los recursos según el rol del usuario. |
+| Atributo de Calidad | modificalidad                                  | La arquitectura basada en microservicios debe facilitar la incorporación, actualización y mantenimiento de funcionalidades de manera independiente, minimizando el impacto sobre otros servicios y reduciendo el esfuerzo requerido para realizar cambios en el sistema.                 |
+| Requisito funcional | Gestión de autenticación y perfiles de usuario | El sistema debe permitir el registro, inicio de sesión, gestión de roles y consulta de perfiles de usuario mediante los microservicios IAM y Profiles.                                                            |
 
 
 ### 4.3.2.3 Choose One or More Elements of the System to Refine
 
 En este punto se identifican los elementos del sistema que serán refinados durante la segunda iteración.
 
-* Microservicio IAM (Identity and Access Management): Será responsable de administrar los procesos de autenticación y autorización de la plataforma. Este servicio validará las credenciales de los usuarios, gestionará los roles y permisos disponibles, y emitirá tokens JWT que permitirán controlar el acceso seguro a los recursos del sistema.
+* Microservicio Autenticacion: Será responsable de administrar los procesos de autenticación y autorización de la plataforma. Este servicio validará las credenciales de los usuarios, gestionará los roles y permisos disponibles, y emitirá tokens JWT que permitirán controlar el acceso seguro a los recursos del sistema.
 * Microservicio Profiles: Tendrá la responsabilidad de gestionar la información asociada a los perfiles de los usuarios y consultores. Permitirá registrar, consultar y actualizar los datos personales y profesionales necesarios para el funcionamiento de la plataforma.
 * API Gateway: Actuará como punto único de entrada para las solicitudes provenientes de los clientes. Su función será enrutar las peticiones hacia los microservicios correspondientes, además de facilitar la implementación de políticas de seguridad y monitoreo.
 * Message Broker RabbitMQ: Será incorporado para habilitar la comunicación asíncrona entre microservicios, favoreciendo el desacoplamiento de componentes y mejorando la escalabilidad y resiliencia de la solución.
@@ -2283,14 +2283,13 @@ En este punto se identifican los elementos del sistema que serán refinados dura
 
 ### 4.3.2.4 Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-Para esta iteración se adoptarán diferentes conceptos de diseño orientados a mejorar la seguridad, el rendimiento y la disponibilidad de la solución basada en microservicios. Estas decisiones arquitectónicas servirán como base para la implementación de los servicios IAM y Profiles, así como de los mecanismos de integración y comunicación entre componentes.
-
+Para esta iteración se adoptarán diferentes conceptos de diseño orientados a mejorar la seguridad, el rendimiento y la modificabilidad de la solución basada en microservicios. Estas decisiones arquitectónicas servirán como base para la implementación de los servicios IAM y Profiles, así como de los mecanismos de integración y comunicación entre componentes.
 
 * *Rendimiento*. La arquitectura basada en microservicios permitirá distribuir las responsabilidades del sistema en servicios independientes, reduciendo cuellos de botella y facilitando el escalamiento de los componentes con mayor carga. El API Gateway centralizará las solicitudes provenientes del cliente y optimizará el acceso a los servicios internos. Asimismo, se utilizarán consultas optimizadas y mecanismos de validación eficientes para cumplir con los tiempos de respuesta definidos en los requisitos RNF-001, RNF-002 y RNF-010.
 
 * *Seguridad.* El microservicio IAM será el encargado de gestionar la autenticación y autorización de usuarios mediante tokens JWT y control de acceso basado en roles (RBAC). Las contraseñas se almacenarán utilizando BCrypt y toda la comunicación entre clientes y servicios se realizará mediante HTTPS. Además, se implementarán políticas de expiración de sesiones, bloqueo de cuentas por intentos fallidos y recuperación segura de contraseñas, garantizando el cumplimiento de los requisitos RNF-003, RNF-004, RNF-011, RNF-016, RNF-017 y RNF-018.
 
-* *Disponibilidad*. La comunicación asíncrona mediante RabbitMQ permitirá desacoplar procesos críticos y reducir el impacto de fallos temporales entre servicios. Se incorporarán mecanismos de reintento automático para mensajes fallidos y monitoreo de eventos críticos, asegurando la continuidad operativa y el cumplimiento de los requisitos RNF-019, RNF-020, RNF-021 y RNF-022.
+* *Modificalidad*. La adopción de una arquitectura basada en microservicios permitirá desacoplar los diferentes dominios de negocio del sistema, facilitando la incorporación de nuevas funcionalidades, la corrección de errores y la evolución independiente de cada servicio sin afectar el funcionamiento de los demás componentes. Los microservicios IAM y Profiles contarán con interfaces bien definidas mediante APIs REST documentadas con OpenAPI/Swagger, favoreciendo la mantenibilidad y reduciendo el impacto de los cambios. Asimismo, el uso de un API Gateway centralizará el acceso a los servicios y simplificará la integración de nuevos microservicios en el futuro. Estas decisiones contribuirán al cumplimiento de los requisitos RNF-006, RNF-007, RNF-008 y RNF-009.
 
 * *Despliegue y Operación.* Los servicios serán empaquetados mediante contenedores Docker y desplegados en Microsoft Azure, garantizando portabilidad y facilidad de administración. Adicionalmente, se implementará un sistema centralizado de registros para monitorear autenticaciones, errores y operaciones críticas, permitiendo una gestión eficiente de la plataforma y el cumplimiento de los requisitos RNF-012 y RNF-013.
 
@@ -2300,7 +2299,7 @@ Durante esta iteración se realizaron los principales componentes de la arquitec
 
 #### Elementos arquitectónicos instanciados:
 
-* Microservicio IAM (Identity and Access Management): Implementado con Spring Boot y MYSQL, responsable de la autenticación, autorización y gestión de credenciales de los usuarios. Este servicio administra los roles del sistema, genera tokens JWT y aplica políticas de seguridad para el acceso a los recursos protegidos.
+* Autenticacion: Implementado con Spring Boot y MYSQL, responsable de la autenticación, autorización y gestión de credenciales de los usuarios. Este servicio administra los roles del sistema, genera tokens JWT y aplica políticas de seguridad para el acceso a los recursos protegidos.
 *  Microservicio Profiles: Desarrollado con Spring Boot y MYSQL, encargado de almacenar y gestionar la información de los perfiles de usuarios y consultores. Proporciona operaciones para la creación, consulta y actualización de datos personales y profesionales.
 * API Gateway: Actúa como punto único de entrada para las solicitudes provenientes del cliente web. Su función es enrutar las peticiones hacia los microservicios correspondientes, aplicar controles de seguridad y centralizar aspectos transversales como autenticación y monitoreo.
 *  RabbitMQ: Plataforma de mensajería utilizada para habilitar la comunicación asíncrona entre microservicios. Facilita el intercambio de eventos del sistema y reduce el acoplamiento entre componentes.
@@ -2308,7 +2307,7 @@ Durante esta iteración se realizaron los principales componentes de la arquitec
 #### Asignación de responsabilidades
 
 
-* IAM valida credenciales, registra usuarios, administra roles y permisos, genera y renueva tokens JWT, y controla la expiración de sesiones.
+* Autenticacion valida credenciales, registra usuarios, administra roles y permisos, genera y renueva tokens JWT, y controla la expiración de sesiones.
 * Profiles administra la información de usuarios y consultores, permitiendo la consulta y actualización de perfiles dentro de la plataforma.
 * API Gateway recibe las solicitudes del frontend, verifica los mecanismos de autenticación y redirige cada petición al microservicio correspondiente.
 * RabbitMQ gestiona el intercambio de mensajes y eventos entre servicios, garantizando la entrega de información mediante mecanismos de reintento ante fallos temporales.
@@ -2322,8 +2321,22 @@ Durante esta iteración se realizaron los principales componentes de la arquitec
 
 ###  4.3.2.6 Sketch Views (C4 & UML) and Record Design Decisions
 
+Diagrama de contenedores 
+
+![containerdiagram.jpg](../assets/containerdiagram.jpg)
+
+Diagrama de componente de autenticacion
+
+![c2.jpg](../assets/c2.jpg)
+
+Diagrama de componente de Gestión de Usuarios y Perfiles
+
+![c8.jpg](../assets/c8.jpg)
 ###  4.3.2.7 Analysis of Current Design and Review Iteration Goal (Kanban Board)
 
+![img_4.png](../assets/img_4.png)
+
+Link del tablero trello: https://trello.com/invite/b/6a24df4094d6d575cd9a77de/ATTI1220b24acb9244352b6ea571e77f4a85F1D664D1/add2
 # Capítulo V: Product Implementation, Validation & Deployment
 
 # 5.1 Testing Suites & General Patterns
