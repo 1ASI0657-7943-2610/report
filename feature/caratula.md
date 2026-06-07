@@ -1480,11 +1480,6 @@ Los patrones de comportamiento definen cómo colaboran los objetos y encapsulan 
 * Command Pattern (CQRS). El patrón Command encapsula cada operación de escritura en FinTeka (ej. registrar especialista, confirmar reserva, procesar pago) en un objeto propio. Esto permite desacoplar la solicitud de la acción de su ejecución, lo que favorece el escalamiento y la integración con colas de mensajes para flujos asincrónicos.
 * Query Pattern (CQRS complementario). Al separar las consultas de lectura (ej. filtrar consultores por tarifa, ver historial de asesorías) de los comandos de escritura, se obtiene mayor rendimiento y claridad, algo crítico en el módulo de Search & Profile de la plataforma.
 
-**Patrones creacionales** 
-
-* Factory Pattern. Se utilizará para la creación de objetos relacionados con los usuarios de la plataforma: Usuario, Consultor o Administrador.
-* Singleton Pattern. Implementado para servicios críticos como el Payment Service o el Search , asegurando que exista una única instancia gestionando las transacciones o consultas, evitando inconsistencias y reduciendo consumo de recursos.
-
 
 ## 4.1.7 Tactics 
 
@@ -1501,14 +1496,6 @@ A continuación, se presenta la táctica que se utilizará para cada atributo de
 * Protección de información sensible con cifrado tanto en tránsito como en almacenamiento.
 * Escaneo y actualización periódica de componentes para prevenir vulnerabilidades.
 * Mecanismos de detección de accesos inusuales y prevención de fraudes en reservas y pagos
-
-
-#### DISPONIBILIDAD 
-
-* Distribución de la carga de usuarios entre múltiples servidores para evitar interrupciones en picos de tráfico.
-*¨Alertas automáticas y monitorización de servicios críticos como reservas, pagos y motor de búsqueda de especialistas.
-* Diseño de infraestructura redundante, de manera que fallos en un servicio no afecten la operación general.
-* Respaldos frecuentes de la base de datos para asegurar la continuidad del servicio en caso de incidentes.
 
 #### RENDIMIENTO 
 
@@ -1537,8 +1524,7 @@ A continuación, se presenta la táctica que se utilizará para cada atributo de
 El propósito del diseño de **Finteka** es proporcionar una plataforma de intermediación financiera escalable, centrada en el usuario y técnicamente resiliente. Los objetivos principales son:
 
 1.  **Fiabilidad Transaccional:** Garantizar que el flujo de agendamiento y pago sea atómico. Si una parte del proceso falla, el sistema debe revertir los cambios automáticamente (Patrón Saga).
-2.  **Baja Latencia en Dispositivos Móviles:** Optimizar la comunicación mediante una capa de API Gateway que reduzca el "over-fetching" de datos, asegurando una experiencia fluida para el cliente.
-3.  **Mantenibilidad Modular:** Mediante una arquitectura de microservicios, permitir que el equipo de Nova Asesors despliegue mejoras en el módulo de chat o pagos de forma independiente, reduciendo el riesgo de errores en producción.
+2.  **Mantenibilidad Modular:** Mediante una arquitectura de microservicios, permitir que el equipo de Nova Asesors despliegue mejoras en el módulo de chat o pagos de forma independiente, reduciendo el riesgo de errores en producción.
 
 ---
 
@@ -1548,10 +1534,9 @@ La arquitectura ha sido diseñada para dar soporte directo a las historias de us
 
 | ID | Historia de Usuario | Flujo Técnico de Arquitectura | Componente Crítico |
 | :--- | :--- | :--- | :--- |
-| **US-01** | **Agendar Sesión de Asesoría** | El `Booking Service` realiza una reserva atómica verificando la disponibilidad en tiempo real en la BD Relacional. | Booking Microservice |
-| **US-02** | **Visualizar Perfil de Asesor** | Se utiliza una táctica de caché (`Read-through`) para servir la información del asesor desde **Redis**, minimizando la latencia. | Consultant Microservice / Redis |
+| **US-01** | **Agendar Sesión de Asesoría** | El `Reservation Service` realiza una reserva atómica verificando la disponibilidad en tiempo real en la BD Relacional. | Reservation Microservice |
+| **US-02** | **Visualizar Perfil de Asesor** | Se utiliza una táctica de caché para servir la información del asesor desde MySQL, minimizando la latencia. | Profile Microservice |
 | **US-03** | **Pago Seguro y Comisión** | Integración asíncrona con pasarelas de pago. El sistema calcula la comisión de Nova Asesors antes de confirmar la sesión. | Payment Gateway Service |
-| **US-04** | **Chat en Tiempo Real** | Comunicación bidireccional mediante **WebSockets** con persistencia en el almacén de documentos NoSQL para historial inmediato. | Chat Service (WebSocket) |
 
 ### 4.1.10 Quality Attribute Scenarios
 
@@ -1626,7 +1611,6 @@ El objetivo principal es garantizar:
 Para proteger los recursos críticos del sistema:
 - se implementa OAuth2 para autenticación descentralizada,
 - JWT para validación stateless,
-- RBAC para control de permisos,
 - API Gateway para centralización de políticas de seguridad.
 
 Esto evita accesos indebidos y protege la información sensible de la plataforma.
@@ -1681,40 +1665,6 @@ FinTeka diferencia:
 - Clientes,
 - Consultores,
 - Administradores,
-
----
-
-### B. DISPONIBILIDAD 
-
-La disponibilidad es esencial debido a que FinTeka ofrece:
-- reservas en tiempo real,
-- pagos digitales,
-- mensajería instantánea,
-- gestión continua de agendas.
-
-La plataforma debe mantenerse operativa incluso ante fallos parciales de infraestructura.
-
----
-
-##### Escenario B1 — Falla de Infraestructura
-
-| Elemento | Descripción |
-| :--- | :--- |
-| **Fuente** | Infraestructura cloud |
-| **Estímulo** | Caída de una Availability Zone |
-| **Entorno** | Alta concurrencia |
-| **Artefacto** | Base de datos y microservicios |
-| **Respuesta** | El tráfico es redirigido automáticamente hacia instancias secundarias |
-| **Medida de Respuesta** | Recuperación menor a 30 segundos y RPO = 0 |
-
-###### Justificación Técnica
-
-La arquitectura implementa:
-- replicación síncrona,
-- API Gateway,
-- failover automático.
-
-Esto garantiza continuidad operacional y evita pérdida de información crítica.
 
 ---
 
@@ -2142,9 +2092,9 @@ Link del trablero trello: https://trello.com/invite/b/69f6574d811b27877f919b44/A
 
 ###  4.3.2.1 Architectural Design Backlog 2
 
-Para la segunda iteración se priorizará la migración del backend monolítico hacia una arquitectura basada en microservicios. Para ello, se realizará la descomposición del monolito con el objetivo de identificar y separar los distintos dominios del sistema. Asimismo, se iniciará el desarrollo de los microservicios de IAM (Identity and Access Management) y Profiles, encargados de la gestión de autenticación, autorización y perfiles de usuario. Adicionalmente, estos servicios serán integrados mediante un API Gateway para centralizar el acceso a las APIs, y se llevará a cabo su despliegue en la plataforma cloud de Microsoft Azure
+Para la segunda iteración se priorizará la migración del backend monolítico hacia una arquitectura basada en microservicios. Para ello, se realizará la descomposición del monolito con el objetivo de identificar y separar los distintos dominios del sistema. Asimismo, se iniciará el desarrollo de los microservicios de Autenticación y Profiles, encargados de la gestión de autenticación, autorización y perfiles de usuario. Adicionalmente, estos servicios serán integrados mediante un API Gateway para centralizar el acceso a las APIs, y se llevará a cabo su despliegue en la plataforma cloud de Microsoft Azure
 
-* Desarrollo del microservicio IAM (Identity and Access Management) para gestionar autenticación, autorización y roles de usuario en Springboot.
+* Desarrollo del microservicio de Autenticación para gestionar autenticación, autorización y roles de usuario en Springboot.
 * Desarrollo del microservicio Profiles para gestionar la información de los usuarios y consultores en Springboot.
 * Implementacion de API Gateway.
 * Desarrollo de message broker RabbitMq para comunicacion asincrona 
@@ -2163,7 +2113,7 @@ En este punto se establecen los drivers arquitectónicos prioritarios para la se
 | Atributo de Calidad | Rendimiento                                    | El sistema debe responder de manera eficiente a las solicitudes de los usuarios, permitiendo escalar los microservicios de forma independiente para soportar una mayor carga de trabajo sin afectar el desempeño general de la plataforma.                                                                                                                                                                                                                  |
 | Atributo de Calidad | Seguridad                                      | El sistema debe garantizar la autenticación y autorización segura de los usuarios mediante el microservicio IAM, protegiendo los datos sensibles y controlando el acceso a los recursos según el rol del usuario. |
 | Atributo de Calidad | modificalidad                                  | La arquitectura basada en microservicios debe facilitar la incorporación, actualización y mantenimiento de funcionalidades de manera independiente, minimizando el impacto sobre otros servicios y reduciendo el esfuerzo requerido para realizar cambios en el sistema.                 |
-| Requisito funcional | Gestión de autenticación y perfiles de usuario | El sistema debe permitir el registro, inicio de sesión, gestión de roles y consulta de perfiles de usuario mediante los microservicios IAM y Profiles.                                                            |
+| Requisito funcional | Gestión de autenticación y perfiles de usuario | El sistema debe permitir el registro, inicio de sesión, gestión de roles y consulta de perfiles de usuario mediante los microservicios Autenticación y Profiles.                                                            |
 
 
 ### 4.3.2.3 Choose One or More Elements of the System to Refine
@@ -2178,24 +2128,24 @@ En este punto se identifican los elementos del sistema que serán refinados dura
 
 ### 4.3.2.4 Choose One or More Design Concepts That Satisfy the Selected Drivers
 
-Para esta iteración se adoptarán diferentes conceptos de diseño orientados a mejorar la seguridad, el rendimiento y la modificabilidad de la solución basada en microservicios. Estas decisiones arquitectónicas servirán como base para la implementación de los servicios IAM y Profiles, así como de los mecanismos de integración y comunicación entre componentes.
+Para esta iteración se adoptarán diferentes conceptos de diseño orientados a mejorar la seguridad, el rendimiento y la modificabilidad de la solución basada en microservicios. Estas decisiones arquitectónicas servirán como base para la implementación de los servicios Autenticación y Profiles, así como de los mecanismos de integración y comunicación entre componentes.
 
 * *Rendimiento*. La arquitectura basada en microservicios permitirá distribuir las responsabilidades del sistema en servicios independientes, reduciendo cuellos de botella y facilitando el escalamiento de los componentes con mayor carga. El API Gateway centralizará las solicitudes provenientes del cliente y optimizará el acceso a los servicios internos. Asimismo, se utilizarán consultas optimizadas y mecanismos de validación eficientes para cumplir con los tiempos de respuesta definidos en los requisitos RNF-001, RNF-002 y RNF-010.
 
-* *Seguridad.* El microservicio IAM será el encargado de gestionar la autenticación y autorización de usuarios mediante tokens JWT y control de acceso basado en roles (RBAC). Las contraseñas se almacenarán utilizando BCrypt y toda la comunicación entre clientes y servicios se realizará mediante HTTPS. Además, se implementarán políticas de expiración de sesiones, bloqueo de cuentas por intentos fallidos y recuperación segura de contraseñas, garantizando el cumplimiento de los requisitos RNF-003, RNF-004, RNF-011, RNF-016, RNF-017 y RNF-018.
+* *Seguridad.* El microservicio Autenticación será el encargado de gestionar la autenticación y autorización de usuarios mediante tokens JWT y control de acceso basado en roles. Las contraseñas se almacenarán utilizando BCrypt y toda la comunicación entre clientes y servicios se realizará mediante HTTPS. Además, se implementarán políticas de expiración de sesiones, bloqueo de cuentas por intentos fallidos y recuperación segura de contraseñas, garantizando el cumplimiento de los requisitos RNF-003, RNF-004, RNF-011, RNF-016, RNF-017 y RNF-018.
 
-* *Modificalidad*. La adopción de una arquitectura basada en microservicios permitirá desacoplar los diferentes dominios de negocio del sistema, facilitando la incorporación de nuevas funcionalidades, la corrección de errores y la evolución independiente de cada servicio sin afectar el funcionamiento de los demás componentes. Los microservicios IAM y Profiles contarán con interfaces bien definidas mediante APIs REST documentadas con OpenAPI/Swagger, favoreciendo la mantenibilidad y reduciendo el impacto de los cambios. Asimismo, el uso de un API Gateway centralizará el acceso a los servicios y simplificará la integración de nuevos microservicios en el futuro. Estas decisiones contribuirán al cumplimiento de los requisitos RNF-006, RNF-007, RNF-008 y RNF-009.
+* *Modificalidad*. La adopción de una arquitectura basada en microservicios permitirá desacoplar los diferentes dominios de negocio del sistema, facilitando la incorporación de nuevas funcionalidades, la corrección de errores y la evolución independiente de cada servicio sin afectar el funcionamiento de los demás componentes. Los microservicios Autenticación y Profiles contarán con interfaces bien definidas mediante APIs REST documentadas con OpenAPI/Swagger, favoreciendo la mantenibilidad y reduciendo el impacto de los cambios. Asimismo, el uso de un API Gateway centralizará el acceso a los servicios y simplificará la integración de nuevos microservicios en el futuro. Estas decisiones contribuirán al cumplimiento de los requisitos RNF-006, RNF-007, RNF-008 y RNF-009.
 
 * *Despliegue y Operación.* Los servicios serán empaquetados mediante contenedores Docker y desplegados en Microsoft Azure, garantizando portabilidad y facilidad de administración. Adicionalmente, se implementará un sistema centralizado de registros para monitorear autenticaciones, errores y operaciones críticas, permitiendo una gestión eficiente de la plataforma y el cumplimiento de los requisitos RNF-012 y RNF-013.
 
 ### 4.3.2.5 Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
-Durante esta iteración se realizaron los principales componentes de la arquitectura de microservicios, estableciendo sus responsabilidades, mecanismos de comunicación e interfaces de interacción. La incorporación de los servicios IAM y Profiles, junto con el API Gateway y RabbitMQ, permitirá desacoplar funcionalidades críticas y mejorar la escalabilidad, seguridad y mantenibilidad de la plataforma.
+Durante esta iteración se realizaron los principales componentes de la arquitectura de microservicios, estableciendo sus responsabilidades, mecanismos de comunicación e interfaces de interacción. La incorporación de los servicios Autenticación y Profiles, junto con el API Gateway y RabbitMQ, permitirá desacoplar funcionalidades críticas y mejorar la escalabilidad, seguridad y mantenibilidad de la plataforma.
 
 #### Elementos arquitectónicos instanciados:
 
-* Autenticacion: Implementado con Spring Boot y MYSQL, responsable de la autenticación, autorización y gestión de credenciales de los usuarios. Este servicio administra los roles del sistema, genera tokens JWT y aplica políticas de seguridad para el acceso a los recursos protegidos.
-*  Microservicio Profiles: Desarrollado con Spring Boot y MYSQL, encargado de almacenar y gestionar la información de los perfiles de usuarios y consultores. Proporciona operaciones para la creación, consulta y actualización de datos personales y profesionales.
+* Autenticacion: Implementado con Spring Boot y MySQL, responsable de la autenticación, autorización y gestión de credenciales de los usuarios. Este servicio administra los roles del sistema, genera tokens JWT y aplica políticas de seguridad para el acceso a los recursos protegidos.
+*  Microservicio Profiles: Desarrollado con Spring Boot y MySQL, encargado de almacenar y gestionar la información de los perfiles de usuarios y consultores. Proporciona operaciones para la creación, consulta y actualización de datos personales y profesionales.
 * API Gateway: Actúa como punto único de entrada para las solicitudes provenientes del cliente web. Su función es enrutar las peticiones hacia los microservicios correspondientes, aplicar controles de seguridad y centralizar aspectos transversales como autenticación y monitoreo.
 *  RabbitMQ: Plataforma de mensajería utilizada para habilitar la comunicación asíncrona entre microservicios. Facilita el intercambio de eventos del sistema y reduce el acoplamiento entre componentes.
 
@@ -2211,8 +2161,7 @@ Durante esta iteración se realizaron los principales componentes de la arquitec
 
 * Interfaces síncronas: Los microservicios exponen APIs REST versionadas y documentadas mediante OpenAPI/Swagger. Las operaciones relacionadas con autenticación se publican a través de rutas como /api/v1/authentication, mientras que la gestión de perfiles se encuentra disponible mediante /api/v1/profiles. Todas las solicitudes son canalizadas a través del API Gateway y protegidas mediante JWT.
 
-* Interfaces asíncronas: La comunicación basada en eventos utiliza RabbitMQ para intercambiar mensajes entre servicios. Eventos como registro de usuario, actualización de perfil o recuperación de credenciales pueden ser publicados y consumidos de manera desacoplada, permitiendo una integración flexible y escalable entre los componentes de la solución.
-
+* Interfaces asíncronas: La comunicación basada en eventos utiliza RabbitMQ para intercambiar mensajes entre servicios.
 
 ###  4.3.2.6 Sketch Views (C4 & UML) and Record Design Decisions
 
@@ -2232,6 +2181,7 @@ Diagrama de componente de Gestión de Usuarios y Perfiles
 ![img_4.png](../assets/img_4.png)
 
 Link del tablero trello: https://trello.com/invite/b/6a24df4094d6d575cd9a77de/ATTI1220b24acb9244352b6ea571e77f4a85F1D664D1/add2
+
 # Capítulo V: Product Implementation, Validation & Deployment
 
 # 5.1 Testing Suites & General Patterns
@@ -2242,7 +2192,6 @@ En el desarrollo de **Finteka**, se han adoptado estándares de ingeniería de s
 
 La estrategia de testing de **Finteka** sigue el modelo de la pirámide de automatización, asegurando la integridad del sistema en múltiples niveles:
 
-* **Unit Testing (JUnit 5 & Mockito):** Se validan de forma aislada las reglas de negocio en la capa `@Service`. Utilizamos **Mockito** para simular el comportamiento de las interfaces de persistencia y servicios externos (API de PayPal, Zoom), garantizando que las pruebas de dominio no tengan efectos secundarios ni dependencias de red.
 * **Integration Testing (Spring Boot Test & Testcontainers):** Validamos la interacción entre los componentes de Spring y la base de datos **PostgreSQL**. Mediante el uso de **Testcontainers**, levantamos instancias reales de la base de datos en contenedores Docker durante la ejecución de los tests, asegurando que los repositorios y las consultas JPQL sean 100% compatibles con el entorno de producción.
 * **Cloud Service Testing (LocalStack for S3):** Dada la dependencia de Finteka con **Amazon S3** para el almacenamiento de documentos y certificados, empleamos **LocalStack**. Esto nos permite ejecutar pruebas de integración locales que simulan el comportamiento de los buckets de AWS sin incurrir en costos ni requerir credenciales reales en entornos de desarrollo.
 * **Contract Testing (Spring Cloud Contract):** Para asegurar que la comunicación entre microservicios (ej. *Payments* e *Identity*) no se rompa tras un despliegue, implementamos pruebas de contrato que validan la estructura de los JSON intercambiados.
@@ -2252,14 +2201,12 @@ La estrategia de testing de **Finteka** sigue el modelo de la pirámide de autom
 La arquitectura backend de Finteka implementa patrones tácticos de **Domain-Driven Design (DDD)** para gestionar la complejidad distribuida:
 
 1.  **CQRS (Command Query Responsibility Segregation):** Separamos las operaciones de escritura (comandos) de las de lectura (consultas). Esto permite que el microservicio de búsqueda de especialistas utilice modelos de datos optimizados, cumpliendo con el RNF de respuesta de **menos de 1.5 segundos**.
-2.  **Saga Pattern (Orchestration):** Fundamental para mantener la consistencia en procesos que involucran múltiples servicios (ej. Reserva + Pago). Si el proceso de pago falla, la Saga coordina automáticamente una transacción de compensación para liberar el cupo del consultor.
-3.  **Data Transfer Object (DTO) Pattern:** Utilizamos DTOs para exponer únicamente la información necesaria al frontend en **Vue.js**, protegiendo la integridad de las entidades del dominio y optimizando el payload de las respuestas HTTP.
+2.  **Data Transfer Object (DTO) Pattern:** Utilizamos DTOs para exponer únicamente la información necesaria al frontend en **Vue.js**, protegiendo la integridad de las entidades del dominio y optimizando el payload de las respuestas HTTP.
 
 ## 5.1.3 Pattern Based Custom Software Library
 
 Para promover la reutilización y el cumplimiento de los **Cross-cutting Concerns**, se ha desarrollado una librería compartida denominada `finteka-shared-kernel`:
 
-* **Adapter Pattern (Hexagonal Architecture):** Implementamos una interfaz `StoragePort` para el manejo de archivos. El adaptador concreto para **Amazon S3** se inyecta en producción, mientras que en desarrollo se puede usar un adaptador de sistema de archivos local. Esto hace que el sistema sea **Cloud-Agnostic**.
 * **Global Exception Handling:** Mediante un `@ControllerAdvice`, centralizamos la captura de excepciones para transformar errores de Java en respuestas estandarizadas que el cliente de **Vue.js/Axios** pueda procesar de forma uniforme.
 * **Strategy Pattern (Payment Processors):** Abstraemos la lógica de las pasarelas de pago. Esto permite que Finteka soporte **PAYPAL** cambiando la estrategia de ejecución en tiempo de ejecución.
 
@@ -2271,7 +2218,6 @@ Este informe documenta las mejoras logradas mediante la aplicación de patrones 
 | :--- | :--- | :--- |
 | Alta dependencia del SDK de AWS (`aws-sdk-java`) en servicios de negocio. | **Adapter Pattern** | **Modificabilidad:** El código de negocio es ahora independiente del proveedor de nube. |
 | Consultas lentas por realizar joins complejos entre microservicios. | **Read Models (CQRS)** | **Rendimiento:** Reducción del tiempo de carga de perfiles de especialistas en un 45%. |
-| Fallos en cascada cuando servicios de terceros (Zoom/Meet) estaban caídos. | **Circuit Breaker (Resilience4j)** | **Disponibilidad:** El sistema detecta fallos externos y activa rutas alternativas sin bloquear los hilos del servidor. |
 | Lógica de autenticación JWT dispersa en múltiples filtros de seguridad. | **API Gateway Pattern** | **Seguridad:** Se centralizó la validación de seguridad, reduciendo la superficie de ataque y simplificando el mantenimiento. |
 
 ---
@@ -2641,7 +2587,7 @@ La estrategia de despliegue de Finteka fue diseñada bajo principios *Cloud-Nati
 |---|---|
 | HTTPS/TLS | Protección de comunicaciones |
 | Azure Key Vault | Gestión segura de credenciales |
-| IAM | Control de acceso cloud |
+| Autenticación | Control de acceso cloud |
 | Variables Seguras | Protección de secretos y APIs |
 
 ---
