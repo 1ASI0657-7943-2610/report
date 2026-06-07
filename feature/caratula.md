@@ -2264,7 +2264,7 @@ Para promover la reutilización y el cumplimiento de los **Cross-cutting Concern
 
 * **Adapter Pattern (Hexagonal Architecture):** Implementamos una interfaz `StoragePort` para el manejo de archivos. El adaptador concreto para **Amazon S3** se inyecta en producción, mientras que en desarrollo se puede usar un adaptador de sistema de archivos local. Esto hace que el sistema sea **Cloud-Agnostic**.
 * **Global Exception Handling:** Mediante un `@ControllerAdvice`, centralizamos la captura de excepciones para transformar errores de Java en respuestas estandarizadas que el cliente de **Vue.js/Axios** pueda procesar de forma uniforme.
-* **Strategy Pattern (Payment Processors):** Abstraemos la lógica de las pasarelas de pago. Esto permite que Finteka soporte **PayPal, Stripe o transferencias bancarias** simplemente cambiando la estrategia de ejecución en tiempo de ejecución.
+* **Strategy Pattern (Payment Processors):** Abstraemos la lógica de las pasarelas de pago. Esto permite que Finteka soporte **PAYPAL** cambiando la estrategia de ejecución en tiempo de ejecución.
 
 ## 5.1.4 Framework Pattern Driven Refactoring Report
 
