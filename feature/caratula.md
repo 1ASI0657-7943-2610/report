@@ -313,13 +313,14 @@ Del mismo modo, FinTeka incorpora funcionalidades que benefician tanto a los usu
 | Suscripción | Comisión por Sesión | Beneficios Principales |
 | :--- | :---: | :--- |
 | **Básico** | 10% | Acceso estándar a búsquedas, visualización de perfiles, reseñas y reservas básicas. |
-| **Premium** | 4% | Menor comisión por sesión. |
+| **Premium** | 4% | Menor comisión por sesión. Renovación mensual por 24.99 soles |
 
 ---
 
 ### Beneficios Funcionales por Nivel
 
 #### Plan Básico
+
 * **Acceso Estándar:** Búsqueda avanzada de especialistas por categoría y valoraciones estructuradas.
 * **Gestión Operativa:** Visualización de perfiles profesionales verificados y reserva de sesiones según la disponibilidad sincronizada.
 * **Interacción Social:** Acceso al sistema de comentarios post-asesoría y notificaciones de confirmación vía notificaciones asíncronos.
@@ -329,6 +330,15 @@ La comisión estándar del 10% se aplica de forma automática sobre cada sesión
 #### Plan Premium
 
 * **Optimización Financiera:** Reducción de la comisión transaccional por sesión del 10% al 4%, maximizando el margen de ganancia del consultor.
+* **Duración**: 1 mes.
+* **Precio**: 24.99 soles.
+
+### Funciones principales de cada rol
+
+| Rol | Funcionalidades| 
+| :--- | :---: |
+| Cliente | Personalización de perfil, visualización de servicios, reserva de servicios, realizar pagos, calificación del servicio, recibir notificaciones |
+| Profesional | Personalización de perfil, publicación de servicios, reserva de servicios, recibir pagos, visualización de mi valoración, recibir notificaciones |
 
 ---
 
@@ -359,7 +369,7 @@ A partir del análisis de los antecedentes y la problemática, se aplica la téc
 * **Where (Dónde):** Esta situación se presenta principalmente en el ecosistema digital fragmentado, donde la oferta se encuentra dispersa en múltiples canales no integrados. Asimismo, afecta diversos contextos como el ámbito empresarial, académico, financiero, tecnológico y personal, donde la necesidad de contratar expertos especializados es cada vez más frecuente.
 * **Who (Quiénes):** Dentro del entorno analizado se identifican como actores principales a los usuarios que buscan asesoría (personas naturales, emprendedores, estudiantes y MyPEs) y a los consultores independientes o especialistas que requieren un espacio digital confiable para promocionar sus servicios. 
 * **Why (Por qué):** El origen del problema radica en la falta de plataformas integrales construidas sobre infraestructuras de software modernas que reúnan en un solo entorno funcionalidades como registro seguro, perfiles profesionales, filtros de búsqueda, reservas automáticas, pagos protegidos y sistemas de valoración confiables. Como consecuencia, los usuarios enfrentan procesos lentos y poco transparentes.
-* **How (Cómo):** Mediante el desarrollo de FinTeka, una plataforma web estructurada con un backend en **Spring Boot**, una interfaz de usuario interactiva y fluida en **Vue.js**, y persistencia de datos relacional en **MySQL**. El sistema centraliza la autenticación segura sin dependencias externas, perfiles validados, un motor de búsqueda avanzado, programación de sesiones coordinada por eventos, pagos digitales bajo el patrón transaccional **SAGA** y un sistema de reputación basado en experiencias reales verificadas.
+* **How (Cómo):** En la actualidad, gran parte de estas interacciones se desarrolla de manera manual. Los usuarios localizan consultores por recomendaciones o publicaciones, coordinan horarios mediante mensajes directos, realizan pagos externos y no siempre disponen de evidencia clara sobre la calidad del servicio recibido. Frente a ello, FinTeka plantea una plataforma web que centraliza autenticación segura, perfiles personales y profesionales, motor de búsqueda avanzada, programación de sesiones, pagos digitales, notificaciones automáticas y reputación basada en experiencias reales de los usuarios.
 * **How Much (Cuánto impacto):** El impacto de la problemática se refleja en la pérdida de tiempo operativo, vulnerabilidad al fraude en pagos externos y desaprovechamiento de oportunidades comerciales. Con FinTeka se espera conseguir una conversión mínima del 25% de visitantes registrados en la etapa inicial, optimizando el acceso a servicios profesionales y ampliando las oportunidades económicas dentro del mercado digital de asesorías.
 
 ---
@@ -462,12 +472,6 @@ Creemos que, si se habilitan canales de comunicación directa y seguimiento post
 * **User Outcome:** Mejor experiencia de servicio, continuidad en el asesoramiento y relaciones profesionales sostenibles.
 * **Feature:** Chat interno, historial extendido de sesiones, notificaciones automáticas y programación de seguimientos.
 
-#### Hipótesis 5
-Creemos que, si se ofrecen pagos seguros e integrados gestionados consistentemente por el backend, los usuarios percibirán mayor confianza y comodidad al contactar servicios profesionales. Esto se validará cuando disminuya el abandono en el proceso de checkout y aumente el porcentaje de transacciones completadas exitosamente.
-* **Business Outcome:** Incremento de ingresos por recaudación de comisiones y reducción de transacciones inconclusas o agendas duplicadas.
-* **Users:** Usuarios postulantes y consultores afiliados.
-* **User Outcome:** Proceso de pago simple, seguro, consistente y confiable.
-* **Feature:** Pasarela de pago integrada, consistencia distribuida con **Saga Pattern**, comprobantes automáticos y confirmación inmediata de reservas.
 
 ---
 
@@ -866,7 +870,7 @@ Las funcionalidades relacionadas con:
 - búsqueda,
 - perfiles,
 - reservas,
-- pagos,
+- pagos
 
 presentan alta frecuencia e importancia, por lo que tienen impacto directo en la priorización técnica y arquitectónica del sistema.
 
@@ -1022,7 +1026,7 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 - **RVF** = *Reputation and Valuation Features*: Funciones relacionadas con reputación, calificaciones, reseñas, puntuaciones de los consultores dentro de la plataforma.
 - **BAF** = *Browse and Advanced Search Features*: funciones de búsqueda avanzada, filtrado inteligente, ordenamiento de resultados, descubrimiento de especialistas y priorización de perfiles dentro de la plataforma.
 - **PRF** = *Profile and User Requirements Features:* Funciones de gestión de usuarios, administración de perfiles, información personal, perfiles profesionales y configuración de cuentas dentro de la plataforma.
-- **PFF** = *Payment and Financial Features*: Funciones relacionadas con pagos, transacciones financieras, comprobantes, reembolsos, suscripciones premium y gestión económica dentro de la plataforma.
+- **PFF** = *Payment and Financial Features*: Funciones relacionadas con pagos, transacciones financieras, comprobantes, suscripciones premium y gestión económica dentro de la plataforma.
 
 | ID      | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1070,10 +1074,9 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | PFF-004 | El sistema debe generar automáticamente un comprobante digital por cada pago exitosamente procesado, incluyendo detalle del servicio contratado, importe pagado y datos identificatorios de la operación.                     |
 | PFF-005 | El sistema debe permitir que los usuarios consulten el historial de pagos realizados desde su cuenta personal, mostrando fecha, monto, concepto y estado de cada transacción registrada.                                      |
 | PFF-006 | El sistema debe permitir que los consultores visualicen los ingresos generados por sus sesiones completadas, diferenciando montos brutos, comisiones aplicadas y saldo neto disponible.                                       |
-| PFF-007 | El sistema debe gestionar reembolsos parciales o totales cuando una sesión sea cancelada conforme a las políticas vigentes de la plataforma, registrando motivo, importe devuelto y fecha del proceso.                        |
 | PFF-008 | El sistema debe aplicar automáticamente comisiones, cargos administrativos o descuentos promocionales definidos por la plataforma al momento de procesar cada pago correspondiente.                                           |
-| PFF-009 | El sistema debe notificar al usuario y al consultor cuando una transacción sea aprobada, rechazada, anulada o reembolsada, indicando el estado actualizado de la operación financiera.                                        |
-| PFF-010 | El sistema debe mantener trazabilidad completa de las operaciones económicas realizadas, permitiendo auditoría posterior sobre pagos, devoluciones, comisiones y movimientos financieros asociados.                           |
+| PFF-009 | El sistema debe notificar al usuario y al consultor cuando una transacción sea aprobada, rechazada, anulada, indicando el estado actualizado de la operación financiera.                                        |
+| PFF-010 | El sistema debe mantener trazabilidad completa de las operaciones económicas realizadas, permitiendo auditoría posterior sobre pagos, comisiones y movimientos financieros asociados.                           |
 | PFF-011 | El sistema debe permitir que los consultores contraten una suscripción premium mediante pago electrónico, habilitando funcionalidades avanzadas definidas por la plataforma una vez confirmada la transacción. |
 | PFF-012 | El sistema debe registrar la fecha de inicio, fecha de vencimiento, estado y tipo de plan contratado por cada consultor suscrito.                                                                              |
 | PFF-013 | El sistema debe renovar automáticamente la suscripción premium cuando el usuario autorice pagos recurrentes y el cobro sea aprobado por la pasarela correspondiente.                                           |
@@ -1410,7 +1413,7 @@ El flujo de postulación y registro de citas en el entorno web se define a trav�
 
 ##### 3. Integridad Financiera, Reputacional y Notas de Seguimiento
 Las siguientes tablas satélites se desprenden directamente del ciclo de la sesión, asegurando que no existan dependencias transitivas:
-* **PAYMENTS:** Mantiene una relación estricta 1:1 con `ADVISORY_SESSIONS`. Registra los datos de la transacción económica por concepto de postulación (`amount`, `platform_fee`, `currency`, `payment_status`). En concordancia con las reglas de negocio, se omiten estados o lógicas de devolución automatizada.
+* **PAYMENTS:** Mantiene una relación estricta 1:1 con `ADVISORY_SESSIONS`. Registra los datos de la transacción económica por concepto de postulación (`amount`, `platform_fee`, `currency`, `payment_status`). En concordancia con las reglas de negocio, se omiten estados.
 * **REVIEWS:** Implementa el control de reputación de la plataforma web. Al estar vinculada en una relación 1:1 con `ADVISORY_SESSIONS`, el modelo garantiza físicamente que solo los clientes que completaron una sesión de asesoría puedan registrar una calificación (`rating`) y un comentario, previniendo distorsiones por spam o perfiles falsos.
 * **SESSION_NOTES:** Entidad relacionada de forma 1:1 con `ADVISORY_SESSIONS`. Permite al profesional almacenar anotaciones cualitativas distribuidas en campos independientes (`private_notes`, `follow_up_notes`, `recommendations`, `attachment_links`), asegurando que la información de seguimiento no afecte el rendimiento de la tabla principal de sesiones.
 
@@ -1473,9 +1476,8 @@ Las tácticas arquitectónicas representan las decisiones de diseño técnico ad
 
 El propósito del diseño de la arquitectura de FinTeka consiste en proveer un entorno web técnicamente robusto, desacoplado y centrado en la eficiencia del proceso de postulación de asesorías. Los objetivos del diseño de software se definen en los siguientes puntos:
 
-1.  **Consistencia Transaccional Distribuida:** Asegurar la integridad de las operaciones complejas que involucran múltiples microservicios (como la reserva simultánea de una sesión y la validación de la pasarela de pagos) mediante la implementación del patrón **SAGA**. Este patrón coordina las transacciones compensatorias en caso de fallos en el procesamiento del pago, garantizando la reversión lógica del estado de la sesión en **MySQL** sin incorporar mecanismos de devolución financiera automatizada.
-2.  **Eficiencia y Baja Latencia Web:** Optimizar la comunicación entre la interfaz de usuario en **Vue.js** y el backend en **Spring Boot** mediante un punto único de entrada (API Gateway), reduciendo la sobrecarga de solicitudes HTTP y asegurando una navegación ágil en el navegador web del usuario.
-3.  **Modularidad y Extensibilidad del Sistema:** Establecer límites de contexto claros por cada microservicio, lo que permite la modificación o adición de funciones en el módulo de soporte, la base de preguntas frecuentes o las preferencias visuales de la cuenta de manera aislada, mitigando el riesgo de regresiones en el entorno de producción.
+1.  **Eficiencia y Baja Latencia Web:** Optimizar la comunicación entre la interfaz de usuario en **Vue.js** y el backend en **Spring Boot** mediante un punto único de entrada (API Gateway), reduciendo la sobrecarga de solicitudes HTTP y asegurando una navegación ágil en el navegador web del usuario.
+2.  **Modularidad y Extensibilidad del Sistema:** Establecer límites de contexto claros por cada microservicio, lo que permite la modificación o adición de funciones en el módulo de soporte, la base de preguntas frecuentes o las preferencias visuales de la cuenta de manera aislada, mitigando el riesgo de regresiones en el entorno de producción.
 
 ---
 
@@ -1487,7 +1489,6 @@ La arquitectura de FinTeka se encuentra estructurada para dar soporte directo e 
 | :--- | :--- | :--- | :--- |
 | **US-01** | Postulación a Sesión de Asesoría | El cliente selecciona un horario en la interfaz web; el microservicio de reservas valida la disponibilidad y asocia los identificadores correspondientes de forma atómica en **MySQL**. | `Booking Microservice` |
 | **US-02** | Filtrado y Búsqueda de Publicaciones | El usuario aplica filtros de especialidad y precio en el frontend; el componente realiza la consulta optimizada apuntando a las réplicas de lectura de la base de datos. | `Search & Profile Service` |
-| **US-03** | Procesamiento de Suscripción Premium | El profesional solicita la suscripción; el backend coordina mediante el patrón **SAGA** la validación del cobro y la actualización del estado `is_premium` a verdadero en la tabla de profesionales. | `Subscription & Payment Service` |
 | **US-04** | Configuración de Preferencias Visuales | El usuario modifica los parámetros visuales en la plataforma web; el frontend en **Vue.js** actualiza el estado local de la interfaz y envía los datos para persistirlos en la tabla `CLIENTS`. | `User Interface Component` |
 | **US-05** | Configuración de Seguridad de la Cuenta | El usuario actualiza sus credenciales de acceso; el microservicio de **Autenticación** procesa el cambio de contraseñas aplicando hashing y actualiza la entidad `USERS` generando un log en la auditoría. | `Authentication Microservice` |
 | **US-06** | Consulta de Soporte y Preguntas Frecuentes | El cliente o profesional accede al centro de ayuda web; el sistema sirve el contenido informativo de soporte técnico desde la persistencia relacional sin afectar los flujos de postulación. | `Support & FAQ Component` |
@@ -1826,7 +1827,6 @@ Las restricciones arquitectónicas representan limitaciones técnicas, operacion
 | Integración | Restricciones relacionadas con comunicación entre servicios y sistemas externos. |
 | Despliegue | Condiciones obligatorias para ambientes cloud y pipelines de entrega continua. |
 | Seguridad | Políticas técnicas para protección de datos y control de accesos. |
-| Escalabilidad | Restricciones orientadas al crecimiento progresivo de la plataforma. |
 
 ---
 
@@ -1884,7 +1884,6 @@ La arquitectura propuesta incorpora patrones, tácticas y mecanismos específico
 | ARC-03 | Rendimiento bajo alta concurrencia | Latencia elevada y saturación de servicios | Alto |  Auto Scaling |
 | ARC-04 | Complejidad operacional de microservicios | Dificultad de monitoreo y debugging | Alto | Observabilidad centralizada + tracing |
 | ARC-05 | Dependencia de servicios externos | Fallos en pasarelas de pago y APIs | Alto | Retry Pattern |
-| ARC-06 | Evolución y mantenibilidad | Dependencias rígidas entre módulos | Alto | Arquitectura desacoplada + APIs versionadas |
 | ARC-07 | Observabilidad y monitoreo | Detección tardía de incidentes | Medio | Logs centralizados |
 | ARC-08 | Experiencia de usuario en tiempo real | Lentitud y retrasos de comunicación | Alto | MySQL |
 | ARC-09 | Gestión de datos híbridos | Inconsistencia entre SQL y NoSQL | Medio | Separación por dominios + eventos |
