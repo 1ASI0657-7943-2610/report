@@ -322,7 +322,7 @@ Del mismo modo, FinTeka incorpora funcionalidades que benefician tanto a los usu
 #### Plan Básico
 * **Acceso Estándar:** Búsqueda avanzada de especialistas por categoría y valoraciones estructuradas.
 * **Gestión Operativa:** Visualización de perfiles profesionales verificados y reserva de sesiones según la disponibilidad sincronizada.
-* **Interacción Social:** Acceso al sistema de comentarios post-asesoría y notificaciones de confirmación vía recordatorios asíncronos.
+* **Interacción Social:** Acceso al sistema de comentarios post-asesoría y notificaciones de confirmación vía notificaciones asíncronos.
 
 La comisión estándar del 10% se aplica de forma automática sobre cada sesión reservada.
 
@@ -344,8 +344,6 @@ En ese sentido, surge la necesidad de implementar plataformas digitales distribu
 
 **Problemáticas:** Actualmente, muchas personas y organizaciones enfrentan dificultades para acceder a asesoría profesional confiable de manera rápida y ordenada. La búsqueda de especialistas suele realizarse a través de medios dispersos, lo que incrementa el tiempo de selección y dificulta la toma de decisiones informadas.
 
-Asimismo, los profesionales independientes no siempre disponen de herramientas tecnológicas integradas en el backend que les permitan gestionar adecuadamente su disponibilidad, reservas, pagos y comunicación segura con clientes. Como consecuencia, se reducen sus posibilidades de crecimiento y formalización dentro del mercado digital.
-
 De igual manera, la ausencia de sistemas desacoplados pero consistentes para programar sesiones, procesar pagos de forma protegida y registrar valoraciones reales genera experiencias poco eficientes tanto para usuarios como para consultores. Esto limita la confianza, disminuye la continuidad del servicio y afecta la percepción de calidad general del ecosistema de consultorías.
 
 Frente a esta situación, resulta pertinente el desarrollo de una solución digital estructurada en microservicios que centralice la interacción entre usuarios y especialistas, simplifique los procesos operativos y fortalezca la transparencia en la postulación de servicios profesionales.
@@ -359,7 +357,7 @@ A partir del análisis de los antecedentes y la problemática, se aplica la téc
 * **What (Qué):** La problemática principal consiste en la ausencia de una solución digital unificada y modular que conecte eficientemente a usuarios con consultores profesionales. Actualmente, la búsqueda de especialistas se realiza mediante redes sociales o referencias informales, lo que dificulta comparar alternativas y genera incertidumbre al momento de contratar. Adicionalmente, muchos consultores carecen de herramientas para gestionar reservas de manera automatizada o consolidar su reputación mediante reseñas verificadas.
 * **When (Cuándo):** La necesidad surge cada vez que una persona o empresa requiere orientación profesional para resolver un problema puntual, desarrollar un proyecto, mejorar resultados o recibir acompañamiento especializado. Su importancia se ha incrementado debido al crecimiento del trabajo remoto y la expansión de modelos independientes de consultoría profesional.
 * **Where (Dónde):** Esta situación se presenta principalmente en el ecosistema digital fragmentado, donde la oferta se encuentra dispersa en múltiples canales no integrados. Asimismo, afecta diversos contextos como el ámbito empresarial, académico, financiero, tecnológico y personal, donde la necesidad de contratar expertos especializados es cada vez más frecuente.
-* **Who (Quiénes):** Dentro del entorno analizado se identifican como actores principales a los usuarios que buscan asesoría (personas naturales, emprendedores, estudiantes y MyPEs) y a los consultores independientes o especialistas que requieren un espacio digital confiable para promocionar sus servicios. Finalmente, intervienen los administradores de la plataforma, encargados de supervisar la seguridad, mitigar el spam y mantener el correcto funcionamiento del sistema.
+* **Who (Quiénes):** Dentro del entorno analizado se identifican como actores principales a los usuarios que buscan asesoría (personas naturales, emprendedores, estudiantes y MyPEs) y a los consultores independientes o especialistas que requieren un espacio digital confiable para promocionar sus servicios. 
 * **Why (Por qué):** El origen del problema radica en la falta de plataformas integrales construidas sobre infraestructuras de software modernas que reúnan en un solo entorno funcionalidades como registro seguro, perfiles profesionales, filtros de búsqueda, reservas automáticas, pagos protegidos y sistemas de valoración confiables. Como consecuencia, los usuarios enfrentan procesos lentos y poco transparentes.
 * **How (Cómo):** Mediante el desarrollo de FinTeka, una plataforma web estructurada con un backend en **Spring Boot**, una interfaz de usuario interactiva y fluida en **Vue.js**, y persistencia de datos relacional en **MySQL**. El sistema centraliza la autenticación segura sin dependencias externas, perfiles validados, un motor de búsqueda avanzado, programación de sesiones coordinada por eventos, pagos digitales bajo el patrón transaccional **SAGA** y un sistema de reputación basado en experiencias reales verificadas.
 * **How Much (Cuánto impacto):** El impacto de la problemática se refleja en la pérdida de tiempo operativo, vulnerabilidad al fraude en pagos externos y desaprovechamiento de oportunidades comerciales. Con FinTeka se espera conseguir una conversión mínima del 25% de visitantes registrados en la etapa inicial, optimizando el acceso a servicios profesionales y ampliando las oportunidades económicas dentro del mercado digital de asesorías.
@@ -400,17 +398,15 @@ Con el fin de validar la propuesta de valor de FinTeka, se identificaron los pri
 * Antes de contratar, las personas comparan precio, experiencia, reputación, disponibilidad y modalidad de atención.
 * Los clientes prefieren registrarse e iniciar sesión mediante un flujo interno simple pero altamente seguro.
 * Los usuarios esperan poder reservar, pagar y recibir confirmaciones desde un único entorno digital sin redirecciones complejas.
-* Los consultores necesitan dashboards privados donde puedan gestionar su agenda, visualizar sus sesiones, controlar sus métricas de desempeño y editar su perfil profesional.
-* Las notificaciones automatizadas y los recordatorios incrementarán la asistencia y puntualidad en las sesiones programadas.
+* Los consultores necesitan dashboards privados donde puedan gestionar su agenda, visualizar sus sesiones y editar su perfil profesional.
+* Las notificaciones automatizadas incrementarán la asistencia y puntualidad en las sesiones programadas.
 * Una interfaz completamente responsiva y tiempos rápidos de carga influirán directamente en la permanencia dentro de la plataforma.
 
 #### User Outcomes
-* Los usuarios tomarán decisiones mejor fundamentadas gracias a perfiles completos, reputación visible y valoraciones reales no adulteradas.
-* El tiempo para encontrar especialistas adecuados disminuirá drásticamente mediante el uso de filtros y búsquedas avanzadas optimizadas.
-* Los clientes sentirán mayor confianza al interactuar con flujos de pago protegidos bajo arquitecturas de consistencia eventual.
+* Los usuarios tomarán decisiones mejor fundamentadas gracias a perfiles completos, reputación visible y valoraciones.
+* El tiempo para encontrar especialistas adecuados disminuirá drásticamente mediante el uso de filtros y búsquedas avanzadas.
 * Los consultores mejorarán su organización operativa mediante una agenda digital con validación de horarios y un historial completo de sesiones.
-* Ambas partes tendrán un seguimiento riguroso de las citas gracias a recordatorios automáticos y estados transaccionales claros.
-* Los usuarios podrán administrar fácilmente sus cuentas de acceso, historiales de pago y preferencias personales.
+* Ambas partes tendrán un seguimiento riguroso de las citas gracias a notificaciones automáticos.
 
 #### Business Outcomes
 * Conseguir una conversión mínima del 25% de visitantes registrados durante la etapa inicial del producto.
@@ -423,17 +419,15 @@ Con el fin de validar la propuesta de valor de FinTeka, se identificaron los pri
 
 #### Feature Assumptions
 * Registro de credenciales, inicio de sesión seguro y recuperación de contraseña gestionados por el microservicio de Autenticación.
-* Gestión y control de accesos basados en roles: usuario, consultor y administrador.
+* Gestión y control de accesos basados en roles: usuario y consultor.
 * Buscador avanzado con filtros indexados por especialidad, reputación, precio y disponibilidad horaria.
-* Perfiles profesionales detallados con experiencia, certificaciones, tarifas configurables y comentarios verificados.
-* Sistema de reservas automatizado con calendario interactivo y validación de horarios en tiempo real en la base de datos.
-* Procesamiento y confirmación de pagos seguros mediante pasarela integrada bajo el patrón **SAGA**.
-* Reprogramación, cancelación y seguimiento completo del ciclo de vida de las sesiones de asesoría.
-* Historial transaccional de sesiones, cobro de comisiones, pagos y cola de notificaciones.
-* Sistema de calificaciones distribuidas, reputación visible y reseñas protegidas contra spam.
-* Dashboard analítico con métricas de ingresos y visualización de KPIs para consultores.
-* Componente para la gestión de la suscripción premium y activación del posicionamiento destacado del perfil.
-* Emisión de notificaciones automáticas y recordatorios asíncronos ante eventos del negocio.
+* Perfiles profesionales detallados con experiencia, certificaciones, tarifas y comentarios.
+* Sistema de reservas automatizado con calendario y validación de horarios en tiempo real en la base de datos.
+* Cancelación y seguimiento completo del ciclo de vida de las sesiones de asesoría.
+* Historial de sesiones, cobro de comisiones, pagos y cola de notificaciones.
+* Sistema de calificaciones distribuidas, reputación visible y reseñas.
+* Componente para la gestión de la suscripción premium.
+* Emisión de notificaciones automáticas ante eventos del negocio.
 * Diseño adaptativo y responsive optimizado para dispositivos móviles, tablets y computadoras de escritorio.
 
 ---
@@ -452,7 +446,7 @@ Creemos que, si se brindan herramientas de gestión para la agenda, los servicio
 * **Business Outcome:** Crecimiento de la red de consultores registrados y mayor actividad transaccional dentro de la plataforma.
 * **Users:** Consultores independientes y profesionales especializados.
 * **User Outcome:** Mejor organización operativa, mayor visibilidad en el mercado y nuevas oportunidades de ingresos.
-* **Feature:** Panel de gestión profesional, calendario de disponibilidad en tiempo real, historial de clientes y métricas de desempeño.
+* **Feature:** Panel de gestión profesional, calendario de disponibilidad en tiempo real, historial de clientes.
 
 #### Hipótesis 3
 Creemos que, si se incorpora un sistema de valoraciones y reseñas verificadas ligado estrictamente al historial transaccional de la base de datos, aumentará la confianza de los usuarios al momento de seleccionar especialistas. Esto se validará cuando mejore la tasa de postulación desde perfiles visitados y aumente la recurrencia de uso sin alertas de spam.
@@ -466,7 +460,7 @@ Creemos que, si se habilitan canales de comunicación directa y seguimiento post
 * **Business Outcome:** Mayor tasa de recompra de asesorías y fortalecimiento de la fidelización del cliente.
 * **Users:** Usuarios que requieren acompañamiento continuo y especialistas que brindan asesorías periódicas.
 * **User Outcome:** Mejor experiencia de servicio, continuidad en el asesoramiento y relaciones profesionales sostenibles.
-* **Feature:** Chat interno, historial extendido de sesiones, recordatorios automáticos y programación de seguimientos.
+* **Feature:** Chat interno, historial extendido de sesiones, notificaciones automáticas y programación de seguimientos.
 
 #### Hipótesis 5
 Creemos que, si se ofrecen pagos seguros e integrados gestionados consistentemente por el backend, los usuarios percibirán mayor confianza y comodidad al contactar servicios profesionales. Esto se validará cuando disminuya el abandono en el proceso de checkout y aumente el porcentaje de transacciones completadas exitosamente.
@@ -508,7 +502,7 @@ Creemos que, si se ofrecen pagos seguros e integrados gestionados consistentemen
   * Recibir pagos de manera segura y garantizada por cada sesión agendada.  
   * Construir reputación sólida a través de valoraciones verificadas de clientes reales.
 * **Requisitos:** * Plataforma confiable, robusta y con una estética profesional.  
-  * Herramientas de administración de horarios simples y tableros con métricas claras.  
+  * Herramientas de administración de horarios simples.  
   * Visibilidad del perfil frente a potenciales clientes mediante el plan premium.  
   * Reportes fidedignos de actividad e ingresos consolidados en la base de datos MySQL.
 * **Objetivo:** Incrementar sus ingresos, optimizar la gestión operativa de sus servicios y ampliar su alcance profesional mediante canales digitales confiables.
@@ -737,7 +731,7 @@ La entrevistada busca asesoría en el área de defensoría médica para el tema 
 
 **Link: https://acortar.link/NfWGsQ**
 
-La entrevista con Augusto Montes muestra que, para optimizar su negocio de asesoría profesional, busca una plataforma que combine la generación de leads cualificados con una agenda automatizada, lo que permitiría una reserva sin fricciones y recordatorios automáticos. Prefiere una interfaz equilibrada entre simplicidad y personalización, que permita etiquetar clientes, editar notas privadas y realizar integraciones con otras aplicaciones. En cuanto a pagos, valora la flexibilidad de contar con diferentes modalidades como pago por sesión, suscripciones recurrentes, facturación automática y pagos multimoneda para facilitar transacciones globales. Además, considera importante un sistema de marketing digital basado en referidos para atraer nuevos clientes. Para gestionar solicitudes urgentes, le gustaría contar con una opción de disponibilidad inmediata y la posibilidad de cobrar tarifas premium por consultas urgentes. También está interesado en organizar eventos grupales como seminarios o masterclasses, lo que podría generar más interacción y demanda para sus servicios.
+La entrevista con Augusto Montes muestra que, para optimizar su negocio de asesoría profesional, busca una plataforma que combine la generación de leads cualificados con una agenda automatizada, lo que permitiría una reserva sin fricciones y notificaciones automáticas. Prefiere una interfaz equilibrada entre simplicidad y personalización, que permita etiquetar clientes, editar notas privadas y realizar integraciones con otras aplicaciones. En cuanto a pagos, valora la flexibilidad de contar con diferentes modalidades como pago por sesión, suscripciones recurrentes, facturación automática y pagos multimoneda para facilitar transacciones globales. Además, considera importante un sistema de marketing digital basado en referidos para atraer nuevos clientes. Para gestionar solicitudes urgentes, le gustaría contar con una opción de disponibilidad inmediata y la posibilidad de cobrar tarifas premium por consultas urgentes. También está interesado en organizar eventos grupales como seminarios o masterclasses, lo que podría generar más interacción y demanda para sus servicios.
 
 - Entrevista 2:
 - Nombre: Maria Fernanda Castillo Espinoza
@@ -849,7 +843,7 @@ Las tareas fueron clasificadas considerando:
 | Reservar sesiones según disponibilidad | Alta | Alta | Gestión de Reservas y Agenda | US010, US011 | EP03 |
 | Realizar pagos seguros y consultar comprobantes | Alta | Alta | Pasarela de Pago Integrada | US014, US015 | EP04 |
 | Reprogramar o cancelar sesiones | Media | Media | Gestión del Ciclo de Vida de Reservas | US012, US013 | EP03 |
-| Recibir recordatorios y notificaciones | Alta | Alta | Sistema de Notificaciones | US004, US016 | EP05 |
+| Recibir notificaciones | Alta | Alta | Sistema de Notificaciones | US004, US016 | EP05 |
 | Consultar historial de sesiones y pagos | Media | Media | Historial y Seguimiento | US017 | EP04 |
 | Calificar especialistas luego de una asesoría | Media | Alta | Sistema de Reputación y Valoraciones | US007 | EP02 |
 | Guardar especialistas favoritos | Media | Media | Favoritos y Seguimiento | US009 | EP03 |
@@ -894,7 +888,7 @@ Esto justifica decisiones como:
 | Reprogramar o cancelar sesiones | Media | Media | Gestión del Ciclo de Vida de Sesiones | US012, US013 | EP03 |
 | Consultar ingresos, pagos y comprobantes | Media | Alta | Gestión Financiera y Comisiones | US014, US015 | EP04 |
 | Gestionar suscripciones premium | Baja | Media | Gestión de Suscripciones | US020 | EP04 |
-| Consultar métricas y reputación profesional | Media | Alta | Dashboard Analítico y Reputación | US021, US007 | EP05 |
+| Consultar reputación profesional | Media | Alta | Dashboard Analítico y Reputación | US021, US007 | EP05 |
 | Recibir notificaciones relacionadas con sesiones | Alta | Alta | Sistema de Notificaciones | US004, US016 | EP05 |
 | Administrar comunicación con clientes | Alta | Alta | Chat y Comunicación Directa | US022, US023 | EP05 |
 | Consultar historial de sesiones realizadas | Media | Media | Historial Profesional | US024 | EP04 |
@@ -941,7 +935,7 @@ La siguiente tabla resume cómo las tareas de usuario se relacionan con las prin
 | Reservas | Gestión de agenda y sesiones | Booking Service |
 | Pagos | Procesamiento financiero y comisiones | Payment Service |
 | Comunicación | Chat y notificaciones | Chat Service  |
-| Reputación | Valoraciones y métricas | Reputation Service |
+| Reputación | Valoraciones | Reputation Service |
 | Auditoría | Historial y trazabilidad | User Activity Logs |
 | Personalización | Preferencias de interfaz | Frontend UI Layer |
 
@@ -1023,11 +1017,11 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 **Leyenda de prefijos:**
 
 - **IRF** = *Identity Requirements Features*: Funciones de identidad, autenticación, seguridad y control de acceso.  
-- **NRF** = *Notification Requirements Features*: Funciones de notificación, alertas automáticas, recordatorios, comunicaciones del sistema y seguimiento de mensajes enviados.
+- **NRF** = *Notification Requirements Features*: Funciones de notificación, alertas automáticas, comunicaciones del sistema y seguimiento de mensajes enviados.
 - **CRRF** = *Calendar, Reservation and Resource Features*: Funciones de gestión de reservas, disponibilidad horaria, programación de sesiones, control de agendas y seguimiento del ciclo de vida de las citas.
-- **RVF** = *Reputation and Valuation Features*: Funciones relacionadas con reputación, calificaciones, reseñas, puntuaciones y métricas de satisfacción de los consultores dentro de la plataforma.
+- **RVF** = *Reputation and Valuation Features*: Funciones relacionadas con reputación, calificaciones, reseñas, puntuaciones de los consultores dentro de la plataforma.
 - **BAF** = *Browse and Advanced Search Features*: funciones de búsqueda avanzada, filtrado inteligente, ordenamiento de resultados, descubrimiento de especialistas y priorización de perfiles dentro de la plataforma.
-- **PRF** = *Profile and User Requirements Features:* Funciones de gestión de usuarios, administración de perfiles, información personal, perfiles profesionales, métricas y configuración de cuentas dentro de la plataforma.
+- **PRF** = *Profile and User Requirements Features:* Funciones de gestión de usuarios, administración de perfiles, información personal, perfiles profesionales y configuración de cuentas dentro de la plataforma.
 - **PFF** = *Payment and Financial Features*: Funciones relacionadas con pagos, transacciones financieras, comprobantes, reembolsos, suscripciones premium y gestión económica dentro de la plataforma.
 
 | ID      | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -1039,9 +1033,9 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | IRF-005 | El sistema debe generar automáticamente un token de acceso y un token de actualización cada vez que un usuario inicie sesión correctamente. Ambos tokens deberán contener la información mínima necesaria para identificar la sesión activa, respetando tiempos de expiración definidos y estándares de seguridad establecidos por la plataforma.                                                                                                                                                                   |
 | IRF-006 | El sistema debe validar la vigencia, integridad, firma digital y origen de los tokens utilizados en cada solicitud protegida hacia recursos restringidos. Si el token estuviera expirado, alterado, revocado o no autorizado, el sistema deberá denegar el acceso y solicitar una nueva autenticación.                                                                                                                                                                                                              |
 | IRF-007 | El sistema debe permitir la recuperación de contraseña mediante un proceso seguro iniciado por el usuario desde la opción correspondiente. Para ello, deberá enviar un enlace temporal o código de verificación al correo electrónico registrado, permitiendo restablecer la contraseña únicamente después de validar la identidad del solicitante.                                                                                                                                                                 |
-| IRF-008 | El sistema debe implementar roles diferenciados de usuario, consultor y administrador, asignando permisos específicos según las funciones de cada tipo de cuenta. Durante cada operación protegida, el sistema deberá verificar el rol asociado al usuario autenticado para autorizar o denegar el acceso a funcionalidades determinadas.                                                                                                                                                                           |
+| IRF-008 | El sistema debe implementar roles diferenciados de usuario y consultor, asignando permisos específicos según las funciones de cada tipo de cuenta. Durante cada operación protegida, el sistema deberá verificar el rol asociado al usuario autenticado para autorizar o denegar el acceso a funcionalidades determinadas.                                                                                                                                                                           |
 | NRF-001 | El sistema debe enviar una notificación automática de confirmación al correo electrónico del usuario una vez completado satisfactoriamente el proceso de registro en la plataforma. El mensaje deberá incluir información básica de bienvenida, validación de cuenta en caso corresponda y canales oficiales de soporte disponibles. |
-| NRF-002 | El sistema debe enviar recordatorios automáticos al usuario y al consultor antes del inicio de cada sesión programada, utilizando los medios de comunicación habilitados por la plataforma. Dichos recordatorios deberán incluir fecha, hora, enlace de acceso y datos relevantes de la asesoría agendada.                           |
+| NRF-002 | El sistema debe enviar notificaciones automáticos al usuario y al consultor antes del inicio de cada sesión programada, utilizando los medios de comunicación habilitados por la plataforma. Dichas notificaciones deberán incluir fecha, hora, enlace de acceso y datos relevantes de la asesoría agendada.                           |
 | NRF-003 | El sistema debe notificar de manera inmediata al usuario y al consultor cuando una sesión previamente reservada haya sido cancelada por cualquiera de las partes o por decisión administrativa. La notificación deberá indicar el motivo de la cancelación y las acciones posteriores disponibles.                                   |
 | NRF-004 | El sistema debe enviar una notificación automática cuando una sesión haya sido reprogramada, informando a ambas partes la nueva fecha, hora y cualquier modificación relevante asociada a la reserva original. Asimismo, deberá conservar evidencia del envío realizado.                                                             |
 | NRF-005 | El sistema debe generar alertas relacionadas con procesos de recuperación de contraseña, incluyendo solicitudes de restablecimiento, confirmación de cambio exitoso y advertencias ante intentos sospechosos detectados sobre la cuenta del usuario.                                                                                 |
@@ -1050,7 +1044,7 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | NRF-008 | El sistema debe permitir registrar el historial de notificaciones emitidas hacia cada usuario, almacenando tipo de mensaje, fecha de envío, canal utilizado y estado de entrega para fines de seguimiento y auditoría.                                                                                                               |
 | CRRF-001 | El sistema debe permitir que los consultores definan, actualicen y eliminen sus horarios disponibles dentro de la plataforma, mediante una agenda digital accesible desde su perfil. Toda modificación deberá reflejarse en tiempo real para evitar inconsistencias con futuras reservas. |
 | CRRF-002 | El sistema debe verificar automáticamente la disponibilidad del consultor al momento en que un usuario intente realizar una reserva, validando que el intervalo solicitado no se superponga con sesiones previamente confirmadas o bloqueadas temporalmente.                              |
-| CRRF-003 | El sistema debe permitir al usuario reservar una sesión seleccionando fecha, hora y consultor disponible. Antes de confirmar la operación, deberá mostrar un resumen con los datos principales de la cita y las condiciones aplicables.                                                   |
+| CRRF-003 | El sistema debe permitir al usuario reservar una sesión seleccionando fecha, hora y consultor disponible. Antes de confirmar la operación, deberá mostrar un resumen con los datos principales de la sesión y las condiciones aplicables.                                                   |
 | CRRF-004 | El sistema debe bloquear temporalmente el horario seleccionado durante el proceso de reserva con la finalidad de evitar que otros usuarios lo seleccionen simultáneamente mientras se completa el flujo de confirmación y pago correspondiente.                                           |
 | CRRF-005 | Si el proceso de reserva no se completa dentro del tiempo máximo establecido por la plataforma, el sistema debe liberar automáticamente el horario bloqueado para que vuelva a estar disponible para otros usuarios interesados.                                                          |
 | CRRF-006 | El sistema debe permitir la cancelación de sesiones programadas conforme a las políticas definidas por la plataforma, registrando la fecha, hora, usuario responsable y motivo asociado a la cancelación realizada.                                                                       |
@@ -1065,7 +1059,7 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | RVF-003 | El sistema debe calcular automáticamente la calificación promedio de cada consultor a partir del conjunto total de valoraciones válidas registradas en su perfil profesional.                                                                    |
 | RVF-004 | El sistema debe actualizar de forma inmediata la reputación general del consultor cada vez que se registre, modifique o elimine una nueva valoración autorizada dentro de la plataforma.                                                         |
 | RVF-005 | El sistema debe mostrar públicamente en el perfil del consultor la calificación promedio obtenida, el número total de reseñas recibidas y los comentarios visibles aprobados según políticas del sistema.                                        |
-| RVF-006 | El sistema debe permitir que los consultores consulten métricas relacionadas con su reputación, incluyendo evolución de puntuaciones, tasa de satisfacción y cantidad de sesiones valoradas.                                                     |
+| RVF-006 | El sistema debe permitir que los consultores consulten su reputación, incluyendo evolución de puntuaciones, tasa de satisfacción y cantidad de sesiones valoradas.                                                     |
 | RVF-007 | El sistema debe impedir que un usuario emita múltiples valoraciones sobre una misma sesión, salvo que la plataforma permita una actualización posterior dentro del plazo establecido.                                                            |
 | RVF-008 | El sistema debe detectar y restringir valoraciones que contengan lenguaje ofensivo, contenido inapropiado o incumplimiento de políticas comunitarias, aplicando reglas automáticas o revisión administrativa.                                    |
 | RVF-009 | El sistema debe priorizar en los resultados de búsqueda a consultores con mejor reputación, considerando calificación promedio, cantidad de valoraciones válidas y nivel de cumplimiento histórico.                                              |
@@ -1115,7 +1109,7 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | PRF-007 | El sistema debe permitir a los consultores cargar documentos, títulos, certificaciones y evidencias profesionales, los cuales podrán ser visibles públicamente o quedar sujetos a validación administrativa según políticas internas.                     |
 | PRF-008 | El sistema debe mostrar en el perfil público del consultor sus valoraciones, reputación promedio, cantidad de sesiones realizadas y comentarios visibles autorizados por la plataforma.                                                                   |
 | PRF-009 | El sistema debe permitir que cada usuario consulte su historial de asesorías realizadas, incluyendo sesiones programadas, completadas, canceladas y reprogramadas según su rol dentro del sistema.                                                        |
-| PRF-010 | El sistema debe permitir que los consultores visualicen métricas de desempeño relacionadas con sesiones completadas, tasa de finalización, ingresos generados, reputación promedio y crecimiento de demanda.                                              |
+| PRF-010 | El sistema debe permitir que los consultores visualicen su desempeño relacionadas con sesiones completadas, tasa de finalización, ingresos generados, reputación promedio y crecimiento de demanda.                                              |
 | PRF-011 | El sistema debe permitir al usuario administrar preferencias de cuenta, incluyendo configuración de notificaciones, privacidad de datos y opciones generales disponibles dentro de la plataforma.                                                         |
 | PRF-012 | El sistema debe restringir la edición de información sensible o crítica cuando no exista validación previa de identidad o autorización correspondiente, garantizando seguridad sobre los datos almacenados.                                               |
 
@@ -1190,11 +1184,10 @@ En esta sección se presentan los requisitos funcionales definidos para Finteka.
 | US017 | Calificar seguimiento de sesión | Como usuario, quiero poder calificar las sesiones de seguimiento por separado, para evaluar la mejora continua del servicio recibido. | **Escenario 01: Opción disponible tras sesión de seguimiento.** Dado que acabo de completar una sesión de seguimiento, Cuando reviso el historial de esa sesión, Entonces veo la opción de dejar una calificación específica para ella. <br>**Escenario 02: Publicación del comentario.** Dado que escribí una calificación y comentario, Cuando hago clic en “Enviar”, Entonces el sistema guarda y publica la valoración en el perfil del consultor.  | EP04 |
 | US018 | Cancelar reserva de sesión | Como usuario. Quiero poder cancelar una reserva de sesión. Para poder modificar mis planes si surge un imprevisto. | <br>**Escenario 01: Cancelación exitosa.** Dado que tengo una sesión programada y deseo cancelarla, Cuando accedo a la opción de cancelación en mi perfil y confirmó la cancelación, Entonces el sistema cancela la sesión y me envía una notificación confirmando la cancelación. <br>**Escenario 02: Error al intentar cancelar.** Dado que intento cancelar una sesión programada en un horario muy cercano, Cuando intento cancelarla, Entonces el sistema muestra un mensaje de advertencia o bloqueo de la opción de cancelación. | EP04 |
 | US019 | Notificaciones sobre estado de reserva | Como usuario quiero recibir notificaciones sobre el estado de mi reserva para estar informado en todo momento. | **Escenario 01: Notificación de recordatorio de sesión programada.** Dado que realicé una reserva con un profesional. Cuando hago clic en la notificación. Entonces recibo un detalle sobre la sesión programada junto al día y hora exacta. <br>**Escenario 02: Notificación sobre cancelación de sesión.** Dado que recibo una notificación de cancelación de sesión. Cuando hago clic en la notificación. Entonces soy redirigido a la plataforma para reagendar la sesión con el profesional. | EP04 |
-| US20 | Pago en línea seguro al reservar una sesión de asesoría | Como cliente que necesita asesoría profesional quiero poder pagar en línea de forma segura al momento de reservar una sesión para asegurar mi cita con el consultor y evitar complicaciones en el proceso. | **Escenario 01: Pago exitoso.** Dado que el pago se ha procesado correctamente. Cuando la transacción se completa. Entonces el sistema debe mostrar un mensaje de confirmación y actualizar el estado de la reserva como “Confirmada”. <br>**Escenario 02: Fallo en el pago.** Dado que la transacción falla por cualquier motivo. Cuando el sistema detecta el error. Entonces muestra un mensaje al usuario de seleccionar otro método de pago. | EP04 |
+| US20 | Pago en línea seguro al reservar una sesión de asesoría | Como cliente que necesita asesoría profesional quiero poder pagar en línea de forma segura al momento de reservar una sesión para asegurar mi sesión con el consultor y evitar complicaciones en el proceso. | **Escenario 01: Pago exitoso.** Dado que el pago se ha procesado correctamente. Cuando la transacción se completa. Entonces el sistema debe mostrar un mensaje de confirmación y actualizar el estado de la reserva como “Confirmada”. <br>**Escenario 02: Fallo en el pago.** Dado que la transacción falla por cualquier motivo. Cuando el sistema detecta el error. Entonces muestra un mensaje al usuario de seleccionar otro método de pago. | EP04 |
 | EP05 | Marketing y Crecimiento Profesional | Aumentar la visibilidad de los consultores y facilitar la adquisición de nuevos clientes. |  |  |
 | US021 | Publicar testimonios destacados | Como consultor, quiero mostrar testimonios positivos de mis clientes en mi perfil, para generar mayor confianza en nuevos usuarios. | **Escenario 01: Selección de testimonios.** Dado que tengo varias calificaciones positivas, Cuando marco una como “destacada”, Entonces aparece resaltada en la parte superior de mi perfil. <br>**Escenario 02: Eliminación de un testimonio destacado.** Dado que quiero cambiar un testimonio, Cuando desmarco el actual, Entonces este ya no se muestra como destacado en mi perfil. | EP05 |
 | US022 | Crear campañas promocionales | Como consultor, quiero poder crear promociones temporales (descuentos o asesorías grupales), para atraer más clientes. | **Escenario 01: Creación de descuento.** Dado que quiero lanzar una promoción, Cuando configuro una campaña con nombre, fecha y porcentaje de descuento, Entonces la promoción queda activa y visible en mi perfil. <br>**Escenario 02: Finalización automática de la campaña.** Dado que la campaña ya terminó, Cuando se alcanza la fecha de fin, Entonces la promoción se desactiva automáticamente. | EP05 |
-| US023 | Ver estadísticas de perfil | Como consultor, quiero ver métricas sobre cuántas personas vieron mi perfil, reservaron sesiones o dejaron calificaciones, para medir mi rendimiento. | **Escenario 01: Visualización de métricas básicas.** Dado que accedo a la sección de estadísticas, Cuando ingreso a mi panel de consultor, Entonces puedo ver visitas al perfil, reservas y calificaciones recientes. <br>**Escenario 02: Filtros por fecha.** Dado que quiero analizar mi rendimiento, Cuando selecciono un rango de fechas, Entonces el sistema me muestra los datos correspondientes al período elegido. | EP05 |
 | US024 | Gestionar campañas de referidos | Como consultor, quiero invitar a otros consultores o clientes a la plataforma mediante un sistema de referidos, para obtener beneficios por cada nuevo registro. | **Escenario 01: Generación de enlace de referido.** Dado que quiero invitar a nuevos usuarios, Cuando accedo a la sección de referidos, Entonces el sistema genera un enlace único para compartir. <br>**Escenario 02: Registro exitoso de un referido.** Dado que alguien se registra usando mi enlace, Cuando completa el registro, Entonces recibo una notificación y posibles recompensas por el referido. | EP05 |
 | US025 | Optimizar visibilidad en buscador | Como consultor, quiero personalizar palabras clave para aparecer más fácilmente en los resultados de búsqueda dentro de la plataforma. | **Escenario 01: Edición de palabras clave del perfil.** Dado que deseo mejorar mi visibilidad, Cuando edito mi perfil y agrego palabras clave relevantes, Entonces mi perfil se ajusta a los criterios del buscador interno. <br>**Escenario 02: Aumento de visibilidad tras actualización.** Dado que añadí nuevas palabras clave, Cuando un usuario busca términos relacionados, Entonces mi perfil aparece mejor posicionado en los resultados. | EP05 |
 | US026 | Ver Preguntas Frecuentes (FAQ) | Como usuario, quiero tener una sección de preguntas frecuentes, para poder resolver mis dudas rápidas sobre cómo usar la plataforma sin necesidad de contactar a soporte. | **Escenario 01: Visualización de respuestas.** Dado que tengo dudas sobre la plataforma, Cuando accedo a la sección "Ayuda", Entonces veo una lista de preguntas y al tocar una, se despliega la respuesta hacia abajo. | EP06 |
@@ -1224,7 +1217,7 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 | 06 | **US005** | Filtros de expertos por tarifa | Como usuario quiero filtrar expertos por tarifa para ajustar mi búsqueda a mi presupuesto. | 5 |
 | 07 | **US006** | Visualización de perfil profesional | Como cliente, deseo consultar la experiencia y formación del profesional para validar su capacidad técnica. | 2 |
 | 08 | **US007** | Calificación de sesiones | Como cliente, deseo calificar y comentar el servicio recibido para ayudar a otros usuarios en su elección. | 3 |
-| 09 | **US028** | Perfiles recomendados | Como administrador, deseo destacar perfiles profesionales para aumentar su visibilidad ante nuevos clientes. | 2 |
+| 09 | **US028** | Perfiles recomendados | Como usuario, deseo destacar perfiles profesionales para aumentar su visibilidad ante nuevos clientes. | 2 |
 | 10 | **US008** | Actualización de perfil | Como usuario, deseo editar mi información personal y de contacto para mantener mi cuenta actualizada. | 2 |
 | 11 | **US009** | Favoritos de profesionales | Como cliente, deseo guardar consultores en mi lista de favoritos para acceder a ellos rápidamente en el futuro. | 3 |
 | 12 | **US010** | Gestión de disponibilidad | Como consultor, deseo configurar mi agenda de disponibilidad para que los clientes puedan agendar sin conflictos. | 8 |
@@ -1237,14 +1230,13 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 | 19 | **US017** | Calificar seguimiento de sesión| Como usuario, quiero poder calificar las sesiones de seguimiento por separado, para evaluar la mejora continua del servicio recibido. | 5 |
 | 20 | **US018** | Cancelar reserva de sesión| Como usuario. Quiero poder cancelar una reserva de sesión. Para poder modificar mis planes si surge un imprevisto. | 3 |
 | 21 | **US027** | Confirmación de sesiones | Como consultor, deseo aceptar o rechazar solicitudes de sesiones para organizar mejor mi tiempo laboral. | 3 |
-| 22 | **US019** | Notificaciones de alertas | Como usuario, deseo recibir notificaciones de disponibilidad y recordatorios para no perder mis sesiones programadas. | 3 |
+| 22 | **US019** | Notificaciones de alertas | Como usuario, deseo recibir notificaciones de disponibilidad para no perder mis sesiones programadas. | 3 |
 | 23 | **US020** | Pago en línea seguro | Como cliente, deseo realizar el pago mediante la plataforma para confirmar mi reserva de manera automática. | 8 |
 | 24 | **US021** | Publicar testimonios destacados | Como consultor, quiero mostrar testimonios positivos de mis clientes en mi perfil, para generar mayor confianza en nuevos usuarios. | 3 |
 | 25 | **US022** | Crear campañas promocionales | Como consultor, quiero poder crear promociones temporales, para atraer más clientes. | 3 |
-| 26 | **US023** | Ver estadísticas de perfil | Como consultor, quiero ver métricas sobre cuántas personas vieron mi perfil, reservaron sesiones o dejaron calificaciones, para medir mi rendimiento. | 5 |
-| 27 | **US024** | Gestionar campañas de referidos | Como consultor, quiero invitar a otros consultores o clientes a la plataforma mediante un sistema de referidos, para obtener beneficios por cada nuevo registro. | 3 |
-| 28 | **US025** | Optimizar visibilidad en buscador | Como consultor, quiero personalizar palabras clave para aparecer más fácilmente en los resultados de búsqueda dentro de la plataforma. | 3 |
-| 29 | **US029** | SEO y Meta-datos | Como administrador, deseo configurar URLs amigables y metadatos para mejorar el posicionamiento de los expertos en buscadores. | 3 |
+| 26 | **US024** | Gestionar campañas de referidos | Como consultor, quiero invitar a otros consultores o clientes a la plataforma mediante un sistema de referidos, para obtener beneficios por cada nuevo registro. | 3 |
+| 27 | **US025** | Optimizar visibilidad en buscador | Como consultor, quiero personalizar palabras clave para aparecer más fácilmente en los resultados de búsqueda dentro de la plataforma. | 3 |
+| 28 | **US029** | SEO y Meta-datos | Como usuario, deseo configurar URLs amigables y metadatos para mejorar el posicionamiento de los expertos en buscadores. | 3 |
 
 <div style="page-break-after: always;"></div>
 
@@ -1256,11 +1248,11 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 
 * Alineación con la visión de negocio. A partir de la visión de negocio de centralizar el acceso a asesoría profesional de forma organizada, confiable y accesible, y de la visión de una arquitectura de plataforma de microservicios basada en DDD, se establecen los principios rectores que guían el diseño de FinTeka. Estos principios buscan garantizar transacciones seguras, maximizar la cohesión de cada servicio y habilitar cambios ágiles enfocados en la experiencia tanto de los usuarios solicitantes como de los consultores.
   
-* Comunicación asincrónica sobre sincrónica. Para procesos que no requieren respuesta inmediata del usuario (como el envío de recordatorios automáticos de sesiones o la actualización de métricas de desempeño ), se privilegian mecanismos orientados a eventos mediante message brokers. Esto desacopla los servicios principales (como reservas y pagos) de los secundarios, aislando fallos y mejorando la escalabilidad.
+* Comunicación asincrónica sobre sincrónica. Para procesos que no requieren respuesta inmediata del usuario, se privilegian mecanismos orientados a eventos mediante message brokers. Esto desacopla los servicios principales (como reservas y pagos) de los secundarios, aislando fallos y mejorando la escalabilidad.
 
 * Uso de tecnologías con soporte comercial y escalabilidad probada. Para garantizar un rendimiento óptimo, el desarrollo del frontend multiplataforma (móvil y web responsivo desde 360 px hasta 1920 px ) se apoya en Flutter y React, asegurando una experiencia de usuario fluida e interfaces dinámicas. En el backend, se implementan servicios en Java21, ideales para el manejo ágil de la lógica de negocio y APIs REST documentadas con OpenAPI 3.0 / Swagger. Para la persistencia de datos relacionales transaccionales (como el historial de sesiones y pagos), se emplean motores robustos como MySQL.
   
-* Seguridad y privacidad como principio transversal. La seguridad se aplica desde el diseño. Toda comunicación entre cliente y servidor se realiza mediante HTTPS con TLS 1.2 o superior. Las contraseñas se almacenan utilizando algoritmos seguros. La autenticación es gestionada mediante la generación y validación de tokens de acceso y actualización , apoyada por un control de acceso basado en roles para diferenciar entre usuarios, consultores y administradores con una latencia de validación menor a 50 ms.
+* Seguridad y privacidad como principio transversal. La seguridad se aplica desde el diseño. Toda comunicación entre cliente y servidor se realiza mediante HTTPS con TLS 1.2 o superior. Las contraseñas se almacenan utilizando algoritmos seguros. La autenticación es gestionada mediante la generación y validación de tokens de acceso y actualización , apoyada por un control de acceso basado en roles para diferenciar entre usuarios y consultores con una latencia de validación menor a 50 ms.
 
 * Rendimiento y resiliencia bajo concurrencia. El sistema está diseñado para cumplir con estrictos Acuerdos de Nivel de Servicio (SLAs). Las búsquedas de especialistas se resuelven en un tiempo máximo de 2 segundos, y las confirmaciones de reservas en un máximo de 3 segundos para el 95% de las transacciones. 
 
@@ -1340,8 +1332,8 @@ Para brindar funcionalidades complementarias se integran servicios externos como
 #### Servicios externos:
 
 - Pagos: Encargado de comunicar y validar pagos realizados mediante PayPal.
-- Notificaciones: Envía alertas sobre reservas, recordatorios, pagos confirmados o cambios de cita mediante correo o push notifications.
-- Integración de calendario: Sincroniza eventos y recordatorios con Google Calendar.
+- Notificaciones: Envía alertas sobre reservas, pagos confirmados o cambios de sesión mediante correo o push notifications.
+- Integración de calendario: Sincroniza eventos y notificaciones con Google Calendar.
 - Videollamadas: Genera enlaces de reunión mediante Zoom para sesiones remotas.
 
 <img src="../assets/c1.jpg" style="width: 100%;" alt="diagramacontenedores">
@@ -1463,7 +1455,6 @@ Las tácticas arquitectónicas representan las decisiones de diseño técnico ad
 * **Tácticas de Mitigación de Spam y Ataques:** Implementación de políticas de control de tasa de peticiones (*Rate Limiting*) en el API Gateway para mitigar la saturación de endpoints críticos por parte de bots o solicitudes maliciosas concurrentes.
 
 #### RENDIMIENTO
-* **Procesamiento Asíncrono de Tareas:** Integración de un broker de mensajería para gestionar los flujos de trabajo que no requieren una respuesta inmediata en el navegador del usuario, tales como el envío de correos de confirmación, la actualización asíncrona de métricas de reputación o el registro de registros en `USER_ACTIVITY_LOGS`.
 * **Optimización del Lado del Cliente (Frontend):** Uso de técnicas de división de código fuente (*code-splitting*) y carga diferida (*lazy loading*) en el desarrollo con **Vue.js**, reduciendo sustancialmente el tamaño de los paquetes JavaScript iniciales transferidos al navegador y acelerando el tiempo de interactividad de la interfaz.
 
 #### ESCALABILIDAD
@@ -1627,8 +1618,7 @@ Adicionalmente:
 
 FinTeka diferencia:
 - Clientes,
-- Consultores,
-- Administradores,
+- Consultores
 
 ---
 
@@ -1895,7 +1885,7 @@ La arquitectura propuesta incorpora patrones, tácticas y mecanismos específico
 | ARC-04 | Complejidad operacional de microservicios | Dificultad de monitoreo y debugging | Alto | Observabilidad centralizada + tracing |
 | ARC-05 | Dependencia de servicios externos | Fallos en pasarelas de pago y APIs | Alto | Retry Pattern |
 | ARC-06 | Evolución y mantenibilidad | Dependencias rígidas entre módulos | Alto | Arquitectura desacoplada + APIs versionadas |
-| ARC-07 | Observabilidad y monitoreo | Detección tardía de incidentes | Medio | Logs centralizados + métricas |
+| ARC-07 | Observabilidad y monitoreo | Detección tardía de incidentes | Medio | Logs centralizados |
 | ARC-08 | Experiencia de usuario en tiempo real | Lentitud y retrasos de comunicación | Alto | MySQL |
 | ARC-09 | Gestión de datos híbridos | Inconsistencia entre SQL y NoSQL | Medio | Separación por dominios + eventos |
 | ARC-10 | Continuidad operacional | Caídas críticas del sistema | Alto | Azure failover |
