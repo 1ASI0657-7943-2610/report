@@ -1243,8 +1243,6 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 
 * Rendimiento y resiliencia bajo concurrencia. El sistema está diseñado para cumplir con estrictos Acuerdos de Nivel de Servicio (SLAs). Las búsquedas de especialistas se resuelven en un tiempo máximo de 2 segundos, y las confirmaciones de reservas en un máximo de 3 segundos para el 95% de las transacciones. 
 
-* Observabilidad integrada desde el inicio. El sistema registra logs detallados de autenticación, reservas, errores y operaciones críticas (con niveles INFO, WARN y ERROR), conservando esta información por un mínimo de 90 días para facilitar la trazabilidad completa sobre cancelaciones, reprogramaciones y cambios de estado de sesiones.
-
 * Compatibilidad con principios SOLID y DDD. La lógica de negocio principal (búsqueda de expertos, reservas de agenda, pagos seguros y sistema de valoraciones ) se encapsula en servicios independientes. Se respeta el Principio de Responsabilidad Única (SRP) y se utiliza la Inversión de Dependencias (DIP) para aislar la infraestructura tecnológica de las invariantes del dominio.
 
 * Contenedorización y Portabilidad. El sistema es compatible con despliegues en contenedores, utilizando imágenes optimizadas para agilizar el ciclo de integración y despliegue continuo (CI/CD), asegurando que los entornos de desarrollo, staging y producción sean consistentes.
@@ -1511,7 +1509,6 @@ Los atributos de calidad definidos para FinTeka están directamente alineados co
 La arquitectura basada en microservicios, API Gateway y despliegues distribuidos permite abordar estos escenarios mediante tácticas concretas de:
 - redundancia,
 - caché,
-- observabilidad,
 - autenticación,
 - tolerancia a fallos.
 
@@ -1759,7 +1756,6 @@ Los logs de auditoría:
 - se almacena en SQL,
 - están desacoplados del núcleo transaccional,
 - soportan análisis posteriores,
-- mejoran la observabilidad distribuida.
 
 ---
 
@@ -1797,7 +1793,7 @@ Las restricciones arquitectónicas representan limitaciones técnicas, operacion
 |---|---|---|---|
 | CON-01 | Tecnológica | La solución backend debe implementarse mediante arquitectura de microservicios utilizando **Spring Boot** y **Java 21**. | Permite escalabilidad independiente, resiliencia y el aprovechamiento de características de alto rendimiento como Virtual Threads. |
 | CON-02 | Tecnológica | El frontend debe desarrollarse como una Single Page Application (SPA) utilizando **Vue.js**. | Garantiza una experiencia de usuario fluida, reactiva y optimizada para navegadores modernos. |
-| CON-03 | Tecnológica | Los servicios deben comunicarse únicamente mediante **APIs REST**. | Reduce acoplamiento y asegura contratos de comunicación claros y estandarizados. |
+| CON-03 | Tecnológica | Los servicios deben comunicarse únicamente mediante **microservicios**. | Reduce acoplamiento y asegura contratos de comunicación claros y estandarizados. |
 | CON-04 | Tecnológica | La persistencia de datos debe centralizarse en el motor relacional **MySQL**. | Garantiza cumplimiento de propiedades ACID necesarias para operaciones financieras. |
 | CON-05 | Tecnológica | Cada dominio funcional debe operar de forma independiente sobre su propio esquema lógico dentro de MySQL. | Reduce dependencias y facilita mantenibilidad del sistema. |
 | CON-06 | Operacional | El despliegue del frontend debe realizarse sobre **Vercel**. | Mejora rendimiento mediante Edge CDN y facilita despliegues automatizados. |
@@ -1844,9 +1840,7 @@ La arquitectura propuesta incorpora patrones, tácticas y mecanismos específico
 | ARC-01 | Consistencia transaccional distribuida | Reservas duplicadas y pagos inconsistentes | Alto | Eventos compensatorios |
 | ARC-02 | Seguridad financiera | Robo de credenciales y accesos indebidos | Alto | OAuth2 + JWT + HTTPS |
 | ARC-03 | Rendimiento bajo alta concurrencia | Latencia elevada y saturación de servicios | Alto |  Auto Scaling |
-| ARC-04 | Complejidad operacional de microservicios | Dificultad de monitoreo y debugging | Alto | Observabilidad centralizada + tracing |
 | ARC-05 | Dependencia de servicios externos | Fallos en pasarelas de pago y APIs | Alto | Retry Pattern |
-| ARC-07 | Observabilidad y monitoreo | Detección tardía de incidentes | Medio | Logs centralizados |
 | ARC-08 | Experiencia de usuario en tiempo real | Lentitud y retrasos de comunicación | Alto | MySQL |
 | ARC-09 | Gestión de datos híbridos | Inconsistencia entre SQL y NoSQL | Medio | Separación por dominios + eventos |
 | ARC-10 | Continuidad operacional | Caídas críticas del sistema | Alto | Azure failover |
@@ -1859,9 +1853,7 @@ La arquitectura propuesta incorpora patrones, tácticas y mecanismos específico
 |---|---|
 | Seguridad financiera | API Gateway + OAuth2 |
 | Rendimiento concurrente | Load Balancer (API Gateway) |
-| Complejidad distribuida | Centralized Logging |
 | Mantenibilidad | DDD + Microservices |
-| Observabilidad | Monitoring Stack |
 | Continuidad operacional |  Replication |
 
 ---
@@ -1874,7 +1866,6 @@ Las preocupaciones arquitectónicas definidas influyen directamente sobre:
 - tácticas de disponibilidad,
 - mecanismos de seguridad,
 - estrategias de despliegue,
-- observabilidad,
 - escalabilidad.
 
 Esto garantiza que la arquitectura de FinTeka responda adecuadamente a:
@@ -1893,6 +1884,7 @@ Los Architectural Drivers representan los factores críticos que influyen direct
 
 En esta primera iteración se identifican los requisitos del sistema y se desarrolla una primera versión basada en una arquitectura monolítica. Posteriormente, en la siguiente iteración, esta será migrada a una arquitectura de microservicios. A continuación, se presentan los drivers arquitectónicos seleccionados.
 
+//CAMBIAR
 | Tipo de Driver | Driver Seleccionado | Razón |
 | :--- | :--- | :--- |
 | Atributo de Calidad | Escalabilidad |La plataforma debe soportar un crecimiento progresivo en la cantidad de usuarios, especialistas, reservas y transacciones sin afectar significativamente el rendimiento del sistema.  |
@@ -1918,12 +1910,6 @@ El propósito de esta iteración es desarrollar una primera versión operativa d
 
 Con el fin de responder a los drivers priorizados y asegurar la entrega  en esta primera iteración, se identifican los componentes más relevantes del sistema que serán detallados y refinados durante el diseño arquitectónico inicial.
 
-
-#### Modulo de Gestión de Consultores y Especialidades
-
-* Administra la información profesional de los consultores, incluyendo perfiles, experiencia, áreas de especialización y disponibilidad.
-* Permite que los usuarios exploren especialistas y encuentren opciones acordes a sus necesidades.
-* Representa el punto principal de conexión entre la oferta de servicios y la demanda de asesorías dentro de la plataforma.
 
 #### Modulo de Reservas y Asesorías
 
@@ -2482,17 +2468,6 @@ La estrategia de despliegue de Finteka fue diseñada bajo principios *Cloud-Nati
 | Alta Disponibilidad | Multi-AZ |
 | Backups | Retención automática de 30 días |
 | Recuperación | Point-In-Time Restore (PITR) |
-
----
-
-#### Monitoreo y Observabilidad
-
-| Herramienta | Función |
-|---|---|
-| Vercel Analytics | Métricas frontend y Web Vitals |
-| Azure Application Insights | Observabilidad backend |
-| Spring Boot Actuator | Métricas técnicas y health checks |
-| Azure Key Vault | Gestión segura de secretos |
 
 ---
 
