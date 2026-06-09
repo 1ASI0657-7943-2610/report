@@ -1847,6 +1847,7 @@ Las restricciones arquitectónicas representan limitaciones técnicas, operacion
 | CON-11 | Negocio | El sistema debe integrarse con pasarelas de pago externas. | Permite procesar pagos y gestionar transacciones financieras. |
 | CON-12 | Negocio | La plataforma debe calcular automáticamente cobros y comisiones según el plan del usuario. | Automatiza la lógica comercial asociada a los planes Básico y Premium. |
 | CON-13 | Negocio | La arquitectura debe soportar crecimiento progresivo sin rediseñar el núcleo del sistema. | Facilita escalabilidad futura y expansión funcional. |
+| CON-14 | Desarrollo | Las campañas y promociones están fuera de nuestro alcance | La implementación de un motor de promociones nativo introduce una complejidad elevada en el modelo de entidad-relación (gestión de cupones, reglas de exclusión, concurrencia de uso y validación de stock en tiempo real). |
 
 ---
 
