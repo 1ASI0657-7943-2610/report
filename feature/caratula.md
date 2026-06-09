@@ -405,7 +405,7 @@ Con el fin de validar la propuesta de valor de FinTeka, se identificaron los pri
 
 #### User Assumptions
 * Los usuarios desean encontrar especialistas confiables sin depender de recomendaciones informales o búsquedas extensas y manuales.
-* Antes de contratar, las personas comparan precio, experiencia, reputación, disponibilidad y modalidad de atención.
+* Antes de contratar, las personas comparan precio, experiencia, reputación y disponibilidad.
 * Los clientes prefieren registrarse e iniciar sesión mediante un flujo interno simple pero altamente seguro.
 * Los usuarios esperan poder reservar, pagar y recibir confirmaciones desde un único entorno digital sin redirecciones complejas.
 * Los consultores necesitan dashboards privados donde puedan gestionar su agenda, visualizar sus sesiones y editar su perfil profesional.
@@ -572,7 +572,7 @@ Posicionar la plataforma como una solución clave para la asesoría remota, capi
   Establecer relaciones estratégicas con colegios profesionales, asociaciones y empresas para ofrecer servicios constantes y generar ingresos adicionales.
 
 - **Incorporar herramientas interactivas de alta calidad**:  
-  Implementar funciones como videoconferencias, mensajería en tiempo real y un sistema de pago seguro para garantizar una experiencia eficiente y profesional.
+  Implementar funciones como videoconferencias y un sistema de pago seguro para garantizar una experiencia eficiente y profesional.
 
 ---
 
@@ -845,15 +845,14 @@ Las tareas fueron clasificadas considerando:
 | Buscar especialistas utilizando filtros avanzados | Alta | Alta | Motor de Búsqueda Inteligente | US003, US026 | EP02 |
 | Revisar perfiles, experiencia y valoraciones de consultores | Alta | Alta | Visualización de Perfil Profesional | US006, US007 | EP02 |
 | Reservar sesiones según disponibilidad | Alta | Alta | Gestión de Reservas y Agenda | US010, US011 | EP03 |
-| Realizar pagos seguros y consultar comprobantes | Alta | Alta | Pasarela de Pago Integrada | US014, US015 | EP04 |
-| Reprogramar o cancelar sesiones | Media | Media | Gestión del Ciclo de Vida de Reservas | US012, US013 | EP03 |
+| Realizar pagos seguros | Alta | Alta | Pasarela de Pago Integrada | US014, US015 | EP04 |
+| Cancelar sesiones | Media | Media | Gestión del Ciclo de Vida de Reservas | US012, US013 | EP03 |
 | Recibir notificaciones | Alta | Alta | Sistema de Notificaciones | US004, US016 | EP05 |
-| Consultar historial de sesiones y pagos | Media | Media | Historial y Seguimiento | US017 | EP04 |
+| Consultar historial de sesiones | Media | Media | Historial y Seguimiento | US017 | EP04 |
 | Calificar especialistas luego de una asesoría | Media | Alta | Sistema de Reputación y Valoraciones | US007 | EP02 |
 | Guardar especialistas favoritos | Media | Media | Favoritos y Seguimiento | US009 | EP03 |
-| Compartir perfiles profesionales | Baja | Media | Compartir Perfil | US028 | EP03 |
 | Configurar preferencias visuales | Baja | Baja | Personalización de Interfaz | US029 | EP03 |
-| Consultar soporte y preguntas frecuentes | Media | Media | Centro de Ayuda | US026, US027 | EP06 |
+| Consultar preguntas frecuentes | Media | Media | Centro de Ayuda | US026, US027 | EP06 |
 
 ---
 
@@ -872,12 +871,6 @@ Las funcionalidades relacionadas con:
 - reservas,
 - pagos
 
-presentan alta frecuencia e importancia, por lo que tienen impacto directo en la priorización técnica y arquitectónica del sistema.
-
-Esto justifica decisiones como:
-- persistencia relacional para reservas y pagos,
-- integración desacoplada con pasarelas externas,
-
 ---
 
 ### Segmento #2 — Consultores y Proveedores de Servicios
@@ -886,17 +879,15 @@ Esto justifica decisiones como:
 |---|---|---|---|---|---|
 | Registrarse e iniciar sesión de forma segura | Alta | Alta | Autenticación y Gestión de Cuenta | US001 | EP01 |
 | Crear y mantener actualizado su perfil profesional | Alta | Alta | Gestión de Perfil Profesional | US008 | EP01 |
-| Configurar especialidades, tarifas y modalidades de atención | Alta | Alta | Configuración de Servicios Profesionales | US018, US019 | EP02 |
+| Configurar especialidades, tarifas| Alta | Alta | Configuración de Servicios Profesionales | US018, US019 | EP02 |
 | Gestionar disponibilidad y horarios | Alta | Alta | Gestión de Agenda y Disponibilidad | US010 | EP03 |
-| Recibir y administrar reservas de sesiones | Alta | Alta | Gestión de Reservas | US011 | EP03 |
-| Reprogramar o cancelar sesiones | Media | Media | Gestión del Ciclo de Vida de Sesiones | US012, US013 | EP03 |
-| Consultar ingresos, pagos y comprobantes | Media | Alta | Gestión Financiera y Comisiones | US014, US015 | EP04 |
+| Recibir reservas de sesiones | Alta | Alta | Gestión de Reservas | US011 | EP03 |
+| Cancelar sesiones | Media | Media | Gestión del Ciclo de Vida de Sesiones | US012, US013 | EP03 |
 | Gestionar suscripciones premium | Baja | Media | Gestión de Suscripciones | US020 | EP04 |
 | Consultar reputación profesional | Media | Alta | Dashboard Analítico y Reputación | US021, US007 | EP05 |
 | Recibir notificaciones relacionadas con sesiones | Alta | Alta | Sistema de Notificaciones | US004, US016 | EP05 |
 | Administrar comunicación con clientes | Alta | Alta | Chat y Comunicación Directa | US022, US023 | EP05 |
-| Consultar historial de sesiones realizadas | Media | Media | Historial Profesional | US024 | EP04 |
-| Configurar preferencias y seguridad de cuenta | Media | Alta | Seguridad y Configuración | US025 | EP01 |
+| Consultar historial de sesiones | Media | Media | Historial Profesional | US024 | EP04 |
 
 ---
 
@@ -917,14 +908,12 @@ La necesidad de mantener sincronización en tiempo real entre:
 
 Influye directamente sobre decisiones arquitectónicas como:
 - separación de dominios mediante microservicios,
-- persistencia híbrida SQL,
 - eventos asíncronos,
-- mecanismos de consistencia transaccional.
 
 Asimismo, la gestión dinámica de agendas y reservas motivó el diseño de componentes especializados como:
 - `BOOKING_SLOTS`,
 - `ADVISORY_SESSIONS`,
-- servicios desacoplados de notificación y mensajería.
+- servicios de notificación.
 
 ---
 
@@ -938,9 +927,9 @@ La siguiente tabla resume cómo las tareas de usuario se relacionan con las prin
 | Búsqueda | Filtros y descubrimiento de especialistas | Consultant Service  |
 | Reservas | Gestión de agenda y sesiones | Booking Service |
 | Pagos | Procesamiento financiero y comisiones | Payment Service |
-| Comunicación | Chat y notificaciones | Chat Service  |
+| Comunicación | Notificaciones | Notification Service  |
 | Reputación | Valoraciones | Reputation Service |
-| Auditoría | Historial y trazabilidad | User Activity Logs |
+| Auditoría | Historial  | User Activity Logs |
 | Personalización | Preferencias de interfaz | Frontend UI Layer |
 
 ---
@@ -1021,7 +1010,7 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 **Leyenda de prefijos:**
 
 - **IRF** = *Identity Requirements Features*: Funciones de identidad, autenticación, seguridad y control de acceso.  
-- **NRF** = *Notification Requirements Features*: Funciones de notificación, alertas automáticas, comunicaciones del sistema y seguimiento de mensajes enviados.
+- **NRF** = *Notification Requirements Features*: Funciones de notificación, alertas automáticas, comunicaciones del sistema.
 - **CRRF** = *Calendar, Reservation and Resource Features*: Funciones de gestión de reservas, disponibilidad horaria, programación de sesiones, control de agendas y seguimiento del ciclo de vida de las citas.
 - **RVF** = *Reputation and Valuation Features*: Funciones relacionadas con reputación, calificaciones, reseñas, puntuaciones de los consultores dentro de la plataforma.
 - **BAF** = *Browse and Advanced Search Features*: funciones de búsqueda avanzada, filtrado inteligente, ordenamiento de resultados, descubrimiento de especialistas y priorización de perfiles dentro de la plataforma.
@@ -1038,7 +1027,7 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | IRF-006 | El sistema debe validar la vigencia, integridad, firma digital y origen de los tokens utilizados en cada solicitud protegida hacia recursos restringidos. Si el token estuviera expirado, alterado, revocado o no autorizado, el sistema deberá denegar el acceso y solicitar una nueva autenticación.                                                                                                                                                                                                              |
 | IRF-007 | El sistema debe permitir la recuperación de contraseña mediante un proceso seguro iniciado por el usuario desde la opción correspondiente. Para ello, deberá enviar un enlace temporal o código de verificación al correo electrónico registrado, permitiendo restablecer la contraseña únicamente después de validar la identidad del solicitante.                                                                                                                                                                 |
 | IRF-008 | El sistema debe implementar roles diferenciados de usuario y consultor, asignando permisos específicos según las funciones de cada tipo de cuenta. Durante cada operación protegida, el sistema deberá verificar el rol asociado al usuario autenticado para autorizar o denegar el acceso a funcionalidades determinadas.                                                                                                                                                                           |
-| NRF-001 | El sistema debe enviar una notificación automática de confirmación al correo electrónico del usuario una vez completado satisfactoriamente el proceso de registro en la plataforma. El mensaje deberá incluir información básica de bienvenida, validación de cuenta en caso corresponda y canales oficiales de soporte disponibles. |
+| NRF-001 | El sistema debe enviar una notificación automática de confirmación al correo electrónico del usuario una vez completado satisfactoriamente el proceso de registro en la plataforma. El mensaje deberá incluir información básica de bienvenida y validación de cuenta en caso corresponda. |
 | NRF-002 | El sistema debe enviar notificaciones automáticos al usuario y al consultor antes del inicio de cada sesión programada, utilizando los medios de comunicación habilitados por la plataforma. Dichas notificaciones deberán incluir fecha, hora, enlace de acceso y datos relevantes de la asesoría agendada.                           |
 | NRF-003 | El sistema debe notificar de manera inmediata al usuario y al consultor cuando una sesión previamente reservada haya sido cancelada por cualquiera de las partes o por decisión administrativa. La notificación deberá indicar el motivo de la cancelación y las acciones posteriores disponibles.                                   |
 | NRF-004 | El sistema debe enviar una notificación automática cuando una sesión haya sido reprogramada, informando a ambas partes la nueva fecha, hora y cualquier modificación relevante asociada a la reserva original. Asimismo, deberá conservar evidencia del envío realizado.                                                             |
@@ -1098,14 +1087,13 @@ A continuación se presenta la realizacion del To-Be Scenario Mapping por cada u
 | BAF-005 | El sistema debe priorizar la visibilidad de consultores con suscripción premium activa dentro de los resultados de búsqueda, aplicando reglas de posicionamiento combinadas con relevancia, reputación y coincidencia con los filtros seleccionados. |
 | BAF-006 | El sistema debe permitir búsquedas por palabras clave relacionadas con servicios, áreas de experiencia, certificaciones, descripciones profesionales o temas específicos ofrecidos por los consultores.                                              |
 | BAF-007 | El sistema debe sugerir categorías, términos frecuentes o especialistas destacados mientras el usuario escribe en el campo de búsqueda, con la finalidad de agilizar el proceso de descubrimiento.                                                   |
-| BAF-008 | El sistema debe permitir filtrar especialistas según modalidad del servicio, distinguiendo entre asesorías virtuales, presenciales o mixtas cuando dicha información esté disponible en el perfil profesional.                                       |
 | BAF-009 | El sistema debe excluir automáticamente de los primeros resultados a perfiles inactivos, suspendidos o sin disponibilidad vigente, salvo que el usuario solicite expresamente visualizarlos.                                                         |
 | BAF-010 | El sistema debe conservar temporalmente el historial reciente de búsquedas y filtros utilizados por el usuario autenticado para facilitar consultas posteriores dentro de la plataforma.                                                             |
 | BAF-011 | El sistema debe recomendar especialistas similares o relacionados en función de búsquedas previas, categorías consultadas y comportamiento general de navegación del usuario.                                                                        |
 | BAF-012 | El sistema debe permitir acceder desde los resultados de búsqueda al perfil detallado del consultor seleccionado, mostrando información completa antes de iniciar una reserva.                                                                       |
 | PRF-001 | El sistema debe permitir la creación automática de un perfil asociado a cada cuenta registrada dentro de la plataforma, vinculando la información personal básica con las credenciales del usuario autenticado.                                           |
 | PRF-002 | El perfil del usuario debe permitir registrar y visualizar datos personales como nombre, apellido, fotografía opcional, correo electrónico y demás información autorizada por la plataforma.                                                              |
-| PRF-003 | Cuando la cuenta corresponda a un consultor, el sistema debe habilitar campos adicionales orientados al perfil profesional, incluyendo especialidades, descripción de servicios, años de experiencia, tarifa por sesión y modalidad de atención ofrecida. |
+| PRF-003 | Cuando la cuenta corresponda a un consultor, el sistema debe habilitar campos adicionales orientados al perfil profesional, incluyendo especialidades, descripción de servicios, años de experiencia, tarifa por sesión. |
 | PRF-004 | El sistema debe permitir consultar perfiles mediante un identificador único, mostrando únicamente la información pública o autorizada según el tipo de usuario y permisos aplicables.                                                                     |
 | PRF-005 | El sistema debe permitir a los usuarios actualizar su información personal en cualquier momento, reflejando los cambios realizados de forma inmediata dentro de la plataforma.                                                                            |
 | PRF-006 | El sistema debe permitir que los consultores actualicen su perfil profesional, modificando experiencia, tarifas, especialidades, descripción comercial y demás datos relevantes para su visibilidad pública.                                              |
@@ -1177,8 +1165,6 @@ En esta sección se presentan los requisitos funcionales definidos para Finteka.
 | US008 | Actualizar perfil de usuario | Como usuario. Quiero poder actualizar mi perfil en la plataforma. Para mantener mi información personal, preferencias y detalles de contacto actualizados. | **Escenario 01: Actualización exitosa del perfil.** Dado que soy un usuario que desea actualizar mi perfil, Cuando cambio mis datos personales, como el correo o número de teléfono y hago clic en "guardar", Entonces el sistema actualiza mi perfil y me muestra un mensaje de confirmación. <br>**Escenario 02: Error en la actualización del perfil.** Dado que soy un usuario que intenta actualizar mi perfil, Cuando ingreso datos inválidos, como un correo incorrecto, Entonces el sistema muestra un mensaje de error y me indica qué campo debe corregirse. | EP03 |
 | US009 | Guardar profesionales como favoritos | Como usuario, quiero poder guardar profesionales como favoritos, para acceder fácilmente a sus perfiles en futuras búsquedas sin tener que encontrarlos nuevamente. | **Escenario 01: Agregar profesional a favoritos.** Dado que estoy viendo el perfil de un consultor, Cuando hago clic en el ícono de “favorito”, Entonces el profesional se añade a mi lista de favoritos y recibo una confirmación. <br>**Escenario 02: Visualización de lista de favoritos.** Dado que he marcado varios profesionales como favoritos, Cuando accedo a la sección “Favoritos” desde mi perfil, Entonces puedo ver una lista con sus nombres, especialidades y accesos directos a sus perfiles. <br>**Escenario 03: Eliminar profesional de favoritos.** Dado que ya no quiero mantener a un profesional en mi lista, Cuando hago clic en el ícono de “eliminar de favoritos”, Entonces este desaparece de mi lista y el sistema me muestra un mensaje de confirmación. | EP03 |
 | US010 | Crear y gestionar servicios de profesional | Como profesional quiero crear y gestionar mis servicios para ofrecer distintos tipos de asesoría. | **Escenario 01: Agregar servicio nuevo.** Dado que quiero agregar un servicio nuevo para ofrecer asesoría. Cuando hago clic en Agregar servicio y selecciono la categoría. Entonces, la plataforma muestra un mensaje de servicio agregado de manera satisfactoria. <br>**Escenario 02: Eliminar servicio.** Dado que quiero eliminar un servicio que ya no deseo ofrecer. Cuando selecciono el servicio y hago clic en Eliminar servicio. Entonces, la plataforma muestra un mensaje de servicio eliminado de manera satisfactoria. | EP03 |
-| US011 | Responder mensajes de clientes | Como profesional, quiero ver y responder los mensajes de los clientes para mantener buena comunicación. | **Escenario 01: Mensaje enviado de manera exitosa.** Dado que quiero comunicarme con un cliente. Cuando selecciono al cliente y selecciono en Enviar mensaje. Entonces, la plataforma muestra una confirmación de que el mensaje ha sido enviado. | EP03 |
-| EP04 | Gestión de Sesiones y Seguimiento | Optimizar la experiencia de los usuarios y consultores antes, durante y después de las sesiones. |  |  |
 | US012 | Realizar reserva de sesión | Como usuario. Quiero poder reservar una sesión con un profesional. Para asegurarme de contar con su tiempo disponible para recibir asesoría. | **Escenario 01: Reserva exitosa.** Dado que soy un usuario que desea agendar una sesión. Cuando selecciono un profesional, fecha y hora disponible. Entonces el sistema confirma la reserva y me envía una notificación. <br>**Escenario 02: Fallo en la reserva.** Dado que intento reservar un horario que ya no está disponible. Cuando elijo esa fecha y hora. Entonces el sistema muestra un mensaje de error y me sugiere otros horarios disponibles. | EP04 |
 | US013 | Agendar seguimiento post-sesión | Como usuario, quiero poder agendar una sesión de seguimiento con el mismo consultor, para continuar con el proceso de asesoría. | **Escenario 01: Agendamiento desde historial.** Dado que he finalizado una sesión con un consultor, Cuando accedo al historial y selecciono “Agendar seguimiento”, Entonces puedo elegir fecha y hora y confirmar la nueva sesión. <br>**Escenario 02: Confirmación automática.** Dado que seleccioné un horario disponible, Cuando envío la solicitud de seguimiento, Entonces el sistema envía una notificación al consultor y confirma la cita. | EP04 |
 | US014 | Tomar notas durante la sesión | Como consultor, quiero tener una sección para tomar notas durante la sesión, para guardar observaciones relevantes del cliente. | **Escenario 01: Acceso al bloc de notas.** Dado que estoy en una sesión activa, Cuando accedo al bloc de notas desde mi panel, Entonces puedo escribir y guardar comentarios privados. <br>**Escenario 02: Guardado automático.** Dado que estoy escribiendo notas durante la sesión, Cuando cierro el panel de notas, Entonces el sistema guarda automáticamente el contenido. | EP04 |
@@ -1195,7 +1181,6 @@ En esta sección se presentan los requisitos funcionales definidos para Finteka.
 | US025 | Optimizar visibilidad en buscador | Como consultor, quiero personalizar palabras clave para aparecer más fácilmente en los resultados de búsqueda dentro de la plataforma. | **Escenario 01: Edición de palabras clave del perfil.** Dado que deseo mejorar mi visibilidad, Cuando edito mi perfil y agrego palabras clave relevantes, Entonces mi perfil se ajusta a los criterios del buscador interno. <br>**Escenario 02: Aumento de visibilidad tras actualización.** Dado que añadí nuevas palabras clave, Cuando un usuario busca términos relacionados, Entonces mi perfil aparece mejor posicionado en los resultados. | EP05 |
 | US026 | Ver Preguntas Frecuentes (FAQ) | Como usuario, quiero tener una sección de preguntas frecuentes, para poder resolver mis dudas rápidas sobre cómo usar la plataforma sin necesidad de contactar a soporte. | **Escenario 01: Visualización de respuestas.** Dado que tengo dudas sobre la plataforma, Cuando accedo a la sección "Ayuda", Entonces veo una lista de preguntas y al tocar una, se despliega la respuesta hacia abajo. | EP06 |
 | US027 | Enviar sugerencia o reporte rápido | Como usuario, quiero tener un formulario simple de contacto, para poder enviar sugerencias de mejora o reportar algún error visual en la aplicación. | **Escenario 01: Envío exitoso.** Dado que quiero enviar un comentario, Cuando lleno el campo de texto y presiono "Enviar", Entonces la pantalla se limpia y la aplicación me muestra un mensaje emergente agradeciendo mi comentario. | EP06 |
-| US028 | Compartir perfil del profesional | Como usuario, quiero poder compartir el perfil de un consultor, para poder recomendar sus servicios a mis amigos o colegas enviándoles un enlace. | **Escenario 01: Copiar enlace.** Dado que estoy viendo un perfil interesante, Cuando presiono el ícono de "Compartir", Entonces el sistema copia el enlace del perfil al portapapeles y me muestra un aviso de "Enlace copiado". | EP03 |
 | US029 | Cambiar tema (Modo Oscuro / Claro) | Como usuario, quiero poder alternar entre un tema visual claro y oscuro, para adaptar la aplicación a mis preferencias visuales o a la iluminación del entorno. | **Escenario 01: Cambio a modo oscuro.** Dado que la aplicación está en modo claro, Cuando presiono el interruptor de cambio de tema en mi perfil, Entonces los colores de la interfaz cambian inmediatamente a una paleta oscura. | EP03 |
 
 ## 3.4. Impact Mapping
@@ -1224,7 +1209,6 @@ Utilizamos la escala de Fibonacci para la estimación de los Story Points.
 | 10 | **US008** | Actualización de perfil | Como usuario, deseo editar mi información personal y de contacto para mantener mi cuenta actualizada. | 2 |
 | 11 | **US009** | Favoritos de profesionales | Como cliente, deseo guardar consultores en mi lista de favoritos para acceder a ellos rápidamente en el futuro. | 3 |
 | 12 | **US010** | Gestión de disponibilidad | Como consultor, deseo configurar mi agenda de disponibilidad para que los clientes puedan agendar sin conflictos. | 8 |
-| 13 | **US011** | Gestión de mensajes | Como consultor, quiero ver y responder los mensajes de los clientes para mantener buena comunicación. | 5 |
 | 14 | **US012** | Agendamiento de sesiones | Como cliente, deseo seleccionar un horario y agendar una sesión para asegurar mi consultoría técnica. | 5 |
 | 15 | **US013** | Seguimiento post-sesión | Como consultor, deseo registrar notas y tareas pendientes para dar un seguimiento adecuado al progreso del cliente. | 3 |
 | 16 | **US014** | Apunte de notas de texto| Como consultor, quiero tener una sección para tomar notas durante la sesión, para guardar observaciones relevantes del cliente. | 2 |
@@ -1275,7 +1259,6 @@ El uso de Bounded Contexts segmenta la aplicación en áreas claramente delimita
 * Identity & Access Management (IAM): Maneja el registro, la autenticación mediante tokens y la gestión de roles de usuarios y consultores. Especial atención al módulo de "autenticación", garantizando la seguridad en el acceso a la plataforma.
 * Search & Profile: Responsable del buscador avanzado (categoría, experiencia, tarifa) y la gestión de la reputación y visualización pública de los consultores.
 * Core Reservation (Booking): Maneja el motor de disponibilidad en tiempo real, bloqueos de agenda y conflictos de horarios.
-* Communication: Gestiona la mensajería instantánea en tiempo real entre usuarios y consultores.
 * Billing & Payments: Centraliza el flujo transaccional y el cobro automático.
 
 El estilo arquitectónico predominante es Microservices Architecture complementado con Event-Driven Architecture (EDA).
@@ -1436,10 +1419,10 @@ La arquitectura de software de la plataforma web FinTeka incorpora patrones de d
 
 #### Patrones Estructurales
 * **Repository Pattern:** Implementado en el backend con **Spring Boot** para mediar entre la capa de lógica de negocio y el acceso a la base de datos relacional **MySQL**. Este patrón encapsula las operaciones de consulta y persistencia, aislando el dominio de la aplicación y simplificando la ejecución de pruebas unitarias automatizadas.
-* **Adapter Pattern:** Utilizado para conectar la plataforma web con servicios externos de procesamiento de pagos transaccionales o APIs de mensajería sin acoplar el código fuente de FinTeka a las interfaces de programación de dichos proveedores independientes.
+* **Adapter Pattern:** Utilizado para conectar la plataforma web con servicios externos de procesamiento de pagos transaccionales o APIs  sin acoplar el código fuente de FinTeka a las interfaces de programación de dichos proveedores independientes.
 
 #### Patrones de Comportamiento
-* **Command Pattern (CQRS - Escritura):** Encapsula cada operación que genera una modificación de estado en la base de datos (como la publicación de un servicio, la postulación a una asesoría o la actualización de los datos de seguridad de la cuenta) en un objeto de comando único. Esto facilita el aislamiento de las solicitudes y su canalización asíncrona a través del broker de mensajería.
+* **Command Pattern (CQRS - Escritura):** Encapsula cada operación que genera una modificación de estado en la base de datos (como la publicación de un servicio, la postulación a una asesoría o la actualización de los datos de seguridad de la cuenta) en un objeto de comando único. Esto facilita el aislamiento de las solicitudes y su canalización asíncrona a través del broker.
 * **Query Pattern (CQRS - Lectura):** Separa de manera estricta las consultas de lectura de datos (tales como la visualización de perfiles y el filtrado por especialidades) de las lógicas de escritura. Permite optimizar el rendimiento del frontend en **Vue.js** al consumir directamente vistas o réplicas de lectura optimizadas en **MySQL**.
 
 #### Patrones Creacionales
@@ -1461,7 +1444,7 @@ Las tácticas arquitectónicas representan las decisiones de diseño técnico ad
 * **Optimización del Lado del Cliente (Frontend):** Uso de técnicas de división de código fuente (*code-splitting*) y carga diferida (*lazy loading*) en el desarrollo con **Vue.js**, reduciendo sustancialmente el tamaño de los paquetes JavaScript iniciales transferidos al navegador y acelerando el tiempo de interactividad de la interfaz.
 
 #### ESCALABILIDAD
-* **Arquitectura Orientada a Microservicios:** Descomposición funcional de la plataforma en servicios web autónomos y desacoplados desarrollados en **Spring Boot**, facilitando el escalado horizontal independiente de aquellos módulos que registren una alta carga transaccional (como el buscador de publicaciones o el gestor de mensajería).
+* **Arquitectura Orientada a Microservicios:** Descomposición funcional de la plataforma en servicios web autónomos y desacoplados desarrollados en **Spring Boot**, facilitando el escalado horizontal independiente de aquellos módulos que registren una alta carga transaccional.
 * **Segregación de Consultas Relacionales:** Configuración de una arquitectura de base de datos en **MySQL** que desvía los flujos intensivos de lectura hacia réplicas dedicadas, evitando la contención de cerraduras de tablas en el nodo principal durante los procesos de inserción y modificación de datos de postulación.
 
 #### MODERACIÓN
@@ -1477,7 +1460,7 @@ Las tácticas arquitectónicas representan las decisiones de diseño técnico ad
 El propósito del diseño de la arquitectura de FinTeka consiste en proveer un entorno web técnicamente robusto, desacoplado y centrado en la eficiencia del proceso de postulación de asesorías. Los objetivos del diseño de software se definen en los siguientes puntos:
 
 1.  **Eficiencia y Baja Latencia Web:** Optimizar la comunicación entre la interfaz de usuario en **Vue.js** y el backend en **Spring Boot** mediante un punto único de entrada (API Gateway), reduciendo la sobrecarga de solicitudes HTTP y asegurando una navegación ágil en el navegador web del usuario.
-2.  **Modularidad y Extensibilidad del Sistema:** Establecer límites de contexto claros por cada microservicio, lo que permite la modificación o adición de funciones en el módulo de soporte, la base de preguntas frecuentes o las preferencias visuales de la cuenta de manera aislada, mitigando el riesgo de regresiones en el entorno de producción.
+2.  **Modularidad y Extensibilidad del Sistema:** Establecer límites de contexto claros por cada microservicio, lo que permite la modificación o adición de funciones en el módulo, la base de preguntas frecuentes o las preferencias visuales de la cuenta de manera aislada, mitigando el riesgo de regresiones en el entorno de producción.
 
 ---
 
@@ -1491,7 +1474,7 @@ La arquitectura de FinTeka se encuentra estructurada para dar soporte directo e 
 | **US-02** | Filtrado y Búsqueda de Publicaciones | El usuario aplica filtros de especialidad y precio en el frontend; el componente realiza la consulta optimizada apuntando a las réplicas de lectura de la base de datos. | `Search & Profile Service` |
 | **US-04** | Configuración de Preferencias Visuales | El usuario modifica los parámetros visuales en la plataforma web; el frontend en **Vue.js** actualiza el estado local de la interfaz y envía los datos para persistirlos en la tabla `CLIENTS`. | `User Interface Component` |
 | **US-05** | Configuración de Seguridad de la Cuenta | El usuario actualiza sus credenciales de acceso; el microservicio de **Autenticación** procesa el cambio de contraseñas aplicando hashing y actualiza la entidad `USERS` generando un log en la auditoría. | `Authentication Microservice` |
-| **US-06** | Consulta de Soporte y Preguntas Frecuentes | El cliente o profesional accede al centro de ayuda web; el sistema sirve el contenido informativo de soporte técnico desde la persistencia relacional sin afectar los flujos de postulación. | `Support & FAQ Component` |
+| **US-06** | Preguntas Frecuentes | El cliente o profesional accede la sección de preguntas frecuentes para resolver sus dudas. | `FAQ Component` |
 
 
 ### 4.1.10 Quality Attribute Scenarios
@@ -1649,7 +1632,6 @@ La experiencia del usuario depende directamente de la capacidad del sistema para
 - búsquedas,
 - reservas,
 - carga de perfiles,
-- mensajería,
 - procesos financieros.
 
 La arquitectura busca minimizar:
@@ -1680,33 +1662,12 @@ La arquitectura utiliza:
 
 ---
 
-##### Escenario C2 — Comunicación en Tiempo Real
-
-| Elemento | Descripción |
-| :--- | :--- |
-| **Fuente** | Usuarios concurrentes |
-| **Estímulo** | Envío simultáneo de mensajes |
-| **Entorno** | Alta actividad |
-| **Artefacto** | Chat Service |
-| **Respuesta** | El sistema distribuye conexiones  |
-| **Medida de Respuesta** | Latencia menor a 500 ms |
-
-###### Justificación Técnica
-
-La comunicación en tiempo real se soporta mediante:
-- procesamiento asíncrono.
-
-Esto garantiza una experiencia fluida en la interacción cliente-consultor.
-
----
-
 ### D. ESCALABILIDAD 
 
 FinTeka debe soportar crecimiento continuo de:
 - usuarios,
 - consultores,
 - reservas,
-- mensajes,
 - transacciones financieras.
 
 La arquitectura debe escalar sin rediseñar el sistema completo.
@@ -1992,7 +1953,7 @@ Con el propósito de satisfacer los drivers arquitectónicos priorizados para Fi
 
 ### 4.3.1.5 Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
-La arquitectura de FinTeka se plantea como una solución basada en microservicios organizados por dominios de negocio, permitiendo separar responsabilidades funcionales y facilitar la evolución del sistema. Los servicios colaboran mediante APIs REST para operaciones síncronas y mensajería asíncrona mediante un broker de eventos para procesos desacoplados. En esta primera iteración se detallan los principales elementos arquitectónicos, sus responsabilidades y los mecanismos de integración definidos.
+La arquitectura de FinTeka se plantea como una solución basada en microservicios organizados por dominios de negocio, permitiendo separar responsabilidades funcionales y facilitar la evolución del sistema. Los servicios colaboran mediante APIs REST para operaciones síncronas mediante un broker de eventos para procesos desacoplados. En esta primera iteración se detallan los principales elementos arquitectónicos, sus responsabilidades y los mecanismos de integración definidos.
 
 #### Elementos arquitectónicos
 
@@ -2879,7 +2840,7 @@ Link del tablero trello: https://trello.com/invite/b/6a1d44fd1bf4c73a46a3438b/AT
 
 - Mantener una gestión activa del Product Backlog en Trello, priorizando tareas según valor de negocio, complejidad técnica y objetivos de cada iteración.
 
-- Fortalecer el frontend y backend con nuevas funcionalidades prioritarias como pagos en línea, mensajería en tiempo real, historial de sesiones y sistema de calificaciones.
+- Fortalecer el frontend y backend con nuevas funcionalidades prioritarias como pagos en línea, historial de sesiones y sistema de calificaciones.
 
 - Realizar pruebas funcionales, de integración y usabilidad de forma continua para detectar errores tempranos y asegurar una experiencia estable para los usuarios.
 
