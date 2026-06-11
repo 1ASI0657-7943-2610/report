@@ -1884,14 +1884,13 @@ Los Architectural Drivers representan los factores críticos que influyen direct
 
 En esta primera iteración se identifican los requisitos del sistema y se desarrolla una primera versión basada en una arquitectura monolítica. Posteriormente, en la siguiente iteración, esta será migrada a una arquitectura de microservicios. A continuación, se presentan los drivers arquitectónicos seleccionados.
 
-//CAMBIAR
-| Tipo de Driver | Driver Seleccionado | Razón |
-| :--- | :--- | :--- |
-| Atributo de Calidad | Escalabilidad |La plataforma debe soportar un crecimiento progresivo en la cantidad de usuarios, especialistas, reservas y transacciones sin afectar significativamente el rendimiento del sistema.  |
-| Atributo de Calidad | Rendimiento |Las búsquedas de especialistas, reservas y operaciones de pago deben ejecutarse en tiempos reducidos para garantizar una experiencia satisfactoria para los usuarios. |
-| Atributo de Calidad | Seguridad |Proteger la información personal y financiera mediante autenticación segura, control de acceso basado en roles, cifrado de contraseñas y uso de tokens de acceso.  |
-|Requisito Funcional  | Moderación |La plataforma debe garantizar que las reseñas y calificaciones cumplan las políticas establecidas, evitando contenido ofensivo o inapropiado que pueda afectar la confianza de los usuarios. |
-| Requisito Funcional | Recomendaciones personalizadas |El sistema debe facilitar el descubrimiento de especialistas relevantes mediante filtros, búsquedas avanzadas y recomendaciones basadas en el comportamiento e intereses de los usuarios.  |
+
+| Tipo de Driver      | Driver Seleccionado                                                                                                                                                                                                                                    | Razón                                                                                                                                                                                                                                                                                                                                                                     |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Atributo de Calidad | Escalabilidad                                                                                                                                                                                                                                          | La plataforma debe soportar un crecimiento progresivo en la cantidad de usuarios, especialistas, reservas y transacciones sin afectar significativamente el rendimiento del sistema.                                                                                                                                                                                      |
+| Atributo de Calidad | Rendimiento                                                                                                                                                                                                                                            | Las búsquedas de especialistas, reservas y operaciones de pago deben ejecutarse en tiempos reducidos para garantizar una experiencia satisfactoria para los usuarios.                                                                                                                                                                                                     |
+| Atributo de Calidad | Seguridad                                                                                                                                                                                                                                              | Proteger la información personal y financiera mediante autenticación segura, control de acceso basado en roles, cifrado de contraseñas y uso de tokens de acceso.                                                                                                                                                                                                         |
+| Restriccion         | Sistema desarrollado con una arquitectura de microservicios utilizando Java Spring Boot, donde cada servicio es independiente y autónomo. Algunos microservicios se comunican mediante un Message Broker para el intercambio asíncrono de información. | Se optará por una arquitectura basada en microservicios con el objetivo de mejorar el rendimiento, la escalabilidad y la capacidad de respuesta ante las solicitudes de los usuarios. Además, se utilizará un Message Broker para gestionar de manera asíncrona las notificaciones del sistema Finteka, permitiendo encolar y procesar los mensajes de forma desacoplada. |
 
 
 ## 4.3.1.2 Establish Iteration Goal by Selecting Drivers
@@ -1946,9 +1945,9 @@ La arquitectura de FinTeka se plantea como una solución basada en microservicio
 Se usará el enfoque DDD (Domain-Driven Design) para organizar la aplicación.Por ello, cada módulo será definido como un Bounded Context.
 
 
-* Autenticacion: encargado del registro de usuarios, autenticación, recuperación de contraseña y gestión de roles.
+* Sistema de autenticacion: encargado del registro de usuarios, autenticación, recuperación de contraseña y gestión de roles.
 * Busqueda avanzada: Administra perfiles profesionales, especialidades, experiencia y disponibilidad de los consultores.
-* Gestion de reservas: Gestiona solicitudes, programación, confirmación y seguimiento de asesorías reservadas por los usuarios.
+* Gestion de reservas y disponibilidad: Gestiona solicitudes, programación, confirmación y seguimiento de asesorías reservadas por los usuarios.
 * Notification: Procesa eventos del sistema y envía confirmaciones o alertas por correo electrónico.
 
 Los microservicios serán desarrollados con Spring Boot seleccionando la tecnología más adecuada según el dominio funcional y requerimientos de rendimiento.
@@ -1959,9 +1958,9 @@ El frontend será desarrollado en Vue, consumiendo los servicios a través del A
 
 Cada servicio mantiene autonomía sobre sus datos y lógica de negocio:
 
-* Autenticacion: Valida: credenciales, genera tokens JWT y controla acceso según roles definidos.
+* Sistema de autenticacion: Valida: credenciales, genera tokens JWT y controla acceso según roles definidos.
 * Busqueda avanzada: Publica información de consultores y responde consultas relacionadas con perfiles y especialidades.
-* Gestion de reservas:  Verifica disponibilidad horaria, registra reservas y actualiza el estado de las asesorías.
+* Gestion de reservas y disponibilidad:  Verifica disponibilidad horaria, registra reservas y actualiza el estado de las asesorías.
 * Notification:  recibe eventos como registro exitoso o reserva confirmada y ejecuta envíos automáticos.
 
 #### Definición de interfaces
