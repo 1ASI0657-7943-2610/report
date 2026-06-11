@@ -1971,7 +1971,7 @@ La comunicación entre componentes se implementará mediante interfaces síncron
 * Todas las comunicaciones externas estarán protegidas mediante HTTPS .
 * Los endpoints privados requerirán autenticación mediante JWT Bearer Token y validación de permisos por rol.
 
-El frontend Angular funcionará como cliente principal para usuarios y consultores, mostrando vistas diferenciadas según permisos y tipo de cuenta, pero consumiendo una misma capa de servicios centralizada.
+El frontend en Vue funcionará como cliente principal para usuarios y consultores, mostrando vistas diferenciadas según permisos y tipo de cuenta, pero consumiendo una misma capa de servicios centralizada.
 ### 4.3.1.6 Sketch Views (C4 & UML) and Record Design Decisions
 
 ![contextdiagram.jpg](../assets/contextdiagram.jpg)
