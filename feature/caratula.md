@@ -2712,10 +2712,8 @@ Para organizar las tareas del frontend y backend de FinTeka utilizamos Trello. C
 
 Link del tablero trello: https://trello.com/invite/b/69f6574d811b27877f919b44/ATTI455d8960b544133b522a03a00ce8bfcfE7BD0119/fundamentos-sprint-1
 
-
-
-
 ## 5.2.2 Sprint 2
+
 En este sprint se iniciará el proceso de migración del sistema Finteka desde una arquitectura monolítica hacia una arquitectura de microservicios, con el objetivo de mejorar la escalabilidad, mantenibilidad y flexibilidad de la plataforma. Asimismo, se utilizarán los servicios en la nube proporcionados por Microsoft Azure para el despliegue del backend, mientras que el frontend será desplegado mediante Firebase, aprovechando sus capacidades de alojamiento y gestión de aplicaciones web.
 
 #### 5.2.2.1 Sprint Backlog 2
@@ -2751,10 +2749,9 @@ En el presente sprint se logró desarrollar la primera versión de los microserv
 |              | main   | 02a1d5s   | feat: added ProfileRepository  | create the ProfileRepository.java           | 27/05/2026         |
 |              | main   | 2awcw8s   | feat: added ProfileController  | create the ProfileController.java           | 27/05/2026         |
 
-
 #### 5.2.2.3 Testing Suite Evidence for Sprint Review
 
-Durante el Sprint 2, se ejecutaron pruebas enfocadas en validar la migración desde la arquitectura monolítica hacia la arquitectura de microservicios. Las evaluaciones abarcan las tareas definidas en el Sprint Backlog, comprobando la infraestructura backend desplegada y los componentes desarrollados para el frontend en Vue.js.
+Durante el Sprint 3, se ejecutaron pruebas enfocadas en validar la migración desde la arquitectura monolítica hacia la arquitectura de microservicios. Las evaluaciones abarcan las tareas definidas en el Sprint Backlog, comprobando la infraestructura backend desplegada y los componentes desarrollados para el frontend en Vue.js.
 
 Se verificó el correcto funcionamiento de la infraestructura base, incluyendo Eureka Server, el servidor de configuración centralizada y Spring Cloud Gateway. Asimismo, se certificó la extracción del Bounded Context Profile y la implementación de la lógica para la gestión de disponibilidad y agendamiento de sesiones.
 
@@ -2782,6 +2779,7 @@ Durante el primer sprint, se lograron varios hitos importantes en el desarrollo 
 ![img.png](../assets/img.png)
 
 ![img_1.png](../assets/img_1.png)
+
 #### 5.2.2.5 Microservices Documentation Evidence for Sprint Review
 
 En este punto se detallan los microservicios desarrollados durante el presente sprint. Se implementaron los módulos de Profile y Gestión de Reservas, encargados de la administración de perfiles de usuario y de las operaciones relacionadas con las reservas. Asimismo, se configuraron los componentes de infraestructura necesarios para la arquitectura de microservicios, incluyendo el servicio de Registry para el registro de servicios, el servicio de Config para la gestión centralizada de configuraciones y el API Gateway para el enrutamiento y control de las solicitudes hacia los distintos microservicios.
@@ -2845,6 +2843,166 @@ Para la gestión y seguimiento del Sprint 2, se organizó el tablero en Trello d
 </p>
 
 Link del tablero trello: https://trello.com/invite/b/6a1d44fd1bf4c73a46a3438b/ATTI70f9d23817b78033b17aaba229689b99DF1DBA78/kanban-board
+
+## 5.2.3 Sprint 3
+
+En este sprint se iniciará el proceso de migración del sistema Finteka desde una arquitectura monolítica hacia una arquitectura de microservicios, con el objetivo de mejorar la escalabilidad, mantenibilidad y flexibilidad de la plataforma. Asimismo, se utilizarán los servicios en la nube proporcionados por Microsoft Azure para el despliegue del backend, mientras que el frontend será desplegado mediante Firebase, aprovechando sus capacidades de alojamiento y gestión de aplicaciones web.
+
+#### 5.2.3.1 Sprint Backlog 3
+
+| Sprint | User Story | Work-Item / Task | Description | Est. Hours | Assigned To | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Sprint 3 | Infraestructura Microservicios | T012 — Setup Service Auth | Configuración de Eureka Server para el registro y descubrimiento de los microservicios. | 6 | Backend Team | To Do |
+| Sprint 3 | Infraestructura Microservicios | T013 — Setup Config Server | Implementación de servidor de configuración centralizada para los microservicios. | 5 | Backend Team | To Do |
+| Sprint 3 | Infraestructura Microservicios | T014 — Setup API Gateway | Configuración de Spring Cloud Gateway para el enrutamiento y validación de tokens JWT. | 8 | Backend Team | To Do |
+| Sprint 3 | Migración Bounded Context Profile | T016 — Refactorización UI Profile | Actualización de endpoints en Vue.js para consumir el nuevo microservicio a través del API Gateway. | 8 | Frontend Team | To Do |
+| Sprint 3 | US010 — Gestión de disponibilidad | T017 — Endpoints de disponibilidad | Implementar `POST` y `GET /api/availability` para registrar y consultar bloques de horarios en la BD. | 8 | Backend Team | To Do |
+| Sprint 3 | US010 — Gestión de disponibilidad | T018 — UI Calendario Profesional | Diseñar e implementar componente interactivo en Vue para que el profesional seleccione sus horas libres. | 10 | Frontend Team | To Do |
+| Sprint 3 | US010 — Gestión de disponibilidad | T019 — Integración de disponibilidad | Conectar el calendario del frontend con el backend y manejar validaciones de horarios. | 6 | Frontend Team | To Do |
+| Sprint 3 | US012 — Agendamiento de sesiones | T020 — Endpoint de reservations | Implementar `POST /api/reservations` validando el cruce de horarios y cambiando el estado a "Pendiente". | 10 | Backend Team | To Do |
+| Sprint 3 | US012 — Agendamiento de sesiones | T021 — UI Formulario de reservations | Crear vista para el cliente con selector de fecha, hora disponible y confirmación de la cita. | 8 | Frontend Team | To Do |
+| Sprint 3 | US012 — Agendamiento de sesiones | T022 — Testing de concurrencia en reservas | Validar el comportamiento del sistema cuando dos clientes intentan agendar el mismo horario simultáneamente. | 6 | QA Team | To Do |
+
+#### 5.2.3.2 Development Evidence for Sprint Review
+
+En el presente sprint se logró desarrollar la primera versión de los microservicios de Finteka. Se identificaron y se empezaron a desarrollar cada uno de los microservicios como perfil, autenticación, reservas, valoración, entre otros. En la siguiente tabla, se podrá visualizar los commits más destacados de este sprint relacionado a los microservicios.
+
+| Repository   | Branch | Commit Id | Commit Message            | Commit Message Body               | Commited on (Date) |
+| ------------ | ------ | --------- | ------------------------- | --------------------------------- | ------------------ |
+| finteka-ratings-service | main   | c9beceb   | Initial commit            | create the README.md              | 17/06/2026         |
+|              | main   | 46bc680   | Create ratings-service         | create the ratings-service             | 17/06/2026         |
+|              | main   | 2ad1e07   | feat: added application  | added the application carpet | 17/06/2026         |
+|              | main   | 9aa23w9   | feat: added domain | create the domain carpet          | 17/06/2026         |
+|              | main   | 09a0384   | feat: added interfaces    | create the interfaces carpet             | 17/06/2026         |
+|              | main   | 63ec60e   | feat: added infrastructure  | create the infrastructure carpet           | 17/06/2026         |
+|              | main   | 0d80fd8   | feat: added RatingsCommandService  | create the RatingsCommandService.java           | 17/06/2026         |
+|              | main   | 18ur0y5   | feat: added Ratings  | create the Ratings.java           | 17/06/2026         |
+|              | main   | 02a1d5s   | feat: added RatingsRepository  | create the RatingsRepository.java           | 17/06/2026         |
+|              | main   | 2awcw8s   | feat: added RatingsController  | create the RatingsController.java           | 17/06/2026         |
+| finteka-reservations-service | main   | c9beceb   | Initial commit            | create the README.md              | 17/06/2026         |
+|              | main   | 23bc680   | Create reservations-service         | create the reservations-service             | 17/06/2026         |
+|              | main   | 12d1e07   | feat: added application  | added the application carpet | 17/06/2026         |
+|              | main   | 4wa23w9   | feat: added domain | create the domain carpet          | 17/06/2026         |
+|              | main   | 3ea0384   | feat: added interfaces    | create the interfaces carpet             | 17/06/2026         |
+|              | main   | 7yec60e   | feat: added infrastructure  | create the infrastructure carpet           | 17/06/2026         |
+|              | main   | 3e80fd8   | feat: added ReservationsCommandService  | create the ReservationsCommandService.java           | 17/06/2026         |
+|              | main   | 9yur0y5   | feat: added Reservations  | create the Reservations.java           | 17/06/2026         |
+|              | main   | 5ta1d5s   | feat: added ReservationsRepository  | create the ReservationsRepository.java           | 17/06/2026         |
+|              | main   | 4rwcw8s   | feat: added ReservationsController  | create the ReservationsController.java           | 17/06/2026         |
+| finteka-auth-service | main   | c9beceb   | Initial commit            | create the README.md              | 17/06/2026         |
+|              | main   | 23bc680   | Create auth-service         | create the auth-service             | 17/06/2026         |
+|              | main   | 12d1e07   | feat: added application  | added the application carpet | 17/06/2026         |
+|              | main   | 4wa23w9   | feat: added domain | create the domain carpet          | 17/06/2026         |
+|              | main   | 3ea0384   | feat: added interfaces    | create the interfaces carpet             | 17/06/2026         |
+|              | main   | 7yec60e   | feat: added infrastructure  | create the infrastructure carpet           | 17/06/2026         |
+|              | main   | 3e80fd8   | feat: added AuthCommandService  | create the AuthCommandService.java           | 17/06/2026         |
+|              | main   | 9yur0y5   | feat: added Auth  | create the Auth.java           | 17/06/2026         |
+|              | main   | 5ta1d5s   | feat: added AuthRepository  | create the AuthRepository.java           | 17/06/2026         |
+|              | main   | 4rwcw8s   | feat: added AuthController  | create the AuthController.java           | 17/06/2026         |
+
+#### 5.2.3.3 Testing Suite Evidence for Sprint Review
+
+Durante el Sprint 3, se ejecutaron pruebas enfocadas en validar la migración desde la arquitectura monolítica hacia la arquitectura de microservicios. Las evaluaciones abarcan las tareas definidas en el Sprint Backlog, comprobando la infraestructura backend desplegada y los componentes desarrollados para el frontend en Vue.js.
+
+Se verificó el correcto funcionamiento de la infraestructura base, incluyendo Eureka Server, el servidor de configuración centralizada y Spring Cloud Gateway. Asimismo, se certificó la extracción del Bounded Context Profile y la implementación de la lógica para la gestión de disponibilidad y agendamiento de sesiones.
+
+La siguiente tabla detalla los casos de prueba ejecutados, construidos estrictamente sobre los Work-Items y artefactos generados en el presente sprint.
+
+| Repository | Test Suite / Class | Work-Item | Description | Status | Executed on (Date) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| finteka-infrastructure | `EurekaRegistryTest` | T012 | Configuración de Eureka Server para el registro y descubrimiento de los microservicios. | Passed | 28/05/2026 |
+| finteka-infrastructure | `ConfigServerTest` | T013 | Implementación de servidor de configuración centralizada para los microservicios. | Passed | 28/05/2026 |
+| finteka-gateway | `ApiGatewayTest` | T014 | Configuración de Spring Cloud Gateway para el enrutamiento y validación de tokens JWT. | Passed | 28/05/2026 |
+| finteka-profile-service | `ProfileControllerTest` | T015 | Separación de la lógica consumiendo `ProfileController.java` y `ProfileCommandService.java`. | Passed | 29/05/2026 |
+| finteka-profile-service | `ProfileRepositoryTest` | T015 | Separación de la base de datos de perfiles del monolito verificando `ProfileRepository.java`. | Passed | 29/05/2026 |
+| finteka-frontend | `RefactorProfileUI.cy.js` | T016 | Actualización de endpoints en Vue.js para consumir el nuevo microservicio a través del API Gateway. | Passed | 29/05/2026 |
+| finteka-reservation-service | `AvailabilityEndpointsTest` | T017 | Implementación de `POST` y `GET /api/availability` para registrar y consultar bloques de horarios en la BD. | Passed | 30/05/2026 |
+| finteka-frontend | `CalendarioProfesionalUI.cy.js` | T018, T019 | Componente interactivo en Vue para selección de horas libres y validaciones de horarios conectadas al backend. | Passed | 30/05/2026 |
+| finteka-reservation-service | `ReservationsEndpointTest` | T020 | Implementación `POST /api/reservations` validando el cruce de horarios y cambiando el estado a "Pendiente". | Passed | 30/05/2026 |
+| finteka-frontend | `FormularioReservaUI.cy.js` | T021 | Vista para el cliente con selector de fecha, hora disponible y confirmación de la cita. | Passed | 31/05/2026 |
+| finteka-reservation-service | `ConcurrencyReservationsTest` | T022 | Testing de concurrencia validando el comportamiento cuando dos clientes intentan agendar el mismo horario simultáneamente. | Passed | 31/05/2026 |
+
+#### 5.2.3.4 Execution Evidence for Sprint Review
+
+Durante el primer sprint, se lograron varios hitos importantes en el desarrollo de los microservicios en Finteka. A continuación, se presenta un resumen de los logros alcanzados:
+
+![img.png](../assets/img.png)
+
+![img_1.png](../assets/img_1.png)
+
+#### 5.2.3.5 Microservices Documentation Evidence for Sprint Review
+
+En este punto se detallan los microservicios desarrollados durante el presente sprint. Se implementaron los módulos de Auth y Gestión de Reservas, encargados de la administración de perfiles de usuario y de las operaciones relacionadas con las reservas. Asimismo, se configuraron los componentes de infraestructura necesarios para la arquitectura de microservicios, incluyendo el servicio de Registry para el registro de servicios, el servicio de Config para la gestión centralizada de configuraciones y el API Gateway para el enrutamiento y control de las solicitudes hacia los distintos microservicios.
+
+![img_2.png](../assets/img_2.png)
+
+![sprint2micro_profile.png](../assets/sprint2micro_profile.png)
+
+#### Bounded Context Profile
+
+En este Bounded Context se gestiona la información de los consultores y de los usuarios que requieren asesoría. Los datos serán registrados en la base de datos cuando un usuario se registre en la plataforma Finteka. Asimismo, el sistema brindará la opción de visualizar y actualizar dicha información a través del frontend.
+
+![sprint2micro_profile.png](../assets/sprint2micro_profile.png)
+
+#### Bounded Context Auth
+
+
+En este Bounded Context se asignan los roles de usuario y se gestiona la autenticación y autorización de los usuarios en la plataforma Finteka. Se usa bcrypt para el cifrado de contraseñas y JWT para la generación de tokens de acceso, asegurando así la protección de las credenciales y la seguridad en las comunicaciones entre el frontend y el backend.
+
+![iamscreen.png](../assets/iamscreen.png)
+
+#### Bounded Context Reservations
+
+
+En este Bounded Context se asignan las reservas en la plataforma Finteka. El profesional realiza una publicación con sus servicios con su tarifa, disponibilidad e información destacada para que los clientes los puedan reservar.
+
+<img src="../assets/reservations.png" style="width: 100%;" alt="diagramacomponentes3">
+
+#### 5.2.3.6 Software Deployment Evidence for Sprint Review
+
+![sprint2micro_profile.png](../assets/sprint2micro_profile.png)
+
+![iamscreen.png](../assets/iamscreen.png)
+
+
+#### 5.2.3.7 Team Collaboration Insights during Sprint
+
+El desarrollo del Sprint 3 demandó una rigurosa coordinación interfuncional dentro del equipo de Finteka, impulsada principalmente por el desafío técnico que conlleva fragmentar código de producción vivo.
+
+---
+
+##### 1. Coordinación Técnica Basada en Capas y Arquitectura Limpia
+
+La colaboración dentro del equipo de Backend fue crucial el día **17/06/2026**, fecha en la que se integraron los pilares del repositorio `finteka-profile-service`. El equipo dividió de manera organizada las tareas de desarrollo para dar cumplimiento a los patrones de diseño establecidos: 
+
+* **Célula de desarrollo core:** Estructuraba las capas internas del microservicio (`domain` e `infrastructure`).
+* **Ingenieros de soporte:** Desplegaban la configuración de comunicación perimetral externa (`Eureka` y `Spring Cloud Gateway`), logrando un ensamble limpio sin generar conflictos de código fuente.
+
+##### 2. Adopción del Enfoque API-First para Evitar Bloqueos
+Para maximizar la productividad y evitar que el equipo de Frontend fuera bloqueado por los desarrollos del Backend, se implementó una estrategia de diseño anticipado de contratos de API. Gracias a esto, el equipo Frontend pudo diseñar de manera independiente:
+
+* El componente interactivo del **Calendario Profesional (T018)**.
+* La interfaz del **Formulario de reserva (T021)** usando datos estáticos simulados (*mockings*), mientras los desarrolladores de Backend culminaban la persistencia real de las rutas de la API en la base de datos.
+
+##### 3. Prevención de Riesgos de Concurrencia por la Célula de QA
+El equipo de Aseguramiento de la Calidad (QA) lideró sesiones de diseño técnico preventivo con el fin de modelar el comportamiento transaccional de la historia de usuario **US012** (Agendamiento de sesiones).
+
+<p align="center">
+  <img src="https://res.cloudinary.com/dx0i2vioe/image/upload/v1780306362/Captura_de_pantalla_2026-06-01_a_la_s_4.32.37_a._m._w5ceti.png" width="80%"/>
+</p>
+<p align="center">
+  <img src="https://res.cloudinary.com/dx0i2vioe/image/upload/v1780306440/Captura_de_pantalla_2026-06-01_a_la_s_4.33.56_a._m._hbbpdi.png" width="80%"/>
+</p>
+
+##### 5.2.3.8 Kanban Board 
+Para la gestión y seguimiento del Sprint 3, se organizó el tablero en Trello dividiendo las tareas de infraestructura, migración del Bounded Context Profile y las historias de usuario `US010` y `US012` en los estados correspondientes de flujo de trabajo:
+
+<p align="center">
+  <img src="https://res.cloudinary.com/dx0i2vioe/image/upload/v1780305559/Captura_de_pantalla_2026-06-01_a_la_s_4.19.13_a._m._z0uizz.png" alt="Tablero Kanban Trello Sprint 2" width="80%"/>
+</p>
+
+Link del tablero trello: https://trello.com/invite/b/6a1d44fd1bf4c73a46a3438b/ATTI70f9d23817b78033b17aaba229689b99DF1DBA78/kanban-board
+
 
 # Conclusiones
 
