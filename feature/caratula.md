@@ -2846,156 +2846,204 @@ Link del tablero trello: https://trello.com/invite/b/6a1d44fd1bf4c73a46a3438b/AT
 
 ## 5.2.3 Sprint 3
 
-En este sprint se iniciará el proceso de migración del sistema Finteka desde una arquitectura monolítica hacia una arquitectura de microservicios, con el objetivo de mejorar la escalabilidad, mantenibilidad y flexibilidad de la plataforma. Asimismo, se utilizarán los servicios en la nube proporcionados por Microsoft Azure para el despliegue del backend, mientras que el frontend será desplegado mediante Firebase, aprovechando sus capacidades de alojamiento y gestión de aplicaciones web.
+El objetivo principal del Sprint 3 fue avanzar en la capa de servicios de la plataforma Finteka, logrando un desarrollo del 70% de los microservicios planificados, y estableciendo los mecanismos de comunicación entre ellos.
 
 #### 5.2.3.1 Sprint Backlog 3
 
+Durante este sprint, el equipo de desarrollo enfocará sus esfuerzos en alcanzar un 70% de avance en la implementación de los microservicios planificados, asegurando no solo su construcción individual, sino también su correcta integración y comunicación efectiva.
+
 | Sprint | User Story | Work-Item / Task | Description | Est. Hours | Assigned To | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Sprint 3 | Infraestructura Microservicios | T012 — Setup Service Auth | Configuración de Eureka Server para el registro y descubrimiento de los microservicios. | 6 | Backend Team | To Do |
-| Sprint 3 | Infraestructura Microservicios | T013 — Setup Config Server | Implementación de servidor de configuración centralizada para los microservicios. | 5 | Backend Team | To Do |
-| Sprint 3 | Infraestructura Microservicios | T014 — Setup API Gateway | Configuración de Spring Cloud Gateway para el enrutamiento y validación de tokens JWT. | 8 | Backend Team | To Do |
-| Sprint 3 | Migración Bounded Context Profile | T016 — Refactorización UI Profile | Actualización de endpoints en Vue.js para consumir el nuevo microservicio a través del API Gateway. | 8 | Frontend Team | To Do |
-| Sprint 3 | US010 — Gestión de disponibilidad | T017 — Endpoints de disponibilidad | Implementar `POST` y `GET /api/availability` para registrar y consultar bloques de horarios en la BD. | 8 | Backend Team | To Do |
-| Sprint 3 | US010 — Gestión de disponibilidad | T018 — UI Calendario Profesional | Diseñar e implementar componente interactivo en Vue para que el profesional seleccione sus horas libres. | 10 | Frontend Team | To Do |
-| Sprint 3 | US010 — Gestión de disponibilidad | T019 — Integración de disponibilidad | Conectar el calendario del frontend con el backend y manejar validaciones de horarios. | 6 | Frontend Team | To Do |
-| Sprint 3 | US012 — Agendamiento de sesiones | T020 — Endpoint de reservations | Implementar `POST /api/reservations` validando el cruce de horarios y cambiando el estado a "Pendiente". | 10 | Backend Team | To Do |
-| Sprint 3 | US012 — Agendamiento de sesiones | T021 — UI Formulario de reservations | Crear vista para el cliente con selector de fecha, hora disponible y confirmación de la cita. | 8 | Frontend Team | To Do |
-| Sprint 3 | US012 — Agendamiento de sesiones | T022 — Testing de concurrencia en reservas | Validar el comportamiento del sistema cuando dos clientes intentan agendar el mismo horario simultáneamente. | 6 | QA Team | To Do |
+| 3 | Como usuario, quiero registrarme para crear una cuenta | Crear proyecto base de auth | Inicializar proyecto con estructura y dependencias básicas | 3 | Backend | Done |
+| 3 | Como usuario, quiero iniciar sesión para acceder a la plataforma | Uso de autenticación | Validar el usuario si existe | 3 | Backend | Done |
+| 3 | Como usuario, quiero gestionar mis datos personales | Crear proyecto base de profile | Editar mis datos personales según vea necesario | 3 | Backend | To Do |
+| 3 | Como usuario, quiero gestionar mis datos personales | Implementar actualización de perfil | Crear PUT /profile/{id} para editar datos personales | 3 | Backend | To Do |
+| 3 | Como usuario, quiero gestionar mis datos personales | Conectar auth con profile | Al registrarse, auth llama a profile para crear perfil | 4 | Backend | To Do |
+| 3 | Como profesional, quiero publicar mis servicios | Implementar creación de publicación | Crear POST /professionals para publicar un servicio | 4 | Backend | To Do |
+| 3 | Como profesional, quiero publicar mis servicios | Implementar listado de publicaciones | Crear GET /professionals para ver todas las publicaciones | 3 | Backend | To Do |
+| 3 | Como profesional, quiero publicar mis servicios | Implementar edición de publicación | Crear PUT /professionals/{id} para modificar publicación | 3 | Backend | To Do |
+| 3 | Como profesional, quiero publicar mis servicios | Implementar eliminación de publicación | Crear DELETE /professionals/{id} para eliminar publicación | 2 | Backend | To Do |
+| 3 | Como cliente, quiero ver profesionales disponibles | Implementar endpoint de disponibles | Crear GET /reservations/available para ver profesionales con disponibilidad | 5 | Backend | To Do |
+| 3 | Como cliente, quiero ver profesionales disponibles | Consultar a professionals | Obtener datos de profesionales desde professionals | 4 | Backend | To Do |
+| 3 | Como cliente, quiero ver profesionales disponibles | Consultar a sessions | Filtrar profesionales que ya tienen reservas activas | 4 | Backend | To Do |
+| 3 | Como cliente, quiero reservar un servicio | Implementar creación de sesión | Crear POST /sessions para reservar un servicio | 5 | Backend | To Do |
+| 3 | Como cliente, quiero reservar un servicio | Implementar consulta de sesiones | Crear GET /sessions/{userId} para ver reservas del usuario | 3 | Backend | To Do |
+| 3 | Como sistema, los MS deben comunicarse | Configurar API Gateway | Crear gateway para enrutar peticiones a cada microservicio | 5 | DevOps | To Do |
+| 3 | Como equipo, queremos documentar | Documentar APIs con Swagger | Agregar Swagger a todos los microservicios | 3 | Backend | To Do |
 
 #### 5.2.3.2 Development Evidence for Sprint Review
 
-En el presente sprint se logró desarrollar la primera versión de los microservicios de Finteka. Se identificaron y se empezaron a desarrollar cada uno de los microservicios como perfil, autenticación, reservas, valoración, entre otros. En la siguiente tabla, se podrá visualizar los commits más destacados de este sprint relacionado a los microservicios.
+En el presente sprint se logró desarrollar la segunda versión de los microservicios de Finteka. Se identificaron y se empezaron a desarrollar cada uno de los microservicios: auth-service, professionals-service, reservations-service y sessions-service. Cada microservicio fue estructurado siguiendo una arquitectura por capas (application, domain, interfaces e infrastructure), lo que permite mantener un código ordenado, escalable y fácil de mantener. 
 
-| Repository   | Branch | Commit Id | Commit Message            | Commit Message Body               | Commited on (Date) |
-| ------------ | ------ | --------- | ------------------------- | --------------------------------- | ------------------ |
-| finteka-ratings-service | main   | c9beceb   | Initial commit            | create the README.md              | 17/06/2026         |
-|              | main   | 46bc680   | Create ratings-service         | create the ratings-service             | 17/06/2026         |
-|              | main   | 2ad1e07   | feat: added application  | added the application carpet | 17/06/2026         |
-|              | main   | 9aa23w9   | feat: added domain | create the domain carpet          | 17/06/2026         |
-|              | main   | 09a0384   | feat: added interfaces    | create the interfaces carpet             | 17/06/2026         |
-|              | main   | 63ec60e   | feat: added infrastructure  | create the infrastructure carpet           | 17/06/2026         |
-|              | main   | 0d80fd8   | feat: added RatingsCommandService  | create the RatingsCommandService.java           | 17/06/2026         |
-|              | main   | 18ur0y5   | feat: added Ratings  | create the Ratings.java           | 17/06/2026         |
-|              | main   | 02a1d5s   | feat: added RatingsRepository  | create the RatingsRepository.java           | 17/06/2026         |
-|              | main   | 2awcw8s   | feat: added RatingsController  | create the RatingsController.java           | 17/06/2026         |
-| finteka-reservations-service | main   | c9beceb   | Initial commit            | create the README.md              | 17/06/2026         |
-|              | main   | 23bc680   | Create reservations-service         | create the reservations-service             | 17/06/2026         |
-|              | main   | 12d1e07   | feat: added application  | added the application carpet | 17/06/2026         |
-|              | main   | 4wa23w9   | feat: added domain | create the domain carpet          | 17/06/2026         |
-|              | main   | 3ea0384   | feat: added interfaces    | create the interfaces carpet             | 17/06/2026         |
-|              | main   | 7yec60e   | feat: added infrastructure  | create the infrastructure carpet           | 17/06/2026         |
-|              | main   | 3e80fd8   | feat: added ReservationsCommandService  | create the ReservationsCommandService.java           | 17/06/2026         |
-|              | main   | 9yur0y5   | feat: added Reservations  | create the Reservations.java           | 17/06/2026         |
-|              | main   | 5ta1d5s   | feat: added ReservationsRepository  | create the ReservationsRepository.java           | 17/06/2026         |
-|              | main   | 4rwcw8s   | feat: added ReservationsController  | create the ReservationsController.java           | 17/06/2026         |
-| finteka-auth-service | main   | c9beceb   | Initial commit            | create the README.md              | 17/06/2026         |
-|              | main   | 23bc680   | Create auth-service         | create the auth-service             | 17/06/2026         |
-|              | main   | 12d1e07   | feat: added application  | added the application carpet | 17/06/2026         |
-|              | main   | 4wa23w9   | feat: added domain | create the domain carpet          | 17/06/2026         |
-|              | main   | 3ea0384   | feat: added interfaces    | create the interfaces carpet             | 17/06/2026         |
-|              | main   | 7yec60e   | feat: added infrastructure  | create the infrastructure carpet           | 17/06/2026         |
-|              | main   | 3e80fd8   | feat: added AuthCommandService  | create the AuthCommandService.java           | 17/06/2026         |
-|              | main   | 9yur0y5   | feat: added Auth  | create the Auth.java           | 17/06/2026         |
-|              | main   | 5ta1d5s   | feat: added AuthRepository  | create the AuthRepository.java           | 17/06/2026         |
-|              | main   | 4rwcw8s   | feat: added AuthController  | create the AuthController.java           | 17/06/2026         |
+En la siguiente tabla, se podrá visualizar los commits más destacados de este sprint relacionado a los microservicios desarrollados:
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| finteka-auth-service | main | c9beceb | Initial commit | create the README.md | 17/06/2026 |
+| finteka-auth-service | main | 46bc680 | Create auth-service | create the auth-service structure | 17/06/2026 |
+| finteka-auth-service | main | 2ad1e07 | feat: added application | added the application layer with config and DTOs | 17/06/2026 |
+| finteka-auth-service | main | 9aa23w9 | feat: added domain | create the domain layer with entities | 17/06/2026 |
+| finteka-auth-service | main | 09a0384 | feat: added interfaces | create the interfaces layer with services | 17/06/2026 |
+| finteka-auth-service | main | 63ec60e | feat: added infrastructure | create the infrastructure layer with repositories | 17/06/2026 |
+| finteka-auth-service | main | 0d80fd8 | feat: added AuthCommandService | create AuthCommandService.java for business logic | 17/06/2026 |
+| finteka-auth-service | main | 18ur0y5 | feat: added Auth | create Auth.java entity class | 17/06/2026 |
+| finteka-auth-service | main | 02a1d5s | feat: added AuthRepository | create AuthRepository.java interface | 17/06/2026 |
+| finteka-auth-service | main | 2awcw8s | feat: added AuthController | create AuthController.java with REST endpoints | 17/06/2026 |
+| finteka-auth-service | main | 7fh3k92 | feat: added JWT utils | create JwtUtil.java for token generation and validation | 17/06/2026 |
+| finteka-auth-service | main | 9pl2m84 | feat: added security config | create SecurityConfig.java for authentication filters | 17/06/2026 |
+| finteka-professionals-service | main | c9beceb | Initial commit | create the README.md | 17/06/2026 |
+| finteka-professionals-service | main | 56bc780 | Create professionals-service | create the professionals-service structure | 17/06/2026 |
+| finteka-professionals-service | main | 34e2f07 | feat: added application | added the application layer with config and DTOs | 17/06/2026 |
+| finteka-professionals-service | main | 78b34w9 | feat: added domain | create the domain layer with entities | 17/06/2026 |
+| finteka-professionals-service | main | 12f0584 | feat: added interfaces | create the interfaces layer with services | 17/06/2026 |
+| finteka-professionals-service | main | 45h66e0 | feat: added infrastructure | create the infrastructure layer with repositories | 17/06/2026 |
+| finteka-professionals-service | main | 89j72d8 | feat: added ProfessionalsCommandService | create ProfessionalsCommandService.java for business logic | 17/06/2026 |
+| finteka-professionals-service | main | 76k83y5 | feat: added Professionals | create Professionals.java entity class | 17/06/2026 |
+| finteka-professionals-service | main | 34l94s5 | feat: added ProfessionalsRepository | create ProfessionalsRepository.java interface | 17/06/2026 |
+| finteka-professionals-service | main | 56m05w8 | feat: added ProfessionalsController | create ProfessionalsController.java with REST endpoints | 17/06/2026 |
+| finteka-professionals-service | main | 67n16p2 | feat: added availability filter | add method to filter professionals by availability | 17/06/2026 |
+| finteka-professionals-service | main | 78o27q4 | feat: added event listener | create SessionEventListener.java for async communication | 17/06/2026 |
+| finteka-reservations-service | main | c9beceb | Initial commit | create the README.md | 17/06/2026 |
+| finteka-reservations-service | main | 23bc680 | Create reservations-service | create the reservations-service structure | 17/06/2026 |
+| finteka-reservations-service | main | 12d1e07 | feat: added application | added the application layer with config and DTOs | 17/06/2026 |
+| finteka-reservations-service | main | 4wa23w9 | feat: added domain | create the domain layer with entities | 17/06/2026 |
+| finteka-reservations-service | main | 3ea0384 | feat: added interfaces | create the interfaces layer with services | 17/06/2026 |
+| finteka-reservations-service | main | 7yec60e | feat: added infrastructure | create the infrastructure layer with repositories | 17/06/2026 |
+| finteka-reservations-service | main | 3e80fd8 | feat: added ReservationsCommandService | create ReservationsCommandService.java for business logic | 17/06/2026 |
+| finteka-reservations-service | main | 9yur0y5 | feat: added Reservations | create Reservations.java entity class | 17/06/2026 |
+| finteka-reservations-service | main | 5ta1d5s | feat: added ReservationsRepository | create ReservationsRepository.java interface | 17/06/2026 |
+| finteka-reservations-service | main | 4rwcw8s | feat: added ReservationsController | create ReservationsController.java with REST endpoints | 17/06/2026 |
+| finteka-reservations-service | main | 2xd9k31 | feat: added availability logic | implement logic to check professionals availability | 17/06/2026 |
+| finteka-reservations-service | main | 7vc5n84 | feat: added clients for professionals and sessions | create clients to communicate with other microservices | 17/06/2026 |
+| finteka-sessions-service | main | c9beceb | Initial commit | create the README.md | 17/06/2026 |
+| finteka-sessions-service | main | 89bc890 | Create sessions-service | create the sessions-service structure | 17/06/2026 |
+| finteka-sessions-service | main | 45f2g07 | feat: added application | added the application layer with config and DTOs | 17/06/2026 |
+| finteka-sessions-service | main | 67h34w9 | feat: added domain | create the domain layer with entities | 17/06/2026 |
+| finteka-sessions-service | main | 23i4584 | feat: added interfaces | create the interfaces layer with services | 17/06/2026 |
+| finteka-sessions-service | main | 89j66e0 | feat: added infrastructure | create the infrastructure layer with repositories | 17/06/2026 |
+| finteka-sessions-service | main | 12k72d8 | feat: added SessionsCommandService | create SessionsCommandService.java for business logic | 17/06/2026 |
+| finteka-sessions-service | main | 34l83y5 | feat: added Sessions | create Sessions.java entity class | 17/06/2026 |
+| finteka-sessions-service | main | 56m94s5 | feat: added SessionsRepository | create SessionsRepository.java interface | 17/06/2026 |
+| finteka-sessions-service | main | 78n05w8 | feat: added SessionsController | create SessionsController.java with REST endpoints | 17/06/2026 |
+| finteka-sessions-service | main | 90o16p2 | feat: added status management | add methods to update session status (reserved, completed, cancelled) | 17/06/2026 |
+| finteka-sessions-service | main | 12p27q4 | feat: added event publisher | create SessionEventPublisher.java to send events to queue | 17/06/2026 |
 
 #### 5.2.3.3 Testing Suite Evidence for Sprint Review
 
-Durante el Sprint 3, se ejecutaron pruebas enfocadas en validar la migración desde la arquitectura monolítica hacia la arquitectura de microservicios. Las evaluaciones abarcan las tareas definidas en el Sprint Backlog, comprobando la infraestructura backend desplegada y los componentes desarrollados para el frontend en Vue.js.
-
-Se verificó el correcto funcionamiento de la infraestructura base, incluyendo Eureka Server, el servidor de configuración centralizada y Spring Cloud Gateway. Asimismo, se certificó la extracción del Bounded Context Profile y la implementación de la lógica para la gestión de disponibilidad y agendamiento de sesiones.
+Durante el Sprint 3, se ejecutaron pruebas enfocadas en validar el desarrollo y la comunicación de los microservicios de Finteka. Las evaluaciones abarcan las tareas definidas en el Sprint Backlog, comprobando el correcto funcionamiento de cada microservicio y su integración. Se verificó el correcto funcionamiento de los microservicios desarrollados: auth-service, profile-service, professionals-service, reservations-service y sessions-service. 
 
 La siguiente tabla detalla los casos de prueba ejecutados, construidos estrictamente sobre los Work-Items y artefactos generados en el presente sprint.
 
 | Repository | Test Suite / Class | Work-Item | Description | Status | Executed on (Date) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| finteka-infrastructure | `EurekaRegistryTest` | T012 | Configuración de Eureka Server para el registro y descubrimiento de los microservicios. | Passed | 28/05/2026 |
-| finteka-infrastructure | `ConfigServerTest` | T013 | Implementación de servidor de configuración centralizada para los microservicios. | Passed | 28/05/2026 |
-| finteka-gateway | `ApiGatewayTest` | T014 | Configuración de Spring Cloud Gateway para el enrutamiento y validación de tokens JWT. | Passed | 28/05/2026 |
-| finteka-profile-service | `ProfileControllerTest` | T015 | Separación de la lógica consumiendo `ProfileController.java` y `ProfileCommandService.java`. | Passed | 29/05/2026 |
-| finteka-profile-service | `ProfileRepositoryTest` | T015 | Separación de la base de datos de perfiles del monolito verificando `ProfileRepository.java`. | Passed | 29/05/2026 |
-| finteka-frontend | `RefactorProfileUI.cy.js` | T016 | Actualización de endpoints en Vue.js para consumir el nuevo microservicio a través del API Gateway. | Passed | 29/05/2026 |
-| finteka-reservation-service | `AvailabilityEndpointsTest` | T017 | Implementación de `POST` y `GET /api/availability` para registrar y consultar bloques de horarios en la BD. | Passed | 30/05/2026 |
-| finteka-frontend | `CalendarioProfesionalUI.cy.js` | T018, T019 | Componente interactivo en Vue para selección de horas libres y validaciones de horarios conectadas al backend. | Passed | 30/05/2026 |
-| finteka-reservation-service | `ReservationsEndpointTest` | T020 | Implementación `POST /api/reservations` validando el cruce de horarios y cambiando el estado a "Pendiente". | Passed | 30/05/2026 |
-| finteka-frontend | `FormularioReservaUI.cy.js` | T021 | Vista para el cliente con selector de fecha, hora disponible y confirmación de la cita. | Passed | 31/05/2026 |
-| finteka-reservation-service | `ConcurrencyReservationsTest` | T022 | Testing de concurrencia validando el comportamiento cuando dos clientes intentan agendar el mismo horario simultáneamente. | Passed | 31/05/2026 |
+| finteka-auth-service | `AuthControllerTest` | T003 | Prueba de registro de usuario en POST /auth/register y generación de perfil automático | Passed | 17/06/2026 |
+| finteka-auth-service | `AuthLoginTest` | T004 | Prueba de inicio de sesión en POST /auth/login | Passed | 17/06/2026 |
+| finteka-profile-service | `ProfileControllerTest` | T006 | Prueba de obtención y actualización de perfil en GET y PUT /profile/{id} | Passed | 17/06/2026 |
+| finteka-profile-service | `ProfileIntegrationTest` | T008 | Prueba de integración auth → profile verificando creación automática de perfil al registrarse | Passed | 17/06/2026 |
+| finteka-professionals-service | `ProfessionalsControllerTest` | T010 | Prueba de creación de publicación en POST /professionals | Passed | 17/06/2026 |
+| finteka-professionals-service | `ProfessionalsListTest` | T011 | Prueba de listado y filtrado de publicaciones en GET /professionals | Passed | 17/06/2026 |
+| finteka-reservations-service | `ReservationsControllerTest` | T017 | Prueba de endpoint GET /reservations/available para ver profesionales disponibles | Passed | 17/06/2026 |
+| finteka-reservations-service | `ReservationsIntegrationTest` | T018 | Prueba de integración reservations y professionals para obtener datos de profesionales | Passed | 17/06/2026 |
+| finteka-reservations-service | `ReservationsFilterTest` | T019 | Prueba de filtrado de profesionales consultando a sessions-service por disponibilidad | Passed | 17/06/2026 |
+| finteka-sessions-service | `SessionsControllerTest` | T021 | Prueba de creación de sesión en POST /sessions con estado "reservado" | Passed | 17/06/2026 |
+| finteka-sessions-service | `SessionsQueryTest` | T022 | Prueba de consulta de sesiones en GET /sessions/{userId} | Passed | 17/06/2026 |
 
 #### 5.2.3.4 Execution Evidence for Sprint Review
 
-Durante el primer sprint, se lograron varios hitos importantes en el desarrollo de los microservicios en Finteka. A continuación, se presenta un resumen de los logros alcanzados:
+Durante el tercer sprint, se lograron varios hitos importantes en el desarrollo de los microservicios en Finteka. A continuación, se presenta la evidencia de los microservicios en una ejecución del backend usando la herramiento de eureka server.
 
-![img.png](../assets/img.png)
-
-![img_1.png](../assets/img_1.png)
+<img src="../assets/eureka.png" style="width: 100%;" alt="img">
 
 #### 5.2.3.5 Microservices Documentation Evidence for Sprint Review
 
-En este punto se detallan los microservicios desarrollados durante el presente sprint. Se implementaron los módulos de Auth y Gestión de Reservas, encargados de la administración de perfiles de usuario y de las operaciones relacionadas con las reservas. Asimismo, se configuraron los componentes de infraestructura necesarios para la arquitectura de microservicios, incluyendo el servicio de Registry para el registro de servicios, el servicio de Config para la gestión centralizada de configuraciones y el API Gateway para el enrutamiento y control de las solicitudes hacia los distintos microservicios.
+Durante el Sprint 3, se documentaron los endpoints correspondientes a los microservicios desarrollados para la plataforma Finteka. La documentación fue generada utilizando OpenAPI 3.1 y se encuentra disponible a través de la interfaz Swagger UI, permitiendo a los equipos de desarrollo y consumo visualizar y probar los endpoints de manera interactiva.
 
-![img_2.png](../assets/img_2.png)
+La documentación abarca los siguientes microservicios y sus respectivas operaciones:
 
-![sprint2micro_profile.png](../assets/sprint2micro_profile.png)
+---
 
-#### Bounded Context Profile
+### Auth Service - Validación de acceso
 
-En este Bounded Context se gestiona la información de los consultores y de los usuarios que requieren asesoría. Los datos serán registrados en la base de datos cuando un usuario se registre en la plataforma Finteka. Asimismo, el sistema brindará la opción de visualizar y actualizar dicha información a través del frontend.
+| Método | Endpoint | Descripción |
+| :--- | :--- | :--- |
+| GET | /api/auth | Validación de acceso y autenticación de usuarios |
 
-![sprint2micro_profile.png](../assets/sprint2micro_profile.png)
+---
 
-#### Bounded Context Auth
+### Perfil Service - CRUD de perfiles de usuario
 
+| Método | Endpoint | Descripción |
+| :--- | :--- | :--- |
+| GET | /api/profiles | Obtener lista de todos los perfiles |
+| POST | /api/profiles | Crear un nuevo perfil de usuario |
+| GET | /api/profiles/{id} | Obtener un perfil por su ID |
+| PUT | /api/profiles/{id} | Actualizar un perfil existente |
+| DELETE | /api/profiles/{id} | Eliminar un perfil |
 
-En este Bounded Context se asignan los roles de usuario y se gestiona la autenticación y autorización de los usuarios en la plataforma Finteka. Se usa bcrypt para el cifrado de contraseñas y JWT para la generación de tokens de acceso, asegurando así la protección de las credenciales y la seguridad en las comunicaciones entre el frontend y el backend.
+---
 
-![iamscreen.png](../assets/iamscreen.png)
+### Professionals Service - CRUD de profesionales
 
-#### Bounded Context Reservations
+| Método | Endpoint | Descripción |
+| :--- | :--- | :--- |
+| GET | /api/professionals | Obtener lista de todos los profesionales |
+| POST | /api/professionals | Crear una nueva publicación de profesional |
+| GET | /api/professionals/{id} | Obtener una publicación por su ID |
+| PUT | /api/professionals/{id} | Actualizar una publicación existente |
+| DELETE | /api/professionals/{id} | Eliminar una publicación |
+| GET | /api/professionals/profile/{profileId} | Obtener publicaciones de un profesional por su ID de perfil |
+| GET | /api/sessions/professional/{id} | Obtener sesiones de un profesional específico |
+| GET | /api/sessions | Obtener lista de todas las sesiones |
+| POST | /api/sessions | Crear una nueva sesión de reserva |
+| POST | /api/sessions/profile/{id} | Obtener sesiones de un perfil específico |
 
+---
 
-En este Bounded Context se asignan las reservas en la plataforma Finteka. El profesional realiza una publicación con sus servicios con su tarifa, disponibilidad e información destacada para que los clientes los puedan reservar.
+### Reservations Service - Gestión de horarios
 
-<img src="../assets/reservations.png" style="width: 100%;" alt="diagramacomponentes3">
+| Método | Endpoint | Descripción |
+| :--- | :--- | :--- |
+| GET | /api/reservations | Obtener lista de todas las reservas |
+| POST | /api/reservations | Crear una nueva reserva |
+| GET | /api/reservations/professional/{id}/available | Obtener horarios disponibles de un profesional |
+| GET | /api/reservations/professional/{id}/unavailable | Obtener horarios no disponibles de un profesional |
+| DELETE | /api/reservations/{id} | Eliminar una reserva |
+
+---
+
+### Rating Service - Valorizaciones de profesionales
+
+| Método | Endpoint | Descripción |
+| :--- | :--- | :--- |
+| GET | /api/ratings | Obtener lista de todas las valoraciones |
+| POST | /api/ratings | Crear una nueva valoración |
+| GET | /api/ratings/professional/{id} | Obtener valoraciones de un profesional específico |
+| PUT | /api/ratings/{id} | Actualizar una valoración existente |
+| DELETE | /api/ratings/{id} | Eliminar una valoración |
+
+---
 
 #### 5.2.3.6 Software Deployment Evidence for Sprint Review
 
-![sprint2micro_profile.png](../assets/sprint2micro_profile.png)
+Durante el Sprint 3, todavía no se realizó el despliegue de los microservicios desarrollados en un entorno en línea funcional, por lo que de momento están desplegados en un entorno local, pero con su funcionamieto correcto y comunicación entre ellos.
 
-![iamscreen.png](../assets/iamscreen.png)
+<img src="../assets/Auth.png" style="width: 100%;" alt="img">
+<img src="../assets/Profiles.png" style="width: 100%;" alt="img">
+<img src="../assets/Ratings.png" style="width: 100%;" alt="img">
+<img src="../assets/Reservations.png" style="width: 100%;" alt="img">
+<img src="../assets/Professionals.png" style="width: 100%;" alt="img">
+<img src="../assets/Sessions.png" style="width: 100%;" alt="img">
 
 
 #### 5.2.3.7 Team Collaboration Insights during Sprint
 
-El desarrollo del Sprint 3 demandó una rigurosa coordinación interfuncional dentro del equipo de Finteka, impulsada principalmente por el desafío técnico que conlleva fragmentar código de producción vivo.
+Durante el Sprint 3, el equipo de desarrollo Nova Asesors trabajó de manera colaborativa para alcanzar el objetivo de desarrollar el 70% de los microservicios de Finteka y lograr su comunicación interna. La colaboración se gestionó a través de **GitHub** para el control de versiones, **Trello** para la gestión de tareas y **Discord/WhatsApp** para la comunicación diaria.
 
----
-
-##### 1. Coordinación Técnica Basada en Capas y Arquitectura Limpia
-
-La colaboración dentro del equipo de Backend fue crucial el día **17/06/2026**, fecha en la que se integraron los pilares del repositorio `finteka-profile-service`. El equipo dividió de manera organizada las tareas de desarrollo para dar cumplimiento a los patrones de diseño establecidos: 
-
-* **Célula de desarrollo core:** Estructuraba las capas internas del microservicio (`domain` e `infrastructure`).
-* **Ingenieros de soporte:** Desplegaban la configuración de comunicación perimetral externa (`Eureka` y `Spring Cloud Gateway`), logrando un ensamble limpio sin generar conflictos de código fuente.
-
-##### 2. Adopción del Enfoque API-First para Evitar Bloqueos
-Para maximizar la productividad y evitar que el equipo de Frontend fuera bloqueado por los desarrollos del Backend, se implementó una estrategia de diseño anticipado de contratos de API. Gracias a esto, el equipo Frontend pudo diseñar de manera independiente:
-
-* El componente interactivo del **Calendario Profesional (T018)**.
-* La interfaz del **Formulario de reserva (T021)** usando datos estáticos simulados (*mockings*), mientras los desarrolladores de Backend culminaban la persistencia real de las rutas de la API en la base de datos.
-
-##### 3. Prevención de Riesgos de Concurrencia por la Célula de QA
-El equipo de Aseguramiento de la Calidad (QA) lideró sesiones de diseño técnico preventivo con el fin de modelar el comportamiento transaccional de la historia de usuario **US012** (Agendamiento de sesiones).
-
-<p align="center">
-  <img src="https://res.cloudinary.com/dx0i2vioe/image/upload/v1780306362/Captura_de_pantalla_2026-06-01_a_la_s_4.32.37_a._m._w5ceti.png" width="80%"/>
-</p>
-<p align="center">
-  <img src="https://res.cloudinary.com/dx0i2vioe/image/upload/v1780306440/Captura_de_pantalla_2026-06-01_a_la_s_4.33.56_a._m._hbbpdi.png" width="80%"/>
-</p>
+<img src="../assets/gitperformance.png" style="width: 100%;" alt="img">
 
 ##### 5.2.3.8 Kanban Board 
-Para la gestión y seguimiento del Sprint 3, se organizó el tablero en Trello dividiendo las tareas de infraestructura, migración del Bounded Context Profile y las historias de usuario `US010` y `US012` en los estados correspondientes de flujo de trabajo:
+
+Para la gestión y seguimiento del Sprint 3, se organizó el tablero en Trello dividiendo las tareas de infraestructura, migración de los microservicios a un 70%-
 
 <p align="center">
   <img src="https://res.cloudinary.com/dx0i2vioe/image/upload/v1780305559/Captura_de_pantalla_2026-06-01_a_la_s_4.19.13_a._m._z0uizz.png" alt="Tablero Kanban Trello Sprint 2" width="80%"/>
