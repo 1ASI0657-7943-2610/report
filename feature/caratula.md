@@ -1399,7 +1399,7 @@ A continuación, se muestra el diagrama de componentes correspondiente al micros
 
 A continuación, se muestra el diagrama de componentes correspondiente al microservicio Gestión de Reservas y Disponibilidad. Su función principal es administrar los horarios de los consultores, crear y validar reservas, gestionar cancelaciones y sincronizar eventos con calendarios externos en FinTeka.
 
-<img src="../assets/c4.jpeg" style="width: 100%;" alt="diagramacomponentes3">
+<img src="../assets/c4.jpg" style="width: 100%;" alt="diagramacomponentes3">
 
 ### Reputación y Valoraciones - Diagrama de Componentes
 
