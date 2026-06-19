@@ -56,6 +56,11 @@
   <tbody>
     <tr>
       <td rowspan="7" style="text-align: center; vertical-align: middle;"><b>TB1</b></td>
+      <td>07/04/2026</td>
+      <td>Oshiro Yamashita, Daiki Oscar</td>
+      <td>Desarrollo de los puntos 2.3.2 a 2.3.5</td>
+    </tr>
+    <tr>
       <td>10/04/2026</td>
       <td>Aguirre Castillo, Sergio Cesar</td>
       <td>Desarrollo del capítulo 3.</td>
@@ -69,11 +74,6 @@
       <td>12/04/2026</td>
       <td>Mamani Marca, Gabriel Cristian</td>
       <td>Desarrollo el capítulo 1 y punto 3.2</td>
-    </tr>
-    <tr>
-      <td>07/04/2026</td>
-      <td>Oshiro Yamashita, Daiki Oscar</td>
-      <td>Desarrollo de los puntos 2.3.2 a 2.3.5</td>
     </tr>
     <tr>
       <td>12/04/2026</td>
@@ -107,35 +107,30 @@
       <td>Desarrollo todo el Architectural Design Backlog 1</td>
     </tr>
     <tr>
-      <td>27/04/2026</td>
-      <td>Oshiro Yamashita, Daiki Oscar</td>
-      <td>Desarrollo del punto 4.1.3 y 4.1.4</td>
-    </tr>
-    <tr>
       <td>21/04/2026</td>
       <td>Montes Maza, Augusto Sebastian</td>
       <td>Desarrollo del punto 4.2</td>
     </tr>
     <tr>
-      <td rowspan="6" style="text-align: center; vertical-align: middle;"><b>TP1</b></td>
-      <td>05/05/2026</td>
-      <td>Aguirre Castillo, Sergio Cesar</td>
-      <td>Desarrollo del frontend</td>
+      <td>27/04/2026</td>
+      <td>Oshiro Yamashita, Daiki Oscar</td>
+      <td>Desarrollo del punto 4.1.3 y 4.1.4</td>
     </tr>
     <tr>
+      <td rowspan="6" style="text-align: center; vertical-align: middle;"><b>TP1</b></td>
       <td>04/05/2026</td>
       <td>Burga Loarte, Anaely Zarely</td>
       <td>Diagrama basado en 3FN, con entidades, relaciones y claves</td>
     </tr>
     <tr>
-      <td>09/05/2026</td>
-      <td>Mamani Marca, Gabriel Cristian</td>
-      <td>Desarrollo sprint 1</td>
-    </tr>
-    <tr>
       <td>04/05/2026</td>
       <td>Oshiro Yamashita, Daiki Oscar</td>
       <td>Desarrollo de la primera versión backend</td>
+    </tr>
+    <tr>
+      <td>05/05/2026</td>
+      <td>Aguirre Castillo, Sergio Cesar</td>
+      <td>Desarrollo del frontend</td>
     </tr>
     <tr>
       <td>07/05/2026</td>
@@ -147,9 +142,65 @@
       <td>Montes Maza, Augusto Sebastian</td>
       <td>Desarrollo del punto 5.2 y correciones en base a feedback</td>
     </tr>
+    <tr>
+      <td>09/05/2026</td>
+      <td>Mamani Marca, Gabriel Cristian</td>
+      <td>Desarrollo sprint 1</td>
+    </tr>
+    <tr>
+      <td rowspan="5" style="text-align: center; vertical-align: middle;"><b>TB3</b></td>
+      <td>28/05/2026</td>
+      <td>Burga Loarte, Anaely Zarely</td>
+      <td>Definición de tácticas de arquitectura.</td>
+    </tr>
+    <tr>
+      <td>28/05/2026</td>
+      <td>Aguirre Castillo, Sergio Cesar</td>
+      <td>Mejora de componentes frontend e integración con API Gateway.</td>
+    </tr>
+    <tr>
+      <td>28/05/2026</td>
+      <td>Oshiro Yamashita, Daiki Oscar</td>
+      <td>Mejora del documento y desarrollo inicial de los microservicios.</td>
+    </tr>
+    <tr>
+      <td>28/05/2026</td>
+      <td>Mamani Marca, Gabriel Cristian</td>
+      <td>Desarrollo y documentación del Sprint 2.</td>
+    </tr>
+    <tr>
+      <td>28/05/2026</td>
+      <td>Montes Maza, Augusto Sebastian</td>
+      <td>Mejora del documento.</td>
+    </tr>
+    <tr>
+      <td rowspan="5" style="text-align: center; vertical-align: middle;"><b>TB4</b></td>
+      <td>19/06/2026</td>
+      <td>Aguirre Castillo, Sergio Cesar</td>
+      <td>Integración con el frontend y desarrollo de 1 microservicio.</td>
+    </tr>
+    <tr>
+      <td>19/06/2026</td>
+      <td>Burga Loarte, Anaely Zarely</td>
+      <td>Desarrollo de 1 microservicio.</td>
+    </tr>
+    <tr>
+      <td>19/06/2026</td>
+      <td>Mamani Marca, Gabriel Cristian</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>19/06/2026</td>
+      <td>Oshiro Yamashita, Daiki Oscar</td>
+      <td>Mejora del documento y desarrollo del resto de microservicios.</td>
+    </tr>
+    <tr>
+      <td>19/06/2026</td>
+      <td>Montes Maza, Augusto Sebastian</td>
+      <td>Desarrollo de 1 microservicio.</td>
+    </tr>
   </tbody>
 </table>
-
 
 # Contenido
 
@@ -251,6 +302,15 @@ Tabla de contenidos
     - [5.2.2.6. Software Deployment Evidence for Sprint Review](#5226-software-deployment-evidence-for-sprint-review)
     - [5.2.2.7. Team Collaboration Insights during Sprint](#5227-team-collaboration-insights-during-sprint)
     - [5.2.2.8. Kanban Board](#5228-kanban-board)
+  - [5.2.3 Sprint 3](#523-sprint-3)
+    - [5.2.3.1. Sprint Backlog 3](#5231-sprint-backlog-3)
+    - [5.2.3.2. Development Evidence for Sprint Review](#5232-development-evidence-for-sprint-review)
+    - [5.2.3.3. Testing Suite Evidence for Sprint Review](#5233-testing-suite-evidence-for-sprint-review)
+    - [5.2.3.4. Execution Evidence for Sprint Review](#5234-execution-evidence-for-sprint-review)
+    - [5.2.3.5. Microservices Documentation Evidence for Sprint Review](#5235-microservices-documentation-evidence-for-sprint-review)
+    - [5.2.3.6. Software Deployment Evidence for Sprint Review](#5236-software-deployment-evidence-for-sprint-review)
+    - [5.2.3.7. Team Collaboration Insights during Sprint](#5237-team-collaboration-insights-during-sprint)
+    - [5.2.3.8. Kanban Board](#5238-kanban-board)
 - [Conclusiones y Recomendaciones](#conclusiones-y-recomendaciones)
   - [Conclusiones](#conclusiones)
   - [Recomendaciones](#recomendaciones)
@@ -263,8 +323,9 @@ Objetivo general, ABET – EAC - Student Outcome 7: Aprendizaje Continuo y Autó
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 |---|---|---|
-| **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.** | **Daiki Oscar Oshiro Yamashita**<br>TB1: Actualicé conocimientos de UX y metodologías ágiles elaborando el User Task Matrix y Empathy Mapping.<br>TB2: Apliqué el modelo C4 mediante la elaboración de los diagramas de contexto, contenedores y componentes.<br>TP1: Corregí los diagramas del modelo C4 de Finteka, fortaleciendo la comprensión de la arquitectura del sistema.<br><br>**Anaely Burga Loarte**<br>TB1: Actualicé conocimientos de investigación de usuarios mediante el análisis de competidores y Needfinding.<br>TB2: Apliqué conceptos de diseño visual y prototipado mediante la elaboración de los Wireframes iniciales de Finteka.<br>TP1: Corregí el análisis de competidores y los User Personas de Finteka, mejorando la definición de los perfiles objetivo.<br><br>**Sergio Aguirre Castillo**<br>TB1: Actualicé conocimientos en desarrollo utilizando Python, C++ y C# para la implementación de funcionalidades.<br>TB2: Apliqué conceptos de persistencia de datos mediante el diseño del esquema de base de datos para el proyecto.<br>TP1: Corregí y optimicé módulos de código iniciales en Python y C#, fortaleciendo la calidad técnica del desarrollo.<br><br>**Gabriel Cristian Mamani Marca**<br>TB1: Identifiqué segmentos objetivo y elaboré los requisitos funcionales y no funcionales de la aplicación.<br>TB2: Desarrollé el Architectural Design Backlog 1, fortaleciendo la planificación técnica y estructuración del sistema.<br>TP1: Actualicé conocimientos en metodologías ágiles mediante la participación activa en el Sprint 1 de Finteka.<br><br>**Augusto Sebastian Montes Maza**<br>TB1: Lideré la estructuración del Lean UX Problem Statement y la definición de hipótesis de negocio.<br>TB2: Apliqué conocimientos de infraestructura en la nube analizando los servicios necesarios para el despliegue de Finteka.<br>TP1: Corregí el Lean UX Problem Statement y las hipótesis de negocio, asegurando la viabilidad del modelo de solución. | **Daiki Oscar Oshiro Yamashita**<br>TB1: La actualización permitió mejorar la planificación del proyecto.<br>TB2: El modelo C4 facilitó la identificación de componentes y relaciones.<br>TP1: La corrección de los diagramas C4 permitió estructurar y comprender mejor la arquitectura.<br><br>**Anaely Burga Loarte**<br>TB1: Permitió comprender mejor el entorno competitivo y las necesidades reales.<br>TB2: El prototipado inicial facilitó la visualización de la interacción del usuario con el sistema.<br>TP1: El refinamiento de los artefactos de UX permitió una segmentación más precisa del mercado.<br><br>**Sergio Aguirre Castillo**<br>TB1: Permitió mejorar la calidad del desarrollo y optimizar la implementación.<br>TB2: El diseño de la base de datos permitió organizar eficientemente la información del sistema.<br>TP1: La revisión técnica permitió mejorar la eficiencia y robustez de las funcionalidades.<br><br>**Gabriel Cristian Mamani Marca**<br>TB1: Aseguró la alineación entre los requerimientos del usuario y las funcionalidades.<br>TB2: Facilitó la priorización de actividades de arquitectura y planificación técnica.<br>TP1: La participación en el Sprint 1 consolidó conocimientos en metodologías ágiles y trabajo colaborativo.<br><br>**Augusto Sebastian Montes Maza**<br>TB1: Garantizó una base sólida al alinear objetivos técnicos con necesidades de mercado.<br>TB2: La planificación de la infraestructura aseguró la escalabilidad futura de la plataforma.<br>TP1: La corrección de supuestos permitió asegurar que la arquitectura soporte los objetivos comerciales. |
-| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.** | **Daiki Oscar Oshiro Yamashita**<br>TB1: Investigué nuevas técnicas de análisis de usuarios y gestión ágil para aplicarlas en Finteka.<br>TB2: Reconocí la importancia del aprendizaje permanente al aplicar el modelo C4 en el proyecto.<br>TP1: Reconocí la necesidad del aprendizaje continuo al corregir los diagramas del modelo C4 en Finteka.<br><br>**Anaely Burga Loarte**<br>TB1: Investigué nuevas herramientas de Needfinding y enfoques centrados en el usuario para Finteka.<br>TB2: Reconocí la importancia del aprendizaje continuo al investigar estándares de usabilidad para los Wireframes.<br>TP1: Reconocí la necesidad del aprendizaje permanente al corregir el análisis de competidores y User Personas.<br><br>**Sergio Aguirre Castillo**<br>TB1: Investigué frameworks y buenas prácticas de programación para aportar eficientemente al proyecto.<br>TB2: Reconocí la importancia del aprendizaje continuo al investigar sobre normalización de bases de datos relacionales.<br>TP1: Reconocí la necesidad del aprendizaje permanente al corregir y refactorizar la lógica de programación.<br><br>**Gabriel Cristian Mamani Marca**<br>TB1: Investigué enfoques para la identificación de segmentos y la definición técnica de requisitos.<br>TB2: Reconocí la importancia del aprendizaje continuo al investigar conceptos avanzados de arquitectura de software.<br>TP1: Reconocí la necesidad del aprendizaje permanente al adaptarme a nuevas dinámicas de trabajo en el Sprint 1.<br><br>**Augusto Sebastian Montes Maza**<br>TB1: Investigué sobre pasarelas de pago y seguridad para integrar estos conceptos en el producto.<br>TB2: Reconocí la importancia del aprendizaje continuo al investigar servicios de computación en la nube y despliegue.<br>TP1: Reconocí la necesidad del aprendizaje permanente al corregir los planteamientos de Lean UX en Finteka. | **Daiki Oscar Oshiro Yamashita**<br>TB1: El aprendizaje es clave para adaptarse a metodologías innovadoras.<br>TB2: El modelo C4 reforzó la necesidad de aprendizaje para la arquitectura.<br>TP1: La corrección de diagramas C4 reforzó la necesidad de aprendizaje continuo.<br><br>**Anaely Burga Loarte**<br>TB1: Permite desarrollar soluciones más adaptadas a las necesidades reales del usuario.<br>TB2: La investigación en usabilidad permitió diseñar interfaces más intuitivas y eficaces.<br>TP1: El ajuste de la investigación de usuarios reforzó la necesidad de aprender sobre el mercado.<br><br>**Sergio Aguirre Castillo**<br>TB1: Facilita el desarrollo de soluciones escalables y alineadas a las necesidades técnicas.<br>TB2: El aprendizaje sobre modelado de datos garantizó la integridad de la información del proyecto.<br>TP1: La optimización constante de código reforzó la importancia de aprender mejores prácticas.<br><br>**Gabriel Cristian Mamani Marca**<br>TB1: Permite una mejor estructuración del sistema basada en requerimientos claros.<br>TB2: Contribuyó a diseñar soluciones más ordenadas y alineadas a la planificación técnica.<br>TP1: El trabajo en procesos ágiles reforzó la importancia de aprender nuevas herramientas de gestión.<br><br>**Augusto Sebastian Montes Maza**<br>TB1: Indispensable para integrar tecnologías de seguridad y garantizar la confianza en el sistema.<br>TB2: El aprendizaje sobre la nube permitió proyectar una solución tecnológicamente viable.<br>TP1: El ajuste de la estrategia técnica reforzó la necesidad de aprendizaje para ser competitivos. |
+| **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.** | **Daiki Oscar Oshiro Yamashita**<br>TB1: Actualicé conocimientos de UX y metodologías ágiles elaborando el User Task Matrix y Empathy Mapping.<br>TB2: Apliqué el modelo C4 mediante la elaboración de los diagramas de contexto, contenedores y componentes.<br>TP1: Corregí los diagramas del modelo C4 de Finteka, fortaleciendo la comprensión de la arquitectura del sistema.<br>TB3: Actualicé conocimientos necesarios para la elaboración inicial de los microservicios. <br>TB4: Actualicé conocimientos necesarios para la elaboración de los microservicios y la mejora general del reporte. **Anaely Burga Loarte**<br>TB1: Actualicé conocimientos de investigación de usuarios mediante el análisis de competidores y Needfinding.<br>TB2: Apliqué conceptos de diseño visual y prototipado mediante la elaboración de los Wireframes iniciales de Finteka.<br>TP1: Corregí el análisis de competidores y los User Personas de Finteka, mejorando la definición de los perfiles objetivo.<br><br>**Sergio Aguirre Castillo**<br>TB1: Actualicé conocimientos en desarrollo utilizando Python, C++ y C# para la implementación de funcionalidades.<br>TB2: Apliqué conceptos de persistencia de datos mediante el diseño del esquema de base de datos para el proyecto.<br>TP1: Corregí y optimicé módulos de código iniciales en Python y C#, fortaleciendo la calidad técnica del desarrollo.<br><br>**Gabriel Cristian Mamani Marca**<br>TB1: Identifiqué segmentos objetivo y elaboré los requisitos funcionales y no funcionales de la aplicación.<br>TB2: Desarrollé el Architectural Design Backlog 1, fortaleciendo la planificación técnica y estructuración del sistema.<br>TP1: Actualicé conocimientos en metodologías ágiles mediante la participación activa en el Sprint 1 de Finteka.<br><br>**Augusto Sebastian Montes Maza**<br>TB1: Lideré la estructuración del Lean UX Problem Statement y la definición de hipótesis de negocio.<br>TB2: Apliqué conocimientos de infraestructura en la nube analizando los servicios necesarios para el despliegue de Finteka.<br>TP1: Corregí el Lean UX Problem Statement y las hipótesis de negocio, asegurando la viabilidad del modelo de solución. | **Daiki Oscar Oshiro Yamashita**<br>TB1: La actualización permitió mejorar la planificación del proyecto.<br>TB2: El modelo C4 facilitó la identificación de componentes y relaciones.<br>TP1: La corrección de los diagramas C4 permitió estructurar y comprender mejor la arquitectura.<br>TB3: La actualización en arquitectura de microservicios fue clave para diseñar e implementar con éxito los primeros servicios desacoplados de la solución. <br>TB4: El aprendizaje continuo permitió consolidar la integración de los microservicios y refinar de manera integral el reporte. **Anaely Burga Loarte**<br>TB1: Permitió comprender mejor el entorno competitivo y las necesidades reales.<br>TB2: El prototipado inicial facilitó la visualización de la interacción del usuario con el sistema.<br>TP1: El refinamiento de los artefactos de UX permitió una segmentación más precisa del mercado.<br><br>**Sergio Aguirre Castillo**<br>TB1: Permitió mejorar la calidad del desarrollo y optimizar la implementación.<br>TB2: El diseño de la base de datos permitió organizar eficientemente la información del sistema.<br>TP1: La revisión técnica permitió mejorar la eficiencia y robustez de las funcionalidades.<br><br>**Gabriel Cristian Mamani Marca**<br>TB1: Aseguró la alineación entre los requerimientos del usuario y las funcionalidades.<br>TB2: Facilitó la priorización de actividades de arquitectura y planificación técnica.<br>TP1: La participación en el Sprint 1 consolidó conocimientos en metodologías ágiles y trabajo colaborativo.<br><br>**Augusto Sebastian Montes Maza**<br>TB1: Garantizó una base sólida al alinear objetivos técnicos con necesidades de mercado.<br>TB2: La planificación de la infraestructura aseguró la escalabilidad futura de la plataforma.<br>TP1: La corrección de supuestos permitió asegurar que la arquitectura soporte los objetivos comerciales. |
+| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.** | **Daiki Oscar Oshiro Yamashita**<br>TB1: Investigué nuevas técnicas de análisis de usuarios y gestión ágil para aplicarlas en Finteka.<br>TB2: Reconocí la importancia del aprendizaje permanente al aplicar el modelo C4 en el proyecto.<br>TP1: Reconocí la necesidad del aprendizaje continuo al corregir los diagramas del modelo C4 en Finteka.<br>TB3: Busqué información y videotutoriales por mi cuenta para aprender a conectar los primeros microservicios del proyecto. <br>TB4: Investigué en la documentación oficial cómo terminar de desarrollar los microservicios restantes. **Anaely Burga Loarte**<br>TB1: Investigué nuevas herramientas de Needfinding y enfoques centrados en el usuario para Finteka.<br>TB2: Reconocí la importancia del aprendizaje continuo al investigar estándares de usabilidad para los Wireframes.<br>TP1: Reconocí la necesidad del aprendizaje permanente al corregir el análisis de competidores y User Personas.<br><br>**Sergio Aguirre Castillo**<br>TB1: Investigué frameworks y buenas prácticas de programación para aportar eficientemente al proyecto.<br>TB2: Reconocí la importancia del aprendizaje continuo al investigar sobre normalización de bases de datos relacionales.<br>TP1: Reconocí la necesidad del aprendizaje permanente al corregir y refactorizar la lógica de programación.<br><br>**Gabriel Cristian Mamani Marca**<br>TB1: Investigué enfoques para la identificación de segmentos y la definición técnica de requisitos.<br>TB2: Reconocí la importancia del aprendizaje continuo al investigar conceptos avanzados de arquitectura de software.<br>TP1: Reconocí la necesidad del aprendizaje permanente al adaptarme a nuevas dinámicas de trabajo en el Sprint 1.<br><br>**Augusto Sebastian Montes Maza**<br>TB1: Investigué sobre pasarelas de pago y seguridad para integrar estos conceptos en el producto.<br>TB2: Reconocí la importancia del aprendizaje continuo al investigar servicios de computación en la nube y despliegue.<br>TP1: Reconocí la necesidad del aprendizaje permanente al corregir los planteamientos de Lean UX en Finteka. | **Daiki Oscar Oshiro Yamashita**<br>TB1: El aprendizaje es clave para adaptarse a metodologías innovadoras.<br>TB2: El modelo C4 reforzó la necesidad de aprendizaje para la arquitectura.<br>TP1: La corrección de diagramas C4 reforzó la necesidad de aprendizaje continuo.<br>TB3: El autoaprendizaje constante resultó indispensable para afrontar los retos técnicos y la complejidad que exige implementar una arquitectura distribuida por primera vez. <br>TB4: Se reconoció que el aprendizaje permanente es clave en nuestra carrera, ya que permitió adaptar la solución a estándares reales y asegurar la vigencia tecnológica del proyecto. **Anaely Burga Loarte**<br>TB1: Permite desarrollar soluciones más adaptadas a las necesidades reales del usuario.<br>TB2: La investigación en usabilidad permitió diseñar interfaces más intuitivas y eficaces.<br>TP1: El ajuste de la investigación de usuarios reforzó la necesidad de aprender sobre el mercado.<br><br>**Sergio Aguirre Castillo**<br>TB1: Facilita el desarrollo de soluciones escalables y alineadas a las necesidades técnicas.<br>TB2: El aprendizaje sobre modelado de datos garantizó la integridad de la información del proyecto.<br>TP1: La optimización constante de código reforzó la importancia de aprender mejores prácticas.<br><br>**Gabriel Cristian Mamani Marca**<br>TB1: Permite una mejor estructuración del sistema basada en requerimientos claros.<br>TB2: Contribuyó a diseñar soluciones más ordenadas y alineadas a la planificación técnica.<br>TP1: El trabajo en procesos ágiles reforzó la importancia de aprender nuevas herramientas de gestión.<br><br>**Augusto Sebastian Montes Maza**<br>TB1: Indispensable para integrar tecnologías de seguridad y garantizar la confianza en el sistema.<br>TB2: El aprendizaje sobre la nube permitió proyectar una solución tecnológicamente viable.<br>TP1: El ajuste de la estrategia técnica reforzó la necesidad de aprendizaje para ser competitivos. |
+
 # Capítulo I: Introducción
 
 ## 1.1. Startup Profile
